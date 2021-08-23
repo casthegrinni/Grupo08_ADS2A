@@ -1,0 +1,23 @@
+Cliente adm/usuário final.
+Totens.
+Estações.
+avaliações.
+
+usuario - avaliação - totens. - Administrador.
+                           estação.
+
+usuario - nome, celular, email, cidade, numeroAvaliacoes.
+adminstrador - nome, celular, email, cidade, base/estação.
+estacao - endereço, telefone, adminstrador.
+avaliacao - positivas, negativas, fkToten;
+totens - idToten, estação, status, meiosDePagamento, numeroAvaliacoes.
+
+                       S    N
+maquinaQuebrada     | 50 | 20 
+conexaoFuncionando  | 10 | 1
+
+
+Usuario - positivo/negativo - maquinaQuebrada
+Status - processador, uso de memória, temperatura, dispositivos conectados
+
+
