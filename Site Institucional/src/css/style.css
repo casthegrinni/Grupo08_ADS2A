@@ -41,7 +41,8 @@
 
 .navbar .icon{
     background: url(../img/logo_orion.png);
-    background-size: contain;
+    background-size:contain;
+    background-repeat: no-repeat;
     height: 100%;
     width: 100px;
     cursor: pointer;
@@ -105,6 +106,12 @@
     background-attachment: fixed;
 }
 
+.nav-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 .home-container .slogan{
     padding-top: 50px;
     text-align: center;
@@ -119,6 +126,7 @@
     justify-content: center;
     align-items: center;
     padding: 30px;
+    flex-flow: row wrap;
 }
 
 .div-buttons .btn-home{
@@ -139,7 +147,7 @@
     align-items: center;
     justify-content: center;
     color: var(--color-gray-dark);
-    border-color: 3px solid --color-green-dark;
+    border-color: 3px solid rebeccapurple;
     background-color: var(--color-gray-background);
     border-radius: 10px;
 }
@@ -150,10 +158,24 @@
     font-weight: 700;
 }
 
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #101010;
+}
+
+.hamburger {
+    display: none;
+}
+
 @media only screen and (max-width: 768px) {
     .navbar ul{
         list-style: none;
-        padding-top: 40px;
+        padding-top: 10px;
     }
 
     .navbar ul li, button{
@@ -189,7 +211,64 @@
 }
 
 @media only screen and (max-width: 570px) {
-    .navbar{
+    .list-menu{
         visibility: hidden;
     }
+
+.slogan h1{
+    font-size: 25px;
+}
+
+.btn-home{
+    margin-bottom: 10px;
+}
+
+.hamburger{
+    display: block;
+    padding-top: 40px;
+    padding-right: 30px;
+}
+
+/* .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+} */
+
+.hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+.navbar .icon{
+    margin-top: 6px;
+}
+
+.nav-menu {
+    position: fixed;
+    left: -100%;
+    flex-direction: column;
+    width: 100%;
+    border-radius: 10px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.nav-menu.active {
+    left: 0;
+}
+
+.nav-menu li{
+    line-height: 25px;
+}
+
+.hamburger {
+    display: block;
+    cursor: pointer;
+}
+
+.nav-menu button{
+    display: none;
+}
 }
