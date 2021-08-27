@@ -1,0 +1,195 @@
+:root {
+    --color-gray-background: #DBDBDF;
+    --color-gray-dark: #3F3F42;
+    --color-white: #FFFFFF;
+    --color-green-dark: #13666D;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+    background-color: var(--color-gray-background);
+}
+
+::-webkit-scrollbar{
+    width: 8px;
+    height: 8px;
+    background: var(--color-gray-dark);
+}
+
+::-webkit-scrollbar-track{
+    background-color: var(--color-gray-dark);
+}
+
+::-webkit-scrollbar-thumb{
+    background: var(--color-green-dark);
+}
+
+.navbar{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    position: fixed;
+    justify-content: space-between;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    z-index: 5;
+}
+
+.navbar .icon{
+    background: url(../img/logo_orion.png);
+    background-size: contain;
+    height: 100%;
+    width: 100px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.navbar ul{
+    list-style: none;
+    padding-top: 40px;
+}
+
+.navbar ul li, button{
+    display: inline-flex;
+    flex-flow: row wrap;
+    margin-right: 40px;
+}
+
+.navbar ul li a{
+    text-decoration: none;
+    color: var(--color-green-dark);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.15s all ease-in-out;
+}
+
+.navbar ul li a:hover{
+    text-decoration: none;
+    border-bottom: 3px solid #3F3F42;
+    padding-bottom: 8px;
+}
+
+.navbar button{
+    width: 70px;
+    height: 25px;
+    border: none;
+    border-radius: 5px;
+    background-color: var(--color-gray-dark);
+    overflow: hidden;
+    display: inline-block;
+}
+
+.navbar .btn-login a{
+    text-decoration: none;
+    color: var(--color-white);
+    font-weight: 500;
+    font-size: 16px;
+    background-color: var(--color-gray-dark);
+}
+
+.home-container{
+    background-image: url(../img/banner_home.png);
+    width: 100%;
+    height: 100vh;
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    z-index: -5;
+    flex-flow: column wrap;
+    background-attachment: fixed;
+}
+
+.home-container .slogan{
+    padding-top: 50px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 900px;
+    color: var(--color-green-dark);
+}
+
+.div-buttons{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+}
+
+.div-buttons .btn-home{
+    width: 200px;
+    height: 40px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    background-color: var(--color-gray-dark);
+    border-radius: 10px;
+}
+
+.div-buttons .btn-home:hover{
+    width: 200px;
+    height: 40px;
+    border: none;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-gray-dark);
+    border-color: 3px solid --color-green-dark;
+    background-color: var(--color-gray-background);
+    border-radius: 10px;
+}
+
+.div-buttons a{
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 768px) {
+    .navbar ul{
+        list-style: none;
+        padding-top: 40px;
+    }
+
+    .navbar ul li, button{
+        display: inline-flex;
+        flex-flow: row wrap;
+        margin-right: 20px;
+    }
+
+    .navbar ul li a{
+        text-decoration: none;
+        color: var(--color-green-dark);
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .navbar button{
+        width: 50px;
+        height: 25px;
+        border: none;
+        border-radius: 5px;
+        background-color: var(--color-gray-dark);
+        overflow: hidden;
+        display: inline-block;
+    }
+
+    .navbar .btn-login a{
+        text-decoration: none;
+        color: var(--color-white);
+        font-weight: 500;
+        font-size: 14px;
+        background-color: var(--color-gray-dark);
+    }
+}
+
+@media only screen and (max-width: 570px) {
+    .navbar{
+        visibility: hidden;
+    }
+}
