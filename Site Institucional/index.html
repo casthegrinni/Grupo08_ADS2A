@@ -11,21 +11,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
-    <script src='main.js'></script>
 </head>
 
 <body>
 
-    <section id="home" class="home-container">
-        <div class="slogan">
-            <h1>Bem Vindos á Orion <br> Aqui tormamos seu futuro ainda mais fácil!</h1>
-        </div>
-        <div class="div-buttons">
-            <a href=""><button class="btn-home">Saiba Mais</button></a>
-            <a href=""><button class="btn-home">Fale Conosco</button></a>
-        </div>
-    </section>
-    <main>
+    <header>
         <div class="navbar">
             <div class="icon"></div>
             <ul class="nav-menu">
@@ -43,29 +33,43 @@
                 <span class="bar"></span>
             </div>
         </div>
-       
-    </main>
+
+    </header>
+
+    <section id="home" class="home-container">
+        <div class="slogan">
+            <h1>Bem Vindos á Orion <br> Aqui tormamos seu futuro ainda mais fácil!</h1>
+        </div>
+        <div class="div-buttons">
+            <a href=""><button class="btn-home">Saiba Mais</button></a>
+            <a href=""><button class="btn-home">Fale Conosco</button></a>
+        </div>
+
+        <div class="container-img-detail">
+            <img src="src/img/destaque-home.png" alt="Detalhe na página representando">
+        </div>
+
+    </section>
+
+    <div class="about-container">
+        <div class="about-title">
+            <h1>Sobre nós</h1>
+
+            <div class="line"></div>
+        </div>
+        <div class="desc-about">
+            <p>Somos uma empresa especializada em monitoramento de <br> máquinas de autoatendimento, visando melhorar a
+                usabilidade e <br> a experiência do usuário.</p>
+        </div>
+
+        <div class="container-img-about">
+            <img src="src/img/destaque-45graus.png" alt="Detalhe na página representando">
+        </div>
+
+    </div>
+
 
 </body>
 
 </html>
-<script>
-    const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
-
-hamburger.addEventListener("click", mobileMenu);
-
-function mobileMenu() {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-}
-
-const navLink = document.querySelectorAll(".nav-link");
-
-navLink.forEach(n => n.addEventListener("click", closeMenu));
-
-function closeMenu() {
-    hamburger.classList.remove("active");
-    navMenu.classList.remove("active");
-}
-</script>
+<script src="src/js/main.js"></script>

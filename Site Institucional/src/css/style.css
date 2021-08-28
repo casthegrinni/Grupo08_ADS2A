@@ -158,6 +158,19 @@
     font-weight: 700;
 }
 
+.container-img-detail {
+    align-self: flex-end;
+    margin-top: 360px;
+    position: absolute;
+    background: transparent;
+    
+}
+
+.container-img-detail img {
+    height: 42vh;
+    background: transparent;
+}
+
 .bar {
     display: block;
     width: 25px;
@@ -170,6 +183,50 @@
 
 .hamburger {
     display: none;
+}
+
+.about-container {
+    background-image: url(../img/banner_home.png);
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.about-title {
+    color: var(--color-gray-dark);
+    text-align: center;
+}
+
+.line {
+    width: 150px;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--color-green-dark);
+}
+
+.desc-about {
+    width: 85%;
+    padding-top: 7vh;
+    text-align: center;
+    font-size: 19pt;
+    font-weight: 600;
+    color: var(--color-green-dark);
+}
+
+.container-img-about {
+    align-self: flex-start;
+    margin-top: 450px;
+    position: absolute;
+    background: transparent;
+    
+}
+
+.container-img-about img {
+    height: 35vh;
+    background: transparent;
 }
 
 @media only screen and (max-width: 768px) {
