@@ -2,27 +2,30 @@
 <html>
 
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>Orion</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='src/css/style.css'>
-    <link rel="shortcut icon" href="src/img/logo_orion.png" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" media="screen" href="src/css/style.css" />
+    <link rel="shortcut icon" href="src/img/logo_orion.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
 </head>
 
 <body>
-
     <header>
         <div class="navbar">
             <div class="icon"></div>
             <ul class="nav-menu">
                 <li><a class="nav-link" href="#home">Home</a></li>
-                <li><a class="nav-link" href="aboutIs">Sobre Nós</a></li>
+                <li>
+                    <a class="nav-link" href="aboutIs">Sobre Nós</a>
+                </li>
                 <li><a class="nav-link" href="teams">Equipe</a></li>
-                <li><a class="nav-link" href="services">Serviços</a></li>
+                <li>
+                    <a class="nav-link" href="services">Serviços</a>
+                </li>
                 <li><a class="nav-link" href="contact">Contato</a></li>
                 <button class="btn-login"><a href="">Login</a></button>
             </ul>
@@ -33,12 +36,14 @@
                 <span class="bar"></span>
             </div>
         </div>
-
     </header>
 
     <section id="home" class="home-container">
         <div class="slogan">
-            <h1>Bem Vindos á Orion <br> Aqui tormamos seu futuro ainda mais fácil!</h1>
+            <h1>
+                Bem Vindos á Orion <br />
+                Aqui tormamos seu futuro ainda mais fácil!
+            </h1>
         </div>
         <div class="div-buttons">
             <a href=""><button class="btn-home">Saiba Mais</button></a>
@@ -46,27 +51,38 @@
         </div>
 
         <div class="container-img-detail">
-            <img src="src/img/destaque-home.png" alt="Detalhe na página representando">
+            <img src="src/img/destaque-home.png" alt="Detalhe na página representando" />
         </div>
-
     </section>
 
-    <div class="about-container">
+    <section class="about-container">
         <div class="about-title">
             <h1>Sobre nós</h1>
 
             <div class="line"></div>
         </div>
         <div class="desc-about">
+<<<<<<< HEAD
             <p>Somos uma empresa especializada em monitoramento de <br> máquinas de autoatendimento, visando melhorar a usabilidade e <br> a experiência do usuário.</p>
+=======
+            <p>
+                Somos uma empresa especializada em monitoramento de
+                <br />
+                máquinas de autoatendimento, visando melhorar a
+                usabilidade e <br />
+                a experiência do usuário.
+            </p>
+>>>>>>> 02-adicao-componente-contato
         </div>
 
         <div class="container-img-about">
-            <img src="src/img/destaque-45graus.png" alt="Detalhe na página representando">
+            <img src="src/img/destaque-45graus.png" alt="Detalhe na página representando" />
         </div>
+    </section>
 
-    </div>
+    <!-- products component here -->
 
+<<<<<<< HEAD
     <div class="service">
         <div class="about-container">
             <h1>Nossos serviços</h1>
@@ -80,6 +96,40 @@
             </div>
         </div>
     </div>
+=======
+    <!-- End component-->
+
+    <section class="container-contact-us">
+        <div class="image-contact-us">
+            <img src="src/img/banner_contato.svg" alt="Ilustração tela de contato" />
+        </div>
+        <div class="container-form">
+            <h1>Fale conosco</h1>
+            <div class="line"></div>
+            <form class="content-form">
+                <label for="get_email">Email</label>
+                <br>
+                <input type="email" id="get_email" name="get_email" />
+                <br>
+                <label for="get_topic">Assunto</label>
+                <br>
+                <select name="get_topic" id="get_topic">
+                    brr
+                    <option value="0" selected disabled>
+                    </option>
+                    <option value="1">Dúvidas</option>
+                    <option value="2">Sugestões</option>
+                    <option value="3">Reclamações</option>
+                </select>
+                <br>
+                <label for="get_description">Descrição</label>
+                <br>
+                <textarea id="get_description" name="get_description"></textarea>
+                <button id="submit" type="submit">Enviar</button>
+            </form>
+        </div>
+    </section>
+>>>>>>> 02-adicao-componente-contato
 </body>
 
 </html>

@@ -162,6 +162,10 @@ button {
     margin-top: 360px;
     position: absolute;
     background: transparent;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 02-adicao-componente-contato
 }
 
 .container-img-detail img {
@@ -184,7 +188,6 @@ button {
 }
 
 .about-container {
-    background-image: url(../img/banner_home.png);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -234,6 +237,10 @@ button {
     margin-top: 450px;
     position: absolute;
     background: transparent;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 02-adicao-componente-contato
 }
 
 .container-img-about img {
@@ -241,6 +248,7 @@ button {
     background: transparent;
 }
 
+<<<<<<< HEAD
 .service h1 {
     border-bottom: 3px #13666D solid;
     color: #3F3F42;
@@ -250,6 +258,97 @@ button {
     height: 200px;
     float: left;
     background: transparent;
+=======
+.container-contact-us {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-flow: row nowrap;
+    padding: 0 30px 0 30px;
+}
+
+.image-contact-us {
+    width: 50%;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    padding-left: 30px;
+}
+
+.image-contact-us img {
+    width: 80%;
+}
+
+.container-form {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container-form h1 {
+    color: var(--color-gray-dark);
+}
+
+.content-form {
+    padding-top: 40px;
+}
+
+.content-form input,
+select,
+label {
+    padding: 5px;
+    margin: 10px 0 10px 0;
+}
+
+.content-form input,
+select, option {
+    border: none;
+    outline: 0;
+    background-color: var(--color-gray-dark);
+    border-radius: 5px;
+    width: 400px;
+    height: 35px;
+    color: white;
+}
+
+.content-form textarea {
+    width: 400px;
+    height: 100px;
+    border: none;
+    outline: 0;
+    margin-top: 10px;
+    background-color: var(--color-gray-dark);
+    border-radius: 5px;
+    color: white;
+}
+
+.content-form label {
+    font-weight: bold;
+    color: var(--color-green-dark);
+
+}
+
+.content-form button {
+    color: white;
+    background-color: var(--color-green-dark);
+    border: none;
+    cursor: pointer;
+    border: none;
+    outline: 0;
+    width: 20vh;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 15px;
+>>>>>>> 02-adicao-componente-contato
 }
 
 @media only screen and (max-width: 768px) {
@@ -257,18 +356,30 @@ button {
         list-style: none;
         padding-top: 10px;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 02-adicao-componente-contato
     .navbar ul li,
     button {
         display: inline-flex;
         flex-flow: row wrap;
         margin-right: 20px;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 02-adicao-componente-contato
     .navbar ul li a {
         text-decoration: none;
         color: var(--color-green-dark);
         font-weight: bold;
         font-size: 14px;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 02-adicao-componente-contato
     .navbar button {
         width: 50px;
         height: 25px;
@@ -278,6 +389,10 @@ button {
         overflow: hidden;
         display: inline-block;
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 02-adicao-componente-contato
     .navbar .btn-login a {
         text-decoration: none;
         color: var(--color-white);
@@ -294,17 +409,30 @@ button {
     .list-menu {
         visibility: hidden;
     }
+<<<<<<< HEAD
     .slogan h1 {
         font-size: 25px;
     }
     .btn-home {
         margin-bottom: 10px;
     }
+=======
+
+    .slogan h1 {
+        font-size: 25px;
+    }
+
+    .btn-home {
+        margin-bottom: 10px;
+    }
+
+>>>>>>> 02-adicao-componente-contato
     .hamburger {
         display: block;
         padding-top: 40px;
         padding-right: 30px;
     }
+<<<<<<< HEAD
     #logo-service {
         display: none;
     }
@@ -320,6 +448,25 @@ button {
     .navbar .icon {
         margin-top: 6px;
     }
+=======
+
+    /* .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+} */
+
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+
+    .navbar .icon {
+        margin-top: 6px;
+    }
+
+>>>>>>> 02-adicao-componente-contato
     .nav-menu {
         position: fixed;
         left: -100%;
@@ -329,20 +476,39 @@ button {
         text-align: center;
         transition: 0.3s;
     }
+<<<<<<< HEAD
     .nav-menu.active {
         left: 0;
     }
     .nav-menu li {
         line-height: 25px;
     }
+=======
+
+    .nav-menu.active {
+        left: 0;
+    }
+
+    .nav-menu li {
+        line-height: 25px;
+    }
+
+>>>>>>> 02-adicao-componente-contato
     .hamburger {
         display: block;
         cursor: pointer;
     }
+<<<<<<< HEAD
     .nav-menu button {
         display: none;
     }
     #logo-service {
         display: none;
     }
+=======
+
+    .nav-menu button {
+        display: none;
+    }
+>>>>>>> 02-adicao-componente-contato
 }
