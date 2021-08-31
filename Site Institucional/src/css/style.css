@@ -5,7 +5,7 @@
     --color-green-dark: #13666D;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,21 +13,21 @@
     background-color: var(--color-gray-background);
 }
 
-::-webkit-scrollbar{
+::-webkit-scrollbar {
     width: 8px;
     height: 8px;
     background: var(--color-gray-dark);
 }
 
-::-webkit-scrollbar-track{
+::-webkit-scrollbar-track {
     background-color: var(--color-gray-dark);
 }
 
-::-webkit-scrollbar-thumb{
+::-webkit-scrollbar-thumb {
     background: var(--color-green-dark);
 }
 
-.navbar{
+.navbar {
     width: 100%;
     height: 100px;
     display: flex;
@@ -39,9 +39,9 @@
     z-index: 5;
 }
 
-.navbar .icon{
+.navbar .icon {
     background: url(../img/logo_orion.png);
-    background-size:contain;
+    background-size: contain;
     background-repeat: no-repeat;
     height: 100%;
     width: 100px;
@@ -49,18 +49,19 @@
     margin-left: 20px;
 }
 
-.navbar ul{
+.navbar ul {
     list-style: none;
     padding-top: 40px;
 }
 
-.navbar ul li, button{
+.navbar ul li,
+button {
     display: inline-flex;
     flex-flow: row wrap;
     margin-right: 40px;
 }
 
-.navbar ul li a{
+.navbar ul li a {
     text-decoration: none;
     color: var(--color-green-dark);
     font-weight: bold;
@@ -68,13 +69,13 @@
     transition: 0.15s all ease-in-out;
 }
 
-.navbar ul li a:hover{
+.navbar ul li a:hover {
     text-decoration: none;
     border-bottom: 3px solid #3F3F42;
     padding-bottom: 8px;
 }
 
-.navbar button{
+.navbar button {
     width: 70px;
     height: 25px;
     border: none;
@@ -84,7 +85,7 @@
     display: inline-block;
 }
 
-.navbar .btn-login a{
+.navbar .btn-login a {
     text-decoration: none;
     color: var(--color-white);
     font-weight: 500;
@@ -92,7 +93,7 @@
     background-color: var(--color-gray-dark);
 }
 
-.home-container{
+.home-container {
     background-image: url(../img/banner_home.png);
     width: 100%;
     height: 100vh;
@@ -112,7 +113,7 @@
     align-items: center;
 }
 
-.home-container .slogan{
+.home-container .slogan {
     padding-top: 50px;
     text-align: center;
     font-size: 25px;
@@ -120,7 +121,7 @@
     color: var(--color-green-dark);
 }
 
-.div-buttons{
+.div-buttons {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -129,7 +130,7 @@
     flex-flow: row wrap;
 }
 
-.div-buttons .btn-home{
+.div-buttons .btn-home {
     width: 200px;
     height: 40px;
     border: none;
@@ -140,19 +141,17 @@
     border-radius: 10px;
 }
 
-.div-buttons .btn-home:hover{
+.div-buttons .btn-home:hover {
     width: 200px;
     height: 40px;
     border: none;
     align-items: center;
     justify-content: center;
-    color: var(--color-gray-dark);
-    border-color: 3px solid rebeccapurple;
-    background-color: var(--color-gray-background);
+    background-color: var(--color-green-dark);
     border-radius: 10px;
 }
 
-.div-buttons a{
+.div-buttons a {
     text-decoration: none;
     font-size: 25px;
     font-weight: 700;
@@ -163,7 +162,6 @@
     margin-top: 360px;
     position: absolute;
     background: transparent;
-    
 }
 
 .container-img-detail img {
@@ -216,12 +214,26 @@
     color: var(--color-green-dark);
 }
 
+.desc-about2 {
+    margin-top: 50px;
+    width: 52%;
+    padding: 15px 30px 15px 30px;
+    text-align: center;
+    font-size: 15pt;
+    font-weight: lighter;
+    background-color: rgba(156, 153, 153, 0.541);
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    border-radius: 20px;
+    color: #3F3F42;
+}
+
 .container-img-about {
     align-self: flex-start;
     margin-top: 450px;
     position: absolute;
     background: transparent;
-    
 }
 
 .container-img-about img {
@@ -229,26 +241,35 @@
     background: transparent;
 }
 
+.service h1 {
+    border-bottom: 3px #13666D solid;
+    color: #3F3F42;
+}
+
+#logo-service {
+    height: 200px;
+    float: left;
+    background: transparent;
+}
+
 @media only screen and (max-width: 768px) {
-    .navbar ul{
+    .navbar ul {
         list-style: none;
         padding-top: 10px;
     }
-
-    .navbar ul li, button{
+    .navbar ul li,
+    button {
         display: inline-flex;
         flex-flow: row wrap;
         margin-right: 20px;
     }
-
-    .navbar ul li a{
+    .navbar ul li a {
         text-decoration: none;
         color: var(--color-green-dark);
         font-weight: bold;
         font-size: 14px;
     }
-
-    .navbar button{
+    .navbar button {
         width: 50px;
         height: 25px;
         border: none;
@@ -257,75 +278,71 @@
         overflow: hidden;
         display: inline-block;
     }
-
-    .navbar .btn-login a{
+    .navbar .btn-login a {
         text-decoration: none;
         color: var(--color-white);
         font-weight: 500;
         font-size: 14px;
         background-color: var(--color-gray-dark);
     }
+    #logo-service {
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 570px) {
-    .list-menu{
+    .list-menu {
         visibility: hidden;
     }
-
-.slogan h1{
-    font-size: 25px;
-}
-
-.btn-home{
-    margin-bottom: 10px;
-}
-
-.hamburger{
-    display: block;
-    padding-top: 40px;
-    padding-right: 30px;
-}
-
-/* .hamburger.active .bar:nth-child(2) {
+    .slogan h1 {
+        font-size: 25px;
+    }
+    .btn-home {
+        margin-bottom: 10px;
+    }
+    .hamburger {
+        display: block;
+        padding-top: 40px;
+        padding-right: 30px;
+    }
+    #logo-service {
+        display: none;
+    }
+    /* .hamburger.active .bar:nth-child(2) {
     opacity: 0;
 } */
-
-.hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-}
-
-.hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-}
-
-.navbar .icon{
-    margin-top: 6px;
-}
-
-.nav-menu {
-    position: fixed;
-    left: -100%;
-    flex-direction: column;
-    width: 100%;
-    border-radius: 10px;
-    text-align: center;
-    transition: 0.3s;
-}
-
-.nav-menu.active {
-    left: 0;
-}
-
-.nav-menu li{
-    line-height: 25px;
-}
-
-.hamburger {
-    display: block;
-    cursor: pointer;
-}
-
-.nav-menu button{
-    display: none;
-}
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .navbar .icon {
+        margin-top: 6px;
+    }
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        flex-direction: column;
+        width: 100%;
+        border-radius: 10px;
+        text-align: center;
+        transition: 0.3s;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .nav-menu li {
+        line-height: 25px;
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .nav-menu button {
+        display: none;
+    }
+    #logo-service {
+        display: none;
+    }
 }
