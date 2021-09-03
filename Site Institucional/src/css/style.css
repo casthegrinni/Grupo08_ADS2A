@@ -13,6 +13,10 @@
     background-color: var(--color-gray-background);
 }
 
+body{
+    width: 100%;
+}
+
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
@@ -94,13 +98,13 @@ button {
 }
 
 .home-container {
-    background-image: url(../img/banner_home.png);
     width: 100%;
     height: 100vh;
     padding-top: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     left: 0;
     z-index: -5;
     flex-flow: column wrap;
@@ -114,6 +118,7 @@ button {
 }
 
 .home-container .slogan {
+    width: 70%;
     padding-top: 50px;
     text-align: center;
     font-size: 25px;
@@ -130,25 +135,27 @@ button {
     flex-flow: row wrap;
 }
 
-.div-buttons .btn-home {
+.div-buttons button {
     width: 200px;
-    height: 40px;
-    border: none;
+    padding: 15px 0;
+    text-align: center;
     align-items: center;
+    display: flex;
     justify-content: center;
-    color: var(--color-white);
-    background-color: var(--color-gray-dark);
+    margin: 20px 10px;
     border-radius: 10px;
+    font-weight: bold;
+    border: 1px solid var(--color-gray-dark);
+    background: var(--color-green-dark);
+    color: #FFFFFF;
+    cursor: pointer;
+    text-transform: uppercase;
+    position: relative;
+    overflow: hidden;
 }
 
-.div-buttons .btn-home:hover {
-    width: 200px;
-    height: 40px;
-    border: none;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--color-green-dark);
-    border-radius: 10px;
+.div-buttons button:hover{
+    box-shadow: 2px 2px solid var(--color-gray-dark);
 }
 
 .div-buttons a {
@@ -194,28 +201,78 @@ button {
 
 .about-title {
     color: var(--color-gray-dark);
-    text-align: center;
+    text-align: center;font-size: 20px;
+
+    text-transform: uppercase;
 }
 
 .line {
-    width: 150px;
+    width: 180px;
     height: 3px;
     border-radius: 10px;
     background: var(--color-green-dark);
 }
 
 .desc-about {
-    width: 85%;
-    padding-top: 7vh;
+    width: 70%;
+    padding-top: 10vh;
     text-align: center;
     font-size: 19pt;
     font-weight: 600;
     color: var(--color-green-dark);
 }
 
-.desc-about2 {
+.team-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.team-title {
+    color: var(--color-gray-dark);
+    text-align: center;font-size: 20px;
+
+    text-transform: uppercase;
+}
+
+.line-team {
+    width: 110px;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--color-green-dark);
+}
+
+
+
+.service-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+}
+
+.service-title {
+    color: var(--color-gray-dark);
+    text-align: center;font-size: 20px;
+
+    text-transform: uppercase;
+}
+
+.line-service {
+    width: 270px;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--color-green-dark);
+}
+
+.desc-service {
     margin-top: 50px;
-    width: 52%;
+    width: 70%;
     padding: 15px 30px 15px 30px;
     text-align: center;
     font-size: 15pt;
@@ -245,7 +302,7 @@ button {
     color: #3F3F42;
 }
 
-#logo-service {
+.logo-service {
     height: 200px;
     float: left;
     background: transparent;
@@ -259,6 +316,19 @@ button {
     align-items: center;
     flex-flow: row nowrap;
     padding: 0 30px 0 30px;
+}
+
+.form-title {
+    color: var(--color-gray-dark);
+    text-align: center;font-size: 20px;
+    text-transform: uppercase;
+}
+
+.line-form{
+    width: 220px;
+    height: 3px;
+    border-radius: 10px;
+    background: var(--color-green-dark);
 }
 
 .image-contact-us {
@@ -305,7 +375,7 @@ option {
     border-radius: 5px;
     width: 400px;
     height: 35px;
-    color: white;
+    color: var(--color-white);
 }
 
 .content-form textarea {
@@ -316,7 +386,7 @@ option {
     margin-top: 10px;
     background-color: var(--color-gray-dark);
     border-radius: 5px;
-    color: white;
+    color: var(--color-white);
 }
 
 .content-form label {
@@ -326,7 +396,7 @@ option {
 }
 
 .content-form button {
-    color: white;
+    color: var(--color-white);
     background-color: var(--color-green-dark);
     border: none;
     cursor: pointer;
@@ -377,12 +447,13 @@ option {
         font-size: 14px;
         background-color: var(--color-gray-dark);
     }
-    #logo-service {
+    .logo-service {
         display: none;
     }
 }
 
 @media only screen and (max-width: 570px) {
+
     .list-menu {
         visibility: hidden;
     }
@@ -434,7 +505,56 @@ option {
     .nav-menu button {
         display: none;
     }
-    #logo-service {
+    .logo-service {
         display: none;
+    }
+    .container-img-about{
+        display: none;
+    }
+
+    .container-img-detail{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .container-img-about{
+        display: none;
+    }
+
+    .container-img-detail{
+        display: none;
+    }
+    .image-contact-us{
+        display: none;
+    }
+
+    .container-contact-us{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .content-form input,
+    select,
+    option {
+        border: none;
+        outline: 0;
+        background-color: var(--color-gray-dark);
+        border-radius: 5px;
+        width: 300px;
+        height: 35px;
+        color: var(--color-white);
+    }
+    
+    .content-form textarea {
+        width: 300px;
+        height: 100px;
+        border: none;
+        outline: 0;
+        margin-top: 10px;
+        background-color: var(--color-gray-dark);
+        border-radius: 5px;
+        color: var(--color-white);
     }
 }
