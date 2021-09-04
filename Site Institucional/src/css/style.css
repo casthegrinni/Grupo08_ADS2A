@@ -413,6 +413,76 @@ option {
     margin-top: 15px;
 }
 
+footer {
+    background: var(--color-green-dark);
+    height: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding-top: 10px;
+    color: #FFFFFF;
+}
+
+.footer-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    background: var(--color-green-dark);
+}
+
+.footer-content h3 {
+    background: var(--color-green-dark);
+    font-size: 1.8rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    line-height: 3rem;
+}
+
+.footer-content .sociais {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 1rem 0;
+    background: var(--color-green-dark);
+}
+
+.footer-content .sociais li {
+    background: var(--color-green-dark);
+    margin: 0 10px;
+}
+
+.footer-content .sociais a {
+    background: var(--color-green-dark);
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.footer-content .sociais a i {
+    background: var(--color-green-dark);
+    font-size: 1.8rem;
+}
+
+.footer-content .sociais a i:hover {
+    color: black;
+}
+
+.footer-bottom {
+    background: var(--color-green-dark);
+    width: 100%;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.footer-bottom p {
+    background: var(--color-green-dark);
+    font-size: 14px;
+    word-spacing: 2px;
+    text-transform: capitalize;
+}
 
 @media only screen and (max-width: 768px) {
     .navbar ul {
