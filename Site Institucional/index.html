@@ -17,30 +17,31 @@
 </head>
 
 <body>
-        <header>
-            <div class="navbar">
-                <div class="icon"></div>
-                <ul class="nav-menu">
-                    <li><a class="nav-link" href="#home">Home</a></li>
-                    <li>
-                        <a class="nav-link" href="#aboutUs">Sobre Nós</a>
-                    </li>
-                    <li><a class="nav-link" href="#teams">Equipe</a></li>
-                    <li>
-                        <a class="nav-link" href="#services">Serviços</a>
-                    </li>
-                    <li><a class="nav-link" href="#contact">Contato</a></li>
-                    <button class="btn-login"><a href="">Login</a></button>
-                </ul>
+    <header>
+        <div class="navbar">
+            <div class="icon"></div>
+            <ul class="nav-menu">
+                <li><a class="nav-link" href="#home">Home</a></li>
+                <li>
+                    <a class="nav-link" href="#aboutUs">Sobre Nós</a>
+                </li>
+                <li><a class="nav-link" href="#teams">Equipe</a></li>
+                <li>
+                    <a class="nav-link" href="#services">Serviços</a>
+                </li>
+                <li><a class="nav-link" href="#contact">Contato</a></li>
+                <button class="btn-login"><a href="">Login</a></button>
+            </ul>
 
-                <div class="hamburger">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-        </header>
+        </div>
+    </header>
 
+    <div class="content">
         <section id="home" class="home-container">
             <div class="slogan">
                 <h1>
@@ -49,8 +50,8 @@
                 </h1>
             </div>
             <div class="div-buttons">
-                <a href=""><button class="btn-home"><span></span>Saiba Mais</button></a>
-                <a href=""><button class="btn-home"><span></span>Fale Conosco</button></a>
+                <a href="#aboutUs"><button class="btn-home"><span></span>Saiba Mais</button></a>
+                <a href="#contact"><button class="btn-home"><span></span>Fale Conosco</button></a>
             </div>
 
             <div class="container-img-detail">
@@ -76,11 +77,106 @@
             </div>
         </section>
         <section class="team-container" id="teams">
-            <div class="team-title">
-                <h1>equipe</h1>
-                <div class="line-team"></div>
+            <div class="general-title">
+                <h1>Equipe</h1>
+                <hr class="pink-stroke" />
             </div>
-           
+            <div class="container-cards">
+                <div class="container">
+                    <div class="card">
+                        <div class="content">
+                            <div class="img-card">
+                                <img src="src/img/brunno.jpeg" alt="">
+                            </div>
+                            <div class="content-card">
+                                <h3>Brunno Castigrini <br><span> Desenvolvedor Back End</span></h3>
+                            </div>
+                        </div>
+                        <ul class="icons">
+                        <li style="--i:1"><a href="https://www.linkedin.com/in/brunno-castigrini-292bb486/" target="blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li style="--i:2"><a href="" target="blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li style="--i:3"><a href="" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="content">
+                            <div class="img-card">
+                                <img src="src/img/felipe.jpeg" alt="">
+                            </div>
+                            <div class="content-card">
+                                <h3>Felipe Reis <br><span>Desenvolvedor Back End</span></h3>
+                            </div>
+                        </div>
+                        <ul class="icons">
+                        <li style="--i:1"><a href="" target="blank"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li style="--i:2"><a href="" target="blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li style="--i:3"><a href="https://github.com/FelipeAmorim720" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="content">
+                            <div class="img-card">
+                                <img src="src/img/prisco.jpeg" alt="">
+                            </div>
+                            <div class="content-card">
+                                <h3>Gabriel Prisco <br><span>Desenvolvedor Front End</span></h3>
+                            </div>
+                        </div>
+                        <ul class="icons">
+                        <li style="--i:1"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li style="--i:2"><a href=""><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li style="--i:3"><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="card">
+                        <div class="content">
+                            <div class="img-card">
+                                <img src="src/img/giovanna.jpeg" alt="">
+                            </div>
+                            <div class="content-card">
+                                <h3>Giovanna Melo <br><span> Desenvolvedora Front End</span></h3>
+                            </div>
+                        </div>
+                        <ul class="icons">
+                        <li style="--i:1"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li style="--i:2"><a href=""><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li style="--i:3"><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="content">
+                            <div class="img-card">
+                                <img src="src/img/matheus.jpeg" alt="">
+                            </div>
+                            <div class="content-card">
+                                <h3>Matheus Correia <br><span>Desenvolvedor Front End</span></h3>
+                            </div>
+                        </div>
+                        <ul class="icons">
+                        <li style="--i:1"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li style="--i:2"><a href=""><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li style="--i:3"><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                    <div class="card">
+                        <div class="content">
+                            <div class="img-card">
+                                <img src="src/img/klein.jpeg" alt="">
+                            </div>
+                            <div class="content-card">
+                                <h3>Pedro Klein<br><span>Desenvolvedor Back End</span></h3>
+                            </div>
+                        </div>
+                        <ul class="icons">
+                        <li style="--i:1"><a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li style="--i:2"><a href=""><i class="fa fa-github" aria-hidden="true"></i></a></li>
+                        <li style="--i:3"><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </section>
         <section class="service-container" id="services">
             <div class="service-title">
@@ -88,7 +184,9 @@
                 <div class="line-service"></div>
             </div>
             <div class="desc-service">
-                <img class="logo-service" src="src/img/logo_pulsatrix.png" alt=""> Sistema de monitoramento de <br> máquinas de autoatendimento, <br> mais especificos as de bilhetes QR code <br> para embarque nos transportes públicos.
+                <img class="logo-service" src="src/img/logo_pulsatrix.png" alt=""> Sistema de monitoramento de <br>
+                máquinas de autoatendimento, <br> mais especificos as de bilhetes QR code <br> para embarque nos
+                transportes públicos.
             </div>
         </section>
         <section class="container-contact-us" id="contact">
@@ -136,6 +234,7 @@
                 <p>Copyright &copy; 2021 Orion</p>
             </div>
         </footer>
+    </div>
 </body>
 
 </html>
