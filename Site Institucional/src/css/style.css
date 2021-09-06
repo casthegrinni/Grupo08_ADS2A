@@ -586,14 +586,14 @@ footer {
 }
 
 .footer-bottom {
-    background: var(--color-green-dark);
+    background: var(--color-gray-dark);
     width: 100%;
     padding: 20px 0;
     text-align: center;
 }
 
 .footer-bottom p {
-    background: var(--color-green-dark);
+    background: var(--color-gray-dark);
     font-size: 14px;
     word-spacing: 2px;
     text-transform: capitalize;
