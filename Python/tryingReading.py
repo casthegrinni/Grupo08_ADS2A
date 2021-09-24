@@ -16,6 +16,7 @@ def execute(x):
 	query = "INSERT INTO testeInsert (binNumb) VALUES ({});"
 	mycursor.execute(query.format(x))
 	mydb.commit()
+	
 
 
 def searchForNoPaper():
@@ -32,6 +33,7 @@ def searchForNoPaper():
 		execute(0)
 
 searchForNoPaper()	
+searchForNoPaper.wait()
 
 #sql = "INSERT INTO customers (name, address) VALUES (%s, %s)"
 #val = ("John", "Highway 21")
