@@ -32,7 +32,10 @@ def searchForNoPaper():
 
 	if cords:
 		pyautogui.click(cords)
+		print("Não tem papel...")
 		execute(1)
+	else:
+		print("Tem papel")
 
 searchForNoPaper()
 
