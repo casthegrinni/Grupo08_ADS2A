@@ -4,9 +4,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
- class Querrys {
+public class Querrys {
 
-    public ResultSet MakeQuerrywithStringAndSmt(String querry){
+    public ResultSet MakeQuerrywithString(String querry){
         ResultSet resultSet= null;
         ConnectWithSql smt = new ConnectWithSql();
         try {

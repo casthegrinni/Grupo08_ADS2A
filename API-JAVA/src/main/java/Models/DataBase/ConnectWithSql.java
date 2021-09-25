@@ -6,7 +6,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.concurrent.locks.StampedLock;
 
-public class ConnectWithSql {
+class ConnectWithSql {
 public Statement connect(){
     DataBaseModel db = new DataBaseModel();
     String url = String.format("jdbc:sqlserver://%s:%s;databaseName=%s;user=%s;password=%s",db.getServer(),db.getPort(),db.getDbName(),db.getUser(),db.getPassword());
@@ -17,6 +17,7 @@ public Statement connect(){
     }catch (SQLException e){
         e.printStackTrace();
     }
+
     return s;
 }
 }
