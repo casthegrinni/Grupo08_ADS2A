@@ -38,14 +38,3 @@ def searchForNoPaper():
 		print("Tem papel")
 
 searchForNoPaper()
-
-
-
-
-
-
-
-
-
-
-
