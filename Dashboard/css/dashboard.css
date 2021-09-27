@@ -1,0 +1,356 @@
+:root{
+    --color-1: #fff;
+    --color-2: #100e34;
+    --color-3: #12666D;
+    --color-4: #323232;
+    --color-5: #eeeeee;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: var(--color-1);
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--color-1);
+    scroll-behavior: smooth;
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-3);
+    scroll-behavior: smooth;
+}
+
+/*SIDEBAR*/
+
+.nav{
+    display: block;
+    width: 280px;
+    height: 100%;
+    padding: 50px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--color-3);
+}
+
+.nav .logo{
+    width: 100%;
+    height: 50px;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    color: var(--color-1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all .4s ease-in-out;
+}
+
+.nav .logo img{
+    width: 100px;
+    transition: all .4s ease-in-out;
+}
+
+.nav .logo span{
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.nav .menu{
+    list-style: none;
+    display: block;
+    margin: 0;
+    padding: 0;
+    margin-top: 50%;
+    margin-bottom: 70%;
+}
+
+.nav .menu li{
+    display: block;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.nav .menu li a{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: var(--color-1);
+    text-transform: uppercase;
+    font-size: 16px;
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 30px 0 0 30px;
+    transition: all .4s ease-in-out;
+}
+
+.nav .menu li a .bx, .fa{
+    margin-right: 15px;
+}
+
+.nav .menu li a:hover{
+    color: var(--color-3);
+    background-color: var(--color-1);
+}
+
+.nav .menu li.active a{
+    color: var(--color-3);
+    background-color: var(--color-1);
+}
+
+.nav .log-out{
+    font-size: 32px;
+    color: var(--color-1);
+    text-align: center;
+    list-style: none;
+}
+
+.nav .log-out a{
+    color: var(--color-1);
+}
+
+/*MAIN*/
+
+.content{
+    width: calc(100% - 280px);
+    height: 100%;
+    min-height: 100vh;
+    position: relative;
+    float: right;
+    background-color: var(--color-1);
+}
+
+.content .header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100px;
+    padding: 0 30px;
+    border-bottom: 1px solid var(--color-5) ;
+}
+
+.content .header .button{
+    display: flex;
+    align-items: center;
+    color: var(--color-2);
+    font-weight: 900;
+    background: none;
+    border: none;
+}
+
+.content .header .button .bx{
+    margin-right: 10px;
+}
+
+.content .header .form{
+    position: relative;
+    width: 400px;
+}
+
+.content .header .form input{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-radius: 50px;
+    background-color: transparent;
+    border: 1px solid var(--color-3);
+    padding-left: 15px;
+    transition: all .4s ease-in-out;
+}
+
+.content .header .form button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background: none;
+    width: 50px;
+    height: 50px;
+    color: var(--color-3);
+}
+
+.content .header .form input,
+.content .header .form button{
+    outline: none!important;
+}
+
+.content .header .form input:focus{
+    border: 1px solid var(--color-4) ;
+}
+
+.content .header .form input::placeholder{
+    color: var(--color-3);
+}
+
+.content .header .box-profile{
+    display: flex;
+    align-items: center;
+}
+
+.content .header .box-profile img{
+    width: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.content .header .box-profile .name{
+    color: var(--color-2);
+    margin: 0;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.content .header .box-profile .name span{
+    display: block;
+    font-size: 10px;
+    font-weight: normal;
+}
+
+.table-responsive{
+    width: 810px;
+}
+
+.table-responsive table {
+    width: 100%;
+    margin-top: 5%;
+    border-collapse: separate;
+    color: var(--color-4);
+    text-align: center;
+    border-radius: 8px;
+    border: 3px solid var(--color-3);
+    font-size: 16px;
+}
+
+.table-responsive table td,
+table th {
+    border: 3px solid var(--color-3);
+    padding: 8px;
+}
+
+.table-responsive table tr {
+    border: 3px solid var(--color-3);
+}
+
+.table-responsive table tr:hover {
+    border: 3px solid var(--color-3);
+    border-radius: 20px;
+    background-color: var(--color-3);
+}
+
+.table-responsive table th {
+    text-align: center;
+    color: var(--color-4);
+    font-size: 18px;
+    font-weight: 900;
+}
+
+/*SECTION*/
+
+.content .section{
+    width: 100%;
+    padding: 15px 15px;
+}
+
+.row{
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.content .section .container-content{
+    padding-top: 15px;
+    padding-bottom: 5px;
+}
+
+.content .section .container-content .title{
+    font-size: 22px;
+    font-weight: 900;
+    color: var(--color-2);
+}
+
+.content .section .cards .card{
+    width: 250px;
+    height: 120px;
+    padding: 10px 30px;
+    margin: 15px;
+    border-radius: 8px;
+    background-color: var(--color-3);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    transition: all .4s ease-in-out;
+}
+
+.content .section .cards .card:hover{
+    background-color: var(--color-4);
+}
+
+.content .section .cards .card .desc span{
+    display: block;
+    font-size: 32px;
+    color: var(--color-1);
+}
+
+.content .section .cards .card .desc p{
+    color: var(--color-1);
+}
+
+.content .section .cards .card .bx{
+    color: var(--color-1);
+    font-size: 32px;
+}
+
+
+.content .section .charts .card-chart{
+    width: 390px;
+    height: 300px;
+    padding: 15px 15px;
+    margin: 15px;
+    border-radius: 8px;
+    background-color: var(--color-3);
+    border: none;
+    transition: all .4s ease-in-out;
+}
+
+.content .section .charts .card-chart canvas{
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    background-color: var(--color-1);
+    border-radius: 8px;
+}
+
+/*FOOTER*/
+
+.footer{
+    width: calc(100% - 280px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    float: right;
+    background-color: var(--color-1);
+}

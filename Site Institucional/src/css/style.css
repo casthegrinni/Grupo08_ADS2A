@@ -1,5 +1,5 @@
 :root {
-    --color-gray-background: #DBDBDF;
+    --color-gray-background: #FFFFFF;
     --color-gray-dark: #3F3F42;
     --color-white: #FFFFFF;
     --color-green-dark: #13666D;
@@ -22,7 +22,7 @@ body{
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    background-color: var(--color-gray-background)
+    
 }
 
 ::-webkit-scrollbar {
@@ -83,13 +83,14 @@ body{
 }
 
 .navbar .icon {
-    background: url(../img/logo_orion.png);
+    background: url(../img/iris.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 100%;
-    width: 100px;
+    width: 90px;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 25px;
+    margin-top: 15px;
 }
 
 .navbar ul {
