@@ -1,15 +1,17 @@
 :root{
     --color-1: #fff;
     --color-2: #100e34;
-    --color-3: #12666D;
+    --color-3: #112B3C;
     --color-4: #323232;
-    --color-5: #eeeeee;
+    --color-5: #CED8E2;
+    --color-6: #6FCBA2;
 }
 
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    user-select: none;
 }
 
 body{
@@ -228,38 +230,28 @@ body{
     width: 810px;
 }
 
+.table-responsive table, td, th {  
+    border: 2px solid rgb(107, 106, 106);
+    text-align: left;
+    font-size: 14px;
+    text-align: center;
+  }
+  
 .table-responsive table {
+    border-collapse: collapse;
     width: 100%;
-    margin-top: 5%;
-    border-collapse: separate;
-    color: var(--color-4);
-    text-align: center;
-    border-radius: 8px;
-    border: 3px solid var(--color-3);
-    font-size: 16px;
+  }
+  
+.table-responsive th, td {
+    padding: 15px;
+  }
+
+.table-responsive .bxs-circle{
+    font-size: 20px;
 }
 
-.table-responsive table td,
-table th {
-    border: 3px solid var(--color-3);
-    padding: 8px;
-}
-
-.table-responsive table tr {
-    border: 3px solid var(--color-3);
-}
-
-.table-responsive table tr:hover {
-    border: 3px solid var(--color-3);
-    border-radius: 20px;
-    background-color: var(--color-3);
-}
-
-.table-responsive table th {
-    text-align: center;
-    color: var(--color-4);
-    font-size: 18px;
-    font-weight: 900;
+.table-responsive  .error{
+    color: #A23408;
 }
 
 /*SECTION*/
