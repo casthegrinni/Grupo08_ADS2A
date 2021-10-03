@@ -7,7 +7,7 @@ login.title("Pulsatrix - Screen reader") # Window title
 
 def windowConfig():
      height = 250
-     width = 450
+     width = 270
      
      # Resolution
      heightScreen = login.winfo_screenheight()
@@ -35,7 +35,7 @@ def labelsAndButtonsConfig():
         bg="#323232",
         fg="#FFFFFF",
         font="Tomorrow 15",
-        width=12
+        width=11
         )
     lblUser.grid(row=1, column=0, columnspan=3, sticky=W)
 
@@ -44,21 +44,16 @@ def labelsAndButtonsConfig():
         font="Tomorrow 10",
         width=20)
     txtUser.grid(row=2, column=2, sticky=N)
-
-    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
-    lbl.grid(row=2, column=0, columnspan=1)
    
-
     lblPassword = Label(
         login,
         text="Senha",
         bg="#323232",
         fg="#FFFFFF",
         font="Tomorrow 15",
-        width=12
+        width=10
         )
     lblPassword.grid(row=4, column=0, columnspan=3, sticky=W)
-
     
     txtPassword = Entry(
         login,
@@ -67,9 +62,6 @@ def labelsAndButtonsConfig():
         width=20
         )
     txtPassword.grid(row=5, column=1, columnspan=20, sticky=N)
-
-    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
-    lbl.grid(row=5, column=0, columnspan=1)
 
     btnLogin = Button(
         login, 
@@ -82,6 +74,20 @@ def labelsAndButtonsConfig():
         )
 
     btnLogin.grid(row=7, column=0, columnspan=3, sticky=E)
+    middleLabels()
+
+def middleLabels():
+    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
+    lbl.grid(row=6, column=0, rowspan=1)
+
+    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
+    lbl.grid(row=5, column=0, columnspan=1)
+
+    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
+    lbl.grid(row=2, column=0, columnspan=1)
+
+    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
+    lbl.grid(row=0, column=0, columnspan=1)
 
 
 windowConfig()
