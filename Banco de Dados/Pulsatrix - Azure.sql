@@ -63,3 +63,7 @@ INSERT INTO usuario (nome, celular, email, senha, fk_estacao, tipo_usuario) VALU
 INSERT INTO maquina(fk_estacao) VALUES
         (1),
         (1);
+
+INSERT INTO status_papel (estoque_papel, fk_maquina) VALUES(0, 7000);
+
+SELECT * FROM status_papel;

@@ -1,6 +1,7 @@
 from tkinter import *
 import pyodbc
 from configparser import ConfigParser
+import screenReader
 
 # Creating a window
 login = Tk()  # Declaring the window
@@ -39,9 +40,11 @@ def fetchLogin(user, password):
 def btnLoginAction(user, password, id):
     user_acess = fetchLogin(user,password)
     print(user_acess)
-    
+
     if user_acess != None:
         print("Entry")
+        screenReader.machineId = id
+        screenReader.searchForNoPaper()
     else:
         print("Can't acess")
 
