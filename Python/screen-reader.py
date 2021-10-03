@@ -23,7 +23,7 @@ def execute(x):
 	
 
 def searchForNoPaper():
-	cords = pyautogui.locateCenterOnScreen("no-paper.png")
+	cords = pyautogui.locateCenterOnScreen("images/no-paper.png")
 
 	print(cords)
 
