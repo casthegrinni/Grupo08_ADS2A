@@ -16,9 +16,8 @@ def windowConfig():
      # Window position
      posX = widthScreen/2 - width/2
      posY = heightScreen/2 - height/2
-
-     #login.geometry("500x350+500+150") # Width, height, x and Y
-     login.geometry("%dx%d+%d+%d" %(width, height, posX, posY) )
+ 
+     login.geometry("%dx%d+%d+%d" %(width, height, posX, posY) )# Width, height, x and Y
      login.resizable(False, False) # Fixed height and width
      login.iconbitmap("images/logo.ico") # icon
      login["bg"] = "#323232" # background color
@@ -36,12 +35,11 @@ def labelsAndButtonsConfig():
         bg="#323232",
         fg="#FFFFFF",
         font="Tomorrow 20",
-        anchor=W,
-        width=25,
-        justify=LEFT,
-        padx=10
         )
-    lblUser.pack()
+    lblUser.grid(row=1, column=0, sticky=W)
+
+    txtUser = Entry(login)
+    txtUser.grid(row=2, column=0, sticky=W)
 
     lblPassword = Label(
         login,
@@ -49,12 +47,11 @@ def labelsAndButtonsConfig():
         bg="#323232",
         fg="#FFFFFF",
         font="Tomorrow 20",
-        anchor=W,
-        width=25,
-        justify=LEFT,
-        padx=10
         )
-    lblPassword.pack()
+    lblPassword.grid(row=4, column=0, sticky=W)
+
+    txtPassword = Entry(login)
+    txtPassword.grid(row=5, column=0, sticky=W)
 
     btnLogin = Button(
         login, 
@@ -64,8 +61,8 @@ def labelsAndButtonsConfig():
         bg="#3CDDEC",
         fg="#323232",
         width="20")
-    btnLogin.pack() # Sending the button
 
+    btnLogin.grid(row=6, column=0)
 
 windowConfig()
 labelsAndButtonsConfig()
