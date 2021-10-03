@@ -67,7 +67,6 @@ def windowConfig():
     login.iconbitmap("images/logo.ico")  # icon
     login["bg"] = "#323232"  # background color
 
-
 def labelsAndButtonsConfig():
     # User
     lblUser = Label(
@@ -94,7 +93,7 @@ def labelsAndButtonsConfig():
         bg="#323232",
         fg="#FFFFFF",
         font="Tomorrow 15",
-        width=13,
+        width=14,
     )
     lblMachine.grid(row=7, column=0, columnspan=3, sticky=W)
 
