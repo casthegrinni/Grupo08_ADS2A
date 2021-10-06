@@ -1,0 +1,42 @@
+:root {
+    --color-1: #fff;
+    --color-2: #100e34;
+    --color-3: #112B3C;
+    --color-4: #323232;
+    --color-5: #CED8E2;
+    --color-6: #6FCBA2;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+    font-size: 16px;
+    margin: 0;
+}
+
+input {
+    border: none;
+    border-bottom: 3px solid #112B3C;
+    background-color: transparent;
+}
+
+.btn-cad {
+    background-color: #6FCBA2;
+    border-color: #6FCBA2;
+    height: 50px;
+    width: 100px;
+    border-radius: 7px;
+}
+
+.btn-cad:hover {
+    background-color: #112B3C;
+    border-color: #112B3C;
+    color: white;
+}
+
+.inputs {
+    padding-bottom: 40px;
+}
+
+.form-cad {
+    background-color: #CED8E2;
+}
