@@ -25,8 +25,8 @@ public class LoocaController {
              }
              String querry = String.format("INSERT INTO status_maquina " +
                      "(uso_processador,temperatura_cpu,nome_disco,uso_disco,fk_maquina) " +
-                     "values (00.00,'AAA','AA' ,1,7000)");
-             db.makeQuerry(querry);
+                     "values (%f,'%s','%s' ,%d,7000)", looca.getUsoProcessador(),looca.getTemperaturaCpu(),looca.getUsoDissco());
+             System.out.println(querry);
 
          }
 
@@ -34,7 +34,7 @@ public class LoocaController {
         }
    };
     public void insertInSeconds(int seconds){
-        timer.schedule(task,seconds);
+        timer.schedule(task,(seconds * 1000));
     }
 
 
