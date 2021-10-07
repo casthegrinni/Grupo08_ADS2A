@@ -14,24 +14,25 @@ public class LoocaMoodel {
     private String temperaturaCpu;
     private Long usoDissco;
     private String nomeDIsco;
+    public void setPcInfo() {
+        synchronized (this) {
+            usoProcessador = looca.getProcessador().getUso();
+            temperaturaCpu = looca.getTemperatura().toString();
+            DiscosGroup grupo = looca.getGrupoDeDiscos();
+            List<Disco> discos = grupo.getDiscos();
+            for (Disco disco : discos) {
+                usoDissco = disco.getTamanhoAtualDaFila();
+                nomeDIsco = disco.getNome();
 
-
-    public void setPcInfo(){
-        usoProcessador = looca.getProcessador().getUso();
-        temperaturaCpu = looca.getTemperatura().toString();
-        DiscosGroup grupo = looca.getGrupoDeDiscos();
-        List<Disco>  discos = grupo.getDiscos();
-        for (Disco disco:discos) {
-            usoDissco  = disco.getTamanhoAtualDaFila();
-            nomeDIsco = disco.getNome();
+            }
+            notify();
         }
     }
 
 
-
-
-
-
+    public String getNomeDIsco() {
+        return nomeDIsco;
+    }
 
     public Double getUsoProcessador() {
         return usoProcessador;
