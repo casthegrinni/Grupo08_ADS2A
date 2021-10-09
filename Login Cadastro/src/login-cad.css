@@ -1,0 +1,58 @@
+:root {
+    --color-1: #fff;
+    --color-2: #100e34;
+    --color-3: #112B3C;
+    --color-4: #323232;
+    --color-5: #CED8E2;
+    --color-6: #6FCBA2;
+}
+
+body {
+    background-color: #CED8E2;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rubik', sans-serif;
+}
+
+input {
+    display: block;
+}
+
+.btn-cad {
+    background-color: var(--color-3);
+    border-color: var(--color-4);
+    height: 50px;
+    width: 100px;
+    border-radius: 7px;
+    transition: all .4s ease-in-out;
+    color: white;
+}
+
+.btn-cad:hover {
+    background-color: var(--color-4);
+    border-color: var(--color-3);
+    color: white;
+}
+
+.inputs {
+    padding-bottom: 40px;
+}
+
+.logo {
+    height: 150px;
+}
+
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.right {
+    float: right;
+}
