@@ -105,10 +105,10 @@ def labelsAndButtonsConfig():
         login,
         text="Login",
         command=lambda: btnLoginAction(txtUser.get(), txtPassword.get(), txtMachine.get()),
-        font="Tomorrow 10",
+        font="Tomorrow 12",
         bg="#3CDDEC",
         fg="#323232",
-        width="10",
+        width="5",
     )
 
     btnLogin.grid(row=10, column=0, columnspan=3, sticky=E)

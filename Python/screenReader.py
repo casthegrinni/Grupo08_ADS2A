@@ -35,7 +35,7 @@ cnxn = pyodbc.connect(connect_string)
 cursor = cnxn.cursor()
 
 def execute(x):
-	mybd = cursor.execute(f"INSERT INTO status_papel (estoque_papel, fk_maquina) VALUES(0, {x})")
+	cursor.execute(f"INSERT INTO status_papel (estoque_papel, fk_maquina) VALUES(0, {x})")
 	cnxn.commit()
 	
 
