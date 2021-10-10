@@ -2,6 +2,7 @@ from tkinter import *
 import pyodbc
 from configparser import ConfigParser
 import screenReader
+from tkinter import messagebox
 
 # Creating a window
 login = Tk()  # Declaring the window
@@ -43,10 +44,12 @@ def btnLoginAction(user, password, id):
 
     if user_acess != None:
         print("Entry")
+        anotherWindow()
         screenReader.machineId = id
         screenReader.searchForNoPaper()
     else:
         print("Can't acess")
+        messagebox.showinfo("Dados inválidos", "Usuário ou senha inválidos. Tente novamente!")
 
 def windowConfig():
     height = 300
@@ -116,8 +119,8 @@ def labelsAndButtonsConfig():
 
 
 def middleLabels():
-    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
-    lbl.grid(row=9, column=0, columnspan=1)
+    lblAlert = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
+    lblAlert.grid(row=9, column=0, columnspan=1)
 
     lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
     lbl.grid(row=6, column=0, rowspan=1)
@@ -132,6 +135,11 @@ def middleLabels():
     lbl.grid(row=0, column=0, columnspan=1)
 
 
+def anotherWindow():
+#Destroy current window
+ login.destroy()        
+
 windowConfig()
 labelsAndButtonsConfig()
 login.mainloop()  # launch
+
