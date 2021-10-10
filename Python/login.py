@@ -49,7 +49,7 @@ def btnLoginAction(user, password, id):
         screenReader.searchForNoPaper()
     else:
         print("Can't acess")
-        messagebox.showinfo("Dados inválidos", "Os dados inseridos não coincidem com nenhuma conta")
+        messagebox.showinfo("Dados inválidos", "Usuário ou senha inválidos. Tente novamente!")
 
 def windowConfig():
     height = 300
@@ -137,11 +137,9 @@ def middleLabels():
 
 def anotherWindow():
 #Destroy current window
- login.destroy()
- newRoot = Tk()
- application = screenReader(newRoot)
- newRoot.mainloop            
+ login.destroy()        
 
 windowConfig()
 labelsAndButtonsConfig()
 login.mainloop()  # launch
+
