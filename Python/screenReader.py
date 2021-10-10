@@ -1,10 +1,14 @@
 import pyautogui
 import threading
+from tkinter import *
+from PIL import Image, ImageTk
 import mysql.connector
 import pyodbc
 
 from configparser import ConfigParser
 
+screenReader = Tk()  # Declaring the window
+screenReader.title("Pulsatrix")  # Window title
 parser = ConfigParser()
 parser.read('db_config.ini')
 machineId = 0
@@ -53,3 +57,44 @@ def searchForNoPaper():
 		execute(machineId)
 	else:
 		print("Tem papel")
+
+def windowConfig():
+	height = 500
+	width = 705
+	heightScreen = screenReader.winfo_screenheight()
+	widthScreen = screenReader.winfo_screenwidth()
+
+	posX = widthScreen /2 - width / 2
+	posY = heightScreen / 2 - height / 2
+
+	screenReader.geometry(
+			    "%dx%d+%d+%d" % (width, height, posX, posY)
+    )  # Width, height, x and Y
+
+	screenReader.resizable(False, False)  # Fixed height and width
+	screenReader.iconbitmap("images/logo.ico")  # icon
+	screenReader["bg"] = "#767676"  # background color
+
+def owlImageAndLabels():
+	path = Image.open("images/owl.png")
+	img = ImageTk.PhotoImage(path)
+	imgOwl = Label(screenReader, image=img, bg="#767676")
+	imgOwl.image = img
+
+	pulsatrixText = Label(
+		screenReader, 
+		text="Pulsatrix", 
+		fg = "#FFFFFF",
+		background="#767676", 
+		font= "Tomorrow 30", 
+		width=10)
+	
+	pulsatrixText.grid(row=0, column=0)
+	imgOwl.grid(row=1, column=0)
+	
+
+
+windowConfig()
+owlImageAndLabels()
+
+screenReader.mainloop()
