@@ -102,3 +102,5 @@ def owlImageAndLabels():
 
 windowConfig()
 owlImageAndLabels()
+
+screenReader.mainloop()
