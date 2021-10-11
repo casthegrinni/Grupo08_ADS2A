@@ -38,12 +38,16 @@ public class ViewController {
 
     }
     public void startWithFkMaquina(int fkMaquina){
+
         looca.setFkMaquina(fkMaquina);
         looca.insertInSeconds(5);
 
 
     }
 
+    public void init() {
+        db.initializer();
+    }
 
 
 

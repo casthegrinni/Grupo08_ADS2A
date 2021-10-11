@@ -1,15 +1,37 @@
 package Models;
 
+import java.io.File;
+import java.io.IOException;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
+import org.ini4j.Ini;
+
+/*
+Ini ini = new Ini(new File("C://Users/Gabriel_Prisco/Downloads/db_config.ini"));
+        System.out.println(ini.get("prod_credentials", "user"));
+*/
 
 public class  DataBaseModel {
-    private String server = "212-2a-grupo8.database.windows.net";
-    private String port = "1433";
-    private String dbName = "iris-pulsatrix";
-    private String user = "bandtec";
-    private String password = "AbCdinossauro@100";
+    private String server = "";
+    private String port = "";
+    private String dbName = "";
+    private String user = "";
+    private String password = "";
+    
+    public void initializer() {
+        try { 
+           Ini ini = new Ini(new File("../API-JAVA/db_config.ini"));
+           server = ini.get("prod_credentials", "server");
+           port = ini.get("prod_credentials", "port");
+           dbName = ini.get("prod_credentials", "database");
+           user = ini.get("prod_credentials", "user");
+           password = ini.get("prod_credentials", "password");        
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public Map makeSelectQuery(String query) {
         String url = String.format("jdbc:sqlserver://%s:%s;databaseName=%s;user=%s;password=%s", server, port, dbName, user, password);

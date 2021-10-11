@@ -27,6 +27,7 @@ public class LoocaController {
                      looca.getTemperaturaCpu(),
                      looca.getNomeDIsco(),
                      looca.getUsoDissco(),fkMaquina);
+             db.initializer();
              db.makeInsertQuery(query);
             System.out.println("inseriu");
 

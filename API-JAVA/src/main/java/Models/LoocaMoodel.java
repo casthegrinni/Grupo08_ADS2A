@@ -16,7 +16,7 @@ public class LoocaMoodel {
     private Long usoDissco;
     private String nomeDIsco;
     public void setPcInfo() {
-
+        db.initializer();
         valueOfUsoProcessador = looca.getProcessador().getUso().doubleValue();
         usoProcessador = valueOfUsoProcessador.toString();
         usoProcessador = usoProcessador.replace(",","");
