@@ -10,13 +10,16 @@ import java.util.List;
 public class LoocaMoodel {
     final Looca looca = new Looca();
     final DataBaseModel db = new DataBaseModel();
-    private Double usoProcessador;
+    private Double valueOfUsoProcessador;
+    private String usoProcessador;
     private String temperaturaCpu;
     private Long usoDissco;
     private String nomeDIsco;
     public void setPcInfo() {
-        synchronized (this) {
-            usoProcessador = looca.getProcessador().getUso();
+
+        valueOfUsoProcessador = looca.getProcessador().getUso().doubleValue();
+        usoProcessador = valueOfUsoProcessador.toString();
+        usoProcessador = usoProcessador.replace(",","");
             temperaturaCpu = looca.getTemperatura().toString();
             DiscosGroup grupo = looca.getGrupoDeDiscos();
             List<Disco> discos = grupo.getDiscos();
@@ -25,8 +28,7 @@ public class LoocaMoodel {
                 nomeDIsco = disco.getNome();
 
             }
-            notify();
-        }
+
     }
 
 
@@ -34,7 +36,7 @@ public class LoocaMoodel {
         return nomeDIsco;
     }
 
-    public Double getUsoProcessador() {
+    public String getUsoProcessador() {
         return usoProcessador;
     }
 
@@ -45,4 +47,7 @@ public class LoocaMoodel {
     public Long getUsoDissco() {
         return usoDissco;
     }
+
 }
+
+

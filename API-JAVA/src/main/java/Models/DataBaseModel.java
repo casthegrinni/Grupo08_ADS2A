@@ -9,7 +9,7 @@ public class  DataBaseModel {
     private String user="bandtec";
     private String password="AbCdinossauro@100";
 
-    public ResultSet makeQuerry(String query){
+    public ResultSet makeQuery(String query){
         String url = String.format("jdbc:sqlserver://%s:%s;databaseName=%s;user=%s;password=%s",server,port,dbName,user,password);
         ResultSet resultSet = null;
         try (Connection c = DriverManager.getConnection(url); Statement smt = c.createStatement()){
