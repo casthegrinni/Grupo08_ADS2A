@@ -12,14 +12,30 @@ public class ViewController {
     private final DataBaseModel db= new DataBaseModel();
     private final LoocaController looca = new LoocaController();
 
+    public Boolean verifyUserAndMachine(String login, String senha,int fkMaquina) {
+        String query = String.format("select email,senha,fk_estacao from [dbo].[usuario] where email ='%s' and senha = '%s';", login, senha);
+        Map map = db.makeSelectQuery(query);
+        if (map.isEmpty()) {
+            return false;
+        } else {
 
-    public Boolean verifyUser(String login, String senha){
-        String query = String.format("select email,senha from [dbo].[usuario] where email ='%s' and senha = '%s';",login,senha);
+            Boolean checked = checkFkMaquina(fkMaquina);
+            if ( checked){
+                return true;
+            }
+            else return false;
+
+        }
+    }
+    public Boolean checkFkMaquina(int fkMaquina) {
+        String query = String.format("select * from maquina where id_maquina = %d",fkMaquina);
         Map map = db.makeSelectQuery(query);
         if (map.isEmpty()){
             return false;
         }
-        return true;
+        else return true;
+
+
     }
     public void startWithFkMaquina(int fkMaquina){
         looca.setFkMaquina(fkMaquina);

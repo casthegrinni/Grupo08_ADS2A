@@ -18,8 +18,9 @@ public class  DataBaseModel {
             ResultSet rs = smt.executeQuery(query);
 
             while (rs.next()) {
-                map.put("User", rs.getString(1));
-                map.put("Password", rs.getString(2));
+                map.put("label1", rs.getString(1));
+                map.put("label2", rs.getString(2));
+                map.put("label3",rs.getString(3));
             }
             return map;
 

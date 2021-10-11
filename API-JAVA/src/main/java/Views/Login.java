@@ -127,7 +127,7 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String user = txtUser.getText();
         String password = txtPassword.getText();
-       Boolean result = vc.verifyUser(user,password);
+       Boolean result = vc.verifyUserAndMachine(user,password,Integer.valueOf(txtMachine.getText()));
        if (result){
            JOptionPane.showMessageDialog(null,"Login feito \n começando captura de dados");
            this.setVisible(false);
