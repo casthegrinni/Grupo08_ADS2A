@@ -44,6 +44,9 @@ public class ViewController {
 
     }
 
+    public void init() {
+        db.initializer();
+    }
 
 
 
