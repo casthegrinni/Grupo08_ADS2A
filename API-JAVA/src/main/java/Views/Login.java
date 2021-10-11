@@ -5,13 +5,15 @@
  */
 package Views;
 
+import controller.ViewController;
+
 import java.awt.Color;
 import java.awt.Dimension;
-import javax.swing.JFrame;
-import javax.swing.SwingUtilities;
+import javax.swing.*;
+import javax.swing.text.View;
 
 public class Login extends javax.swing.JFrame {
-
+     private final ViewController vc = new ViewController();
     public Login() {
         initComponents();
     }
@@ -125,10 +127,16 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String user = txtUser.getText();
         String password = txtPassword.getText();
+       Boolean result = vc.verifyUser(user,password);
+       if (result){
+           JOptionPane.showMessageDialog(null,"Login feito \n começando captura de dados");
+           this.setVisible(false);
+           vc.startWithFkMaquina(Integer.valueOf(txtMachine.getText()));
 
-        if (user.equals("admin") && password.equals("admin")) {
-            System.out.println("Open");
-        }
+       }
+       else{
+           JOptionPane.showMessageDialog(null,"Informações erradas, tente novamente");
+       }
     }//GEN-LAST:event_btnLoginActionPerformed
 
 

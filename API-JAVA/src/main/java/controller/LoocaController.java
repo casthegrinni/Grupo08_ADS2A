@@ -10,7 +10,7 @@ public class LoocaController {
 
     private final  LoocaMoodel looca = new LoocaMoodel();
    private final DataBaseModel db = new DataBaseModel();
-    private Integer fkMaquina;
+    private int fkMaquina;
     Timer timer = new Timer();
     Timer delay = new Timer();
     private TimerTask task = new TimerTask() {
@@ -22,13 +22,13 @@ public class LoocaController {
                  looca.setPcInfo();
              String query = String.format("INSERT INTO status_maquina " +
                              "(uso_processador,temperatura_cpu,nome_disco,uso_disco,fk_maquina) " +
-                             "values (%s,'%s','%s',%s,7000)",
+                             "values (%s,'%s','%s',%s,%d)",
                      looca.getUsoProcessador(),
                      looca.getTemperaturaCpu(),
                      looca.getNomeDIsco(),
-                     looca.getUsoDissco());
-            System.out.println(query);
-             db.makeQuery(query);
+                     looca.getUsoDissco(),fkMaquina);
+             db.makeInsertQuery(query);
+            System.out.println("inseriu");
 
 
         }
@@ -41,7 +41,7 @@ public class LoocaController {
 
 
 
-    public void setFkMaquina(Integer fkMaquina) {
+    public void setFkMaquina(int fkMaquina) {
         this.fkMaquina = fkMaquina;
     }
 }
