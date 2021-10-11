@@ -17,7 +17,7 @@ server = parser.get('prod_credentials','server')
 database = parser.get('prod_credentials', 'database') 
 username = parser.get('prod_credentials', 'user') 
 password = parser.get('prod_credentials', 'password') 
-connect_string = (            
+connect_string = (
     r"Driver={SQL Server};"
     r"Server="+server+";"
     r"Database="+database+";"
@@ -26,22 +26,22 @@ connect_string = (
     
 cnxn = pyodbc.connect(connect_string)
 cursor = cnxn.cursor()
-
+    
 def fetchLogin(user, password):
     cursor.execute(f"SELECT * FROM usuario WHERE email ='{user}' AND senha = '{password}';")
     # print(f"SELECT * FROM usuario WHERE email ='{user}' AND senha = '{password}';")
-
+    
     row = cursor.fetchone() 
     while row:
         return row
-        row = cursor.fetchone()
 
+    row = cursor.fetchone()
     return row
 
 def btnLoginAction(user, password, id):
     user_acess = fetchLogin(user,password)
     print(user_acess)
-
+    
     if user_acess != None:
         print("Entry")
         anotherWindow()
@@ -137,9 +137,15 @@ def middleLabels():
 
 def anotherWindow():
 #Destroy current window
- login.destroy()        
+ login.destroy()
 
-windowConfig()
-labelsAndButtonsConfig()
-login.mainloop()  # launch
+ newRoot = screenReader  # Declaring the window
+ newRoot.mainloop()
+ 
+ 
+
+if __name__ == '__main__':
+    windowConfig()
+    labelsAndButtonsConfig()
+    login.mainloop()  # launch
 

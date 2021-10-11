@@ -7,8 +7,6 @@ import pyodbc
 
 from configparser import ConfigParser
 
-screenReader = Tk()  # Declaring the window
-screenReader.title("Pulsatrix")  # Window title
 parser = ConfigParser()
 parser.read("db_config.ini")
 machineId = 0
@@ -39,7 +37,14 @@ connect_string = (
 cnxn = pyodbc.connect(connect_string)
 cursor = cnxn.cursor()
 
+def main():
+    screenReader = Tk()  # Declaring the window
+    screenReader.title("Pulsatrix")  # Window title
+    screenConfig()
+    owlImageAndLabels()
+    screenReader.mainloop()
 
+    
 def execute(x):
     cursor.execute(
         f"INSERT INTO status_papel (estoque_papel, fk_maquina) VALUES(0, {x})"
@@ -63,7 +68,7 @@ def searchForNoPaper():
         print("Tem papel")
 
 
-def windowConfig():
+def screenConfig():
     height = 500
     width = 705
     heightScreen = screenReader.winfo_screenheight()
@@ -99,8 +104,10 @@ def owlImageAndLabels():
     pulsatrixText.grid(row=0, column=0)
     imgOwl.grid(row=1, column=0)
 
+if __name__ == '__main__':
+    screenReader = Tk()  # Declaring the window
+    screenReader.title("Pulsatrix")  # Window title
+    screenConfig()
+    owlImageAndLabels()
+    screenReader.mainloop()
 
-windowConfig()
-owlImageAndLabels()
-
-screenReader.mainloop()
