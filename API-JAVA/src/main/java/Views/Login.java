@@ -127,16 +127,23 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         String user = txtUser.getText();
         String password = txtPassword.getText();
-       Boolean result = vc.verifyUserAndMachine(user,password,Integer.valueOf(txtMachine.getText()));
-       if (result){
-           JOptionPane.showMessageDialog(null,"Login feito \n começando captura de dados");
-           this.setVisible(false);
-           vc.startWithFkMaquina(Integer.valueOf(txtMachine.getText()));
+        try{
+            Integer.valueOf(txtMachine.getText());
+            Boolean result = vc.verifyUserAndMachine(user,password,Integer.valueOf(txtMachine.getText()));
+            if (result){
+                JOptionPane.showMessageDialog(null,"Login feito \n come?ando captura de dados");
+                this.setVisible(false);
+                vc.startWithFkMaquina(Integer.valueOf(txtMachine.getText()));
 
-       }
-       else{
-           JOptionPane.showMessageDialog(null,"Informações erradas, tente novamente");
-       }
+            }
+
+            else{
+                JOptionPane.showMessageDialog(null,"Informa??es erradas, tente novamente");
+            }
+        }
+        catch (Exception e){
+            JOptionPane.showMessageDialog(null,"somente numeros no id da maquina");
+        }
     }//GEN-LAST:event_btnLoginActionPerformed
 
 
