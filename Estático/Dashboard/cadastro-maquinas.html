@@ -7,7 +7,7 @@
     <title>Pulsatrix</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='css/dashboard.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='css/maquinas.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/estacao.css'>
     <link rel="shortcut icon" href="img/icon.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -71,57 +71,43 @@
                 </p>
             </div>
         </header>
-        <div class="container-fluid container-content tables">
-            <div class="row">
-                <div class="col">
-                    <h3 class="title">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                  <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Nome Máquina</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Estação</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row"><a href="graficos.html"> 1 </a></th>
-                                        <td>Máquina C-10</td>
-                                        <td><i class='bx bxs-circle error'></i></td>
-                                        <td>Vila Prudente</td>
-                                    </tr>
-                                </a>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Máquina X-210</td>
-                                    <td><i class='bx bxs-circle maintenance'></i></td>
-                                    <td>Ana rosa</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Máqina R-92</td>
-                                    <td><i class='bx bxs-circle working'></i></td>
-                                    <td>Sacomã</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Máquina X-210</td>
-                                    <td><i class='bx bxs-circle maintenance'></i></td>
-                                    <td>Ana rosa</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Máqina R-92</td>
-                                    <td><i class='bx bxs-circle working'></i></td>
-                                    <td>Sacomã</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+        <div class="page-cadastro">
+            <div class="general-title">
+                <h1>Cadastro</h1>
+                <hr class="pink-stroke" />
+            </div>
+            <div class="container-form">
+                <form onsubmit="cadastroResponsavel()" action="javascript:void(0)" id="form_cadastroResponsavel" class="form-" autocomplete="off">
+                    <div class="sign-resp-container">
+
+
+                        <div class="sign-resp-first-column">
+                            <div class="input-field">
+                                <i class="fas fa-desktop"></i>
+                                <input id="nomeMaquina" type="text" name="nomeMaquina" placeholder="Máquina" required>
+                            </div>
+                                <select name="Selecione uma estação" id="estacao" class="input-field">
+                                    <option class="input-form input-field" value="" selected disabled>Selecione uma estação</option>
+                                    <option class="input-form" value="11">Ana Rosa</option>
+                                    <option class="input-form" value="22">Sacomã</option>
+                                    <option class="input-form" value="33">Vila Prudente</option>
+                                </select>
+                                <div class="container">
+                                    <label for="" class="label-check">O que deseja monitorar?</label><br>
+                                    <ul class="ks-cboxtags">
+                                      <li><input type="checkbox" id="checkboxOne" value="disco"><label for="checkboxOne">Disco</label></li><br>
+                                      <li><input type="checkbox" id="checkboxTwo" value="memoria" checked><label for="checkboxTwo">Mémoria RAM</label></li><br>
+                                      <li><input type="checkbox" id="checkboxThree" value="cpu" checked><label for="checkboxThree">CPU</label></li><br>
+                                      <li><input type="checkbox" id="checkboxFour" value="temperatura"><label for="checkboxFour">Temperatura</label></li><br>
+                                    </ul>
+                                  
+                                  </div>
                         </div>
-                    </h3>
-                </div>
+                       <center>
+                        <button class="btn-cadastrar">Cadastrar</button>
+                       </center>
+                </form>
+                
             </div>
         </div>
     </main>
