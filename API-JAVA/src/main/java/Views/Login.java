@@ -14,6 +14,7 @@ import javax.swing.text.View;
 
 public class Login extends javax.swing.JFrame {
      private final ViewController vc = new ViewController();
+     private final exitFrame ef = new exitFrame();
     public Login() {
         initComponents();
     }
@@ -135,7 +136,7 @@ public class Login extends javax.swing.JFrame {
             Boolean result = vc.verifyUserAndMachine(user,password,txtMachine.getText());
             if (result){
                 JOptionPane.showMessageDialog(null,"Login feito \n começando captura de dados");
-                this.setVisible(false);
+                ef.runExitScreen();;
                 vc.startWithFkMaquina(txtMachine.getText());
 
             }

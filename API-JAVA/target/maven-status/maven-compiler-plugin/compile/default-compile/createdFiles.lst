@@ -1,7 +1,10 @@
 Views\Login$1.class
 Views\Login.class
 controller\LoocaController.class
+Views\exitFrame$1.class
+Views\exitFrame.class
 Models\DataBaseModel.class
+Views\exitFrame$2.class
 Views\Login$2.class
 controller\LoocaController$1.class
 controller\ViewController.class
