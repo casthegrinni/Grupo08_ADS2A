@@ -12,8 +12,7 @@ public class LoocaController {
    private final DataBaseModel db = new DataBaseModel();
     private int fkMaquina;
     Timer timer = new Timer();
-    Timer delay = new Timer();
-    private TimerTask task = new TimerTask() {
+    private final TimerTask task = new TimerTask() {
         @Override
         public void run() {
 
@@ -35,7 +34,7 @@ public class LoocaController {
         }
    };
     public void insertInSeconds(int seconds){
-        timer.schedule(task,0,seconds*1000);
+        timer.schedule(task,0,seconds* 1000L);
     }
 
 
