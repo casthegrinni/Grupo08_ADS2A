@@ -26,7 +26,7 @@ public class Login extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         lblUser = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
-        lblPassword = new javax.swing.JLabel();
+        lblPassword = new javax.swing.JPasswordField();
         txtPassword = new javax.swing.JTextField();
         lblMachine = new javax.swing.JLabel();
         txtMachine = new javax.swing.JTextField();
@@ -34,7 +34,7 @@ public class Login extends javax.swing.JFrame {
 
         txtUser1.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         txtUser1.setForeground(new java.awt.Color(255, 255, 255));
-        txtUser1.setText("Usuário");
+        txtUser1.setText("Usuï¿½rio");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(50, 50, 50));
@@ -43,7 +43,7 @@ public class Login extends javax.swing.JFrame {
 
         lblUser.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         lblUser.setForeground(new java.awt.Color(255, 255, 255));
-        lblUser.setText("Usuário");
+        lblUser.setText("Usuï¿½rio");
 
         txtUser.setBackground(new java.awt.Color(255, 255, 255));
         txtUser.setFont(new java.awt.Font("Tomorrow", 0, 12)); // NOI18N
@@ -58,7 +58,7 @@ public class Login extends javax.swing.JFrame {
         lblMachine.setBackground(new java.awt.Color(255, 255, 65));
         lblMachine.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         lblMachine.setForeground(new java.awt.Color(255, 255, 255));
-        lblMachine.setText("ID máquina");
+        lblMachine.setText("ID mï¿½quina");
 
         txtMachine.setBackground(new java.awt.Color(255, 255, 255));
         txtMachine.setFont(new java.awt.Font("Tomorrow", 0, 12)); // NOI18N
@@ -186,7 +186,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JButton btnLogin;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblMachine;
-    private javax.swing.JLabel lblPassword;
+    private javax.swing.JPasswordField lblPassword;
     private javax.swing.JLabel lblUser;
     private javax.swing.JTextField txtMachine;
     private javax.swing.JTextField txtPassword;
