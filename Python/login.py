@@ -44,16 +44,17 @@ def btnLoginAction(user, password, id):
     
     if user_acess != None:
         print("Entry")
-        anotherWindow()
         screenReader.machineId = id
         screenReader.searchForNoPaper()
+        messagebox.showinfo("Login efetuado", "Começando leitura da tela.")
+        login.destroy() 
     else:
         print("Can't acess")
-        messagebox.showinfo("Dados inválidos", "Usuário ou senha inválidos. Tente novamente!")
+        messagebox.showerror("Dados inválidos", "Usuário ou senha inválidos. Tente novamente!")
 
 def windowConfig():
     height = 300
-    width = 250
+    width = 230
 
     # Resolution
     heightScreen = login.winfo_screenheight()
@@ -132,17 +133,8 @@ def middleLabels():
     lbl.grid(row=2, column=0, columnspan=1)
 
     lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
-    lbl.grid(row=0, column=0, columnspan=1)
-
-
-def anotherWindow():
-#Destroy current window
- login.destroy()
-
- newRoot = screenReader  # Declaring the window
- newRoot.mainloop()
- 
- 
+    lbl.grid(row=0, column=0, columnspan=1) 
+      
 
 if __name__ == '__main__':
     windowConfig()
