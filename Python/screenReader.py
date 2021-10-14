@@ -2,7 +2,7 @@ import pyautogui
 import threading
 from tkinter import *
 from PIL import Image, ImageTk
-import mysql.connector
+#import mysql.connector
 import pyodbc
 
 from configparser import ConfigParser
