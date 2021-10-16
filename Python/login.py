@@ -2,6 +2,7 @@ from tkinter import *
 import pyodbc
 from configparser import ConfigParser
 import screenReader
+from PIL import Image, ImageTk
 from tkinter import messagebox
 
 # Creating a window
@@ -53,8 +54,8 @@ def btnLoginAction(user, password, id):
         messagebox.showerror("Dados inválidos", "Usuário ou senha inválidos. Tente novamente!")
 
 def windowConfig():
-    height = 300
-    width = 250
+    height = 400
+    width = 500
 
     # Resolution
     heightScreen = login.winfo_screenheight()
@@ -72,14 +73,27 @@ def windowConfig():
     login["bg"] = "#323232"  # background color
 
 def labelsAndButtonsConfig():
+    path = Image.open("images/owl.png")
+    img = ImageTk.PhotoImage(path)
+    imgOwl = Label(login, image=img, bg="#323232", width=500, pady=200)
+    imgOwl.image = img
+
+    imgOwl.grid(row=0, column=0)
+
     # User
-    lblUser = Label(
-        login, text="Usuário", bg="#323232", fg="#FFFFFF", font="Tomorrow 15", width=11
+    lblUser = Label(login, 
+        text="Usuário", 
+        bg="#323232", 
+        fg="#FFFFFF", 
+        font="Tomorrow 15", 
+        width=11,
+        pady= 5,
+        padx= 85
     )
     lblUser.grid(row=1, column=0, sticky=W)
 
-    txtUser = Entry(login, font="Tomorrow 10", width=20)
-    txtUser.grid(row=2, column=2, sticky=N)
+    txtUser = Entry(login, font="Tomorrow 10", width=30)
+    txtUser.grid(row=2, column=0, sticky=N)
 
     # Password
     lblPassword = Label(
@@ -88,7 +102,7 @@ def labelsAndButtonsConfig():
     lblPassword.grid(row=4, column=0, sticky=W)
 
     txtPassword = Entry(login, font="Tomorrow 10", show="*", width=20)
-    txtPassword.grid(row=5, column=1,  sticky=N)
+    txtPassword.grid(row=5, column=0,  sticky=N)
 
     # Machine id
     lblMachine = Label(
@@ -102,7 +116,7 @@ def labelsAndButtonsConfig():
     lblMachine.grid(row=7, column=0, sticky=W)
 
     txtMachine = Entry(login, font="Tomorrow 10", width=20)
-    txtMachine.grid(row=8, column=1, sticky=N)
+    txtMachine.grid(row=8, column=0, sticky=N)
 
     # Login Button
     btnLogin = Button(
@@ -115,26 +129,7 @@ def labelsAndButtonsConfig():
         width="5",
     )
 
-    btnLogin.grid(row=10, column=0, sticky=E)
-    #middleLabels()
-
-
-def middleLabels():
-    lblAlert = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
-    lblAlert.grid(row=9, column=0)
-
-    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
-    lbl.grid(row=6, column=0)
-
-    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
-    lbl.grid(row=5, column=0)
-
-    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
-    lbl.grid(row=2, column=0)
-
-    lbl = Label(background="#323232", foreground="#323232", text="ㅤㅤ")
-    lbl.grid(row=0, column=0) 
-      
+    btnLogin.grid(row=10, column=0, sticky=N)
 
 if __name__ == '__main__':
     windowConfig()
