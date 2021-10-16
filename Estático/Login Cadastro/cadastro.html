@@ -10,31 +10,53 @@
 </head>
 
 <body>
+    <div class="logo">
+        <img src="src/logo_pulsatrix.png" alt="">
+    </div>
+
     <div class="box">
-        <h2>Criar conta</h2>
-        Já tem uma conta? <a href="">Entre </a>
+        <h1>Criar conta</h1>
+        <a href=""> Já tem uma conta? Clique aqui </a>
+
 
         <form action="">
-            <div class="inputs">
-                <label for="ipt_name" class="">Nome:</label>
+
+            <label for="ipt_name" class="">Nome:
+
                 <input type="text" name="name" id="ipt_name">
-            </div>
-            <div class="inputs right">
-                <label for="ipt_tel">Telefone:</label>
+            </label>
+
+            <label for="ipt_tel">Telefone:
+
                 <input type="tel" name="telefone" id="ipt_tel">
-            </div>
-            <div class="inputs">
-                <label for="ipt_email">Email:</label>
+            </label>
+
+            <label for="ipt_email">Email:
+
                 <input type="email" name="email" id="ipt_email">
-            </div>
-            <div class="inputs">
-                <label for="ipt_password">Senha:</label>
+            </label>
+
+            <label for="select_estacao">Selecione uma estação
+
+                <select name="estacao" id="select_estacao">
+                    <option value=""></option>
+                    <option value="sacoma">Sacomã</option>
+                    <option value="tamanduatei">Tamanduateí</option>
+                    <option value="anaRosa">Ana rosa</option>
+                    <option value="paraiso">Paraíso</option>
+                    <option value="brigadeiro">Brigadeiro</option>
+                </select>
+            </label>
+
+            <label for="ipt_password">Senha:
+
                 <input type="password" name="password" id="ipt_password">
-            </div>
-            <div class="inputs">
-                <label for="ipt_confirm_password">Confirmar senha:</label>
+            </label>
+
+            <label for="ipt_confirm_password">Confirmar senha:
+
                 <input type="password" name="confirm-password" id="ipt_confirm_password">
-            </div>
+            </label>
 
             <button class="btn-cad">Cadastrar</button>
         </form>

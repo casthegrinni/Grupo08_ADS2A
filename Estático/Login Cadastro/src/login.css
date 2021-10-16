@@ -27,11 +27,11 @@ a {
 
 .box {
     background-color: #fff;
-    width: 600px;
+    width: 360px;
     margin: 1px auto;
     padding: 20px 15px;
     border-radius: 10px;
-    height: 450px;
+    height: 460px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,9 +53,8 @@ a:hover {
 .box form {
     width: 100%;
     padding: 20px 15px;
-    display: grid;
-    grid-gap: 10px;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     margin-top: 40px;
 }
 
@@ -63,8 +62,7 @@ a:hover {
     color: #555;
 }
 
-.box form input,
-select {
+.box form input {
     height: 35px;
     outline: none;
     padding-left: 10px;
@@ -73,6 +71,7 @@ select {
     background-color: #f7f7f7;
     border: 1px solid #e6e6e6;
     border-radius: 10px;
+    margin-bottom: 8px;
 }
 
 .box form label {
@@ -82,9 +81,8 @@ select {
 
 .btn-cad {
     height: 45px;
-    grid-column: 1 / -1;
     margin-top: 10px;
-    width: 200px;
+    width: 100%;
     margin: 0 auto;
     cursor: pointer;
     margin-top: 20px;
