@@ -54,8 +54,8 @@ def btnLoginAction(user, password, id):
         messagebox.showerror("Dados inválidos", "Usuário ou senha inválidos. Tente novamente!")
 
 def windowConfig():
-    height = 400
-    width = 500
+    height = 500
+    width = 400
 
     # Resolution
     heightScreen = login.winfo_screenheight()
@@ -75,7 +75,7 @@ def windowConfig():
 def labelsAndButtonsConfig():
     path = Image.open("images/owl.png")
     img = ImageTk.PhotoImage(path)
-    imgOwl = Label(login, image=img, bg="#323232", width=500, pady=200)
+    imgOwl = Label(login, image=img, bg="#323232", width=400, pady=100)
     imgOwl.image = img
 
     imgOwl.grid(row=0, column=0)
@@ -88,7 +88,7 @@ def labelsAndButtonsConfig():
         font="Tomorrow 15", 
         width=11,
         pady= 5,
-        padx= 85
+        padx= 35
     )
     lblUser.grid(row=1, column=0, sticky=W)
 
@@ -97,11 +97,18 @@ def labelsAndButtonsConfig():
 
     # Password
     lblPassword = Label(
-        login, text="Senha", bg="#323232", fg="#FFFFFF", font="Tomorrow 15", width=10
+        login, 
+        text="Senha", 
+        bg="#323232", 
+        fg="#FFFFFF", 
+        font="Tomorrow 15", 
+        width=11,
+        pady =5,
+        padx= 30
     )
     lblPassword.grid(row=4, column=0, sticky=W)
 
-    txtPassword = Entry(login, font="Tomorrow 10", show="*", width=20)
+    txtPassword = Entry(login, font="Tomorrow 10", show="*", width=30)
     txtPassword.grid(row=5, column=0,  sticky=N)
 
     # Machine id
@@ -112,10 +119,12 @@ def labelsAndButtonsConfig():
         fg="#FFFFFF",
         font="Tomorrow 15",
         width=14,
+        pady=5,
+        padx= 35
     )
     lblMachine.grid(row=7, column=0, sticky=W)
 
-    txtMachine = Entry(login, font="Tomorrow 10", width=20)
+    txtMachine = Entry(login, font="Tomorrow 10", width=30)
     txtMachine.grid(row=8, column=0, sticky=N)
 
     # Login Button
@@ -129,7 +138,7 @@ def labelsAndButtonsConfig():
         width="5",
     )
 
-    btnLogin.grid(row=10, column=0, sticky=N)
+    btnLogin.grid(row=10, column=0, sticky=W, pady= 30)
 
 if __name__ == '__main__':
     windowConfig()
