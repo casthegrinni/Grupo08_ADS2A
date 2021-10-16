@@ -9,7 +9,7 @@ from tkinter import messagebox
 login = Tk()  # Declaring the window
 login.title("Pulsatrix - Screen reader")  # Window title
 
-#Gettind .ini informations
+#Getting .ini informations
 parser = ConfigParser()
 parser.read('db_config.ini')
       
@@ -75,7 +75,7 @@ def windowConfig():
 def labelsAndButtonsConfig():
     path = Image.open("images/owl.png")
     img = ImageTk.PhotoImage(path)
-    imgOwl = Label(login, image=img, bg="#323232", width=400, pady=100)
+    imgOwl = Label(login, image=img, bg="#323232", width=400, pady=400)
     imgOwl.image = img
 
     imgOwl.grid(row=0, column=0)
@@ -111,6 +111,9 @@ def labelsAndButtonsConfig():
     txtPassword = Entry(login, font="Tomorrow 10", show="*", width=30)
     txtPassword.grid(row=5, column=0,  sticky=N)
 
+    lbl = Label(text="A̴n̶ ̷e̵y̷e̵l̸e̴s̶s̸ ̴a̸b̴o̵m̷i̵n̷a̴t̸i̴o̸n̴ ̵w̸i̶t̸h̶ ̸s̶e̶v̷e̷n̸ ̸m̸o̷u̵t̷h̷s̴.̴", background="#323232", foreground="#323232")
+    lbl.grid(row=6, column=0)
+
     # Machine id
     lblMachine = Label(
         login,
@@ -135,10 +138,10 @@ def labelsAndButtonsConfig():
         font="Tomorrow 12",
         bg="#3CDDEC",
         fg="#323232",
-        width="5",
+        width="12",
     )
 
-    btnLogin.grid(row=10, column=0, sticky=W, pady= 30)
+    btnLogin.grid(row=10, column=0, sticky=S, pady= 25, columnspan=90)
 
 if __name__ == '__main__':
     windowConfig()
