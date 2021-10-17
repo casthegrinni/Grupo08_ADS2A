@@ -1,12 +1,13 @@
 :root {
     --color-gray-background: #FFFFFF;
-    --color-gray-dark: #3F3F42;
+    --color-gray-dark: #021733;
     --color-white: #FFFFFF;
-    --color-green-dark: #13666D;
+    --color-green-dark: #44A7F5;
 }
 
 html{
     scroll-behavior: smooth;
+    background-color: #021733;
 }
 
 * {
@@ -22,21 +23,22 @@ body{
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    background-color: #021733;
     
 }
 
 ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
-    background: var(--color-gray-dark);
+    background: #44A7F5;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--color-gray-dark);
+    background-color: #44A7F5;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--color-green-dark);
+    background:#021733;
 }
 
 .general-title {
@@ -71,19 +73,19 @@ body{
 
 .navbar {
     width: 100%;
-    height: 100px;
+    height: 120px;
     display: flex;
     position: fixed;
     justify-content: space-between;
     box-sizing: border-box;
     top: 0;
+    background-color: #02173373;
     left: 0;
-    background: var(--color-gray-background);
     z-index: 5;
 }
 
 .navbar .icon {
-    background: url(../img/iris.png);
+    background: url(../img/icon_orion.png);
     background-size: contain;
     background-repeat: no-repeat;
     height: 100%;
@@ -95,7 +97,7 @@ body{
 
 .navbar ul {
     list-style: none;
-    padding-top: 40px;
+    padding-top: 20px;
 }
 
 .navbar ul li,
@@ -115,7 +117,7 @@ button {
 
 .navbar ul li a:hover {
     text-decoration: none;
-    border-bottom: 3px solid #3F3F42;
+    border-bottom: 3px solid #FFFFFF;
     padding-bottom: 8px;
 }
 
@@ -148,7 +150,9 @@ button {
     left: 0;
     z-index: -5;
     flex-flow: column wrap;
-    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/fundo.png);
 }
 
 .nav-menu {
@@ -223,7 +227,7 @@ button {
     margin: 5px auto;
     -webkit-transition: all 0.3s ease-in-out;
     transition: all 0.3s ease-in-out;
-    background-color: #101010;
+    background-color: #44A7F5;
 }
 
 .hamburger {
@@ -232,10 +236,13 @@ button {
 
 .about-container {
     width: 100%;
-    height: 100vh;
+    height: 110vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/background-orion.png);
     flex-flow: column wrap;
 }
 
@@ -259,15 +266,16 @@ button {
     text-align: center;
     font-size: 19pt;
     font-weight: 600;
-    color: var(--color-green-dark);
+    color: var(--color-gray-dark);
 }
 
 .team-container {
-    margin-top: 5%;
     width: 100%;
-    height: auto;
+    height: 110vh;
     padding-top: 30px;
-    margin-bottom: 50px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/fundo.png);
 }
 
 .team-container .container{
@@ -277,14 +285,13 @@ button {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin: 20px 0;
 }
 
 .team-container .container .card{
     position: relative;
     width: 250px;
     height: 350px;
-    background: rgba(255, 255, 255, 0.05);
+    background: var(--color-gray-background);
     margin: 15px;
     box-shadow: 0 10px 10px rgba(31, 32, 32, 0.527) ;
     border-radius: 15px;
@@ -303,6 +310,10 @@ button {
     transition: 0.5s;
 }
 
+.team-container .team{
+    color: #FFFFFF;
+}
+
 .team-container .container .card:hover .content{
     opacity: 1;
 }
@@ -313,7 +324,7 @@ button {
     height: 150px;
     border-radius: 50%;
     overflow: hidden;
-    border: 5px solid rgba(16, 102, 95, 0.753);
+    border: 5px solid var(--color-green-dark);
 }
 
 .team-container .container .card .content .img-card img{
@@ -374,10 +385,13 @@ button {
     justify-content: center;
     align-items: center;
     flex-flow: column wrap;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/fundo.png);
 }
 
 .service-title {
-    color: var(--color-gray-dark);
+    color: var(--color-gray-background);
     text-align: center;font-size: 20px;
 
     text-transform: uppercase;
@@ -397,7 +411,7 @@ button {
     text-align: center;
     font-size: 15pt;
     font-weight: lighter;
-    background-color: rgba(156, 153, 153, 0.541);
+    background-color: var(--color-gray-background);
     align-items: center;
     justify-content: space-around;
     display: flex;
@@ -431,11 +445,15 @@ button {
 .container-contact-us {
     width: 100%;
     height: 100vh;
+    min-height: 70vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-flow: row nowrap;
     padding: 50px 30px 0 30px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image: url(../img/background-orion.png);
 }
 
 .form-title {
@@ -522,7 +540,9 @@ option {
     cursor: pointer;
     border: none;
     outline: 0;
-    width: 20vh;
+    font-size: 30;
+    font-weight: 500;
+    width: 200px;
     height: 30px;
     display: flex;
     justify-content: center;
@@ -603,6 +623,20 @@ footer {
     word-spacing: 2px;
     text-transform: capitalize;
 }
+@media only screen and (min-width: 1300px) {
+    .navbar ul li a{
+        color: #FFFFFF;
+        text-decoration: none;
+    }
+
+    .team-container {
+        min-height: 70vh;
+    }
+
+    .about-container {
+        min-height: 70vh;
+    }
+}
 
 @media only screen and (max-width: 768px) {
     .navbar ul {
@@ -617,7 +651,7 @@ footer {
     }
     .navbar ul li a {
         text-decoration: none;
-        color: var(--color-green-dark);
+        color: #FFFFFF;
         font-weight: bold;
         font-size: 14px;
     }

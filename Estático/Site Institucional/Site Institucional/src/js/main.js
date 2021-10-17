@@ -17,4 +17,10 @@ function closeMenu() {
     navMenu.classList.remove("active");
 }
 
-// e-mail implementation here
+function scrollFunction() {
+    if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        document.getElementById("id-navbar").style.backgroundColor = "rgba(27,27,27)";
+    } else {
+        document.getElementById("id-navbar").style.backgroundColor = "#0003";
+    }
+}

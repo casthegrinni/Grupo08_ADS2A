@@ -6,19 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width-device-width, initial-scale=1">
     <meta name="theme-color" content="#13666D">
-    <title>Íris</title>
+    <title>Orion</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="src/css/style.css" />
     <link rel="shortcut icon" href="src/img/icon.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="src/js/main.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
 </head>
 
 <body>
     <header>
-        <div class="navbar">
+        <div class="navbar" id="id-navbar">
             <div class="icon"></div>
             <ul class="nav-menu">
                 <li><a class="nav-link" href="#home">Home</a></li>
@@ -37,6 +38,7 @@
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
+
         </div>
     </header>
 
@@ -52,10 +54,6 @@
                 <a href="#aboutUs"><button class="btn-home"><span></span>Saiba Mais</button></a>
                 <a href="#contact"><button class="btn-home"><span></span>Fale Conosco</button></a>
             </div>
-
-            <div class="container-img-detail">
-                <img src="src/img/destaque-home.png" alt="Detalhe na página representando" />
-            </div>
         </section>
 
         <section class="about-container" id="aboutUs">
@@ -70,13 +68,9 @@
                     usabilidade e a experiência do usuário.
                 </p>
             </div>
-
-            <div class="container-img-about">
-                <img src="src/img/destaque-45graus.png" alt="Detalhe na página representando">
-            </div>
         </section>
         <section class="team-container" id="teams">
-            <div class="general-title">
+            <div class="general-title team">
                 <h1>Equipe</h1>
                 <hr class="pink-stroke" />
             </div>
@@ -235,6 +229,5 @@
         </footer>
     </div>
 </body>
-
-</html>
 <script src="src/js/main.js"></script>
+</html>
