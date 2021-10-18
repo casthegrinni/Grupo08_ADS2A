@@ -271,7 +271,7 @@ button {
 
 .team-container {
     width: 100%;
-    height: 110vh;
+    height: 150vh;
     padding-top: 30px;
     background-size: cover;
     background-repeat: no-repeat;
@@ -627,14 +627,6 @@ footer {
     .navbar ul li a{
         color: #FFFFFF;
         text-decoration: none;
-    }
-
-    .team-container {
-        min-height: 70vh;
-    }
-
-    .about-container {
-        min-height: 70vh;
     }
 }
 
