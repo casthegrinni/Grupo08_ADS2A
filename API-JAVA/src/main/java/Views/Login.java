@@ -28,7 +28,7 @@ public class Login extends javax.swing.JFrame {
         lblUser = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
         lblMachine = new javax.swing.JLabel();
         txtMachine = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
@@ -36,7 +36,7 @@ public class Login extends javax.swing.JFrame {
 
         txtUser1.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         txtUser1.setForeground(new java.awt.Color(255, 255, 255));
-        txtUser1.setText("Usuário");
+        txtUser1.setText("Usuï¿½rio");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(50, 50, 50));
@@ -45,7 +45,7 @@ public class Login extends javax.swing.JFrame {
 
         lblUser.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         lblUser.setForeground(new java.awt.Color(51, 51, 51));
-        lblUser.setText("Usuário");
+        lblUser.setText("Usuï¿½rio");
 
         txtUser.setFont(new java.awt.Font("Tomorrow", 0, 12)); // NOI18N
 
@@ -58,7 +58,7 @@ public class Login extends javax.swing.JFrame {
         lblMachine.setBackground(new java.awt.Color(255, 255, 65));
         lblMachine.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         lblMachine.setForeground(new java.awt.Color(51, 51, 51));
-        lblMachine.setText("ID máquina");
+        lblMachine.setText("ID mï¿½quina");
 
         txtMachine.setFont(new java.awt.Font("Tomorrow", 0, 12)); // NOI18N
 
@@ -145,14 +145,14 @@ public class Login extends javax.swing.JFrame {
             txtMachine.getText();
             Boolean result = vc.verifyUserAndMachine(user,password,txtMachine.getText());
             if (result){
-                JOptionPane.showMessageDialog(null,"Login feito \n começando captura de dados");
+                JOptionPane.showMessageDialog(null,"Login feito \n comeï¿½ando captura de dados");
                 ef.runExitScreen();;
                 vc.startWithFkMaquina(txtMachine.getText());
 
             }
 
             else{
-                JOptionPane.showMessageDialog(null,"Informações erradas, tente novamente");
+                JOptionPane.showMessageDialog(null,"Informaï¿½ï¿½es erradas, tente novamente");
             }
         
    
