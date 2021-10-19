@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+}
+
+.graphics-orientation {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.graphics-container {
+    background-color: rgb(51, 51, 51);
+    border-radius: 10px;
+    height: 95vh;
+    width: 90%;
+    margin-left: 55px;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.panel {
+    background-color: rgba(255, 255, 255, 0.884);
+    border-radius: 10px;
+    min-width: 40%;
+    width: 40%;
+    flex: 2;
+    display: flex;
+    align-items: center;
+    margin: 2px;
+    flex-direction: column;
+}
+
+.panel .general-title h1 {
+    font-size: 20px;
+    color: rgb(27, 27, 27);
+}
+
+.graphics-container .panel:first-child {
+    border-bottom-left-radius: 0px !important;
+    border-top-right-radius: 0px !important;
+}
+
+.panel:nth-child(2) {
+    border-bottom-right-radius: 0px !important;
+    border-top-left-radius: 0px !important;
+}
+
+.panel:nth-child(3) {
+    border-top-left-radius: 0px !important;
+    border-bottom-right-radius: 0px !important;
+}
+
+.panel:nth-child(4) {
+    border-top-right-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+}
+
+.information {
+    width: 100%;
+    padding-left: 20px;
+}
+
+.info h3 {
+    font-size: 20px;
+}
+
+.info {
+    margin: 5px;
+    width: fit-content;
+    padding: 10px 20px;
+    margin-right: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.round-color {
+    width: 15px;
+    height: 15px;
+    margin-left: 10px;
+    border-radius: 100%;
+}
+
+.round-color.ideal {
+    background-color: #548235;
+}
+
+.round-color.low {
+    background-color: #FFBB33;
+}
+
+.round-color.ex-low {
+    background-color: #FFFF25;
+}
+
+.round-color.high {
+    background-color: #FF8800;
+}
+
+.round-color.ex-high {
+    background-color: #d50606;
+}

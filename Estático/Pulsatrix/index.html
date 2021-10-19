@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsatrix</title>
+    <link rel="shortcut icon" href="src/img/icon.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="./src/js/script.js"></script>
+</head>
+
+<body>
+    <section>
+        <header>
+            <div id="Home" class="bg-container">
+                <div class="black-layer">
+                    <div class="slogan">
+                        <div class="img-home-text">
+                            <h1>Somos uma empresa <br> inovadora que busca soluções <br> tecnológicas para escritórios.
+                            </h1>
+                        </div>
+                        <div class="div-buttons">
+                            <a href="#Contato"><button class="btn-left">Entre em contato</button></a>
+                            <a href="#SobreNos"><button class="btn-right">Saiba mais</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <main>
+        <div class="navbar" id="id-navbar">
+            <div class="logo-img"></div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#SobreNos">Sobre nós</a></li>
+                    <li><a href="#Equipe">Equipe</a></li>
+                    <li><a href="#Servicos">Nossos serviços</a></li>
+                    <li><a href="#Contato">Entre em contato</a></li>
+                    <button class="btn-login"><a href="./pages/login.html">Login</a></button>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="content">
+            <section id="SobreNos" class="section-sobreNos">
+                <div class="container">
+                    <div class="general-title">
+                        <h1>Sobre Nós</h1>
+                        <hr class="pink-stroke" />
+                    </div>
+
+                    <div class="text">
+                        <p>Somos uma empresa que juntamente com a tecnologia, visamos propor soluções tecnológicas para
+                            aumentar o desempenho e a produtivade dentro de ambientes empresariais.</p>
+                    </div>
+                    <div class="box">
+                        <div class="container">
+
+                            <div class="box-item">
+                                <img src="./src/img/Icones/goal.png">
+                                <h3>Missão</h3>
+                                <p>Atender às necessidades de nossos clientes e superar as expectativas, oferecendo
+                                    muito mais que produtos e serviços.</p>
+                            </div>
+                            <div class="box-item">
+                                <img src="./src/img/Icones/goal (1).png">
+                                <h3>Visão</h3>
+                                <p> Ser referência em inovação e qualidade, agregando bem-estar e conforto aos ambientes
+                                    empresariais. </p>
+                            </div>
+                            <div class="box-item">
+                                <img src="./src/img/Icones/learning.png">
+                                <h3>Valores</h3>
+                                <p>Inovação, liderança, responsabilidade, integridade, qualidade e execelência</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+            <section id="Servicos" class="section-servicos">
+                <div class="general-title">
+                    <h1>SERVIÇOS</h1>
+                    <hr class="pink-stroke" />
+                </div>
+            </section>
+            <br>
+            <section id="Contato" class="section-contato">
+                <div class="general-title">
+                    <h1>Contato</h1>
+                    <hr class="pink-stroke" />
+                </div>
+                <div class="Caixa">
+                    <form class="Contato">
+                        <label>Nome</label>
+                        <br>
+                        <input class="input-form" placeholder="Nome" type="text" id="in_name_contato">
+                        <br>
+                        <label>Email</label>
+                        <br>
+                        <input class="input-form" placeholder="Email" type="email" id="in_email">
+                        <br>
+                        <label>O que deseja nos enviar?</label>
+                        <br>
+                        <select name="Selecione uma opção" id="se_option">
+                            <option class="input-form" value="selecione">Selecione uma opção</option>
+                            <option class="input-form" value="11">Dúvida</option>
+                            <option class="input-form" value="22">Elogio</option>
+                            <option class="input-form" value="33">Sugestão</option>
+                        </select>
+                        <textarea placeholder="Sua mensagem" class="input-form mensagem"></textarea>
+                        <br>
+                        <button class="btn-contato">Enviar</button>
+                        <br>
+                    </form>
+                </div>
+            </section>
+            <footer>
+                <div class="footer-content ">
+                    <h3>Pulsatrix</h3>
+                    <ul class="sociais ">
+                        <li><a href=" "><i class="fa fa-facebook "></i></a></li>
+                        <li><a href=" "><i class="fa fa-linkedin "></i></a></li>
+                        <li><a href=" "><i class="fa fa-instagram "></i></a></li>
+                        <li><a href="https://github.com/FelipeAmorim720/Grupo08_TOP"><i class="fa fa-github "></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom ">
+                    <p>Copyright &copy; 2021 Orion</p>
+                </div>
+            </footer>
+    </main>
+</body>
+
+</html>

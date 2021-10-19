@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../src/img/Logotipos/fer1branco.png">
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <title>Login</title>
+    <link rel="stylesheet" href="../src/css/login.css">
+</head>
+
+<body>
+    <div class="container">
+
+        <div id="cadastroAlert" class="alert">
+            <span></span>
+            <i class="far fa-check-circle"></i>
+            <p>Cadastro realizado com sucesso!</p>
+            <div onclick="closeAlert('#cadastroAlert')" class="close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+        <div id="loginAlert" class="alert">
+            <span></span>
+            <i class="fas fa-times-circle"></i>
+            <p>Usuário ou senha inválidos!</p>
+            <div onclick="closeAlert('#loginAlert')" class="close-btn">
+                <i class="fas fa-times"></i>
+            </div>
+        </div>
+
+        <div class="forms-container">
+            <div class="signin-signup">
+                <!--Formulário de Login-->
+                <form class="sign-in-form" onsubmit="login()" action="javascript:void(0)">
+                    <h2 class="title">Bem-vindo</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input id="userLogin" type="text" placeholder="Usuário" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input id="userPassword" type="password" placeholder="Senha" required>
+                    </div>
+                    <input type="submit" value="Login" class="btn solid">
+
+                    <!-- <p class="social-text">Ou logue-se com as redes sociais</p>
+
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div> -->
+                </form>
+
+                <!--Formulário de Cadastro-->
+                <form class="sign-up-form" onsubmit="cadastrar()" action="javascript:void(0)">
+                    <h2 class="title">Cadastre-se</h2>
+                    <div class="input-field">
+                        <i class="fas fa-user"></i>
+                        <input id="userCadastro" type="text" placeholder="Usuário" required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input id="emailCadastro" type="text" placeholder="E-mail" required>
+                    </div>
+                    <div id="error-message-email" class="error-message">
+                        <i class="fas fa-times-circle"></i>
+                        <p>E-mail inválido</p>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input id="cadastroPassword" onkeyup="checkPassword()" type="password" placeholder="Senha"
+                            required>
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input id="confirmacaoPassword" onkeyup="checkPassword()" type="password"
+                            placeholder="Confirme sua senha" required>
+                    </div>
+                    <div class="check-container">
+                        <div class="check-option">
+                            <p>As senhas devem ser iguais</p>
+                            <i id="equal-pass" class="far fa-check-circle"></i>
+                        </div>
+                        <p class="social-text"> A senha deve conter:</p>
+                        <div class="check-option">
+                            <p>Mais de 3 caracteres</p>
+                            <i id="minChar" class="far fa-check-circle"></i>
+                        </div>
+                        <div class="check-option">
+                            <p>Pelo menos uma letra maiúscula</p>
+                            <i id="upperCase" class="far fa-check-circle"></i>
+                        </div>
+                        <div class="check-option">
+                            <p>Pelo menos um número</p>
+                            <i id="numericChar" class="far fa-check-circle"></i>
+                        </div>
+                    </div>
+
+                    <input type="submit" value="Cadastrar" class="btn solid pink">
+
+
+                    <!-- <p class="social-text">Ou Cadastre-se com as redes sociais</p>
+
+                    <div class="social-media">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div> -->
+                </form>
+            </div>
+        </div>
+
+        <div class="panels-container">
+            <div class="panel left-panel">
+                <div class="content">
+                    <h3>Ainda não tem uma conta?</h3>
+                    <button class="btn transparent" id="sign-up-btn">
+                        Cadastre-se
+                    </button>
+                </div>
+                <img src="../src/img/svg/signin.svg" class="img">
+            </div>
+
+
+            <div class="panel right-panel">
+                <div class="content">
+                    <h3>Já tem uma conta?</h3>
+                    <button class="btn transparent" id="sign-in-btn">
+                        Login
+                    </button>
+                </div>
+                <img src="../src/img/svg/signup.svg" class="img">
+            </div>
+        </div>
+    </div>
+
+    <script src="../src/js/login.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Dashboard</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../src/css/dashboard.css'>
+    <link rel="icon" href="../src/img/Logotipos/fer1branco.png">
+    <!--Link biblioteca de icones online-->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+</head>
+
+<body id="body-pg">
+    <div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav_logo">
+                </a>
+                <div class="nav_list">
+
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-user nav_icon'></i>
+                        <span class="nav_name">Users</span>
+                    </a>
+
+                    <a href="#" class="nav_link selected">
+                        <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
+
+                    <a href="#" class="nav_link">
+                        <i class='far fa-bell nav_icon'></i>
+                        <span class="nav_name">Messages</span>
+                    </a>
+
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                        <span class="nav_name">Analytics</span>
+                    </a>
+
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-folder nav_icon'></i>
+                        <span class="nav_name">Data</span>
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+    <div class="main">
+        <div class="page-salas">
+            <div class="general-title">
+                <h1>AMBIENTES</h1>
+                <hr class="pink-stroke" />
+            </div>
+            <section class="box-container">
+                <div class="boxes">
+                    <a href="./sala.html">
+                        <div class="boxes-item">
+                            <h3>Sala 2C</h3>
+                            <div class="box-text">
+                                <p>Sala localizada no 2° andar do prédio</p>
+                                <h4>Sensores: <i class='fas fa-thermometer-empty temperatura'></i>
+                                    <i class='far fa-lightbulb luminosidade'></i>
+                                </h4>
+                                <h4>Status: <i class='fas fa-circle ideal'></i> </h4>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="boxes-item">
+                        <h3>Sala 3A</h3>
+                        <div class="box-text">
+                            <p>Sala localizada no 3° andar do prédio</p>
+                            <h4>Sensores: <i class='fas fa-thermometer-empty temperatura'></i>
+                                <i class='fas fa-tint umidade'></i>
+                                <i class='far fa-lightbulb luminosidade'></i>
+                            </h4>
+                            <h4>Status: <i class='fas fa-circle ideal'></i> </h4>
+                        </div>
+                    </div>
+                    <div class="boxes-item">
+                        <h3>Sala 8B</h3>
+                        <div class="box-text">
+                            <p>Sala localizada no 8° andar do prédio</p>
+                            <h4>Sensores: <i class='fas fa-thermometer-empty temperatura'></i>
+                                <i class='fas fa-tint umidade'></i>
+                                <h4>Status: <i class='fas fa-circle critico'></i> </h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="box-container">
+                <div class="boxes">
+                    <div class="boxes-item">
+                        <h3>Sala 1C</h3>
+                        <div class="box-text">
+                            <p>Sala localizada no 1° andar do prédio</p>
+                            <h4>Sensores: <i class='fas fa-thermometer-empty temperatura'></i>
+                                <i class='far fa-lightbulb luminosidade'></i>
+                            </h4>
+                            <h4>Status: <i class='fas fa-circle critico'></i> </h4>
+                        </div>
+                    </div>
+                    <div class="boxes-item">
+                        <h3>Sala 6A</h3>
+                        <div class="box-text">
+                            <p>Sala localizada no 6° andar do prédio</p>
+                            <h4>Sensores: <i class='fas fa-thermometer-empty temperatura'></i>
+                                <i class='fas fa-tint umidade'></i>
+                                <i class='far fa-lightbulb luminosidade'></i>
+                            </h4>
+                            <h4>Status: <i class='fas fa-circle alerta'></i> </h4>
+                        </div>
+                    </div>
+                    <div class="boxes-item">
+                        <h3>Sala 4B</h3>
+                        <div class="box-text">
+                            <p>Sala localizada no 4° andar do prédio</p>
+                            <h4>Sensores: <i class='fas fa-thermometer-empty temperatura'></i>
+                                <i class='fas fa-tint umidade'></i>
+                                <h4>Status: <i class='fas fa-circle ideal'></i> </h4>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <script src='js/main.js'></script>
+</body>
+
+</html>

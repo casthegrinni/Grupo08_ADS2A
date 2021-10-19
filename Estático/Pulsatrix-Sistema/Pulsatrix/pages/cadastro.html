@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsatrix</title>
+    <link rel="shortcut icon" href="../src/img/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../src/css/cadastro.css">
+</head>
+
+<body>
+    <div class="logo">
+        <img src="src/logo_pulsatrix.png" alt="">
+    </div>
+
+    <div class="container">
+        <center>
+            <div class="content-form">
+                <br>
+                <h1>Criar conta</h1>
+                <a href="login.html">
+                    <button>Login</button>
+                </a>
+
+                <form action="">
+                    <div id="form1" class="form1">
+                        <div class="input-container">
+                            <input id="user" class="input" type="text" pattern=".+" required />
+                            <label class="label" for="user">Nome</label>
+                        </div>
+                        <div class="input-container">
+                            <input id="fone" class="input" type="tel" pattern=".+" required />
+                            <label class="label" for="fone">Telefone</label>
+                        </div>
+                        <div class="input-container">
+                            <input id="email" class="input" type="email" pattern=".+" required />
+                            <label class="label" for="email">Email</label>
+                        </div>
+                        <center>
+                            <input type="submit" class="btn-next" onclick="proximo()" id="btn_proximo" value="Proximo">
+                        </center>
+                    </div>
+                    <div id="form2" class="form2">
+                        <div class="input-container">
+                            <select name="estacao" id="select_estacao" class="input">
+                                <option value="" disabled selected>Selecione uma estação</option>
+                                <option value="sacoma" class="input">Sacomã</option>
+                                <option value="tamanduatei" class="input">Tamanduateí</option>
+                                <option value="anaRosa" class="input">Ana rosa</option>
+                                <option value="paraiso" class="input">Paraíso</option>
+                                <option value="brigadeiro" class="input">Brigadeiro</option>
+                            </select>
+                        </div>
+                        <br><br><br>
+                        <div class="input-container">
+                            <input id="password" class="input" type="password" pattern=".+" required />
+                            <label class="label" for="password">Senha</label>
+                        </div>
+                        <div class="input-container">
+                            <input id="conf-password" class="input" type="password" pattern=".+" required />
+                            <label class="label" for="conf-password">Senha</label>
+                        </div>
+                        <div class="btn-box">
+                            <input type="submit" class="btn-next" onclick="proximo()" id="btn_proximo" value="Voltar">
+                            <input type="submit" class="btn-next" onclick="proximo()" id="btn_cadastrar" value="Cadastrar">
+                        </div>
+                    </div>
+                </form>
+                <div class="step-row">
+                    <div id="progress" class="progress"></div>
+                    <div class="step-colum"><small>Etapa 1</small></div>
+                    <div class="step-colum"><small>Etapa 2</small></div>
+                </div>
+            </div>
+        </center>
+        <div class="content-image">
+            <img src="../src/img/design-cadastro.png" alt="">
+        </div>
+    </div>
+    <script src="../src/js/login.js"></script>
+</body>
+
+</html>

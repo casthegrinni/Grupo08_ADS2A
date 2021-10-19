@@ -1,0 +1,759 @@
+/*Home - ABNER E MANOCCHIO*/
+
+* {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 200vh;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #262626;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: #1D2123;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #B8008A;
+}
+
+.navbar {
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #0003;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding: 0 20px;
+    z-index: 5;
+    transition: 0.4s;
+}
+
+.general-title {
+    color: #00A1D7;
+    width: fit-content;
+    margin: 20px auto;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.general-title h1 {
+    font-size: 30px;
+}
+
+.pink-stroke {
+    margin: auto;
+    background-color: #B8008A;
+    width: 100%;
+    height: 3px;
+    text-align: center;
+    margin-top: 10px;
+    border: none;
+}
+
+.black-layer {
+    z-index: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.45);
+    box-shadow: 0px 6px 25px -2px rgba(0, 0, 0, 0.75);
+}
+
+.logo-img {
+    background: url(../img/Logotipos/fer1branco.png) no-repeat;
+    background-size: contain;
+    height: 80%;
+    width: 100px;
+    cursor: pointer;
+}
+
+.nav-menu {
+    width: fit-content;
+    height: 20%;
+}
+
+.nav-menu ul {
+    list-style: none;
+}
+
+.nav-menu ul li {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-right: 20px;
+}
+
+.nav-menu .btn-login{
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    border: none;
+    background-color: #B8008A;
+    width: 80px;
+    height: 25px;
+    font-size: 14px;
+    justify-content: center;
+    padding-top: 3px;
+    border-radius: 5px;
+}
+
+.nav-menu .btn-login a{
+    text-decoration: none;
+    color: #FFF;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: inline-block;
+    transition: 0.15s all ease-in-out;
+}
+.nav-menu ul li a {
+    text-decoration: none;
+    color: #FFF;
+    box-sizing: border-box;
+    overflow: hidden;
+    display: inline-block;
+    transition: 0.15s all ease-in-out;
+}
+
+.nav-menu ul li a:hover {
+    text-decoration: none;
+    color: #FFF;
+    border-bottom: 3px solid #CC0099;
+    padding-bottom: 8px;
+}
+
+.bg-container {
+    background: url(../img/Banners/banner-home.jpg) no-repeat center;
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+    /* a unidade de medida vh significa viewer height, ele pega altura do monitor */
+    top: 0;
+    display: flex;
+    /* display flex ajuda a posicionar os elementos no centro de forma responsiva */
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    z-index: -5;
+    background-attachment: fixed;
+    /* dá a impressão da imagem estar se mexendo */
+    /* z-index negativo permite sobrepor elementos no canal alpha */
+}
+
+.img-home-text {
+    width: fit-content;
+    color: white;
+    text-align: center;
+}
+
+.slogan {
+    display: flex;
+    flex-direction: column;
+    /* deixa os elementos um em baixo do outro */
+    justify-content: center;
+    align-items: center;
+}
+
+.div-buttons {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* Eu deifini o flex-direction para ficar em linha por padrão, 
+    mas a propriedade flex-wrap faz com que ele se ajuste para coluna 
+    em resoluções menores */
+    justify-content: center;
+}
+
+.btn-left {
+    background-color: #00A1D7;
+}
+
+.btn-right {
+    background-color: #CC0099;
+}
+
+.btn-left, .btn-right {
+    padding: 13px;
+    margin: 10px;
+    font-size: medium;
+    width: 200px;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn-right:hover {
+    cursor: pointer;
+    background-color: #b8008a;
+}
+
+.btn-left:hover {
+    cursor: pointer;
+    background-color: #0095c7;
+}
+
+.boxes {
+    width: fit-content;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.boxes-item {
+    margin: 15px 5px;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: rgba(189, 189, 189, 0.75);
+    border-radius: 10px;
+    border-radius: 2px;
+}
+
+.content {
+    width: 100%;
+    height: auto;
+    min-height: 50vh;
+    position: relative;
+    overflow: unset;
+}
+
+.absolute-orientation {
+    position: absolute;
+    top: -30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-container {
+    margin-bottom: 50px;
+}
+
+.box-icon {
+    background-color: #0095c7;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.box-text {
+    width: 90%;
+    text-align: center;
+}
+
+@media(max-width: 500px) {
+    .navbar {
+        display: none;
+    }
+}
+
+@media(max-width: 840px) {
+    .section-contato .Caixa {
+        width: 90% !important;
+    }
+}
+
+/*Sobre nós - FERNANDO E GIOVANNA*/
+
+.section-sobreNos {
+    width: 100%;
+    height: auto;
+    background-size: cover;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.section-sobreNos .container {
+    width: 80%;
+    height: 100%;
+    margin: auto;
+    padding-top: 80px;
+}
+
+.section-sobreNos .container .text {
+    width: 90%;
+    margin: auto;
+    padding-top: 40px;
+}
+
+.section-sobreNos .container p {
+    text-align: center;
+    font-size: 23px;
+    font-weight: 400;
+}
+
+.section-sobreNos .box .container {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-size: 23px;
+}
+
+.section-sobreNos .box-item {
+    width: 210px;
+    margin: 25px;
+}
+
+.section-sobreNos .box-item img {
+    width: 35%;
+}
+
+.section-sobreNos .box-item h3 {
+    margin: 13px;
+}
+
+.section-sobreNos .box-item p {
+    font-size: 16px;
+}
+
+/*Equipe - ABNER E MANOCCHIO*/
+
+.section-equipe {
+    margin-top: 5%;
+    width: 100%;
+    height: auto;
+    padding-top: 30px;
+    background-color: #272323;
+    margin-bottom: 50px;
+}
+
+.section-equipe .container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 95%;
+}
+
+.team-holder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.group {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.member {
+    width: 300px;
+    height: 400px;
+    margin: 30px 35px;
+    position: relative;
+    transition: all ease-in-out 0.5s;
+    border: 2px solid rgba(34, 130, 255, 0.801);
+    cursor: pointer;
+}
+
+.member-info {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid rgb(255, 24, 139);
+    background-color: #ccc;
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    transition: all 0.2s;
+}
+
+.holder {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.section-equipe .pink-overlay {
+    position: absolute !important;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    transform: scaleY(0);
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.7s;
+    background-color: rgb(255, 24, 139, 0.25);
+}
+
+.member-info img {
+    width: 100%;
+    transition: transform 0.7s;
+    z-index: -1;
+}
+
+.member:hover {
+    background-color: rgba(34, 130, 255, 0.801);
+    animation: neon 1.5s ease-in-out infinite alternate;
+}
+
+.member:hover .member-info {
+    bottom: 25px;
+    left: 20px;
+}
+
+.member:hover .member-info img {
+    transform: scale(1.05);
+}
+
+.member:hover .member-info .holder .pink-overlay {
+    transform: scaleY(1);
+}
+
+@keyframes neon {
+    from {
+        box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 30px rgba(34, 130, 255, 0.801), 0 0 60px rgba(34, 130, 255, 0.801), 0 0 70px rgba(34, 130, 255, 0.801), 0 0 90px rgba(34, 130, 255, 0.801), 0 0 130px rgba(34, 130, 255, 0.801);
+    }
+    to {
+        box-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px rgba(34, 130, 255, 0.801), 0 0 35px rgba(34, 130, 255, 0.801), 0 0 40px rgba(34, 130, 255, 0.801), 0 0 50px rgba(34, 130, 255, 0.801), 0 0 75px rgba(34, 130, 255, 0.801);
+    }
+}
+
+/*Serviços - JHONATAN E LEONARDO*/
+
+.section-servicos {
+    width: 100%;
+    height: 100%;
+    color: blanchedalmond;
+    text-align: center;
+}
+
+/*Simulador - FERNANDO E GIOVANNA*/
+
+.section-simulador {
+    width: 100%;
+    height: auto;
+}
+
+#result_alert {
+    text-align: center;
+    color: rgb(255, 115, 0);
+    margin: 25px;
+    display: none;
+}
+
+.section-simulador .container-section-simulador {
+    width: 80%;
+    height: 98%;
+    margin: auto;
+    background-color: #262626;
+    margin-bottom: 50px;
+}
+
+.section-simulador .div-logo-section-simulador {
+    width: 100%;
+    padding: auto;
+}
+
+.section-simulador .logo-section-simulador {
+    margin-top: 1%;
+    width: 39%;
+    float: left;
+    margin-left: 30%;
+}
+
+.section-simulador .subtitulo-simulador {
+    text-align: center;
+    margin-top: 11%;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.section-simulador .subtitulo-simulador b {
+    color: #61D6FF;
+    font-weight: 1000;
+}
+
+.section-simulador .form-section-simulador {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    text-align: center;
+    margin-top: 2%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.section-simulador .form-section-simulador label {
+    color: white;
+    font-size: 16px;
+    break-after: auto;
+}
+
+.section-simulador .form-section-simulador .input-form, select, option {
+    height: 35px;
+    width: 65%;
+    margin: auto;
+    font-size: 15px;
+    background-color: rgb(12, 12, 12);
+    border: 3px solid white;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    text-align: center;
+    border-radius: 7px;
+    color: white;
+}
+
+.section-simulador .btn-simulador {
+    width: 15vmax;
+    height: 50px;
+    border: none;
+    text-align: center;
+    margin-bottom: 3%;
+    border-radius: 3%;
+    background-color: #00A1D7;
+    color: aliceblue;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.section-simulador .btn-simulador:hover {
+    box-shadow: 4px 4px 3px #B8008A;
+}
+
+.section-simulador #div_javascript {
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    font-size: 18px;
+    padding-bottom: 40px;
+    display: none;
+}
+
+.section-simulador .div_visualizar {
+    width: 75%;
+    margin: auto;
+    border-radius: 29px;
+    padding-top: 3%;
+    background-color: #272323;
+    box-shadow: 5px 5px #B8008A;
+    text-align: justify;
+}
+
+.section-simulador .boxes {
+    width: fit-content;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+    color: aliceblue;
+}
+
+.section-simulador .boxes h3 {
+    margin: 0;
+}
+
+.section-simulador .boxes-item {
+    margin: 20px 20px;
+    width: 250px;
+    height: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+    background-color: rgba(73, 72, 72, 0.75);
+    border-radius: 10px;
+    border-radius: 2px;
+}
+
+.section-simulador .box-container {
+    margin-bottom: 50px;
+}
+
+.section-simulador .box-icon {
+    background-color: #B8008A;
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 50%;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.section-simulador .box-text {
+    width: 90%;
+    text-align: center;
+}
+
+.section-simulador .box-icon img {
+    width: 75%
+}
+
+.section-simulador .container-simulator {
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    font-size: 23px;
+}
+
+.section-simulador .colum-simulator {
+    width: 45%;
+    margin: 10px;
+}
+
+/*Contato - JHONATAN E LEONARDO*/
+
+.section-contato .Caixa {
+    margin: auto;
+    background-color: #272323;
+    border-radius: 10px;
+    width: 60%;
+    height: 60%;
+    transition: all 0.25s;
+    text-align: center;
+    margin-top: 5%;
+    padding-top: 2%;
+}
+
+.Contato {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Contato label {
+    color: white;
+    font-size: 16px;
+    break-after: auto;
+}
+
+.Contato .input-form, select, option {
+    height: 30px;
+    width: 30%;
+    font-size: 100%;
+    margin: auto;
+    background-color: rgb(12, 12, 12);
+    border: 3px solid white;
+    text-align: center;
+    border-radius: 7px;
+    color: white;
+}
+
+.Contato .mensagem {
+    height: 100px;
+    width: 40%;
+    font-size: 100%;
+    margin: auto;
+    margin-top: 2%;
+    background-color: rgb(12, 12, 12);
+    border: 3px solid white;
+    text-align: center;
+    border-radius: 7px;
+    color: white;
+}
+
+.Contato textarea {
+    resize: none;
+}
+
+.section-contato .btn-contato {
+    width: 15vmax;
+    height: 50px;
+    border: none;
+    text-align: center;
+    margin-bottom: 3%;
+    border-radius: 3%;
+    background-color: #00A1D7;
+    color: aliceblue;
+    font-size: 16px;
+    font-weight: 800;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.section-contato .btn-contato:hover {
+    box-shadow: 4px 4px 3px #B8008A;
+
+}
+
+textarea {
+    outline: none;
+    border: none;
+    border-radius: 31px;
+    text-align: center;
+    color: rgb(104, 104, 104);
+    padding: 5px;
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 20px;
+    width: 420px;
+}
+
+textarea:focus {
+    width: 480px;
+    transition: 0.5s;
+}
+
+.footer {
+    background-color: #1D2123;
+    text-align: center;
+    margin-top: 4%;
+    height: 120px;
+    border-top: 3px solid #b8008a;
+}
+
+.footer h4 {
+    margin: 0;
+    font-weight: 200;
+    padding-top: 40px;
+    color: white;
+}
+
+.footer h4 a {
+    font-weight: 500;
+    text-decoration: none;
+    color: white;
+}
+
+.footer .icones {
+    display: flex;
+    justify-content: center
+}
+
+.footer .icones i {
+    padding: 15px 10px 0 10px;
+    float: left;
+   font-size: 35px;
+   color: #B8008A;
+    text-align: center;
+}

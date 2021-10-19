@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='../src/css/dashboard.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../src/css/sala.css'>
+
+    <link rel="icon" href="../src/img/Logotipos/fer1branco.png">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+
+    <title>Sala 2C</title>
+</head>
+
+<body>
+    <div class="l-navbar" id="navbar">
+        <nav class="nav">
+            <div>
+                <a href="#" class="nav_logo">
+                </a>
+                <div class="nav_list">
+                    <a href="./dashboard.html" class="go-back nav_link ">
+                        <i class="fas fa-arrow-left"></i>
+                    </a>
+
+
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-user nav_icon'></i>
+                        <span class="nav_name">Users</span>
+                    </a>
+
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-grid-alt nav_icon'></i>
+                        <span class="nav_name">Dashboard</span>
+                    </a>
+
+                    <a href="#" class="nav_link">
+                        <i class='far fa-bell nav_icon'></i>
+                        <span class="nav_name">Messages</span>
+                    </a>
+
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-bar-chart-alt-2 nav_icon'></i>
+                        <span class="nav_name">Analytics</span>
+                    </a>
+
+                    <a href="#" class="nav_link">
+                        <i class='bx bx-folder nav_icon'></i>
+                        <span class="nav_name">Data</span>
+                    </a>
+                </div>
+            </div>
+            <a href="#" class="nav_link">
+                <i class='bx bx-log-out nav_icon'></i>
+                <span class="nav_name">Log Out</span>
+            </a>
+        </nav>
+    </div>
+
+    <div class="graphics-orientation">
+        <div class="graphics-container">
+            <div class="panel">
+                <div class="general-title">
+                    <h1>Informações</h1>
+                    <hr class="pink-stroke" />
+                </div>
+                <div class="information">
+                    <div class="info">
+                        <h3>Extremamente Baixa:</h3>
+                        <div class="round-color ex-low"></div>
+                    </div>
+
+                    <div class="info">
+                        <h3> Baixa:</h3>
+                        <div class="round-color low"></div>
+                    </div>
+
+                    <div class="info">
+                        <h3>Ideal:</h3>
+                        <div class="round-color ideal"></div>
+                    </div>
+
+                    <div class="info">
+                        <h3>Alta:</h3>
+                        <div class="round-color high"></div>
+                    </div>
+
+                    <div class="info">
+                        <h3>Extremamente Alta:</h3>
+                        <div class="round-color ex-high"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel">
+                <div class="general-title">
+                    <h1>Luminosidade</h1>
+                    <hr class="pink-stroke" />
+                </div>
+                <div>
+                    <canvas width="400px" class=" chart" id="chartLuminosity"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="general-title">
+                    <h1>Umidade</h1>
+                    <hr class="pink-stroke" />
+                </div>
+                <div>
+                    <canvas width="400px" class=" chart" id="chartHumidity"></canvas>
+                </div>
+            </div>
+            <div class="panel">
+                <div class="general-title">
+                    <h1>Temperatura</h1>
+                    <hr class="pink-stroke" />
+                </div>
+                <div>
+                    <canvas width="400px" class=" chart" id="chartTemperature"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="http://www.chartjs.org/dist/2.7.1/Chart.js"></script>
+    <script src="../src/js/static.js"></script>
+</body>
+
+</html>
