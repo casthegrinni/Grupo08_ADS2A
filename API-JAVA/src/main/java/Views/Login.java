@@ -28,7 +28,7 @@ public class Login extends javax.swing.JFrame {
         lblUser = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JPasswordField();
         lblMachine = new javax.swing.JLabel();
         txtMachine = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
@@ -36,7 +36,7 @@ public class Login extends javax.swing.JFrame {
 
         txtUser1.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         txtUser1.setForeground(new java.awt.Color(255, 255, 255));
-        txtUser1.setText("Usuário");
+        txtUser1.setText("User");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(50, 50, 50));
