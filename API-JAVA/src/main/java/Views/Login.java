@@ -28,7 +28,7 @@ public class Login extends javax.swing.JFrame {
         lblUser = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
         lblPassword = new javax.swing.JLabel();
-        txtPassword = new javax.swing.JPasswordField();
+        txtPassword = new javax.swing.JTextField();
         lblMachine = new javax.swing.JLabel();
         txtMachine = new javax.swing.JTextField();
         btnLogin = new javax.swing.JButton();
@@ -36,7 +36,7 @@ public class Login extends javax.swing.JFrame {
 
         txtUser1.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         txtUser1.setForeground(new java.awt.Color(255, 255, 255));
-        txtUser1.setText("Usuï¿½rio");
+        txtUser1.setText("Usuário");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(50, 50, 50));
@@ -45,20 +45,20 @@ public class Login extends javax.swing.JFrame {
 
         lblUser.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         lblUser.setForeground(new java.awt.Color(51, 51, 51));
-        lblUser.setText("Usuï¿½rio");
+        lblUser.setText("User");
 
         txtUser.setFont(new java.awt.Font("Tomorrow", 0, 12)); // NOI18N
 
         lblPassword.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         lblPassword.setForeground(new java.awt.Color(51, 51, 51));
-        lblPassword.setText("Senha");
+        lblPassword.setText("Password");
 
         txtPassword.setFont(new java.awt.Font("Tomorrow", 0, 12)); // NOI18N
 
         lblMachine.setBackground(new java.awt.Color(255, 255, 65));
         lblMachine.setFont(new java.awt.Font("Tomorrow", 0, 18)); // NOI18N
         lblMachine.setForeground(new java.awt.Color(51, 51, 51));
-        lblMachine.setText("ID mï¿½quina");
+        lblMachine.setText("Machine ID");
 
         txtMachine.setFont(new java.awt.Font("Tomorrow", 0, 12)); // NOI18N
 
@@ -96,7 +96,7 @@ public class Login extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel1)))
-                .addContainerGap(233, Short.MAX_VALUE))
+                .addContainerGap(227, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
