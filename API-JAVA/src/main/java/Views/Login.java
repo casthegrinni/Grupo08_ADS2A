@@ -145,14 +145,14 @@ public class Login extends javax.swing.JFrame {
             txtMachine.getText();
             Boolean result = vc.verifyUserAndMachine(user,password,txtMachine.getText());
             if (result){
-                JOptionPane.showMessageDialog(null,"Login feito \n come�ando captura de dados");
+                JOptionPane.showMessageDialog(null,"Login feito \n começando captura de dados");
                 ef.runExitScreen();;
                 vc.startWithFkMaquina(txtMachine.getText());
 
             }
 
             else{
-                JOptionPane.showMessageDialog(null,"Informa��es erradas, tente novamente");
+                JOptionPane.showMessageDialog(null,"Informações erradas, tente novamente");
             }
         
    

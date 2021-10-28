@@ -20,11 +20,10 @@ public class LoocaController {
                  System.out.println("pegando infos...");
                  looca.setPcInfo();
              String query = String.format("INSERT INTO status_maquina " +
-                             "(uso_processador,temperatura_cpu,nome_disco,uso_disco,uso_ram,fk_maquina) " +
-                             "values (%s,'%s','%s',%s,%d,%d)",
+                             "(uso_processador,temperatura_cpu,uso_disco,uso_ram,fk_maquina) " +
+                             "values (%s,'%s',%s,%d,%d)",
                      looca.getUsoProcessador(),
                      looca.getTemperaturaCpu(),
-                     looca.getNomeDIsco(),
                      looca.getUsoDissco(),
                      looca.getRam(),fkMaquina);
               System.out.println(query);     

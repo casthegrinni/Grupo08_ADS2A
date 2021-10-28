@@ -14,7 +14,6 @@ public class LoocaMoodel {
     private String usoProcessador;
     private String temperaturaCpu;
     private Long usoDissco;
-    private String nomeDIsco;
     private Long ram;
     public void setPcInfo() {
         valueOfUsoProcessador = looca.getProcessador().getUso().doubleValue();
@@ -25,17 +24,12 @@ public class LoocaMoodel {
             List<Disco> discos = grupo.getDiscos();
             for (Disco disco : discos) {
                 usoDissco = disco.getTamanhoAtualDaFila();
-                nomeDIsco = disco.getNome();
 
             }
             ram = looca.getMemoria().getEmUso();
 
     }
 
-
-    public String getNomeDIsco() {
-        return nomeDIsco;
-    }
 
     public String getUsoProcessador() {
         return usoProcessador;
