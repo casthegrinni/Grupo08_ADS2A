@@ -25,15 +25,22 @@ public class LoocaController {
                      looca.getUsoProcessador(),
                      looca.getTemperaturaCpu(),
                      looca.getUsoDissco(),
-                     looca.getRam(),fkMaquina);
+                     looca.getUsoRam(),fkMaquina);
               System.out.println(query);     
              db.initializer();
-             db.makeInsertQuery(query);
+             db.makeQueryWithoutReturn(query);
             System.out.println("inseriu");
 
 
         }
    };
+
+    public void setStaticPcInfo(){
+        looca.setStaticPcInfo();
+        String query = (String.format("update [dbo].[maquina] set ram = %d, tamanho_disco = %d, checada = 1 where id_maquina = %d", looca.getTotalRam(),looca.getTotalDisco(),fkMaquina));
+        db.initializer();
+        db.makeQueryWithoutReturn(query);
+    }
     public void insertInSeconds(int seconds){
         timer.schedule(task,0,seconds* 1000L);
     }
@@ -45,4 +52,5 @@ public class LoocaController {
     public void setFkMaquina(int fkMaquina) {
         this.fkMaquina = fkMaquina;
     }
+
 }

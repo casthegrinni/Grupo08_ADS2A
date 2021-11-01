@@ -7,10 +7,7 @@ package Views;
 
 import controller.ViewController;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import javax.swing.*;
-import javax.swing.text.View;
 
 public class Login extends javax.swing.JFrame {
      private final ViewController vc = new ViewController();
@@ -141,22 +138,49 @@ public class Login extends javax.swing.JFrame {
         vc.init();
         String user = txtUser.getText();
         String password = txtPassword.getText();
-        
-            txtMachine.getText();
-            Boolean result = vc.verifyUserAndMachine(user,password,txtMachine.getText());
+
+        Boolean result = vc.verifyUserAndMachine(user,password,txtMachine.getText());
+        System.out.println(result);
             if (result){
-                JOptionPane.showMessageDialog(null,"Login feito \n começando captura de dados");
-                ef.runExitScreen();;
-                vc.startWithFkMaquina(txtMachine.getText());
 
-            }
 
-            else{
-                JOptionPane.showMessageDialog(null,"Informações erradas, tente novamente");
+                final JOptionPane optionPane = new JOptionPane("Wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
+                JDialog d = new JDialog();
+                d.setTitle("Wait");
+
+                d.setContentPane(optionPane);
+                d.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+                d.pack();
+                d.setVisible(true);
+                Boolean checkFirstTime =vc.calibratePc(false, txtMachine.getText()) ;
+                if(checkFirstTime) {
+                    d.setVisible(false);
+                    d.dispose();
+                    JOptionPane.showMessageDialog(null, "Login complete. Starting data capture");
+                    ef.runExitScreen();
+                    dispose();
+                    vc.start();
+
+
+                }
+                    else{
+                        JOptionPane.showMessageDialog(null,"an error as ocurred, please try again later");
+                        System.exit(0);
+
+                    }
+
+
+
+
+                }
+
+                else{
+                    JOptionPane.showMessageDialog(null,"sorry, we can't find any user with this infos,please verify the fields and try again");
+                }
             }
         
    
-    }//GEN-LAST:event_btnLoginActionPerformed
+    //GEN-LAST:event_btnLoginActionPerformed
 
 
     public static void main(String args[]) {

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import org.ini4j.Ini;
 
@@ -53,7 +54,7 @@ public class  DataBaseModel {
 
         return map;
     }
-    public void makeInsertQuery(String query){
+    public void makeQueryWithoutReturn(String query){
         String url = String.format("jdbc:sqlserver://%s:%s;databaseName=%s;user=%s;password=%s", server, port, dbName, user, password);
         try (Connection c = DriverManager.getConnection(url); Statement smt = c.createStatement()) {
             smt.execute(query);
@@ -61,6 +62,25 @@ public class  DataBaseModel {
         }catch (SQLException e) {
             e.printStackTrace();
         }
+
+        }
+        public String makeCalibrateSelect(String fkMaquina){
+            String url = String.format("jdbc:sqlserver://%s:%s;databaseName=%s;user=%s;password=%s", server, port, dbName, user, password);
+            String query = String.format("select checada from [dbo].[maquina] where id_maquina = %s", fkMaquina);
+            String response ="";
+            try (Connection c = DriverManager.getConnection(url); Statement smt = c.createStatement()) {
+                ResultSet rs = smt.executeQuery(query);
+
+                while (rs.next()) {
+                    response = rs.getString(1);
+                }
+                return response;
+
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return response;
 
         }
     }

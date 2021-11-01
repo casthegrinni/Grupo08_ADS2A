@@ -25,7 +25,6 @@ public class ViewController {
         if (map.isEmpty()) {
             return false;
         } else {
-
             Boolean checked = checkFkMaquina(fkmaquinaInt);
             if ( checked){
                 return true;
@@ -36,6 +35,7 @@ public class ViewController {
     }
     public Boolean checkFkMaquina(int fkMaquina) {
         String query = String.format("select * from maquina where id_maquina = %d",fkMaquina);
+        System.out.println(query);
         Map map = db.makeSelectQuery(query);
         if (map.isEmpty()){
             return false;
@@ -44,11 +44,8 @@ public class ViewController {
 
 
     }
-    public void startWithFkMaquina(String fkMaquina){
-          Integer fkInt = 0;
-            fkInt = Integer.valueOf(fkMaquina);
-        
-        looca.setFkMaquina(fkInt);
+    public void start(){
+
         looca.insertInSeconds(5);
 
 
@@ -56,6 +53,38 @@ public class ViewController {
 
     public void init() {
         db.initializer();
+    }
+
+    public  boolean  calibratePc(Boolean requested, String fkMaquina){
+        Integer fkInt = 0;
+        fkInt = Integer.valueOf(fkMaquina);
+        looca.setFkMaquina(fkInt);
+
+
+
+        if (!requested){
+            System.out.println("verificando se o pc já foi checkado alguma vez");
+
+           String response =  db.makeCalibrateSelect(fkMaquina);
+           if (response.equals("0") || response.equals("1")){
+               looca.setStaticPcInfo();
+               return true;
+           }
+           else if(response.equals("")){
+               return false;
+
+           }
+           else {
+               looca.setStaticPcInfo();
+               return true;
+           }
+
+
+        }
+        return false;
+
+
+
     }
 
 

@@ -3,7 +3,6 @@ package Models;
 import com.github.britooo.looca.api.core.Looca;
 import com.github.britooo.looca.api.group.discos.Disco;
 import com.github.britooo.looca.api.group.discos.DiscosGroup;
-import com.github.britooo.looca.api.group.temperatura.Temperatura;
 
 import java.util.List;
 
@@ -14,7 +13,9 @@ public class LoocaMoodel {
     private String usoProcessador;
     private String temperaturaCpu;
     private Long usoDissco;
-    private Long ram;
+    private Long usoRam;
+    private Long totalDisco;
+    private Long totalRam;
     public void setPcInfo() {
         valueOfUsoProcessador = looca.getProcessador().getUso().doubleValue();
         usoProcessador = valueOfUsoProcessador.toString();
@@ -26,7 +27,18 @@ public class LoocaMoodel {
                 usoDissco = disco.getTamanhoAtualDaFila();
 
             }
-            ram = looca.getMemoria().getEmUso();
+            usoRam = looca.getMemoria().getEmUso();
+
+    }
+    public void setStaticPcInfo(){
+        DiscosGroup grupo = looca.getGrupoDeDiscos();
+        List<Disco> discos = grupo.getDiscos();
+        for (Disco disco : discos) {
+            totalDisco = disco.getTamanho();
+        }
+        totalRam = looca.getMemoria().getTotal();
+
+
 
     }
 
@@ -43,10 +55,18 @@ public class LoocaMoodel {
         return usoDissco;
     }
 
-    public Long getRam() {
-        return ram;
+    public Long getUsoRam() {
+        return usoRam;
     }
-    
+
+    public Long getTotalDisco() {
+        return totalDisco;
+    }
+
+    public Long getTotalRam() {
+        return totalRam;
+    }
+
 
 }
 
