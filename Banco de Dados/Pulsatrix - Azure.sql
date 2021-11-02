@@ -73,4 +73,7 @@ INSERT INTO maquina(fk_estacao) VALUES
 
 INSERT INTO status_papel (estoque_papel, fk_maquina) VALUES(0, 7000);
 
+INSERT INTO estacao (nome_estacao, CEP, cidade, bairro, logradouro, numero) VALUES
+       ('Consolação','01301100','São Paulo','Consolação','Rua da consolação', '2406');
+
 

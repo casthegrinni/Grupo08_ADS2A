@@ -24,38 +24,46 @@
                     <button>Login</button>
                 </a>
 
-                <form action="">
+                <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
                     <div id="form1" class="form1">
                         <div class="input-container">
-                            <input id="user" class="input" type="text" pattern=".+" required />
+                            <input id="user" class="input" type="text" pattern=".+" name="nome" required />
                             <label class="label" for="user">Nome</label>
                         </div>
                         <div class="input-container">
-                            <input id="fone" class="input" type="tel" pattern=".+" required />
+                            <input id="fone" class="input" type="tel" pattern=".+" name="celular" required />
                             <label class="label" for="fone">Telefone</label>
                         </div>
                         <div class="input-container">
-                            <input id="email" class="input" type="email" pattern=".+" required />
+                            <input id="email" class="input" type="email" pattern=".+" name="email" required />
                             <label class="label" for="email">Email</label>
                         </div>
                         <center>
-                            <input type="submit" class="btn-next" onclick="proximo()" id="btn_proximo" value="Proximo">
+                            <input type="button" class="btn-next" onclick="proximo()" id="btn_proximo" value="Proximo">
                         </center>
                     </div>
                     <div id="form2" class="form2">
                         <div class="input-container">
                             <select name="estacao" id="select_estacao" class="input">
                                 <option value="" disabled selected>Selecione uma estação</option>
-                                <option value="sacoma" class="input">Sacomã</option>
-                                <option value="tamanduatei" class="input">Tamanduateí</option>
-                                <option value="anaRosa" class="input">Ana rosa</option>
-                                <option value="paraiso" class="input">Paraíso</option>
-                                <option value="brigadeiro" class="input">Brigadeiro</option>
+                                <option value="1" class="input">Consolação</option>
+                                <option value="2" class="input">Sumaré</option>
+                                <option value="3" class="input">Clínicas</option>
+                                <option value="4" class="input">Trianom-MASP</option>
+                                <option value="5" class="input">Brigadeiro</option>
+                                <option value="6" class="input">Paraíso</option>
+                                <option value="7" class="input">Ana Rosa</option>
+                                <option value="8" class="input">Chácara Klabin</option>
+                                <option value="9" class="input">Santos-imigrantes</option>
+                                <option value="10" class="input">Alto do Ipiranga</option>
+                                <option value="11" class="input">Sacomã</option>
+                                <option value="12" class="input">Tamanduateí</option>
+                                <option value="13" class="input">Vila Prudente</option>
                             </select>
                         </div>
                         <br><br><br>
                         <div class="input-container">
-                            <input id="password" class="input" type="password" pattern=".+" required />
+                            <input id="password" class="input" type="password" name="senha"pattern=".+" required />
                             <label class="label" for="password">Senha</label>
                         </div>
                         <div class="input-container">
@@ -63,7 +71,7 @@
                             <label class="label" for="conf-password">Senha</label>
                         </div>
                         <div class="btn-box">
-                            <input type="submit" class="btn-next" onclick="proximo()" id="btn_proximo" value="Voltar">
+                            <input type="button" class="btn-next" onclick="proximo()" id="btn_proximo" value="Voltar">
                             <input type="submit" class="btn-next" onclick="proximo()" id="btn_cadastrar" value="Cadastrar">
                         </div>
                     </div>
@@ -79,7 +87,7 @@
             <img src="../src/img/design-cadastro.png" alt="">
         </div>
     </div>
-    <script src="../src/js/login.js"></script>
+    <script src="../src/js/cadastro.js"></script>
 </body>
 
 </html>
