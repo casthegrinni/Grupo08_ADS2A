@@ -11,12 +11,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <script src="js/funcoes.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
 </head>
 
-<body>
+<body onload="verificar_autenticacao()">
 
     <nav class="nav">
         <a href="dashboard.html" class="logo">
@@ -69,7 +70,7 @@
                 <img src="../src/img/perfil.png" alt="">
                 <p class="name">
                     Usuário
-                    <span>User Name</span>
+                    <span id="b_usuario">User Name</span>
                 </p>
             </div>
         </header>
@@ -150,5 +151,4 @@
     <script src='js/dashboard.js'></script>
     <script src='js/charts.js'></script>
 </body>
-
 </html>

@@ -6,6 +6,7 @@ function redirecionar_login() {
 }
 
 function verificar_autenticacao() {
+    console.log("Teste verificar autenti")
     login_usuario = sessionStorage.login_usuario_meuapp;
     nome_usuario = sessionStorage.nome_usuario_meuapp;
     

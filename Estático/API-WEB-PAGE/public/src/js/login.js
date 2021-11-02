@@ -9,7 +9,7 @@ function entrar() {
 
             resposta.json().then(json => {
 
-                sessionStorage.login_usuario_meuapp = json.login;
+                sessionStorage.login_usuario_meuapp = json.email;
                 sessionStorage.nome_usuario_meuapp = json.nome;
 
                 window.location.href = 'dashboard.html';
