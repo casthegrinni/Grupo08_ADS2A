@@ -1,0 +1,243 @@
+* {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    background: #112B3C;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #112B3C;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+    background: #112B3C;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6FCBA2;
+}
+
+.container {
+    margin-top: -10%;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.content-image {
+    margin-right: -16%;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.content-image img {
+    height: 745px;
+    width: 100%;
+}
+
+.content-form {
+    width: 450px;
+    height: 500px;
+    margin-top: 50%;
+    margin-left: -30%;
+    margin-right: 13%;
+    position: relative;
+    background-color: #6FCBA2;
+    border-radius: 10px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.253);
+}
+
+.content-form form {
+    padding-top: 20%;
+    margin: auto;
+    width: 350px;
+    position: absolute;
+    top: 100px;
+    left: 40px;
+    transition: 0.5s;
+}
+
+.content-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+}
+
+.content-form h1 {
+    margin-bottom: 2%;
+    color: #112B3C;
+    font-weight: 600;
+}
+
+.content-form button {
+    border: none;
+    background-color: transparent;
+    font-size: 20px;
+    font-weight: 500;
+    color: aliceblue;
+    margin-bottom: 5%;
+    cursor: pointer;
+}
+
+.content-form a {
+    margin-bottom: 5%;
+}
+
+.content-form form label,
+input {
+    margin-bottom: 20%;
+}
+
+.content-form form button {
+    margin-top: 5%;
+    width: 120px;
+    height: 40px;
+    font-size: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #112B3C;
+    font-weight: 600;
+    cursor: pointer;
+    color: aliceblue;
+}
+
+.input-container {
+    position: relative;
+}
+
+input,
+select {
+    border: 0;
+    border-bottom: 2px solid #112B3C;
+    background-color: transparent;
+    outline: none;
+    transition: .3s ease-in-out;
+    box-sizing: border-box;
+}
+
+label {
+    top: 0;
+    left: 0;
+    right: 0;
+    color: #112B3C;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    font-size: 1rem;
+    cursor: text;
+    transition: .2s ease-in-out;
+    box-sizing: border-box;
+}
+
+input,
+label,
+select {
+    width: 100%;
+    height: 2rem;
+    font-size: 1rem;
+}
+
+/* Interation */
+input:valid,
+input:focus {
+    border-bottom: 2px solid white;
+}
+
+input:valid+label,
+input:focus+label {
+    color: white;
+    font-size: 1rem;
+    top: -30px;
+    pointer-events: none;
+}
+
+.container .form1 {
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .form2 {
+    left: 450px;
+    display: none;
+}
+
+.container .step-row {
+    width: 300px;
+    height: 40px;
+    margin: 1% auto;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 -1px 5px -1px #000;
+    position: relative;
+}
+
+.container .step-colum {
+    width: 140px;
+    text-align: center;
+    color: aliceblue;
+    font-weight: 400;
+    position: relative;
+    text-transform: uppercase;
+}
+
+.container .progress {
+    position: absolute;
+    height: 100%;
+    width: 140px;
+    transition: 1s;
+    background: linear-gradient(to right, #112B3C, #112B3C);
+}
+
+.container .progress::after {
+    content: '';
+    height: 0;
+    width: 0;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    border-left: 20px solid #112B3C;
+}
+
+#btn_proximo,
+#btn_anterior,
+#btn_cadastrar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 120px;
+    height: 45px;
+    margin: 0 10px;
+    background: linear-gradient(to right, #112B3C, #112B3C);
+    border-radius: 30px;
+    border: 0;
+    outline: none;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.container .btn-box {
+    width: 100%;
+    margin-top: -5%;
+    color: aliceblue;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
