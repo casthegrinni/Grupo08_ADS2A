@@ -52,6 +52,13 @@ SELECT * FROM estacao;
 SELECT * FROM usuario;
 SELECT * FROM maquina;
 SELECT * FROM status_maquina;
+SELECT * FROM status_papel;
+
+EXEC sp_help estacao;
+EXEC sp_help usuario;
+EXEC sp_help maquina;
+EXEC sp_help status_maquina;
+EXEC sp_help status_papel;
 
 INSERT INTO estacao (nome_estacao, CEP, cidade, bairro, logradouro, numero) VALUES
        ('Consolação','01301100','São Paulo','Consolação','Rua da consolação', '2406');
@@ -66,4 +73,4 @@ INSERT INTO maquina(fk_estacao) VALUES
 
 INSERT INTO status_papel (estoque_papel, fk_maquina) VALUES(0, 7000);
 
-SELECT * FROM status_papel;
+
