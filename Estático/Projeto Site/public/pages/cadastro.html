@@ -24,22 +24,22 @@
                     <button>Login</button>
                 </a>
 
-                <form action="">
+                <form id="form_cadastro" method="post" onsubmit="return cadastrar()">
                     <div id="form1" class="form1">
                         <div class="input-container">
-                            <input id="user" class="input" type="text" pattern=".+" required />
+                            <input id="user" class="input" type="text" pattern=".+" name= "nome" required />
                             <label class="label" for="user">Nome</label>
                         </div>
                         <div class="input-container">
-                            <input id="fone" class="input" type="tel" pattern=".+" required />
+                            <input id="fone" class="input" type="tel" pattern=".+" name= "telefone"required />
                             <label class="label" for="fone">Telefone</label>
                         </div>
                         <div class="input-container">
-                            <input id="email" class="input" type="email" pattern=".+" required />
+                            <input id="email" class="input" type="email" pattern=".+" name= "email" required />
                             <label class="label" for="email">Email</label>
                         </div>
                         <center>
-                            <input type="submit" class="btn-next" onclick="proximo()" id="btn_proximo" value="Proximo">
+                            <input  class="btn-next" onclick="proximo()" id="btn_proximo" value="Proximo">
                         </center>
                     </div>
                     <div id="form2" class="form2">
