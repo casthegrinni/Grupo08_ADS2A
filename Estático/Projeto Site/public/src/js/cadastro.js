@@ -26,7 +26,6 @@ function cadastrar() {
 
             console.log('Erro de cadastro!');
             response.text().then(function (resposta) {
-                div_erro.innerHTML = resposta;
             });
             finalizar_aguardar();
         }
@@ -36,13 +35,9 @@ function cadastrar() {
 }
 
 function aguardar() {
-    btn_entrar.disabled = true;
-    img_aguarde.style.display='block';
-    div_erro.style.display='none';
+    //btn_entrar.disabled = true;
 }
 
 function finalizar_aguardar() {
-    btn_entrar.disabled = false;
-    img_aguarde.style.display='none';
-    div_erro.style.display='block';
+    //btn_entrar.disabled = false;
 }

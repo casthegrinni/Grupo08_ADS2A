@@ -19,12 +19,12 @@ module.exports = (sequelize, DataTypes) => {
 			allowNull: false
 		},
 		celular: {
-			field: 'login',
+			field: 'celular',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
 		email: {
-			field: 'login',
+			field: 'email',
 			type: DataTypes.STRING,
 			allowNull: false
 		},
