@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
 </head>
 
-<body>
+<body onload="setInfo()"> 
 
     <nav class="nav">
         <a href="dashboard.html" class="logo">
@@ -67,7 +67,7 @@
                 <img src="../src/img/perfil.png" alt="">
                 <p class="name">
                     Usuário
-                    <span>User Name</span>
+                    <span id="userName">_____</span>
                 </p>
             </div>
         </header>
@@ -77,7 +77,7 @@
                 <hr class="pink-stroke" />
             </div>
             <div class="container-form">
-                <form onsubmit="cadastroResponsavel()" action="javascript:void(0)" id="form_cadastroResponsavel" class="form-" autocomplete="off">
+                <form onsubmit="cadastroMaquina()" action="javascript:void(0)" id="form_cadastroResponsavel" class="form-" autocomplete="off">
                     <div class="sign-resp-container">
 
 
@@ -86,19 +86,30 @@
                                 <i class="fas fa-desktop"></i>
                                 <input id="nomeMaquina" type="text" name="nomeMaquina" placeholder="Máquina" required>
                             </div>
-                                <select name="Selecione uma estação" id="estacao" class="input-field">
+                                <select name="select_estacao" id="select_estacao" class="input-field">
                                     <option class="input-form input-field" value="" selected disabled>Selecione uma estação</option>
-                                    <option class="input-form" value="11">Ana Rosa</option>
-                                    <option class="input-form" value="22">Sacomã</option>
-                                    <option class="input-form" value="33">Vila Prudente</option>
+                                    <option class="input-form" value="1">Consolação</option>
+                                    <option class="input-form" value="3">Sumaré</option>
+                                    <option class="input-form" value="4">Clínicas</option>
+                                    <option class="input-form" value="5">Trianom-MASP</option>
+                                    <option class="input-form" value="6">Brigadeiro</option>
+                                    <option class="input-form" value="7">Paraíso</option>
+                                    <option class="input-form" value="8">Ana rosa</option>
+                                    <option class="input-form" value="9">Chácara klabin</option>
+                                    <option class="input-form" value="10">Santos-imigrantes</option>
+                                    <option class="input-form" value="11">Alto do ipiringa</option>
+                                    <option class="input-form" value="12">Sacomã</option>
+                                    <option class="input-form" value="13">Tamanduateí</option>
+                                    <option class="input-form" value="14">Vila Prudente</option>
+
+
                                 </select>
                                 <div class="container">
                                     <label for="" class="label-check">O que deseja monitorar?</label><br>
                                     <ul class="ks-cboxtags">
-                                      <li><input type="checkbox" id="checkboxOne" value="disco"><label for="checkboxOne">Disco</label></li><br>
+                                      <li id=><input type="checkbox" id="checkboxOne" value="disco"><label for="checkboxOne">Disco</label></li><br>
                                       <li><input type="checkbox" id="checkboxTwo" value="memoria" checked><label for="checkboxTwo">Mémoria RAM</label></li><br>
                                       <li><input type="checkbox" id="checkboxThree" value="cpu" checked><label for="checkboxThree">CPU</label></li><br>
-                                      <li><input type="checkbox" id="checkboxFour" value="temperatura"><label for="checkboxFour">Temperatura</label></li><br>
                                     </ul>
                                   
                                   </div>
@@ -116,7 +127,8 @@
             <i class="fas fa-plus"></i>
         </div>
     </a>
-    <script src='../src/js/charts.js'></script>
+    <!-- <script src='../src/js/charts.js'></script> -->
+    <script src="../src/js/cadastro_maquina.js"></script>
 </body>
 
 </html>

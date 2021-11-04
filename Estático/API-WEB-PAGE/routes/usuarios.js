@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Usuario = require('../models').Usuario;
+var Maquina = require('../models').Maquina;
 
 let sessoes = [];
 
@@ -108,5 +109,23 @@ router.get('/', function(req, res, next) {
 		res.status(500).send(erro.message);
   	});
 });
+// cadastra maquina
+
+router.post('/cadastrar_maquina/:param_CPU/:param_RAM/:param_disco', function(req, res, next) {
+	Maquina.create({
+		want_ram : req.params.param_RAM,
+		want_disco:req.params.param_disco,
+		want_cpu: req.params.param_CPU,
+		nome_maquina : req.body.nomeMaquina,
+		fk_estacao : req.body.select_estacao
+	    }).then(resultado => {
+		console.log(`Registro criado: ${resultado}`)
+        res.send(resultado);
+    }).catch(erro => {
+		console.error(erro);
+		res.status(500).send(erro.message);
+  	});
+});
+
 
 module.exports = router;
