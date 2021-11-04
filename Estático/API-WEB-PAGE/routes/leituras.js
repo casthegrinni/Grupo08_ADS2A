@@ -124,5 +124,35 @@ router.get('/machines/:fk_estacao', function (req, res, next) {
   
 });
 
+router.get('/machines_total/:fk_estacao', function (req, res, next) {
+	
+	
+	const instrucaoSql = `select count (id_maquina) as contagem from maquina where fk_estacao = ${req.params.fk_estacao}`;
+					
+
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado[0]);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+  
+});
+router.get('/stations_total/', function (req, res, next) {
+	
+	
+	const instrucaoSql = `select count (id_estacao) as contagem from estacao`;
+					
+
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado[0]);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+  
+});
 
 module.exports = router;

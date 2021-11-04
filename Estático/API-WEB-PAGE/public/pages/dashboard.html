@@ -80,7 +80,7 @@
                     <div class="col">
                         <div class="card shadow">
                             <div class="desc">
-                                <span id="count_maquinas">100</span>
+                                <span id="count_maquinas"></span>
                                 <p>Máquinas</p>
                             </div>
                             <i class='bx bx-laptop'></i>
@@ -89,7 +89,7 @@
                     <div class="col">
                         <div class="card shadow">
                             <div class="desc">
-                                <span>50</span>
+                                <span id="count_stations"></span>
                                 <p>Estações</p>
                             </div>
                             <i class='bx bx-train'></i>
@@ -98,7 +98,7 @@
                     <div class="col">
                         <div class="card shadow">
                             <div class="desc">
-                                <span>50</span>
+                                <span id="count_critical">50</span>
                                 <p>Máquinas Inátivas</p>
                             </div>
                             <i class='bx bx-error-alt'></i>
@@ -137,6 +137,7 @@
     function start(){
         verificar_autenticacao()
         getMachines()
+        getFirstInfo()
     }
     </script>
 </body>
