@@ -11,6 +11,7 @@ function entrar() {
 
                 sessionStorage.login_usuario_meuapp = json.email;
                 sessionStorage.nome_usuario_meuapp = json.nome;
+                sessionStorage.tipo_usuario = json.tipo_usuario;
 
                 window.location.href = 'dashboard.html';
             });
