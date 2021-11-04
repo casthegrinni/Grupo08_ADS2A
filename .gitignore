@@ -65,6 +65,10 @@ package-lock.json
 
 config/
 
+
+
+
+
 database.js
 
 db_config.ini
