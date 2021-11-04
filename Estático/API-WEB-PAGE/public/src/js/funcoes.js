@@ -42,3 +42,10 @@ function validar_sessao() {
 function finalizar_sessao() {
     fetch(`/usuarios/sair/${login_usuario}`, {cache:'no-store'}); 
 }
+
+
+
+
+
+
+

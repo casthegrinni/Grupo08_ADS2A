@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head>
+<head >
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Pulsatrix</title>
@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
 </head>
 
-<body>
+<body onload="getMachines()">
 
     <nav class="nav">
         <a href="dashboard.html" class="logo">
@@ -67,7 +67,7 @@
                 <img src="../src/img/perfil.png" alt="">
                 <p class="name">
                     Usuário
-                    <span>User Name</span>
+                    <span id="userName">User Name</span>
                 </p>
             </div>
         </header>
@@ -85,38 +85,8 @@
                                     <th scope="col">Estação</th>
                                   </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <th scope="row"><a href="graficos.html"> 1 </a></th>
-                                        <td>Máquina C-10</td>
-                                        <td><i class='bx bxs-circle error'></i></td>
-                                        <td>Vila Prudente</td>
-                                    </tr>
-                                </a>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Máquina X-210</td>
-                                    <td><i class='bx bxs-circle maintenance'></i></td>
-                                    <td>Ana rosa</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Máqina R-92</td>
-                                    <td><i class='bx bxs-circle working'></i></td>
-                                    <td>Sacomã</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Máquina X-210</td>
-                                    <td><i class='bx bxs-circle maintenance'></i></td>
-                                    <td>Ana rosa</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Máqina R-92</td>
-                                    <td><i class='bx bxs-circle working'></i></td>
-                                    <td>Sacomã</td>
-                                  </tr>
+                                <tbody id="rows_table">
+                    
                                 </tbody>
                               </table>
                         </div>
@@ -130,7 +100,7 @@
             <i class="fas fa-plus"></i>
         </div>
     </a>
-    <script src='../src/js/charts.js'></script>
+    <script src='../src/js/maquinas.js'></script>
 </body>
 
 </html>
