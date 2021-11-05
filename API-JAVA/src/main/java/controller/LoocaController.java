@@ -2,21 +2,22 @@ package controller;
 
 import Models.DataBaseModel;
 import Models.LoocaMoodel;
-
+import Models.SlackModel;
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
+import org.json.JSONObject;
 
 public class LoocaController {
 
     private final  LoocaMoodel looca = new LoocaMoodel();
-   private final DataBaseModel db = new DataBaseModel();
+    private final DataBaseModel db = new DataBaseModel();
+    private final SlackModel slack = new SlackModel();
     private int fkMaquina;
     Timer timer = new Timer();
     private final TimerTask task = new TimerTask() {
         @Override
         public void run() {
-
-
                  System.out.println("pegando infos...");
                  looca.setPcInfo();
              String query = String.format("INSERT INTO status_maquina " +
@@ -30,8 +31,6 @@ public class LoocaController {
              db.initializer();
              db.makeQueryWithoutReturn(query);
             System.out.println("inseriu");
-
-
         }
    };
 
@@ -45,12 +44,14 @@ public class LoocaController {
         timer.schedule(task,0,seconds* 1000L);
     }
 
-
-
-
-
     public void setFkMaquina(int fkMaquina) {
         this.fkMaquina = fkMaquina;
+    }
+    
+    public void sendingMessageSlack() throws IOException, InterruptedException {
+        JSONObject json = new JSONObject();
+        json.put("text", "Bot em testes :)");
+        SlackModel.sendMessage(json);
     }
 
 }

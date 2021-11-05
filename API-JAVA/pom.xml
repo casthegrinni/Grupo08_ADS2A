@@ -24,6 +24,12 @@
         <artifactId>ini4j</artifactId>
         <version>0.5.4</version>
     </dependency>
+    <dependency>
+        <groupId>org.json</groupId>
+        <artifactId>json</artifactId>
+        <version>20201115</version>
+    </dependency>
+    
 </dependencies>
 
     <properties>

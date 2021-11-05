@@ -55,7 +55,7 @@ public class ViewController {
         db.initializer();
     }
 
-    public  boolean  calibratePc(Boolean requested, String fkMaquina){
+    public boolean calibratePc(Boolean requested, String fkMaquina){
         Integer fkInt = 0;
         fkInt = Integer.valueOf(fkMaquina);
         looca.setFkMaquina(fkInt);
@@ -78,8 +78,6 @@ public class ViewController {
                looca.setStaticPcInfo();
                return true;
            }
-
-
         }
         return false;
 
