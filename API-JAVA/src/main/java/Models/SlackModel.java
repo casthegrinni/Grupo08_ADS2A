@@ -33,7 +33,6 @@ public class SlackModel {
     }
 
     public static void sendMessage(JSONObject content) throws IOException, InterruptedException {
-        
         HttpRequest request = HttpRequest.newBuilder(
             URI.create(URL))
             .header("accept", "application.json")
@@ -44,6 +43,5 @@ public class SlackModel {
         
         System.out.printf("Status: %s", response.statusCode());
         System.out.printf("Response: %s", response.body ());
-        
     }
 }

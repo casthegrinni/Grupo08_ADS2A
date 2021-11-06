@@ -19,18 +19,31 @@ public class LoocaController {
     private final TimerTask task = new TimerTask() {
         @Override
         public void run() {
-                 System.out.println("pegando infos...");
-                 looca.setPcInfo();
-             String query = String.format("INSERT INTO status_maquina " +
-                             "(uso_processador,temperatura_cpu,uso_disco,uso_ram,fk_maquina) " +
-                             "values (%s,'%s',%s,%d,%d)",
-                     looca.getUsoProcessador(),
-                     looca.getTemperaturaCpu(),
-                     looca.getUsoDissco(),
-                     looca.getUsoRam(),fkMaquina);
-              System.out.println(query);     
-             db.initializer();
-             db.makeQueryWithoutReturn(query);
+            System.out.println("pegando infos...");
+            looca.setPcInfo();
+            String query = String.format(
+                "INSERT INTO status_maquina " +
+                "(uso_processador,temperatura_cpu,uso_disco,uso_ram,fk_maquina) " +
+                "values (%s,'%s',%s,%d,%d)",
+                looca.getUsoProcessador(),
+                looca.getTemperaturaCpu(),
+                looca.getUsoDissco(),
+                looca.getUsoRam(),
+                fkMaquina
+            );
+            try {
+                sendingMessageSlack(
+                    looca.getUsoProcessador(),
+                    looca.getUsoRam(),
+                    looca.getUsoDissco()
+                );
+            }
+            catch (Exception e) {
+                System.out.println(e);
+            }
+            System.out.println(query);     
+            db.initializer();
+            db.makeQueryWithoutReturn(query);
             System.out.println("inseriu");
         }
    };
@@ -41,6 +54,7 @@ public class LoocaController {
         db.initializer();
         db.makeQueryWithoutReturn(query);
     }
+    
     public void insertInSeconds(int seconds){
         timer.schedule(task,0,seconds* 1000L);
     }
@@ -49,10 +63,16 @@ public class LoocaController {
         this.fkMaquina = fkMaquina;
     }
     
-    public void sendingMessageSlack() throws IOException, InterruptedException {
-        slack.initializer();
-        json.put("text", "Bot em testes :)");
-        SlackModel.sendMessage(json);
+    public void sendingMessageSlack(
+        String usoProcessador, 
+        Long usoMemoria,
+        Long usoDisco
+    ) throws IOException, InterruptedException {
+        
+        
+//        slack.initializer();
+//        json.put("text", "Bot em testes :)");
+//        SlackModel.sendMessage(json);
     }
 
 }
