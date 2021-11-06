@@ -37,12 +37,12 @@ public class LoocaMoodel {
             totalDisco = disco.getTamanho();
         }
         totalRam = looca.getMemoria().getTotal();
-
-
-
     }
 
-
+    public Double getValueOfUsoProcessador() {
+        return valueOfUsoProcessador;
+    }
+    
     public String getUsoProcessador() {
         return usoProcessador;
     }

@@ -3,6 +3,7 @@ package controller;
 import Models.DataBaseModel;
 import Models.LoocaMoodel;
 import Models.SlackModel;
+import controller.utils.Conversor;
 import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -21,6 +22,7 @@ public class LoocaController {
         public void run() {
             System.out.println("pegando infos...");
             looca.setPcInfo();
+            looca.setStaticPcInfo();
             String query = String.format(
                 "INSERT INTO status_maquina " +
                 "(uso_processador,temperatura_cpu,uso_disco,uso_ram,fk_maquina) " +
@@ -33,9 +35,11 @@ public class LoocaController {
             );
             try {
                 sendingMessageSlack(
-                    looca.getUsoProcessador(),
+                    looca.getValueOfUsoProcessador(),
                     looca.getUsoRam(),
-                    looca.getUsoDissco()
+                    looca.getTotalRam(),
+                    looca.getUsoDissco(),
+                    looca.getTotalDisco()
                 );
             }
             catch (Exception e) {
@@ -64,10 +68,17 @@ public class LoocaController {
     }
     
     public void sendingMessageSlack(
-        String usoProcessador, 
+        Double usoProcessador, 
         Long usoMemoria,
-        Long usoDisco
+        Long totalMemoria,
+        Long usoDisco,
+        Long totalDisco
     ) throws IOException, InterruptedException {
+        Conversor conversor = new Conversor();
+        Double memoria = conversor.longToDouble(usoMemoria);
+        Double memoriaTotal = conversor.longToDouble(totalMemoria);
+        Double disco = conversor.longToDouble(usoDisco);
+        Double discoTotal = conversor.longToDouble(totalDisco);
         
         
 //        slack.initializer();
