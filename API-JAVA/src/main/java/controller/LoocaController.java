@@ -13,6 +13,7 @@ public class LoocaController {
     private final  LoocaMoodel looca = new LoocaMoodel();
     private final DataBaseModel db = new DataBaseModel();
     private final SlackModel slack = new SlackModel();
+    JSONObject json = new JSONObject();
     private int fkMaquina;
     Timer timer = new Timer();
     private final TimerTask task = new TimerTask() {
@@ -49,7 +50,7 @@ public class LoocaController {
     }
     
     public void sendingMessageSlack() throws IOException, InterruptedException {
-        JSONObject json = new JSONObject();
+        slack.initializer();
         json.put("text", "Bot em testes :)");
         SlackModel.sendMessage(json);
     }
