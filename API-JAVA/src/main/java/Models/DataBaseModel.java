@@ -1,5 +1,6 @@
 package Models;
 
+import Logs.Logs;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
@@ -28,9 +29,7 @@ public class  DataBaseModel {
            dbName = ini.get("prod_credentials", "database");
            user = ini.get("prod_credentials", "user");
            password = ini.get("prod_credentials", "password");
-
-//            gravarLogs.println(user);
-
+           Logs.gravarLog(user);
         }
         catch (IOException e) {
             e.printStackTrace();
@@ -84,7 +83,7 @@ public class  DataBaseModel {
                 e.printStackTrace();
             }
             return response;
-
-        }
+        
     }
+}
 
