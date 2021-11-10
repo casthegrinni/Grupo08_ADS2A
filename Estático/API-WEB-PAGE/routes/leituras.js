@@ -154,5 +154,20 @@ router.get('/stations_total/', function (req, res, next) {
 		});
   
 });
+router.get('/getRandom/:fk_estacao', function (req, res, next) {
+	
+	
+	const instrucaoSql = `select m.id_maquina, s.status_web from maquina as m join status_maquina as s on m.id_maquina = s.fk_maquina where m.fk_estacao = ${req.params.fk_estacao} `;
+					
+
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		})
+	});
+  
 
 module.exports = router;

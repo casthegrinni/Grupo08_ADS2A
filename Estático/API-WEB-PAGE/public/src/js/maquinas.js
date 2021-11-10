@@ -2,6 +2,7 @@
 
 function getMachines(){
     var critical = 0
+    var alert = 0 
     
       const fk_estacao = sessionStorage.fk_estacao
       fetch(`../leituras/machines/${fk_estacao}`, {
@@ -36,6 +37,10 @@ function getMachines(){
                            if(status == 'critical'){
                             critical ++
                             }
+                            else if(status == 'alert'){
+                                alert++
+                            }
+                            
 
 
 
