@@ -76,6 +76,7 @@
         </header>
         <section class="section">
             <div class="container-fluid container-content cards">
+                <h3>Geral</h3>
                 <div class="row">
                     <div class="col">
                         <div class="card shadow">
@@ -99,22 +100,42 @@
                         <div class="card shadow">
                             <div class="desc">
                                 <span id="count_critical">50</span>
-                                <p>Máquinas Inátivas</p>
+                                <p>Em alerta</p>
                             </div>
                             <i class='bx bx-error-alt'></i>
                         </div>
                     </div>
+                    <div class="col">
+                        <div class="card shadow">
+                            <div class="desc">
+                                <span id="count_maquinas"></span>
+                                <p>Crítico</p>
+                            </div>
+                            <i class='bx bx-laptop'></i>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="container-fluid container-content tables">
+        </section>
+        <section>
+            <div class="container-fluid container-content charts">
                 <div class="row">
                     <div class="col">
+                        <div class="card-chart shadow">
+                            <canvas class="shadow" id="myChart" ></canvas>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-chart shadow">
+                            <canvas class="shadow" id="chartMaquinas"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     <script src='../src/js/maquinas.js'></script>
+    <script src='../src/js/charts.js'></script>
     <script>
     function start(){
         verificar_autenticacao()
