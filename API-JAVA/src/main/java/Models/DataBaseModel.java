@@ -27,7 +27,10 @@ public class  DataBaseModel {
            port = ini.get("prod_credentials", "port");
            dbName = ini.get("prod_credentials", "database");
            user = ini.get("prod_credentials", "user");
-           password = ini.get("prod_credentials", "password");        
+           password = ini.get("prod_credentials", "password");
+
+//            gravarLogs.println(user);
+
         }
         catch (IOException e) {
             e.printStackTrace();
