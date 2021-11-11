@@ -1,12 +1,12 @@
 package Models;
 
+import Logs.Logs;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import Logs.Logs;
 import org.ini4j.Ini;
 
 /*
@@ -85,6 +85,6 @@ public class  DataBaseModel {
             }
             return response;
 
-        }
     }
+}
 
