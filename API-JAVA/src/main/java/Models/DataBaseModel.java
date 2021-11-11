@@ -6,6 +6,7 @@ import java.sql.*;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import Logs.Logs;
 import org.ini4j.Ini;
 
 /*
@@ -22,14 +23,14 @@ public class  DataBaseModel {
     
     public void initializer() {
         try { 
-           Ini ini = new Ini(new File("../API-JAVA/db_config.ini"));
+           Ini ini = new Ini(new File("API-JAVA/db_config.ini"));
            server = ini.get("prod_credentials", "server");
            port = ini.get("prod_credentials", "port");
            dbName = ini.get("prod_credentials", "database");
            user = ini.get("prod_credentials", "user");
            password = ini.get("prod_credentials", "password");
 
-//            gravarLogs.println(user);
+           Logs.gravarLogs(user);
 
         }
         catch (IOException e) {
@@ -49,7 +50,6 @@ public class  DataBaseModel {
                 map.put("label3",rs.getString(3));
             }
             return map;
-
 
         } catch (SQLException e) {
             e.printStackTrace();
