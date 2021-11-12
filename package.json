@@ -3,7 +3,7 @@
     "version":"0.0.1",
     "private": true,
     "scripts": {
-        "start": "node ./API-WEB-PAGE/bin/www",
+        "start": "node ./Estático/API-WEB-PAGE/bin/www",
         "postinstall": "cd projeto-site && npm install"
     }
 }
