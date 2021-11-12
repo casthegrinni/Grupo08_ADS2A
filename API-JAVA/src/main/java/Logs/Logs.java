@@ -5,20 +5,13 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class Logs {
-    public static void main(String[] args) throws IOException {
-
-
+    public static void gravarLogs(String log) throws IOException {
         FileWriter logs = new FileWriter("API-JAVA/logs.txt");
-        PrintWriter gravarLogs = new PrintWriter(logs);
-
-        gravarLogs.println("\n brunno Castanha");
-
+        PrintWriter saveLogs = new PrintWriter(logs);
+        saveLogs.println(log);
 
         logs.close();
     }
-
-
-
 
 
 }

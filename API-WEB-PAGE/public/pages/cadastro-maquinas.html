@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Pulsatrix</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../src/css/dashboard.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='../src/css/estacao.css'>
+    <link rel="shortcut icon" href="../src/img/icon.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
+</head>
+
+<body onload="setInfo()"> 
+
+    <nav class="nav">
+        <a href="dashboard.html" class="logo">
+            <img src="../src/img/icon.png" alt="">
+            <span>Pulsatrix</span>
+        </a>
+        <ul class="menu">
+            <li>
+                <a href="dashboard.html">
+                    <i class='bx bxs-bar-chart-square'></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="estacao.html">
+                    <i class='bx bxs-train'></i>
+                    <span>Estações</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="maquinas.html">
+                    <i class="fa fa-laptop"></i>
+                    <span>Máquinas</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class='bx bx-file'></i>
+                    <span>Relatórios</span>
+                </a>
+            </li>
+        </ul>
+        <li class="log-out">
+            <a href="">
+                <i class='bx bx-log-out nav_icon'></i>
+            </a>
+        </li>
+    </nav>
+    <main class="content">
+        <header class="header">
+            <button type="button" class="button toggle-menu active">
+                <i class='bx bx-menu'></i>
+                <span>Máquinas</span>
+            </button>
+            <div class="box-profile">
+                <img src="../src/img/perfil.png" alt="">
+                <p class="name">
+                    Usuário
+                    <span id="userName">_____</span>
+                </p>
+            </div>
+        </header>
+        <div class="page-cadastro">
+            <div class="general-title">
+                <h1>Cadastro</h1>
+                <hr class="pink-stroke" />
+            </div>
+            <div class="container-form">
+                <form onsubmit="cadastroMaquina()" action="javascript:void(0)" id="form_cadastroResponsavel" class="form-" autocomplete="off">
+                    <div class="sign-resp-container">
+
+
+                        <div class="sign-resp-first-column">
+                            <div class="input-field">
+                                <i class="fas fa-desktop"></i>
+                                <input id="nomeMaquina" type="text" name="nomeMaquina" placeholder="Máquina" required>
+                            </div>
+                                <select name="select_estacao" id="select_estacao" class="input-field">
+                                    <option class="input-form input-field" value="" selected disabled>Selecione uma estação</option>
+                                    <option class="input-form" value="1">Consolação</option>
+                                    <option class="input-form" value="3">Sumaré</option>
+                                    <option class="input-form" value="4">Clínicas</option>
+                                    <option class="input-form" value="5">Trianom-MASP</option>
+                                    <option class="input-form" value="6">Brigadeiro</option>
+                                    <option class="input-form" value="7">Paraíso</option>
+                                    <option class="input-form" value="8">Ana rosa</option>
+                                    <option class="input-form" value="9">Chácara klabin</option>
+                                    <option class="input-form" value="10">Santos-imigrantes</option>
+                                    <option class="input-form" value="11">Alto do ipiringa</option>
+                                    <option class="input-form" value="12">Sacomã</option>
+                                    <option class="input-form" value="13">Tamanduateí</option>
+                                    <option class="input-form" value="14">Vila Prudente</option>
+
+
+                                </select>
+                                <div class="container">
+                                    <label for="" class="label-check">O que deseja monitorar?</label><br>
+                                    <ul class="ks-cboxtags">
+                                      <li id=><input type="checkbox" id="checkboxOne" value="disco"><label for="checkboxOne">Disco</label></li><br>
+                                      <li><input type="checkbox" id="checkboxTwo" value="memoria" checked><label for="checkboxTwo">Mémoria RAM</label></li><br>
+                                      <li><input type="checkbox" id="checkboxThree" value="cpu" checked><label for="checkboxThree">CPU</label></li><br>
+                                    </ul>
+                                  
+                                  </div>
+                        </div>
+                       <center>
+                        <button class="btn-cadastrar">Cadastrar</button>
+                       </center>
+                </form>
+                
+            </div>
+        </div>
+    </main>
+    <a href="cadastro-maquinas.html" style="cursor: pointer;">
+        <div class="add-btn">
+            <i class="fas fa-plus"></i>
+        </div>
+    </a>
+    <!-- <script src='../src/js/charts.js'></script> -->
+    <script src="../src/js/cadastro_maquina.js"></script>
+</body>
+
+</html>

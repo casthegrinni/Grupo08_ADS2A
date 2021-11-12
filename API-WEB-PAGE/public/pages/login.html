@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsatrix</title>
+    <link rel="shortcut icon" href="../src/img/icon.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../src/css/login.css">
+</head>
+
+<body>
+    <div class="logo">
+        <img src="src/logo_pulsatrix.png" alt="">
+    </div>
+
+    <div class="container">
+        <div class="content-image">
+            <img src="../src/img/design-login.png" alt="">
+        </div>
+        <div class="content-form">
+            <h1>Login</h1>
+            <a href="cadastro.html">
+                <button>Criar conta</button>
+            </a>
+            <form id="form_login" class="form-login" method="post" onsubmit="return entrar()">
+                <div class="input-container">
+                    <input id="user" class="input" type="text" name="login" pattern=".+" required />
+                    <label class="label" for="user">Usuário</label>
+                </div>
+                <div class="input-container">
+                    <input id="password" class="input" type="password" name="senha" pattern=".+" required />
+                    <label class="label" for="password">Senha</label>
+                </div>
+                <button class="btn-entrar" id="btn-entrar">Entrar</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script src="../src/js/login.js"></script>

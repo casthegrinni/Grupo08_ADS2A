@@ -1,0 +1,40 @@
+.tables{
+    margin-top: 8%;
+}
+
+.tables th, a{
+    cursor: pointer;
+    color: #323232;
+    text-decoration: none;
+}
+.add-btn {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    background-color: var(--color-3);
+    margin-top: 8%;
+    top: 0;
+    right: 60px;
+    font-size: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+
+.add-btn a {
+    color: #fff;
+}
+
+@keyframes bounce {
+    0%,
+    100% {
+        transform: translateY(0%);
+    }
+    50% {
+        transform: translateY(-20%);
+    }
+}

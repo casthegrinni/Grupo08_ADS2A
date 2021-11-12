@@ -1,5 +1,6 @@
 package Models;
 
+import Logs.Logs;
 import java.io.File;
 import java.io.IOException;
 import java.sql.*;
@@ -22,14 +23,14 @@ public class  DataBaseModel {
     
     public void initializer() {
         try { 
-           Ini ini = new Ini(new File("../API-JAVA/db_config.ini"));
+           Ini ini = new Ini(new File("API-JAVA/db_config.ini"));
            server = ini.get("prod_credentials", "server");
            port = ini.get("prod_credentials", "port");
            dbName = ini.get("prod_credentials", "database");
            user = ini.get("prod_credentials", "user");
            password = ini.get("prod_credentials", "password");
 
-//            gravarLogs.println(user);
+           Logs.gravarLogs(user);
 
         }
         catch (IOException e) {
@@ -49,7 +50,6 @@ public class  DataBaseModel {
                 map.put("label3",rs.getString(3));
             }
             return map;
-
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -85,6 +85,6 @@ public class  DataBaseModel {
             }
             return response;
 
-        }
     }
+}
 

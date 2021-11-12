@@ -34,6 +34,13 @@ public class LoocaController {
                     fkMaquina
             );
             try {
+                insertStatusPc(
+                        looca.getValueOfUsoProcessador(),
+                        looca.getUsoRam(),
+                        looca.getTotalRam(),
+                        looca.getUsoDissco(),
+                        looca.getTotalDisco()
+                );
                 sendingMessageSlack(
                         looca.getValueOfUsoProcessador(),
                         looca.getUsoRam(),
@@ -66,29 +73,27 @@ public class LoocaController {
         this.fkMaquina = fkMaquina;
     }
 
-    public void insertStatusPc(Double usoProcessador, Long usoMemoria, Long totalMemoria, Long usoDisco, Long totalDisco)
-            throws IOException, InterruptedException {
-        Conversor conversor = new Conversor();
-        Double memoria = conversor.longToDouble(usoMemoria);
-        Double memoriaTotal = conversor.longToDouble(totalMemoria);
-        Double disco = conversor.longToDouble(usoDisco);
-        Double discoTotal = conversor.longToDouble(totalDisco);
+    public void insertStatusPc(
+        Double usoProcessador, 
+        Long usoMemoria,
+        Long totalMemoria,
+        Long usoDisco,
+        Long totalDisco
+    ) throws IOException, InterruptedException {
+        Double memoria = Conversor.longToDouble(usoMemoria);
+        Double memoriaTotal = Conversor.longToDouble(totalMemoria);
+        Double disco = Conversor.longToDouble(usoDisco);
+        Double discoTotal = Conversor.longToDouble(totalDisco);
         Double porcentagemDisco = disco * (discoTotal / 100.0);
         Double porcentagemMemoria = memoria * (memoriaTotal / 100.0);
-        String status = "";
+        String status;
 
-        if ((porcentagemDisco >= 0 && porcentagemDisco <= 50.0) && (porcentagemMemoria >= 0 && porcentagemMemoria <= 50.0) && (usoProcessador >= 0 && usoProcessador <= 50.0)) {
+        if ((porcentagemDisco <= 50.0) && (porcentagemMemoria <= 50.0) && ( usoProcessador <= 50.0)) {
             status = "Normal";
             String query = String.format(
-                    "INSERT INTO status_maquina "
-                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
-                    + "values (%s,'%s',%s,%d,%s,%d)",
-                    looca.getUsoProcessador(),
-                    looca.getTemperaturaCpu(),
-                    looca.getUsoDissco(),
-                    looca.getUsoRam(),
-                    status,
-                    fkMaquina
+                    "INSERT INTO status_maquina (status_web) "
+                    + "VALUES (%s)",
+                    status
             );
             System.out.println(query);
             db.initializer();
@@ -97,15 +102,9 @@ public class LoocaController {
         } else if ((porcentagemDisco > 50.0 && porcentagemDisco < 71.0) && (porcentagemMemoria > 50.0 && porcentagemMemoria < 71.0) && (usoProcessador > 50.0 && usoProcessador < 71.0)) {
             status = "Moderado";
             String query = String.format(
-                    "INSERT INTO status_maquina "
-                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
-                    + "values (%s,'%s',%s,%d,%s,%d)",
-                    looca.getUsoProcessador(),
-                    looca.getTemperaturaCpu(),
-                    looca.getUsoDissco(),
-                    looca.getUsoRam(),
-                    status,
-                    fkMaquina
+                    "INSERT INTO status_maquina (status_web) "
+                    + "VALUES (%s)",
+                    status
             );
             System.out.println(query);
             db.initializer();
@@ -114,15 +113,9 @@ public class LoocaController {
         } else if ((porcentagemDisco >= 71.0 && porcentagemDisco < 81.0) || (porcentagemMemoria >= 71.0 && porcentagemMemoria < 81.0) || (usoProcessador >= 71.0 && usoProcessador < 81.0)) {
             status = "Perigo";
             String query = String.format(
-                    "INSERT INTO status_maquina "
-                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
-                    + "values (%s,'%s',%s,%d,%s,%d)",
-                    looca.getUsoProcessador(),
-                    looca.getTemperaturaCpu(),
-                    looca.getUsoDissco(),
-                    looca.getUsoRam(),
-                    status,
-                    fkMaquina
+                    "INSERT INTO status_maquina (status_web) "
+                    + "VALUES (%s)",
+                    status
             );
             System.out.println(query);
             db.initializer();
@@ -131,15 +124,9 @@ public class LoocaController {
         } else if (porcentagemDisco >= 81.0 || porcentagemMemoria >= 81.0 || usoProcessador >= 81.0) {
             status = "Crítico";
             String query = String.format(
-                    "INSERT INTO status_maquina "
-                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
-                    + "values (%s,'%s',%s,%d,%s,%d)",
-                    looca.getUsoProcessador(),
-                    looca.getTemperaturaCpu(),
-                    looca.getUsoDissco(),
-                    looca.getUsoRam(),
-                    status,
-                    fkMaquina
+                    "INSERT INTO status_maquina (status_web)"
+                    + "VALUES(%s)",
+                    status
             );
             System.out.println(query);
             db.initializer();
@@ -156,11 +143,10 @@ public class LoocaController {
             Long usoDisco,
             Long totalDisco
     ) throws IOException, InterruptedException {
-        Conversor conversor = new Conversor();
-        Double memoria = conversor.longToDouble(usoMemoria);
-        Double memoriaTotal = conversor.longToDouble(totalMemoria);
-        Double disco = conversor.longToDouble(usoDisco);
-        Double discoTotal = conversor.longToDouble(totalDisco);
+        Double memoria = Conversor.longToDouble(usoMemoria);
+        Double memoriaTotal = Conversor.longToDouble(totalMemoria);
+        Double disco = Conversor.longToDouble(usoDisco);
+        Double discoTotal = Conversor.longToDouble(totalDisco);
         Double porcentagemDisco = disco * (discoTotal / 100.0);
         Double porcentagemMemoria = memoria * (memoriaTotal / 100.0);
 
