@@ -302,8 +302,8 @@ body{
 }
 
 .content .section .cards .card{
-    width: 100%;
-    height: 120px;
+    width: 35vh;
+    height: 18vh;
     padding: 10px 30px;
     margin-top: 15px;
     border-radius: 8px;
@@ -317,7 +317,7 @@ body{
 }
 
 .chart-section{
-    margin: 5% 8% 0 8%;
+    margin: 5vh 5vh 0 5vh;
 }
 
 .content .section .cards .card:hover{
@@ -344,7 +344,7 @@ body{
     width: 390px;
     height: 300px;
     padding: 15px 15px;
-    margin: 15px;
+    margin: 1vh;
     border-radius: 8px;
     background-color: var(--color-3);
     border: none;
@@ -357,6 +357,10 @@ body{
     padding: 15px;
     background-color: var(--color-1);
     border-radius: 8px;
+}
+
+.canva-chart {
+    width: 60vh;
 }
 
 /*RESPONSIVIDADE*/
