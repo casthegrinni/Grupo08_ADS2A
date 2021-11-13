@@ -107,7 +107,7 @@ function getRandomMachine(){
                     sessionStorage.id_maquina = number
 
                 }
-                alert(sessionStorage.id_maquina)
+                
 
 
             })

@@ -282,11 +282,12 @@ body{
 }
 
 .card-plus-title{
-    margin: 0 10% 0 10%;
+    margin: 0 5vh 0 5vh;
 }
 
 .title-label {
     margin-left: 0%;
+    font-size: 18pt;
 }
 
 .content .section .container-content{
