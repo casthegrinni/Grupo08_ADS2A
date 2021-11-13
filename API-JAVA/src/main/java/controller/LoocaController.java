@@ -91,31 +91,49 @@ public class LoocaController {
         if ((porcentagemDisco <= 50.0) && (porcentagemMemoria <= 50.0) && ( usoProcessador <= 50.0)) {
             status = "Normal";
             String query = String.format(
-                    "INSERT INTO status_maquina (status_web) "
-                    + "VALUES (%s)",
-                    status
+                    "INSERT INTO status_maquina "
+                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
+                    + "values (%s,'%s',%s,%d,%s,%d)",
+                    looca.getUsoProcessador(),
+                    looca.getTemperaturaCpu(),
+                    looca.getUsoDissco(),
+                    looca.getUsoRam(),
+                    status,
+                    fkMaquina
             );
             System.out.println(query);
             db.initializer();
             db.makeQueryWithoutReturn(query);
             System.out.println("inseriu");
-        } else if ((porcentagemDisco > 50.0 && porcentagemDisco < 71.0) && (porcentagemMemoria > 50.0 && porcentagemMemoria < 71.0) && (usoProcessador > 50.0 && usoProcessador < 71.0)) {
+        } else if ((porcentagemDisco < 71.0) && (porcentagemMemoria < 71.0) && (usoProcessador < 71.0)) {
             status = "Moderado";
             String query = String.format(
-                    "INSERT INTO status_maquina (status_web) "
-                    + "VALUES (%s)",
-                    status
+                    "INSERT INTO status_maquina "
+                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
+                    + "values (%s,'%s',%s,%d,%s,%d)",
+                    looca.getUsoProcessador(),
+                    looca.getTemperaturaCpu(),
+                    looca.getUsoDissco(),
+                    looca.getUsoRam(),
+                    status,
+                    fkMaquina
             );
             System.out.println(query);
             db.initializer();
             db.makeQueryWithoutReturn(query);
             System.out.println("inseriu");
-        } else if ((porcentagemDisco >= 71.0 && porcentagemDisco < 81.0) || (porcentagemMemoria >= 71.0 && porcentagemMemoria < 81.0) || (usoProcessador >= 71.0 && usoProcessador < 81.0)) {
+        } else if ((porcentagemDisco < 81.0) || (porcentagemMemoria < 81.0) || (usoProcessador < 81.0)) {
             status = "Perigo";
             String query = String.format(
-                    "INSERT INTO status_maquina (status_web) "
-                    + "VALUES (%s)",
-                    status
+                     "INSERT INTO status_maquina "
+                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
+                    + "values (%s,'%s',%s,%d,%s,%d)",
+                    looca.getUsoProcessador(),
+                    looca.getTemperaturaCpu(),
+                    looca.getUsoDissco(),
+                    looca.getUsoRam(),
+                    status,
+                    fkMaquina
             );
             System.out.println(query);
             db.initializer();
@@ -124,9 +142,15 @@ public class LoocaController {
         } else if (porcentagemDisco >= 81.0 || porcentagemMemoria >= 81.0 || usoProcessador >= 81.0) {
             status = "Crítico";
             String query = String.format(
-                    "INSERT INTO status_maquina (status_web)"
-                    + "VALUES(%s)",
-                    status
+                   "INSERT INTO status_maquina "
+                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
+                    + "values (%s,'%s',%s,%d,%s,%d)",
+                    looca.getUsoProcessador(),
+                    looca.getTemperaturaCpu(),
+                    looca.getUsoDissco(),
+                    looca.getUsoRam(),
+                    status,
+                    fkMaquina
             );
             System.out.println(query);
             db.initializer();
