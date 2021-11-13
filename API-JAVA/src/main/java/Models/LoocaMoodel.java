@@ -32,10 +32,12 @@ public class LoocaMoodel {
     }
     public void setStaticPcInfo(){
         DiscosGroup grupo = looca.getGrupoDeDiscos();
+        Long somaTotalDiscos = 0L;
         List<Disco> discos = grupo.getDiscos();
         for (Disco disco : discos) {
-            totalDisco = disco.getTamanho();
+            somaTotalDiscos += disco.getTamanho();
         }
+        totalDisco = somaTotalDiscos;
         totalRam = looca.getMemoria().getTotal();
     }
 
