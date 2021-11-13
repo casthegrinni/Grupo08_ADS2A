@@ -2,19 +2,14 @@ package controller;
 
 import Models.DataBaseModel;
 import Models.LoocaMoodel;
-import Models.SlackModel;
 import controller.utils.Conversor;
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
-import org.json.JSONObject;
 
 public class LoocaController {
 
     private final LoocaMoodel looca = new LoocaMoodel();
     private final DataBaseModel db = new DataBaseModel();
-    private final SlackModel slack = new SlackModel();
-    JSONObject json = new JSONObject();
     private int fkMaquina;
     Timer timer = new Timer();
     private final TimerTask task = new TimerTask() {

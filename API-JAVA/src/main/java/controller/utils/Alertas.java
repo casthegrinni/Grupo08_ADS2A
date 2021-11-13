@@ -10,13 +10,13 @@ package controller.utils;
  * @author Gabriel_Prisco
  */
 public enum Alertas {
-    ALERTA_PADRAO_PROCESSADOR("A máquina %d localizada na estação %s atingiu %.1f% de processamento."),
-    ALERTA_PADRAO_MEMORIA("A máquina %d localizada na estação %s atingiu %.1f% de armazenamento interno."),
-    ALERTA_PADRAO_RAM("A máquina %d localizada na estação %s atingiu %.1f% de uso de Mémoria RAM."),
-    ALERTA_CRITICO_PROCESSADOR("A máquina %d localizada na estação %s ultrapassou o percentual de processamento, atingindo %.1f%."),
-    ALERTA_CRITICO_MEMORIA("A máquina %d localizada na estação %s ultrapassou o percentual de armazenamento interno, atingindo %.1f%."),
-    ALERTA_CRITICO_RAM("A máquina %d localizada na estação %s ultrapassou o percentual de uso de Mémoria RAM, atingindo %.1f%.");
-    
+    ALERTA_PADRAO_MEMORIA(":disk: A máquina %d localizada na estação %s atingiu %.1f% de armazenamento interno."),
+    ALERTA_CRITICO_MEMORIA(":disk: A máquina %d localizada na estação %s ultrapassou o percentual de armazenamento interno, atingindo %.1f%!"),
+    ALERTA_PADRAO_RAM(":memory: A máquina %d localizada na estação %s atingiu %.1f% de uso de Mémoria RAM."),
+    ALERTA_CRITICO_RAM(":memory: A máquina %d localizada na estação %s ultrapassou o percentual de uso de Mémoria RAM, atingindo %.1f%!"),
+    ALERTA_PADRAO_PROCESSADOR(":cpu: A máquina %d localizada na estação %s atingiu %.1f% de processamento."),
+    ALERTA_CRITICO_PROCESSADOR(":cpu: A máquina %d localizada na estação %s ultrapassou o percentual de processamento, atingindo %.1f%!");
+
     private String alertas;
 
     private Alertas(String alertas) {
