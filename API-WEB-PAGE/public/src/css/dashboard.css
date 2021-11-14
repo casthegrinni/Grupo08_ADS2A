@@ -369,9 +369,14 @@ body{
 }
 
 /* CARDS ESTAÇÃO */
+.section .section-title {
+    font-family: var(--font-subtitle);
+    font-size: 20pt;
+    margin: 0vh 0vh 0vh 5vh;
+}
 
 .all-station-cards{
-    margin: 5vh 10vh 5vh 10vh;
+    margin: 5vh 0vh 5vh 10vh;
     display: flex;
     flex-wrap: wrap;
 }
@@ -386,9 +391,12 @@ body{
     justify-content: start;
     flex-direction: column;
     border-radius: 10% 10% 10% 10% / 10% 10% 10% 10%;
-    -webkit-box-shadow: 6px 11px 6px 1px rgba(117,117,117,0.77); 
-    box-shadow: 6px 11px 6px 1px rgba(117,117,117,0.77);
+    -webkit-box-shadow: 7px 7px 6px 1px rgba(114,114,110,0.69); 
+    box-shadow: 7px 7px 6px 1px rgba(114,114,110,0.69);
     border: 2px solid var(--color-5)
+}
+.station-card h1 {
+    font-size: 22pt;
 }
 
 .card-title {
