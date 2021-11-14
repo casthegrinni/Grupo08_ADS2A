@@ -85,17 +85,22 @@ var config = {
 
 var myChart = new Chart(ctx, config);
 
-function getColor(data){
+function getColor(data) {
     var colors = [];
     var maxValue = data[0];
 
-    for(i = 0; i<data.length ;i++){
-        if(data[i] > maxValue){
+    for (i = 0; i < data.length; i++) {
+        if (data[i] > maxValue) {
             maxValue = data[i]
-            colors.push('rgba(255, 0, 67, 1)')
+        }
+    }
+
+    for (index = 0; index < data.length; index++) {
+        if (data[index] == maxValue) {
+            colors.push('rgba(255, 0, 67, 1)') // Red
         } else {
-            colors.push('rgba(15,125,146, 1)')
-        }    
+            colors.push('rgba(15,125,146, 1)') // Blue
+        }
     }
 
     return colors;
