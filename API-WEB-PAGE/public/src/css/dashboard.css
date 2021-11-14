@@ -151,7 +151,7 @@ body{
     border-bottom: 1px solid var(--color-5) ;
 }
 
-/* .content .header .button{
+ .content .header .button{
     display: flex;
     align-items: center;
     color: var(--color-2);
@@ -159,9 +159,9 @@ body{
     background: none;
     border: none;
     cursor: pointer;
-} */
+} 
 
-/* .content .header .button .bx{
+.content .header .button .bx{
     margin-right: 10px;
 }
 
@@ -190,7 +190,7 @@ body{
     width: 50px;
     height: 50px;
     color: var(--color-3);
-} */
+} 
 
 .content .header .form input,
 .content .header .form button{
@@ -373,12 +373,27 @@ body{
     .content .section .cards .card .desc span{
         font-size:26px;
     }
+
+    .nav .logo span{
+        font-size: 19px;
+    }
 }
 @media (max-width: 1199.98px){
     .nav{
         width:200px;
     }
+
+    .nav .logo span{
+        font-size: 13px;
+    }
     .content{
         width: calc(100% - 200px);
+    }
+
+    .content .section .charts .card-chart canvas{
+        width: 50%;
+    }
+    .canva-chart {
+        width: 50vh;
     }
 }

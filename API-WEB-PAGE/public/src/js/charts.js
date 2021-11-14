@@ -44,7 +44,6 @@ var ctx = document.getElementById('chartMaquinas').getContext('2d');
 var paperData = {
     labels: ['00/04', '4/08', '08/12', '12/16', '16/20', '20/24'],
     datasets: [{
-        label: "nº de ocorrências",
         data: [3, 15, 5, 8, 14, 6],
         backgroundColor: getColor([3, 15, 5, 8, 14, 6]),
         borderColor: getColor([3, 15, 5, 8, 14, 6]),
@@ -57,7 +56,7 @@ var config = {
     data: paperData,
     options: {
         title: {
-            text: "Sem papel x hora",
+            text: "Alertas sem papel x hora",
             display: true,
             fontSize: 22
         },
