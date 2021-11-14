@@ -1,35 +1,55 @@
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
+    indexAxis: 'y',
     data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+        labels: ['RAM', 'CPU', 'Disco'],
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: "nº de ocorrências",
+            data: [8, 10, 5],
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
+                'rgba(15,125,146, 1)',
+                'rgba(241, 96, 50, 1)',
+                'rgba(15,125,146, 1)',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
+                'rgba(24,179,194, 1)',
+                'rgba(241, 96, 50, 1)',
+                'rgba(24,179,194, 1)',
             ],
             borderWidth: 1
         }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
+    }, options: {
+        indexAxis : 'y',
+        title: {
+            text: "Registros de alerta",
+            display: true,
+            fontSize: 15,
+        }, legend: {
+            display: false
+        },
+        tooltips: {
+            enabled: false
+        },
+        elements: {
+            bar: {
+                borderWidth: 2,
             }
+        },
+        scales: {
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
+            }],
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                },
+             }],
         }
     }
 });
@@ -40,32 +60,50 @@ var myChart = new Chart(ctx, {
     data: {
         labels: ['00/04', '4/08', '08/12', '12/16', '16/20', '20/24'],
         datasets: [{
-            label: 'Horas sem papel',
+            label: "nº de ocorrências",
             data: [3, 15, 5, 8, 14, 6],
             backgroundColor: [
-                'rgba(75, 192, 192, 1)',
+                'rgba(15,125,146, 1)',
                 'rgba(241, 96, 50, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)'
+                'rgba(15,125,146, 1)',
+                'rgba(15,125,146, 1)',
+                'rgba(15,125,146, 1)',
+                'rgba(15,125,146, 1)'
             ],
             borderColor: [
-                'rgba(75, 192, 192, 1)',
+                'rgba(24,179,194, 1)',
                 'rgba(241, 96, 50, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(75, 192, 192, 1)',
+                'rgba(24,179,194, 1)',
+                'rgba(24,179,194, 1)',
                 '   ',
-                'rgba(75, 192, 192, 1)'
+                'rgba(24,179,194, 1)'
             ],
             borderWidth: 1
         }]
-    },  options: {
-        indexAxis: 'y',
+    }, options: {
+        title: {
+            text: "Sem papel x hora",
+            display: true,
+            fontSize: 15,
+        },
+        legend: {
+            display: false
+        },
+        tooltips: {
+            enabled: false
+        },
         scales: {
-            y: {
-                beginAtZero: true
-            }
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
+            }],
+            yAxes: [{
+               beginAtZero: true
+            }],
         }
     }
 });
