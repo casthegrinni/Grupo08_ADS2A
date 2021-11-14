@@ -369,7 +369,13 @@ body{
 }
 
 /* CARDS ESTAÇÃO */
+
+.all-station-cards{
+    margin: 5vh 10vh 5vh 10vh;
+    display: flex;
+}
 .station-card {
+    margin: 0 5% 2% 0%;
     width: 27vh;
     height: 28vh;
     padding: 10px;
