@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 
 <body onload="start()">
@@ -110,7 +113,7 @@
                             <div class="card shadow">
                                 <div class="desc">
                                     <span id="count_station">0</span>
-                                   <p>Críticoㅤ</p>
+                                    <p>Críticoㅤ</p>
                                 </div>
                                 <i class='bx bx-dizzy' style="color: rgb(255, 22, 22);"></i>
                             </div>
@@ -139,12 +142,13 @@
     <script src='../src/js/maquinas.js'></script>
     <script src='../src/js/charts.js'></script>
     <script>
-    function start(){
-        verificar_autenticacao()
-        getMachines()
-        getFirstInfo()
-        getRandomMachine()
-    }
+        function start() {
+            verificar_autenticacao()
+            getMachines()
+            getFirstInfo()
+            getRandomMachine()
+        }
     </script>
 </body>
+
 </html>
