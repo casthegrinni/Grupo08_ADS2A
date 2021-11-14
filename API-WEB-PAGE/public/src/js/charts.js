@@ -9,12 +9,12 @@ var myChart = new Chart(ctx, {
             data: [8, 10, 5],
             backgroundColor: [
                 'rgba(15,125,146, 1)',
-                'rgba(241, 96, 50, 1)',
+                'rgba(255, 0, 67, 1)',
                 'rgba(15,125,146, 1)',
             ],
             borderColor: [
                 'rgba(24,179,194, 1)',
-                'rgba(241, 96, 50, 1)',
+                'rgba(255, 0, 67, 1)',
                 'rgba(24,179,194, 1)',
             ],
             borderWidth: 1
@@ -64,7 +64,7 @@ var myChart = new Chart(ctx, {
             data: [3, 15, 5, 8, 14, 6],
             backgroundColor: [
                 'rgba(15,125,146, 1)',
-                'rgba(241, 96, 50, 1)',
+                'rgba(255, 0, 67, 1)',
                 'rgba(15,125,146, 1)',
                 'rgba(15,125,146, 1)',
                 'rgba(15,125,146, 1)',
@@ -72,7 +72,7 @@ var myChart = new Chart(ctx, {
             ],
             borderColor: [
                 'rgba(24,179,194, 1)',
-                'rgba(241, 96, 50, 1)',
+                'rgba(255, 0, 67, 1)',
                 'rgba(24,179,194, 1)',
                 'rgba(24,179,194, 1)',
                 '   ',
