@@ -1,10 +1,16 @@
 :root{
-    --color-1: #fff;
+    --color-1: #F6F6F6;
+    /* --color-1: #FFF; */
     --color-2: #100e34;
-    --color-3: #112B3C;
+    --color-3: #333034;
     --color-4: #323232;
-    --color-5: #CED8E2;
+    --color-5: #9AA7B2;
     --color-6: #6FCBA2;
+    --font-title: 'Orbitron', sans-serif;
+    --font-subtitle: 'Quicksand', sans-serif;
+    --color-status-ok: #BCE9B6;
+    --color-status-medium: #FFE795;
+    --color-status-critical: #FF1616;
 }
 
 *{
@@ -71,6 +77,7 @@ body{
 .nav .logo span{
     font-weight: 900;
     font-size: 22px;
+    font-family: var(--font-title);
 }
 
 .nav .menu{
@@ -141,14 +148,14 @@ body{
 .content .header{
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
     height: 70px;
     padding: 0 30px;
     border-bottom: 1px solid var(--color-5) ;
 }
 
-.content .header .button{
+ .content .header .button{
     display: flex;
     align-items: center;
     color: var(--color-2);
@@ -156,7 +163,7 @@ body{
     background: none;
     border: none;
     cursor: pointer;
-}
+} 
 
 .content .header .button .bx{
     margin-right: 10px;
@@ -187,7 +194,7 @@ body{
     width: 50px;
     height: 50px;
     color: var(--color-3);
-}
+} 
 
 .content .header .form input,
 .content .header .form button{
@@ -205,6 +212,8 @@ body{
 .content .header .box-profile{
     display: flex;
     align-items: center;
+    /* align-items: flex-end; */
+    justify-content: flex-end;
 }
 
 .content .header .box-profile img{
@@ -271,12 +280,21 @@ body{
 }
 
 .row{
-    position: relative;
+    /* position: relative; */
     z-index: 1;
     display: flex;
-    justify-content: center;
+    justify-content: space-between; 
     align-items: center;
     flex-wrap: wrap;
+}
+
+.card-plus-title{
+    margin: 0 5vh 0 5vh;
+}
+
+.title-label {
+    margin-left: 0%;
+    font-size: 18pt;
 }
 
 .content .section .container-content{
@@ -291,10 +309,10 @@ body{
 }
 
 .content .section .cards .card{
-    width: 250px;
-    height: 120px;
+    width: 35vh;
+    height: 18vh;
     padding: 10px 30px;
-    margin: 15px;
+    margin-top: 15px;
     border-radius: 8px;
     background-color: var(--color-3);
     border: none;
@@ -303,6 +321,10 @@ body{
     justify-content: space-between;
     flex-direction: row;
     transition: all .4s ease-in-out;
+}
+
+.chart-section{
+    margin: 10vh 6vh 0 6vh;
 }
 
 .content .section .cards .card:hover{
@@ -329,7 +351,7 @@ body{
     width: 390px;
     height: 300px;
     padding: 15px 15px;
-    margin: 15px;
+    margin: 1vh;
     border-radius: 8px;
     background-color: var(--color-3);
     border: none;
@@ -344,18 +366,101 @@ body{
     border-radius: 8px;
 }
 
+.canva-chart {
+    width: 75vh;
+    /* margin: 0 5% 0 0; */
+}
+
+/* CARDS ESTAÇÃO */
+.section .section-title {
+    font-family: var(--font-subtitle);
+    font-size: 20pt;
+    margin: 0vh 0vh 0vh 5vh;
+}
+
+.all-station-cards{
+    margin: 5vh 0vh 5vh 10vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+.station-card, .machine-card {
+    margin: 0 5% 2% 0%;
+    width: 27vh;
+    height: 28vh;
+    padding: 10px;
+    background-color: #60C3D8;
+    color: var(--color-1);
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    border-radius: 10% 10% 10% 10% / 10% 10% 10% 10%;
+    -webkit-box-shadow: 7px 7px 6px 1px rgba(114,114,110,0.69); 
+    box-shadow: 7px 7px 6px 1px rgba(114,114,110,0.69);
+    border: 3px solid var(--color-5)
+}
+.station-card h1, .machine-card h1 {
+    font-size: 22pt;
+}
+
+.machine-card {
+    cursor: pointer;
+    border-color: var(--color-status-critical);
+}
+
+.card-title {
+    margin: 2% 0 2% 0;
+    font-family: var(--font-subtitle);
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    font-size: 123%;
+    font-family: var(--font-subtitle);
+}
+
+.card-content span {
+    margin: 2% 0 2% 0;
+}
+
+
 /*RESPONSIVIDADE*/
 
 @media (max-width: 1399.98px){
     .content .section .cards .card .desc span{
         font-size:26px;
     }
+
+    .nav .logo span{
+        font-size: 19px;
+    }
+
+    .station-card {
+        height: 45vh;
+        width: 45vh;
+    }
 }
 @media (max-width: 1199.98px){
     .nav{
         width:200px;
     }
+
+    .nav .logo span{
+        font-size: 13px;
+    }
     .content{
         width: calc(100% - 200px);
+    }
+
+    .content .section .charts .card-chart canvas{
+        width: 50%;
+    }
+    .canva-chart {
+        width: 50vh;
+    }
+
+    .station-card {
+        height: 50vh;
+        width: 45vh;
     }
 }
