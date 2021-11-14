@@ -24,7 +24,7 @@ var myChart = new Chart(ctx, {
         title: {
             text: "Registros de alerta",
             display: true,
-            fontSize: 15,
+            fontSize: 22,
         }, legend: {
             display: false
         },
@@ -84,7 +84,7 @@ var myChart = new Chart(ctx, {
         title: {
             text: "Sem papel x hora",
             display: true,
-            fontSize: 15,
+            fontSize: 22
         },
         legend: {
             display: false
