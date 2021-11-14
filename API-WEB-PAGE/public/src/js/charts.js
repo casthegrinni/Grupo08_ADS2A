@@ -34,14 +34,14 @@ var config = {
                 ticks: {
                     beginAtZero: true
                 },
-                gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
-                }
             }],
             yAxes: [{
                 ticks: {
                     min: 0,
                 },
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
             }],
         }
     }
