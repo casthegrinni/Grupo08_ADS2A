@@ -3,16 +3,8 @@ var hardwareData = {
     labels: ['RAM', 'CPU', 'Disco'],
     datasets: [{
         data: [8, 10, 5],
-        backgroundColor: [
-            'rgba(15,125,146, 1)',
-            'rgba(255, 0, 67, 1)',
-            'rgba(15,125,146, 1)',
-        ],
-        borderColor: [
-            'rgba(24,179,194, 1)',
-            'rgba(255, 0, 67, 1)',
-            'rgba(24,179,194, 1)',
-        ],
+        backgroundColor: getColor([8, 10, 5]),
+        borderColor: getColor([8, 10, 5]),
         borderWidth: 1
     }]
 }
@@ -54,22 +46,8 @@ var paperData = {
     datasets: [{
         label: "nº de ocorrências",
         data: [3, 15, 5, 8, 14, 6],
-        backgroundColor: [
-            'rgba(15,125,146, 1)',
-            'rgba(255, 0, 67, 1)',
-            'rgba(15,125,146, 1)',
-            'rgba(15,125,146, 1)',
-            'rgba(15,125,146, 1)',
-            'rgba(15,125,146, 1)'
-        ],
-        borderColor: [
-            'rgba(24,179,194, 1)',
-            'rgba(255, 0, 67, 1)',
-            'rgba(24,179,194, 1)',
-            'rgba(24,179,194, 1)',
-            'rgba(24,179,194, 1)', ,
-            'rgba(24,179,194, 1)'
-        ],
+        backgroundColor: getColor([3, 15, 5, 8, 14, 6]),
+        borderColor: getColor([3, 15, 5, 8, 14, 6]),
         borderWidth: 1
     }]
 }
@@ -106,3 +84,19 @@ var config = {
 }
 
 var myChart = new Chart(ctx, config);
+
+function getColor(data){
+    var colors = [];
+    var maxValue = data[0];
+
+    for(i = 0; i<data.length ;i++){
+        if(data[i] > maxValue){
+            maxValue = data[i]
+            colors.push('rgba(255, 0, 67, 1)')
+        } else {
+            colors.push('rgba(15,125,146, 1)')
+        }    
+    }
+
+    return colors;
+}
