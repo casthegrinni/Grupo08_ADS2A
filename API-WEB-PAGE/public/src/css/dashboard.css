@@ -6,6 +6,7 @@
     --color-4: #323232;
     --color-5: #9AA7B2;
     --color-6: #6FCBA2;
+    --font-title: 'Orbitron', sans-serif;
 }
 
 *{
@@ -72,7 +73,7 @@ body{
 .nav .logo span{
     font-weight: 900;
     font-size: 22px;
-    font-family: 'Orbitron', sans-serif;
+    font-family: var(--font-title);
 }
 
 .nav .menu{
