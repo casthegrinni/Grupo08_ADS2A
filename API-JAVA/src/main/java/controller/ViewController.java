@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 public class ViewController {
     private final DataBaseModel db= new DataBaseModel();
     private final LoocaController looca = new LoocaController();
-    private final SlackControler s = new SlackControler();
+    private final SlackController s = new SlackController();
 
     public Boolean verifyUserAndMachine(String login, String senha,String fkMaquina) {
         String query = String.format("select email,senha,fk_estacao from [dbo].[usuario] where email ='%s' and senha = '%s';", login, senha);

@@ -10,7 +10,7 @@ public class LoocaController {
 
     private final LoocaMoodel looca = new LoocaMoodel();
     private final DataBaseModel db = new DataBaseModel();
-    private SlackControler slack = new SlackControler();
+    private SlackController slack = new SlackController();
     private int fkMaquina;
     Timer timer = new Timer();
     private final TimerTask task = new TimerTask() {
@@ -95,7 +95,7 @@ public class LoocaController {
         return "Status com Erro";
     }
 
-    public void setSlack(SlackControler slack) {
+    public void setSlack(SlackController slack) {
         this.slack = slack;
     }
 }

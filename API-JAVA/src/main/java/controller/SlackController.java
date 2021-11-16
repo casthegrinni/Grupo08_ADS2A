@@ -9,7 +9,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SlackControler {
+public class SlackController {
     private final SlackModel slack = new SlackModel();
     JSONObject json = new JSONObject();
     DataBaseModel db = new DataBaseModel();
