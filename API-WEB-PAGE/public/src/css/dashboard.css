@@ -385,7 +385,7 @@ body{
 }
 .station-card, .machine-card {
     margin: 0 5% 2% 0%;
-    width: 27vh;
+    width: 28vh;
     height: 28vh;
     padding: 10px;
     background-color: #60C3D8;
@@ -400,6 +400,7 @@ body{
 }
 .station-card h1, .machine-card h1 {
     font-size: 22pt;
+    width: 100%;
 }
 
 .machine-card {
@@ -439,6 +440,11 @@ body{
         height: 45vh;
         width: 45vh;
     }
+
+    .machine-card {
+        height: 40vh;
+        width: 40vh;
+    }
 }
 @media (max-width: 1199.98px){
     .nav{
@@ -461,6 +467,11 @@ body{
 
     .station-card {
         height: 50vh;
-        width: 45vh;
+        width: 50vh;
+    }
+
+    .machine-card {
+        height: 50vh;
+        width: 55vh;
     }
 }
