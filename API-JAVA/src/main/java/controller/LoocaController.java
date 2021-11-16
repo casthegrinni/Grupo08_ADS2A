@@ -10,6 +10,7 @@ public class LoocaController {
 
     private final LoocaMoodel looca = new LoocaMoodel();
     private final DataBaseModel db = new DataBaseModel();
+    private SlackControler slack = new SlackControler();
     private int fkMaquina;
     Timer timer = new Timer();
     private final TimerTask task = new TimerTask() {
@@ -20,20 +21,28 @@ public class LoocaController {
             looca.setStaticPcInfo();
             String query = String.format(
                     "INSERT INTO status_maquina "
-                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,fk_maquina) "
+                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
                     + "values (%s,'%s',%s,%d,%d)",
                     looca.getUsoProcessador(),
                     looca.getTemperaturaCpu(),
                     looca.getUsoDissco(),
                     looca.getUsoRam(),
-                    fkMaquina
-            );
-            try {
-                insertStatusPc(
+                    insertStatusPc(
                         looca.getValueOfUsoProcessador(),
                         looca.getUsoRam(),
                         looca.getTotalRam()
+                    ),
+                    fkMaquina
+            );
+            try {
+                slack.sendingMessageSlack(
+                        looca.getValueOfUsoProcessador(),
+                        looca.getUsoRam(),
+                        looca.getTotalRam(),
+                        looca.getUsoDissco(),
+                        looca.getTotalDisco()
                 );
+                
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -59,7 +68,7 @@ public class LoocaController {
         this.fkMaquina = fkMaquina;
     }
 
-    public void insertStatusPc(
+    public String insertStatusPc(
         Double usoProcessador, 
         Long usoMemoria,
         Long totalMemoria
@@ -70,50 +79,23 @@ public class LoocaController {
         String status;
 
         if ((porcentagemMemoria <= 50.0) && ( usoProcessador <= 50.0)) {
-            status = "Normal";
-            String query = String.format(
-                    "INSERT INTO status_maquina "
-                    + "(status_web) values (%s)",
-                    status
-            );
-            System.out.println(query);
-            db.initializer();
-            db.makeQueryWithoutReturn(query);
-            System.out.println("inseriu");
+            status = "'Normal'";
+            return status;
         } else if ((porcentagemMemoria < 71.0) && (usoProcessador < 71.0)) {
-            status = "Moderado";
-            String query = String.format(
-                    "INSERT INTO status_maquina "
-                    + "(status_web) values (%s)",
-                    status
-            );
-            System.out.println(query);
-            db.initializer();
-            db.makeQueryWithoutReturn(query);
-            System.out.println("inseriu");
+            status = "'Moderado'";
+            return status;
         } else if ((porcentagemMemoria < 81.0) || (usoProcessador < 81.0)) {
-            status = "Perigo";
-            String query = String.format(
-                    "INSERT INTO status_maquina "
-                    + "(status_web) values (%s)",
-                    status
-            );
-            System.out.println(query);
-            db.initializer();
-            db.makeQueryWithoutReturn(query);
-            System.out.println("inseriu");
+            status = "'Perigo'";
+            return status;
         } else if (porcentagemMemoria >= 81.0 || usoProcessador >= 81.0) {
-            status = "CrÃ­tico";
-            String query = String.format(
-                    "INSERT INTO status_maquina "
-                    + "(status_web) values (%s)",
-                    status
-            );
-            System.out.println(query);
-            db.initializer();
-            db.makeQueryWithoutReturn(query);
-            System.out.println("inseriu");
+            status = "'Crí­tico'";
+            return status;
         }
+        
+        return "Status com Erro";
+    }
 
+    public void setSlack(SlackControler slack) {
+        this.slack = slack;
     }
 }

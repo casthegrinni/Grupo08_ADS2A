@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 public class ViewController {
     private final DataBaseModel db= new DataBaseModel();
     private final LoocaController looca = new LoocaController();
+    private final SlackControler s = new SlackControler();
 
     public Boolean verifyUserAndMachine(String login, String senha,String fkMaquina) {
         String query = String.format("select email,senha,fk_estacao from [dbo].[usuario] where email ='%s' and senha = '%s';", login, senha);
@@ -19,6 +20,8 @@ public class ViewController {
         Integer fkmaquinaInt = 0;
         try {
             fkmaquinaInt = Integer.valueOf(fkMaquina);
+            s.setFkMaquina(fkmaquinaInt);
+            
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Insira apenas números no id da maquina");
         }
@@ -45,9 +48,8 @@ public class ViewController {
 
     }
     public void start(){
-
+        looca.setSlack(s);
         looca.insertInSeconds(5);
-
 
     }
 
