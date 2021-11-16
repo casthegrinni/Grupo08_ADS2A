@@ -104,3 +104,4 @@ function getColor(data) {
 
     return colors;
 }
+
