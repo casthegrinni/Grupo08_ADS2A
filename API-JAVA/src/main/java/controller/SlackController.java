@@ -33,7 +33,6 @@ public class SlackController {
         
         db.initializer(); 
         response = db.makeSelectQuery(String.format("select fk_estacao, nome_estacao from maquina join estacao on id_estacao = fk_estacao WHERE id_maquina = %s;", fkMaquina));
-        System.out.println("resposta é!!!!!!: " + response);
         String fkEstacao = response.get("label1");
         String nomeEstacao = response.get("label2");
         
