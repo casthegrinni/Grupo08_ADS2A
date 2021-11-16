@@ -39,6 +39,8 @@ var config = {
     }
 }
 
+var myChart = new Chart(ctx, config);
+
 // DISK CHART
 
 var ctx = document.getElementById('diskChart').getContext('2d');
@@ -81,6 +83,8 @@ var config = {
         }
     }
 }
+
+var myChart = new Chart(ctx, config);
 
 // RAM CHART
 
@@ -125,6 +129,8 @@ var config = {
     }
 }
 
+var myChart = new Chart(ctx, config);
+
 // PAPER CHART
 
 var ctx = document.getElementById('paperChart').getContext('2d');
@@ -167,6 +173,8 @@ var config = {
         }
     }
 }
+
+var myChart = new Chart(ctx, config);
 
 function getColor(data) {
     var colors = [];
