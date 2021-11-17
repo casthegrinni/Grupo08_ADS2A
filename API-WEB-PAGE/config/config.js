@@ -3,7 +3,7 @@ module.exports = {
   production: {
     // altere APENAS username, password, database e host.
     username: 'bandtec',
-    password: 'AbCdELEFOA@100',
+    password: 'AbCdinossauro@100',
     database: 'iris-pulsatrix',
     host: '212-2a-grupo8.database.windows.net',
     dialect: 'mssql',
