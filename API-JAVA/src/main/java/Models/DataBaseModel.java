@@ -9,11 +9,6 @@ import java.util.List;
 import java.util.Map;
 import org.ini4j.Ini;
 
-/*
-Ini ini = new Ini(new File("C://Users/Gabriel_Prisco/Downloads/db_config.ini"));
-        System.out.println(ini.get("prod_credentials", "user"));
-*/
-
 public class  DataBaseModel {
     private String server = "";
     private String port = "";
@@ -23,7 +18,7 @@ public class  DataBaseModel {
     
     public void initializer() {
         try { 
-           Ini ini = new Ini(new File("API-JAVA/db_config.ini"));
+           Ini ini = new Ini(new File("./db_config.ini"));
            server = ini.get("prod_credentials", "server");
            port = ini.get("prod_credentials", "port");
            dbName = ini.get("prod_credentials", "database");

@@ -11,4 +11,5 @@ controller\LoocaController.class
 Views\exitFrame$1.class
 Models\DataBaseModel.class
 Models\SlackModel.class
+controller\SlackControler.class
 Views\Login$2.class

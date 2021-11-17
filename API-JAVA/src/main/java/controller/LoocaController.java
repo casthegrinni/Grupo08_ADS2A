@@ -2,19 +2,15 @@ package controller;
 
 import Models.DataBaseModel;
 import Models.LoocaMoodel;
-import Models.SlackModel;
 import controller.utils.Conversor;
-import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
-import org.json.JSONObject;
 
 public class LoocaController {
 
     private final LoocaMoodel looca = new LoocaMoodel();
     private final DataBaseModel db = new DataBaseModel();
-    private final SlackModel slack = new SlackModel();
-    JSONObject json = new JSONObject();
+    private SlackController slack = new SlackController();
     private int fkMaquina;
     Timer timer = new Timer();
     private final TimerTask task = new TimerTask() {
@@ -25,29 +21,28 @@ public class LoocaController {
             looca.setStaticPcInfo();
             String query = String.format(
                     "INSERT INTO status_maquina "
-                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,fk_maquina) "
+                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
                     + "values (%s,'%s',%s,%d,%d)",
                     looca.getUsoProcessador(),
                     looca.getTemperaturaCpu(),
                     looca.getUsoDissco(),
                     looca.getUsoRam(),
+                    insertStatusPc(
+                        looca.getValueOfUsoProcessador(),
+                        looca.getUsoRam(),
+                        looca.getTotalRam()
+                    ),
                     fkMaquina
             );
             try {
-                insertStatusPc(
+                slack.sendingMessageSlack(
                         looca.getValueOfUsoProcessador(),
                         looca.getUsoRam(),
                         looca.getTotalRam(),
                         looca.getUsoDissco(),
                         looca.getTotalDisco()
                 );
-                sendingMessageSlack(
-                        looca.getValueOfUsoProcessador(),
-                        looca.getUsoRam(),
-                        looca.getTotalRam(),
-                        looca.getUsoDissco(),
-                        looca.getTotalDisco()
-                );
+                
             } catch (Exception e) {
                 System.out.println(e);
             }
@@ -73,118 +68,34 @@ public class LoocaController {
         this.fkMaquina = fkMaquina;
     }
 
-    public void insertStatusPc(
+    public String insertStatusPc(
         Double usoProcessador, 
         Long usoMemoria,
-        Long totalMemoria,
-        Long usoDisco,
-        Long totalDisco
-    ) throws IOException, InterruptedException {
+        Long totalMemoria
+    ) {
         Double memoria = Conversor.longToDouble(usoMemoria);
         Double memoriaTotal = Conversor.longToDouble(totalMemoria);
-        Double disco = Conversor.longToDouble(usoDisco);
-        Double discoTotal = Conversor.longToDouble(totalDisco);
-        Double porcentagemDisco = disco * (discoTotal / 100.0);
         Double porcentagemMemoria = memoria * (memoriaTotal / 100.0);
         String status;
 
-        if ((porcentagemDisco <= 50.0) && (porcentagemMemoria <= 50.0) && ( usoProcessador <= 50.0)) {
-            status = "Normal";
-            String query = String.format(
-                    "INSERT INTO status_maquina (status_web) "
-                    + "VALUES (%s)",
-                    status
-            );
-            System.out.println(query);
-            db.initializer();
-            db.makeQueryWithoutReturn(query);
-            System.out.println("inseriu");
-        } else if ((porcentagemDisco > 50.0 && porcentagemDisco < 71.0) && (porcentagemMemoria > 50.0 && porcentagemMemoria < 71.0) && (usoProcessador > 50.0 && usoProcessador < 71.0)) {
-            status = "Moderado";
-            String query = String.format(
-                    "INSERT INTO status_maquina (status_web) "
-                    + "VALUES (%s)",
-                    status
-            );
-            System.out.println(query);
-            db.initializer();
-            db.makeQueryWithoutReturn(query);
-            System.out.println("inseriu");
-        } else if ((porcentagemDisco >= 71.0 && porcentagemDisco < 81.0) || (porcentagemMemoria >= 71.0 && porcentagemMemoria < 81.0) || (usoProcessador >= 71.0 && usoProcessador < 81.0)) {
-            status = "Perigo";
-            String query = String.format(
-                    "INSERT INTO status_maquina (status_web) "
-                    + "VALUES (%s)",
-                    status
-            );
-            System.out.println(query);
-            db.initializer();
-            db.makeQueryWithoutReturn(query);
-            System.out.println("inseriu");
-        } else if (porcentagemDisco >= 81.0 || porcentagemMemoria >= 81.0 || usoProcessador >= 81.0) {
-            status = "Crítico";
-            String query = String.format(
-                    "INSERT INTO status_maquina (status_web)"
-                    + "VALUES(%s)",
-                    status
-            );
-            System.out.println(query);
-            db.initializer();
-            db.makeQueryWithoutReturn(query);
-            System.out.println("inseriu");
+        if ((porcentagemMemoria <= 50.0) && ( usoProcessador <= 50.0)) {
+            status = "'Normal'";
+            return status;
+        } else if ((porcentagemMemoria < 71.0) && (usoProcessador < 71.0)) {
+            status = "'Moderado'";
+            return status;
+        } else if ((porcentagemMemoria < 81.0) || (usoProcessador < 81.0)) {
+            status = "'Perigo'";
+            return status;
+        } else if (porcentagemMemoria >= 81.0 || usoProcessador >= 81.0) {
+            status = "'Crí­tico'";
+            return status;
         }
-
+        
+        return "Status com Erro";
     }
 
-    public void sendingMessageSlack(
-            Double usoProcessador,
-            Long usoMemoria,
-            Long totalMemoria,
-            Long usoDisco,
-            Long totalDisco
-    ) throws IOException, InterruptedException {
-        Double memoria = Conversor.longToDouble(usoMemoria);
-        Double memoriaTotal = Conversor.longToDouble(totalMemoria);
-        Double disco = Conversor.longToDouble(usoDisco);
-        Double discoTotal = Conversor.longToDouble(totalDisco);
-        Double porcentagemDisco = disco * (discoTotal / 100.0);
-        Double porcentagemMemoria = memoria * (memoriaTotal / 100.0);
-
-        if (porcentagemDisco >= 71.0 && porcentagemDisco < 81.0) {
-            System.out.println("Disco em risco");
-            slack.initializer();
-            json.put("text", String.format(":warning:? ALERTA LARANJA NO DISCO RÍGIDO, COMPONENTE COM %.1f% EM USO! :warning:", porcentagemDisco));
-            SlackModel.sendMessage(json);
-        } else if (porcentagemDisco >= 81.0) {
-            System.out.println("Disco em alerta critico");
-            slack.initializer();
-            json.put("text", String.format(":rotating_light: ALERTA CRÍTICO DO SISTEMA NO DISCO RÍGIDO COM OS NÍVEIS EM %.1f%!  :rotating_light:", porcentagemDisco));
-            SlackModel.sendMessage(json);
-        }
-
-        if (porcentagemMemoria >= 71.0 && porcentagemMemoria < 81.0) {
-            System.out.println("Memoria em risco");
-            slack.initializer();
-            json.put("text", String.format(":warning:? ALERTA LARANJA NA MEMÓRIA RAM, COMPONENTE COM %.1f% EM USO! :warning:?", porcentagemMemoria));
-            SlackModel.sendMessage(json);
-        } else if (porcentagemMemoria >= 81.0) {
-            System.out.println("Memoria em alerta critico");
-            slack.initializer();
-            json.put("text", String.format(":rotating_light: ALERTA CRÍTICO DO SISTEMA NA MEMÓRIA RAM COM OS NÍVEIS EM %.1f%! :rotating_light:", porcentagemMemoria));
-            SlackModel.sendMessage(json);
-        }
-
-        if (usoProcessador >= 71.0 && usoProcessador < 81.0) {
-            System.out.println("CPU em risco");
-            slack.initializer();
-            json.put("text", String.format(":warning:? ALERTA LARANJA EM CPU, COMPONENTE COM %.1f% EM USO! :warning:", usoProcessador));
-            SlackModel.sendMessage(json);
-        } else if (usoProcessador >= 81.0) {
-            System.out.println("CPU em alerta critico");
-            slack.initializer();
-            json.put("text", String.format(":rotating_light: ALERTA CRÍTICO DO SISTEMA NA CPU COM OS NÍVEIS EM %.1f%! :rotating_light:", usoProcessador));
-            SlackModel.sendMessage(json);
-        }
+    public void setSlack(SlackController slack) {
+        this.slack = slack;
     }
-
 }
