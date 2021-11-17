@@ -1,9 +1,9 @@
 {
-    "name":"GRUPO08_TOP-raiz",
+    "name":"GRUPO08_TOP",
     "version":"0.0.1",
     "private": true,
     "scripts": {
         "start": "node ./API-WEB-PAGE/bin/www",
-        "postinstall": "cd projeto-site && npm install"
+        "postinstall": "cd API-WEB-PAGE && npm install"
     }
 }
