@@ -184,6 +184,27 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 				res.status(500).send(erro.message);
 			})
 		});
+		router.get('/getAllStations/', function (req, res, next) {
+	
+	//COM ERRO
+			const instrucaoSql = `-- SELECT e.nome_estacao, COUNT(u.tipo_usuario) as count_user, COUNT(m.fk_estacao) as count_maq, COUNT(s.status_web) as count_statusq
+			--  from estacao e JOIN usuario u on id_estacao = u.fk_estacao
+			--   JOIN maquina m on id_estacao = m.fk_estacao 
+			--   JOiN status_maquina s on m.id_maquina = fk_maquina
+			--   WHERE u.tipo_usuario = 2 
+			--   and s.status_web = 'Crítico'
+			--   GROUP BY e.nome_estacao ' 
+			`;
+							
+		
+			sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+				.then(resultado => {
+					res.json(resultado);
+				}).catch(erro => {
+					console.error(erro);
+					res.status(500).send(erro.message);
+				})
+			});
   
 
 module.exports = router;
