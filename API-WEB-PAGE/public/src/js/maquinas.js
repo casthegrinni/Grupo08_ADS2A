@@ -1,8 +1,7 @@
 
 
 function getMachines(){
-    var critical = 0
-    var alert = 0 
+  
     
       const fk_estacao = sessionStorage.fk_estacao
       fetch(`../leituras/machines/${fk_estacao}`, {
@@ -45,15 +44,18 @@ function getMachines(){
 
 
                       }
+                      getFirstInfo()
                       
-                      if(window.location.pathname == `/pages/dashboard.html`){
-                        getFirstInfo(critical)
-                      }
+                    //   if(window.location.pathname == `/pages/dashboard.html`){
+                          
+                    //     getFirstInfo()
+                    //   }
 
                      
                 });
                 
                 }
+                
 
     
             else {
@@ -68,7 +70,7 @@ function getMachines(){
         });
        
        
-        
+        getFirstInfo()
         return false;
 }
 function openDashboard(id_maquina){
@@ -77,11 +79,8 @@ function openDashboard(id_maquina){
 
 }
 
-function getStatusForIdMachine(idMachine)
-{
-    return "critical"
-}
-function getFirstInfo(counterCritical){
+
+function getFirstInfo(){
     const fk_estacao = sessionStorage.fk_estacao
     fetch(`../leituras/machines_total/${fk_estacao}`, {
           method: "GET",
@@ -110,7 +109,8 @@ function getFirstInfo(counterCritical){
     }).then(resposta => {
         if (resposta.ok) {
           resposta.json().then(function (json){
-              count_stations.innerHTML = json.contagem
+            count_stations.innerHTML = `${json.contagem} `
+           
                 
             
 
@@ -127,7 +127,38 @@ function getFirstInfo(counterCritical){
             });
         }
     });
-    count_critical.innerHTML = counterCritical == undefined? 0 : counterCritical
+    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}`, {
+        method: "GET",
+    }).then(resposta => {
+        if (resposta.ok) {
+          resposta.json().then(function (json){
+              let aux_alert = 0
+              let aux_critico = 0
+              for (let i; i <json; i++ ) {
+                  let resp = json[i]
+                  alert(resp.status_web)
+                resp.status_web == 'Perigo'? aux_alert ++ : aux_critico ++
+
+              }
+              count_critical.innerHTML = aux_critico
+              count_alert.innerHTML = aux_alert
+
+                
+            
+
+
+            });
+
+        } else {
+
+            console.log('aaaaaaa!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+    
   
       return false;
 
