@@ -3,13 +3,25 @@ package Logs;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Logs {
-    public static void gravarLogs(String log) throws IOException {
+    List<String> listLog = new ArrayList<>();
+    DateTimeFormatter dateLog = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm");
+
+    public void saveLogs(String log){
+        listLog.add(log+" --> "+dateLog.format(LocalDateTime.now()));
+    }
+
+    public void writeLogs() throws IOException {
         FileWriter logs = new FileWriter("API-JAVA/logs.txt");
         PrintWriter saveLogs = new PrintWriter(logs);
-        saveLogs.println(log);
-
+        for (String i:listLog){
+            saveLogs.println(i);
+        }
         logs.close();
     }
 

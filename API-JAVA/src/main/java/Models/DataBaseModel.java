@@ -20,6 +20,7 @@ public class  DataBaseModel {
     private String dbName = "";
     private String user = "";
     private String password = "";
+    Logs logs = new Logs();
     
     public void initializer() {
         try { 
@@ -30,10 +31,9 @@ public class  DataBaseModel {
            user = ini.get("prod_credentials", "user");
            password = ini.get("prod_credentials", "password");
 
-           Logs.gravarLogs(user);
-
         }
         catch (IOException e) {
+            logs.saveLogs("Erro ao iniciar Banco de dados.");
             e.printStackTrace();
         }
     }
@@ -53,6 +53,7 @@ public class  DataBaseModel {
 
         } catch (SQLException e) {
             e.printStackTrace();
+            logs.saveLogs("Erro ao fazer consulta.");
         }
 
         return map;
@@ -64,6 +65,7 @@ public class  DataBaseModel {
 
         }catch (SQLException e) {
             e.printStackTrace();
+            logs.saveLogs("Erro ao realizar inserção no banco.");
         }
 
         }
@@ -82,6 +84,7 @@ public class  DataBaseModel {
 
             } catch (SQLException e) {
                 e.printStackTrace();
+                logs.saveLogs("Erro ao iniciar configuração na máquina.");
             }
             return response;
 

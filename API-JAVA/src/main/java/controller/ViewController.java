@@ -1,5 +1,6 @@
 package controller;
 
+import Logs.Logs;
 import Models.DataBaseModel;
 
 import java.sql.Array;
@@ -12,15 +13,19 @@ import javax.swing.JOptionPane;
 public class ViewController {
     private final DataBaseModel db= new DataBaseModel();
     private final LoocaController looca = new LoocaController();
+     Logs logs = new Logs();
 
     public Boolean verifyUserAndMachine(String login, String senha,String fkMaquina) {
         String query = String.format("select email,senha,fk_estacao from [dbo].[usuario] where email ='%s' and senha = '%s';", login, senha);
         Map map = db.makeSelectQuery(query);
         Integer fkmaquinaInt = 0;
+        logs.saveLogs("Aplicação iniciada por: "+login);
+
         try {
             fkmaquinaInt = Integer.valueOf(fkMaquina);
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Insira apenas números no id da maquina");
+            logs.saveLogs("Erro ao iniciar aplicação");
         }
         if (map.isEmpty()) {
             return false;

@@ -28,6 +28,7 @@ public class SlackModel {
             URL = ini.get("prod_credentials", "URL");
         }
         catch (IOException e) {
+
             e.printStackTrace();
         }
     }
