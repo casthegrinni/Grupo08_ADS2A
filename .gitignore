@@ -72,3 +72,4 @@ config/
 database.js
 
 db_config.ini
+/nbproject/private/

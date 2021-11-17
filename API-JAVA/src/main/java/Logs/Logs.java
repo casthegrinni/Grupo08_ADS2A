@@ -6,7 +6,7 @@ import java.io.PrintWriter;
 
 public class Logs {
     public static void gravarLogs(String log) throws IOException {
-        FileWriter logs = new FileWriter("API-JAVA/logs.txt");
+        FileWriter logs = new FileWriter("./logs.txt");
         PrintWriter saveLogs = new PrintWriter(logs);
         saveLogs.println(log);
 
