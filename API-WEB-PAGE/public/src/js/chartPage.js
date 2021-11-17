@@ -1,20 +1,22 @@
 var ctx = document.getElementById('cpuChart').getContext('2d');
 var cpuData = {
-    labels: ['RAM', 'CPU', 'Disco'],
+    labels: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
     datasets: [{
-        data: [8, 10, 5],
-        backgroundColor: getColor([8, 10, 5]),
-        borderColor: getColor([8, 10, 5]),
-        borderWidth: 1
+        data: [69, 30, 80, 70, 75, 85, 60, 50, 30, 89],
+        backgroundColor: getColor([69, 30, 80, 70, 75, 85, 60, 50, 30, 89]),
+        borderColor: 'rgba(15,125,146, 1)',
+        borderWidth: 1,
+        fill: false,
+        tension: 0.1
     }]
 }
 
 var config = {
-    type: 'horizontalBar',
+    type: 'line',
     data: cpuData,
     options: {
         title: {
-            text: "Registros de alerta",
+            text: "Uso de CPU (%)",
             display: true,
             fontSize: 22,
         },
@@ -23,16 +25,14 @@ var config = {
         },
         scales: {
             xAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
             }],
             yAxes: [{
                 ticks: {
                     min: 0,
-                },
-                gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
+                    max: 100,
                 }
             }],
         }
@@ -45,21 +45,23 @@ var myChart = new Chart(ctx, config);
 
 var ctx = document.getElementById('diskChart').getContext('2d');
 var diskData = {
-    labels: ['RAM', 'CPU', 'Disco'],
+    labels: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
     datasets: [{
-        data: [8, 10, 5],
-        backgroundColor: getColor([8, 10, 5]),
-        borderColor: getColor([8, 10, 5]),
-        borderWidth: 1
+        data: [10, 10, 11, 12, 12, 12, 12, 12, 12, 14],
+        backgroundColor: getColor([69, 30, 80, 70, 75, 85, 60, 50, 30, 89]),
+        borderColor: 'rgba(15,125,146, 1)',
+        borderWidth: 1,
+        fill: false,
+        tension: 0.1
     }]
 }
 
 var config = {
-    type: 'horizontalBar',
+    type: 'line',
     data: diskData,
     options: {
         title: {
-            text: "Registros de alerta",
+            text: "Uso de disco (%)",
             display: true,
             fontSize: 22,
         },
@@ -68,16 +70,14 @@ var config = {
         },
         scales: {
             xAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
             }],
             yAxes: [{
                 ticks: {
                     min: 0,
-                },
-                gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
+                    max: 100,
                 }
             }],
         }
@@ -90,21 +90,23 @@ var myChart = new Chart(ctx, config);
 
 var ctx = document.getElementById('ramChart').getContext('2d');
 var ramData = {
-    labels: ['RAM', 'CPU', 'Disco'],
+    labels: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
     datasets: [{
-        data: [8, 10, 5],
-        backgroundColor: getColor([8, 10, 5]),
-        borderColor: getColor([8, 10, 5]),
-        borderWidth: 1
+        data: [20, 25, 20, 60, 30, 40, 25, 70, 78, 89],
+        backgroundColor: getColor([69, 30, 80, 70, 75, 85, 60, 50, 30, 89]),
+        borderColor: 'rgba(15,125,146, 1)',
+        borderWidth: 1,
+        fill: false,
+        tension: 0.1
     }]
 }
 
 var config = {
-    type: 'horizontalBar',
+    type: 'line',
     data: ramData,
     options: {
         title: {
-            text: "Registros de alerta",
+            text: "Uso de RAM (%)",
             display: true,
             fontSize: 22,
         },
@@ -113,16 +115,14 @@ var config = {
         },
         scales: {
             xAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
             }],
             yAxes: [{
                 ticks: {
                     min: 0,
-                },
-                gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
+                    max: 100,
                 }
             }],
         }
@@ -135,21 +135,20 @@ var myChart = new Chart(ctx, config);
 
 var ctx = document.getElementById('paperChart').getContext('2d');
 var paperData = {
-    labels: ['RAM', 'CPU', 'Disco'],
+    labels: ['00:00', '00:05', '00:10', '00:15', '00:20', '00:25', '00:30', '00:35', '00:40', '00:45'],
     datasets: [{
-        data: [8, 10, 5],
-        backgroundColor: getColor([8, 10, 5]),
-        borderColor: getColor([8, 10, 5]),
-        borderWidth: 1
+        data: [0, 0, 0, 0, 0, 0, 0, 1, 1, 1],
+        backgroundColor: getColor([0, 0, 0, 0, 0, 0, 0, 1, 1, 1]),
+        borderColor: getColor([0, 0, 0, 0, 0, 0, 0, 1, 1, 1])
     }]
 }
 
 var config = {
-    type: 'horizontalBar',
+    type: 'bar',
     data: paperData,
     options: {
         title: {
-            text: "Registros de alerta",
+            text: "Estoque de papel",
             display: true,
             fontSize: 22,
         },
