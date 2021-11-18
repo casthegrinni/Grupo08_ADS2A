@@ -9,36 +9,20 @@ function getMachines(){
         }).then(resposta => {
             if (resposta.ok) {
               resposta.json().then(function (json){
-                   var status
                 
                     
                    for (let i = 0; i < json.length; i++) {
-
-                            const resposta = json[i];
-                           let row =  rows_table.insertRow(i)
-                           var cell1 = row.insertCell(0)
-                           var cell2 = row.insertCell(1)
-                           var cell3 = row.insertCell(2)
-                           var cell4 = row.insertCell(3)
-                          status  = getStatusForIdMachine(resposta.id_maquina)
-                          
-
-                           
-                           
-                           cell1.innerHTML = `${resposta.id_maquina} `
-                           cell2.innerHTML= resposta.nome_maquina
-                           cell3.innerHTML = status == 'critical' ? `<i class='bx bxs-circle error'></i>` : `<i class='bx bxs-circle maintenance'></i>`
-                           cell4.innerHTML = resposta.nome_estacao
-                           row.style.cursor = `pointer`
-                           row.addEventListener("click",function(){
-                                 openDashboard(resposta.id_maquina)
-                           })
-                           if(status == 'critical'){
-                            critical ++
-                            }
-                            else if(status == 'alert'){
-                                alert++
-                            }
+                       var resp = json[i]
+                       fetch(`../leituras/info_machines/${resp.id_maquina}`,{
+                           method: "GET",
+                       }).then(resposta2 => {
+                           if(resposta2.ok){
+                               resposta2.json().then(function (json2){
+                                   
+                               })
+                           }
+                       })
+                       
                             
 
 
@@ -46,10 +30,7 @@ function getMachines(){
                       }
                       getFirstInfo()
                       
-                    //   if(window.location.pathname == `/pages/dashboard.html`){
-                          
-                    //     getFirstInfo()
-                    //   }
+                  
 
                      
                 });
