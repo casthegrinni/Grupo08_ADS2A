@@ -38,7 +38,6 @@ public class ViewController {
     }
     public Boolean checkFkMaquina(int fkMaquina) {
         String query = String.format("select * from maquina where id_maquina = %d",fkMaquina);
-        System.out.println(query);
         Map map = db.makeSelectQuery(query);
         if (map.isEmpty()){
             return false;
@@ -66,7 +65,7 @@ public class ViewController {
 
 
         if (!requested){
-            System.out.println("verificando se o pc já foi checkado alguma vez");
+            System.out.println("verificando se o pc já foi checado alguma vez");
 
            String response =  db.makeCalibrateSelect(fkMaquina);
            if (response.equals("0") || response.equals("1")){
