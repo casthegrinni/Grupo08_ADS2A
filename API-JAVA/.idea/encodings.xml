@@ -2,7 +2,8 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/src/main/java/Views/Login.java" charset="windows-1252" />
-    <file url="file://$PROJECT_DIR$/src/main/java/controller/LoocaController.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/LoocaController.java" charset="windows-1252" />
     <file url="file://$PROJECT_DIR$/src/main/java/controller/ViewController.java" charset="windows-1252" />
+    <file url="file://$PROJECT_DIR$/src/main/java/controller/utils/Alertas.java" charset="windows-1252" />
   </component>
 </project>

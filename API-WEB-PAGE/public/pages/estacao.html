@@ -16,6 +16,10 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Quicksand:wght@300;400;500&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -59,64 +63,101 @@
     </nav>
     <main class="content">
         <header class="header">
-            <button type="button" class="button toggle-menu active">
-                <i class='bx bx-menu'></i>
-                <span>Estações</span>
             </button>
+            <form action="" class="form">
+                <input type="text" placeholder="Buscar">
+                <button type="submit"><i class='bx bx-search-alt-2'></i></button>
+            </form>
             <div class="box-profile">
                 <img src="../src/img/perfil.png" alt="">
                 <p class="name">
                     Usuário
-                    <span>User Name</span>
+                    <span id="b_usuario">User Name</span>
                 </p>
             </div>
         </header>
-        <div class="container-fluid container-content tables">
-            <div class="row">
-                <div class="col">
-                    <h3 class="title">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                  <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Estação</th>
-                                    <th scope="col">Administrador</th>
-                                  </tr>
-                                </thead>
-                                <tbody>
-                                  <tr>
-                                    <th scope="row">1</th>
-                                        <td>Vila Prudente</td>
-                                        <td>Carlos</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                        <td>Ana Rosa</td>
-                                        <td>João</td>
-                                  </tr>
-                                  <tr>
-                                        <th scope="row">3</th>
-                                        <td>Sacomã</td>
-                                        <td>Carlos</td>
-                                  </tr>
-                                  <tr>
-                                        <th scope="row">4</th>
-                                        <td>Consolação</td>
-                                        <td>Carlos</td>
-                                  </tr>
-                                  <tr>
-                                        <th scope="row">5</th>
-                                        <td>Sacomã</td>
-                                        <td>Carlos</td>
-                                  </tr>
-                                </tbody>
-                              </table>
+        <section class="section">
+            <h1 class="section-title">Estações</h1>
+            <div class="container-fluid container-content cards">
+                <div class="all-station-cards">
+
+                    <div class="station-card">
+                        <div class="card-title">
+                            <h1>Consolação</h1>
+                            <h4>Linha 2 - verde</h4>
                         </div>
-                    </h3>
+                        <br>
+                        <div class="card-content">
+                            <span>Técnicos: 5</span>
+                            <span>Máquinas: 30</span>
+                            <span>Em alerta: 2</span>
+                        </div>
+                    </div>
+                    <div class="station-card">
+                        <div class="card-title">
+                            <h1>Consolação</h1>
+                            <h4>Linha 2 - verde</h4>
+                        </div>
+                        <br>
+                        <div class="card-content">
+                            <span>Técnicos: 5</span>
+                            <span>Máquinas: 30</span>
+                            <span>Em alerta: 2</span>
+                        </div>
+                    </div>
+                    <div class="station-card">
+                        <div class="card-title">
+                            <h1>Consolação</h1>
+                            <h4>Linha 2 - verde</h4>
+                        </div>
+                        <br>
+                        <div class="card-content">
+                            <span>Técnicos: 5</span>
+                            <span>Máquinas: 30</span>
+                            <span>Em alerta: 2</span>
+                        </div>
+                    </div>
+                    <div class="station-card">
+                        <div class="card-title">
+                            <h1>Consolação</h1>
+                            <h4>Linha 2 - verde</h4>
+                        </div>
+                        <br>
+                        <div class="card-content">
+                            <span>Técnicos: 5</span>
+                            <span>Máquinas: 30</span>
+                            <span>Em alerta: 2</span>
+                        </div>
+                    </div>
+                    <div class="station-card">
+                        <div class="card-title">
+                            <h1>Consolação</h1>
+                            <h4>Linha 2 - verde</h4>
+                        </div>
+                        <br>
+                        <div class="card-content">
+                            <span>Técnicos: 5</span>
+                            <span>Máquinas: 30</span>
+                            <span>Em alerta: 2</span>
+                        </div>
+                    </div>
+                    <div class="station-card">
+                        <div class="card-title">
+                            <h1>Consolação</h1>
+                            <h4>Linha 2 - verde</h4>
+                        </div>
+                        <br>
+                        <div class="card-content">
+                            <span>Técnicos: 5</span>
+                            <span>Máquinas: 30</span>
+                            <span>Em alerta: 2</span>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-        </div>
+            </div>
+        </section>
     </main>
     <a href="cadastro-maquinas.html" style="cursor: pointer;">
         <div class="add-btn">
@@ -124,6 +165,10 @@
         </div>
     </a>
     <script src='js/charts.js'></script>
+    <script src="../src/js/funcoes.js"></script>
 </body>
+<script>
+    verificar_autenticacao()
+</script>
 
 </html>

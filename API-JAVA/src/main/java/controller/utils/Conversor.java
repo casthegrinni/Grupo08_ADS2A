@@ -11,8 +11,7 @@ package controller.utils;
  */
 public class Conversor {
     public static Double longToDouble(Long l) {
-        String aux = l.toString();
-        Double converted = Double.valueOf(aux);
+        Double converted = l.doubleValue();
         return converted;
     }
 }

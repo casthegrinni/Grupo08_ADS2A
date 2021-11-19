@@ -13,6 +13,7 @@ public class LoocaController {
     private SlackController slack = new SlackController();
     private int fkMaquina;
     Timer timer = new Timer();
+    Timer timerSlack = new Timer();
     private final TimerTask task = new TimerTask() {
         @Override
         public void run() {
@@ -22,7 +23,7 @@ public class LoocaController {
             String query = String.format(
                     "INSERT INTO status_maquina "
                     + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
-                    + "values (%s,'%s',%s,%d,%d)",
+                    + "values (%s,'%s',%s,%d,%s,%d)",
                     looca.getUsoProcessador(),
                     looca.getTemperaturaCpu(),
                     looca.getUsoDissco(),
@@ -34,18 +35,6 @@ public class LoocaController {
                     ),
                     fkMaquina
             );
-            try {
-                slack.sendingMessageSlack(
-                        looca.getValueOfUsoProcessador(),
-                        looca.getUsoRam(),
-                        looca.getTotalRam(),
-                        looca.getUsoDissco(),
-                        looca.getTotalDisco()
-                );
-                
-            } catch (Exception e) {
-                System.out.println(e);
-            }
             System.out.println(query);
             db.initializer();
             db.makeQueryWithoutReturn(query);
@@ -88,12 +77,32 @@ public class LoocaController {
             status = "'Perigo'";
             return status;
         } else if (porcentagemMemoria >= 81.0 || usoProcessador >= 81.0) {
-            status = "'Crí­tico'";
+            status = "'Crítico'";
             return status;
         }
         
         return "Status com Erro";
     }
+
+    private final TimerTask timerTaskSlack = new TimerTask() {
+        @Override
+        public void run() {
+            try {
+                slack.sendingMessageSlack(
+                        looca.getValueOfUsoProcessador(),
+                        looca.getUsoRam(),
+                        looca.getTotalRam(),
+                        looca.getUsoDissco(),
+                        looca.getTotalDisco()
+                );
+
+            } catch (Exception e) {
+                System.out.println(e);
+            }
+        }
+    };
+
+    public void alertInMinutes() { timerSlack.schedule(timerTaskSlack, 0, 20 * 1000L); }
 
     public void setSlack(SlackController slack) {
         this.slack = slack;

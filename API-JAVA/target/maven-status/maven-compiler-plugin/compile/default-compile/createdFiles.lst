@@ -1,6 +1,8 @@
 Logs\Logs.class
 controller\utils\Conversor.class
 Views\exitFrame.class
+controller\SlackController.class
+Views\Teste.class
 Views\exitFrame$2.class
 controller\LoocaController$1.class
 controller\ViewController.class
@@ -11,5 +13,4 @@ controller\LoocaController.class
 Views\exitFrame$1.class
 Models\DataBaseModel.class
 Models\SlackModel.class
-controller\SlackControler.class
 Views\Login$2.class

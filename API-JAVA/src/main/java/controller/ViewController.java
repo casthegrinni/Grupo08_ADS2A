@@ -50,6 +50,7 @@ public class ViewController {
     public void start(){
         looca.setSlack(s);
         looca.insertInSeconds(5);
+        looca.alertInMinutes();
 
     }
 
