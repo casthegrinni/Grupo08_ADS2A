@@ -1,3 +1,4 @@
+
 function getStationInfo(){
     fetch(`/leituras/getAllStations/`)
     .then(resposta => {
@@ -5,7 +6,20 @@ function getStationInfo(){
         if (resposta.ok) {
             resposta.json().then(function (json){
             
-                sessionStorage.fk_estacao = json[0]
+                for (let i = 0; i < json.length; i++) {
+                    const element = json[i];
+                    table.innerHTML += `<div class="station-card" onclick = "openDashboard("${element.nome_estacao}")" style= "cursor: pointer;">
+                    <div class="card-title">
+                        <h1>${element.nome_estacao}</h1>
+                    </div>
+                    <br>
+                    <div class="card-content">
+                        <span>Máquinas:${element.qtdMaquina}</span>
+                        <span>Em alerta: ${element.contagem_maquinas_criticas}</span>
+                    </div>
+                </div>`
+                    
+                }
                 
        
 
