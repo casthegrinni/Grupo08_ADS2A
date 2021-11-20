@@ -31,6 +31,7 @@ database = parser.get("prod_credentials", "database")
 username = parser.get("prod_credentials", "user")
 password = parser.get("prod_credentials", "password")
 connect_string = (
+     # SQL Driver for Windows // ODBC Driver 17 for SQL Server for Ubuntu
     r"Driver={ODBC Driver 17 for SQL Server};"
     r"Server=" + server + ";"
     r"Database=" + database + ";"
