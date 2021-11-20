@@ -1,6 +1,8 @@
+controller\utils\Alertas.class
 Logs\Logs.class
 controller\utils\Conversor.class
 Views\exitFrame.class
+controller\LoocaController$2.class
 controller\SlackController.class
 Views\exitFrame$2.class
 controller\LoocaController$1.class

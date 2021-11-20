@@ -1,12 +1,13 @@
 package Views;
 
 import controller.ViewController;
+import java.io.IOException;
 
 import javax.swing.*;
 import java.util.Scanner;
 
 public class Cli {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ViewController vc = new ViewController();
         Scanner inputUser = new Scanner(System.in);
         Scanner inputPasswd = new Scanner(System.in);
