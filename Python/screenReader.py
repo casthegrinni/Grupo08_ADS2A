@@ -1,15 +1,19 @@
+import configparser
 import pyautogui
 import threading
 # from tkinter import *
 # from PIL import Image, ImageTk
-#import mysql.connector
+# import mysql.connector
 import pyodbc
 
 from configparser import ConfigParser
 
 parser = ConfigParser()
+parserMachine = ConfigParser()
 parser.read("db_config.ini")
-machineId = 0
+parserMachine.read("machine.ini")
+
+machineId = parserMachine.get('machine_config', 'machine_id')
 
 # local
 # mydb = mysql.connector.connect (
@@ -27,7 +31,7 @@ database = parser.get("prod_credentials", "database")
 username = parser.get("prod_credentials", "user")
 password = parser.get("prod_credentials", "password")
 connect_string = (
-    r"Driver={SQL Server};"
+    r"Driver={ODBC Driver 17 for SQL Server};"
     r"Server=" + server + ";"
     r"Database=" + database + ";"
     r"UID=" + username + ";"
@@ -56,6 +60,7 @@ def searchForNoPaper():
     cords = pyautogui.locateCenterOnScreen("images/no-paper.png")
 
     print(cords)
+    print("Machine id: " + machineId)
 
     timer = threading.Timer(2.0, searchForNoPaper)
     timer.start()
@@ -111,3 +116,4 @@ def searchForNoPaper():
 #     owlImageAndLabels()
 #     screenReader.mainloop()
 
+searchForNoPaper()
