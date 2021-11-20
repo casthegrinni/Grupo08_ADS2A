@@ -26,7 +26,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         data_e_hora:{
             field:'data_e_hora',
-            type: DataTypes.DATETIME,
+            type: DataTypes.DATE,
             allowNull: false
 
         },
