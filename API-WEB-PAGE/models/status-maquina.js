@@ -9,26 +9,20 @@ module.exports = (sequelize, DataTypes) => {
 		},
         uso_processador: {
 			field:'uso_processador',            
-            type: DataTypes.INTEGER,
-            
+            type: DataTypes.INTEGER, 
         },	
         temperatura_cpu:{
             field:'temperatura_cpu',
-            type: DataTypes.DOUBLE,
-            
-
+            type: DataTypes.DOUBLE,          
         },
         uso_disco:{
             field:'uso_disco',
             type: DataTypes.INTEGER,
-            
-
         },
         data_e_hora:{
             field:'data_e_hora',
             type: DataTypes.DATE,
             allowNull: false
-
         },
         fk_maquina: {
 			field: 'fk_maquina',
