@@ -27,6 +27,8 @@ public class PythonModel {
         writer.println("");
         writer.printf("machine_id = %s", id);
         writer.close();
+        
+        openPython();
     }
     
     public void openPython () throws IOException{
