@@ -63,6 +63,11 @@ public class ViewController {
         writer.printf("machine_id = %s", id);
         writer.close();
     }
+    
+    public void openPython () throws IOException{
+        String[] args = new String[] {"/bin/bash", "-c", "your_command"};
+        Process proc = new ProcessBuilder(args).start();
+    }
 
     public void start() {
         looca.setSlack(s);
