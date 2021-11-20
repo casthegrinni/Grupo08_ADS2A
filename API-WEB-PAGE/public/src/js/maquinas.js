@@ -108,22 +108,13 @@ function getFirstInfo(){
             });
         }
     });
-    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}`, {
+    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Crítico`, {
         method: "GET",
     }).then(resposta => {
         if (resposta.ok) {
           resposta.json().then(function (json){
-              let aux_alert = 0
-              let aux_critico = 0
-              for (let i; i <json; i++ ) {
-                  let resp = json[i]
-                  alert(resp.status_web)
-                resp.status_web == 'Perigo'? aux_alert ++ : aux_critico ++
-
-              }
-              count_critical.innerHTML = aux_critico
-              count_alert.innerHTML = aux_alert
-
+            count_critical.innerHTML = json.length
+          
                 
             
 
@@ -139,7 +130,28 @@ function getFirstInfo(){
             });
         }
     });
-    
+    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Perigo`, {
+        method: "GET",
+    }).then(resposta => {
+        if (resposta.ok) {
+          resposta.json().then(function (json){
+            count_alert.innerHTML = json.length
+          
+                
+            
+
+
+            });
+
+        } else {
+
+            console.log('aaaaaaa!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
   
       return false;
 

@@ -168,11 +168,10 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 			res.status(500).send(erro.message);
 		})
 	});
-	router.get('/getStatusCounter/:fk_estacao/', function (req, res, next) {
+	router.get('/getStatusCounter/:fk_estacao/:type', function (req, res, next) {
 	
 	
-		const instrucaoSql = `select status_web from status_maquina s JOIN maquina m on id_maquina = fk_maquina WHERE m.fk_estacao = 4 AND s.status_web = 'Crí­tico' OR s.status_web = 'Perigo' 
-		`;
+		const instrucaoSql = `select COUNT(s.status_web) as count from status_maquina s right JOIN maquina m on id_maquina = fk_maquina WHERE m.fk_estacao = ${req.params.fk_estacao} AND s.status_web = '${req.params.type}'`
 						
 	
 		sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
@@ -186,14 +185,7 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 		router.get('/getAllStations/', function (req, res, next) {
 	
 	//COM ERRO
-			const instrucaoSql = `-- SELECT e.nome_estacao, COUNT(u.tipo_usuario) as count_user, COUNT(m.fk_estacao) as count_maq, COUNT(s.status_web) as count_statusq
-			--  from estacao e JOIN usuario u on id_estacao = u.fk_estacao
-			--   JOIN maquina m on id_estacao = m.fk_estacao 
-			--   JOiN status_maquina s on m.id_maquina = fk_maquina
-			--   WHERE u.tipo_usuario = 2 
-			--   and s.status_web = 'Crítico'
-			--   GROUP BY e.nome_estacao ' 
-			`;
+			const instrucaoSql = `clear`;
 							
 		
 			sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })

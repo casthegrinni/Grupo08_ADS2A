@@ -51,7 +51,7 @@ function getRandomMachine(){
         if (resposta.ok) {
             resposta.json().then(function (json){
             
-                console.log(json[0].id_maquina)
+                sessionStorage.fk_estacao = json[0]
                 
        
 
