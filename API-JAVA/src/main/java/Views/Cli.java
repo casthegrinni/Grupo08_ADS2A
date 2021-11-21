@@ -2,8 +2,6 @@ package Views;
 
 import controller.ViewController;
 import java.io.IOException;
-
-import javax.swing.*;
 import java.util.Scanner;
 
 public class Cli {
@@ -14,13 +12,13 @@ public class Cli {
         Scanner inputId = new Scanner(System.in);
         String user, password, idMachine;
 
-        System.out.println("Digite seu usu·rio: ");
+        System.out.println("Digite seu usu√°rio: ");
         user = inputUser.nextLine();
 
         System.out.println("Digite sua senha: ");
         password = inputPasswd.nextLine();
 
-        System.out.println("Digite o id da m·quina: ");
+        System.out.println("Digite o id da m√°quina: ");
         idMachine = inputId.nextLine();
 
         vc.init();
@@ -37,7 +35,7 @@ public class Cli {
         }
 
         else {
-            System.out.println("Erro ao verificar a m·quina, por favor tente novamente!");
+            System.out.println("Erro ao verificar a m√°quina, por favor tente novamente!");
         }
 
     }

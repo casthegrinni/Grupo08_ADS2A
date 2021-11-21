@@ -27,7 +27,7 @@ public class ViewController {
             s.setFkMaquina(fkmaquinaInt);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Insira apenas números no id da maquina");
+            JOptionPane.showMessageDialog(null, "Insira apenas nÃºmeros no id da maquina");
         }
         if (map.isEmpty()) {
             return false;
@@ -71,7 +71,7 @@ public class ViewController {
         looca.setFkMaquina(fkInt);
 
         if (!requested) {
-            System.out.println("verificando se o pc já foi checado alguma vez");
+            System.out.println("verificando se o pc jÃ¡ foi checado alguma vez");
 
             String response = db.makeCalibrateSelect(fkMaquina);
             if (response.equals("0") || response.equals("1")) {

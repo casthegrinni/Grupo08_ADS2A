@@ -6,6 +6,7 @@ import controller.utils.Alertas;
 import controller.utils.Conversor;
 import org.json.JSONObject;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Timer;
@@ -32,11 +33,15 @@ public class SlackController {
             Double discoTotal = Conversor.longToDouble(totalDisco);
             Double porcentagemDisco = (disco * 100.0) / discoTotal;
             Double porcentagemMemoria = (memoria * 100.0) / memoriaTotal;
+            String estoquePapel = "0";
 
             db.initializer();
             response = db.makeSelectQuery(String.format("select maquina.id_maquina, nome_estacao from maquina join estacao on id_estacao = maquina.fk_estacao WHERE id_maquina = %s;", fkMaquina));
             String fkMaquina = response.get("label1");
             String nomeEstacao = response.get("label2");
+            response = db.makeSelectQuery(String.format("SELECT top 1 estoque_papel FROM status_papel WHERE fk_maquina = %s order by data_e_hora desc;", this.fkMaquina));
+            estoquePapel = response.get("label1");
+
 
             System.out.println(fkMaquina + "--" + nomeEstacao);
 
@@ -75,8 +80,13 @@ public class SlackController {
                 json.put("text", String.format(String.valueOf(alerta[5].getAlertas()), fkMaquina, nomeEstacao, usoProcessador));
                 SlackModel.sendMessage(json);
             }
+            if (estoquePapel.equals("1")) {
+                System.out.println("alerta de fim de papel");
+                slack.initializer();
+                json.put("text", String.format(String.valueOf(alerta[6].getAlertas()), fkMaquina, nomeEstacao));
+                SlackModel.sendMessage(json);
+            }
         }
-
 
     public void setFkMaquina(Integer fkMaquina) {
         this.fkMaquina = fkMaquina;

@@ -64,7 +64,7 @@ public class LoocaController {
     ) {
         Double memoria = Conversor.longToDouble(usoMemoria);
         Double memoriaTotal = Conversor.longToDouble(totalMemoria);
-        Double porcentagemMemoria = memoria * (memoriaTotal / 100.0);
+        Double porcentagemMemoria = (memoria * 100.0) / memoriaTotal;
         String status;
 
         if ((porcentagemMemoria <= 50.0) && ( usoProcessador <= 50.0)) {
@@ -77,7 +77,7 @@ public class LoocaController {
             status = "'Perigo'";
             return status;
         } else if (porcentagemMemoria >= 81.0 || usoProcessador >= 81.0) {
-            status = "'Crítico'";
+            status = "'CrÃ­tico'";
             return status;
         }
         
@@ -97,7 +97,6 @@ public class LoocaController {
                 );
 
             } catch (Exception e) {
-                System.out.println(e);
             }
         }
     };
