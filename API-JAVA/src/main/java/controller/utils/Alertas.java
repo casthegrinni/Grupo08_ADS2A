@@ -22,7 +22,7 @@ public enum Alertas {
     ALERTA_CRITICO_RAM(":memory: A máquina %s localizada na estação %s ultrapassou o percentual de uso de Memória RAM, atingindo %.1f%%"),
     ALERTA_PADRAO_PROCESSADOR(":cpu: A máquina %s localizada na estação %s atingiu %.1f%% de processamento."),
     ALERTA_CRITICO_PROCESSADOR(":cpu: A máquina %s localizada na estação %s ultrapassou o percentual de processamento, atingindo %.1f%%"),
-    ALERTA_FALTA_PAPEL(":no-paper: O estoque da máquina %s localizada na estação %s chegou ao fim");
+    ALERTA_FALTA_PAPEL(":no-paper: O estoque de papel da máquina %s localizada na estação %s chegou ao fim");
 
     private String alertas;
 
