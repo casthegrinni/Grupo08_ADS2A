@@ -4,6 +4,6 @@
   "private": true,
   "scripts": {
     "start": "node ./API-WEB-PAGE/bin/www",
-	"postinstall": "cd API-WEB-PAGE && npm install"
+	"postinstall": "cd API-WEB-PAGE ; npm install"
   }
 }
