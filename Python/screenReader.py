@@ -13,7 +13,7 @@ parserMachine = ConfigParser()
 parser.read("db_config.ini")
 parserMachine.read("machine.ini")
 
-machineId = parserMachine.get('machine_config', 'machine_id')
+machineId=parserMachine.get('machine_config', 'machine_id')
 
 # local
 # mydb = mysql.connector.connect (
@@ -31,7 +31,7 @@ database = parser.get("prod_credentials", "database")
 username = parser.get("prod_credentials", "user")
 password = parser.get("prod_credentials", "password")
 connect_string = (
-    r"Driver= {SQL Server};"
+    r"Driver={ODBC Driver 17 for SQL Server};"
     r"Server=" + server + ";"
     r"Database=" + database + ";"
     r"UID=" + username + ";"
