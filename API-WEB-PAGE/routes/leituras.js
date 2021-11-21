@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Leitura = require('../models').Leitura;
+var Status_Maquina = require('../models').Status_Maquina;
 var env = process.env.NODE_ENV || 'development';
 
 /* Recuperar as últimas N leituras */
@@ -210,6 +211,24 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 					res.status(500).send(erro.message);
 				})
 			});
+
+		router.get('/getDadosMachine/:fk_maquina', function (req, res, next) {
+				const limite_linhas = 7;
+				var fkMaquina = req.params.fk_maquina;
+
+				const instrucaoSql = `SELECT top ${limite_linhas} uso_ram, temperatura_cpu, uso_processador FROM [dbo].[status_maquina] where fk_maquina = ${fkMaquina} order by id_captura desc`;
+						
+						sequelize.query(instrucaoSql, {
+						model: Status_Maquina,
+						mapToModel: true})
+						.then(resultado => {
+							res.json(resultado);
+						}).catch(erro => {
+							console.error(erro);
+							res.status(500).send(erro.message);
+						})
+		});
+		
   
 
 module.exports = router;

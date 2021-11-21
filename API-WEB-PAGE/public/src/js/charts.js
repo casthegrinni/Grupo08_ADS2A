@@ -1,3 +1,23 @@
+function getDadosMachine() {
+    fetch(`/leituras/getDadosMachine/${sessionStorage.id_maquina}`, { 
+        cache: 'no-store'
+    }).then(resposta => {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                // resposta.reverse();
+                console.log(resposta);
+                console.log("lua");
+            }
+        )}
+        else {
+            console.log('erro ao capturar os dados!');
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+});
+
 var ctx = document.getElementById('myChart').getContext('2d');
 var hardwareData = {
     labels: ['RAM', 'CPU', 'Disco'],
@@ -100,5 +120,5 @@ function getColor(data) {
     }
 
     return colors;
+   }
 }
-
