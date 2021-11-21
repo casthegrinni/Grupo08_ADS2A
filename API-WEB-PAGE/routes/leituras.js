@@ -184,7 +184,7 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 		});
 		router.get('/getAllStations/', function (req, res, next) {
 	
-	//COM ERRO
+	
 			const instrucaoSql = `with maquinas_criticas as (
 				select stts.fk_maquina,
 				count(stts.status_web) as contagem
@@ -210,6 +210,22 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 					res.status(500).send(erro.message);
 				})
 			});
+			router.get('/info_machines/:id_maquina', function (req, res, next) {
+	
+	
+				const instrucaoSql = `select TOP 1 id_maquina from maquina where id_maquina = ${req.params.id_maquina}`
+								
+			
+				sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+					.then(resultado => {
+						res.json(resultado[0]);
+					}).catch(erro => {
+						console.error(erro);
+						res.status(500).send(erro.message);
+					})
+				});
+
+
   
 
 module.exports = router;

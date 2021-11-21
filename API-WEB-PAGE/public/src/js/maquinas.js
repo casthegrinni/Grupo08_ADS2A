@@ -18,6 +18,19 @@ function getMachines(){
                        }).then(resposta2 => {
                            if(resposta2.ok){
                                resposta2.json().then(function (json2){
+                                   table_row.innerHTML +=`<div class="machine-card" onclick="openDashboard(${json2.id_maquina})">
+                                   <div class="card-title">
+                                       <h1>Direita AX2</h1>
+                                       <h4>Consolação</h4>
+                                   </div>
+                                   <br>
+                                   <div class="card-content">
+                                       <span>CPU:-</span>
+                                       <span>RAM:-</span>
+                                       <span>Disco:-%</span>
+                                       <span> Status:-</span>
+                                   </div>
+                               </div>`
                                    
                                })
                            }
@@ -28,7 +41,6 @@ function getMachines(){
 
 
                       }
-                      getFirstInfo()
                       
                   
 
