@@ -1,6 +1,6 @@
 {
-  "name": "meu-projeto-de-pi-2021-1",
-  "version": "1.0.1",
+  "name": "pi-ads-2020-2",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "node ./API-WEB-PAGE/bin/www",
