@@ -14,10 +14,15 @@ public class Logs {
 
     public void saveLogs(String log){
         listLog.add(log+" --> "+dateLog.format(LocalDateTime.now()));
+        try {
+            writeLogs();
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
     }
 
     public void writeLogs() throws IOException {
-        FileWriter logs = new FileWriter("API-JAVA/logs.txt");
+        FileWriter logs = new FileWriter("logs.txt");
         PrintWriter saveLogs = new PrintWriter(logs);
         for (String i:listLog){
             saveLogs.println(i);

@@ -1,5 +1,6 @@
 package controller;
 
+import Logs.Logs;
 import Models.DataBaseModel;
 import Models.LoocaMoodel;
 import Models.SlackModel;
@@ -17,6 +18,8 @@ public class LoocaController {
     JSONObject json = new JSONObject();
     private int fkMaquina;
     Timer timer = new Timer();
+    Logs logs = new Logs();
+
     private final TimerTask task = new TimerTask() {
         @Override
         public void run() {
@@ -49,6 +52,7 @@ public class LoocaController {
                         looca.getTotalDisco()
                 );
             } catch (Exception e) {
+                logs.saveLogs("Erro ao capturar dados.");
                 System.out.println(e);
             }
             System.out.println(query);

@@ -24,7 +24,7 @@ public class  DataBaseModel {
     
     public void initializer() {
         try { 
-           Ini ini = new Ini(new File("API-JAVA/db_config.ini"));
+           Ini ini = new Ini(new File("db_config.ini"));
            server = ini.get("prod_credentials", "server");
            port = ini.get("prod_credentials", "port");
            dbName = ini.get("prod_credentials", "database");
