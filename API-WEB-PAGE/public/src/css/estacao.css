@@ -1,7 +1,7 @@
 :root{
     --color-1: #fff;
     --color-2: #100e34;
-    --color-3: #112B3C;
+    --color-3: #333034;
     --color-4: #323232;
     --color-5: #CED8E2;
     --color-6: #6FCBA2;
@@ -225,3 +225,4 @@ ul.ks-cboxtags li input[type="checkbox"] {
 ul.ks-cboxtags li input[type="checkbox"]:focus + label {
   border: 2px solid var(--color-3);
 }
+

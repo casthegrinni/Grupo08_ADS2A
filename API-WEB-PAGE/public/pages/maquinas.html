@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-<head >
+<head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Pulsatrix</title>
@@ -16,6 +16,9 @@
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Quicksand:wght@300;400;500&display=swap"
+        rel="stylesheet">
 </head>
 
 <body onload="getMachines()">
@@ -44,12 +47,6 @@
                     <span>Máquinas</span>
                 </a>
             </li>
-            <li>
-                <a href="">
-                    <i class='bx bx-file'></i>
-                    <span>Relatórios</span>
-                </a>
-            </li>
         </ul>
         <li class="log-out">
             <a href="">
@@ -59,75 +56,34 @@
     </nav>
     <main class="content">
         <header class="header">
-            <button type="button" class="button toggle-menu active">
-                <i class='bx bx-menu'></i>
-                <span>Máquinas</span>
-            </button>
             <div class="box-profile">
                 <img src="../src/img/perfil.png" alt="">
                 <p class="name">
                     Usuário
-                    <span id="userName">User Name</span>
+                    <span id="b_usuario">User Name</span>
                 </p>
             </div>
         </header>
-        <div class="container-fluid container-content tables">
-            <div class="row">
-                <div class="col">
-                    <h3 class="title">
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead class="thead-dark">
-                                  <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Nome Máquina</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Estação</th>
-                                  </tr>
-                                </thead>
-                                <tbody id="rows_table">
-                                    <span >
-                                        
-                    
-                                    <!-- <tr>
-                                        <th scope="row"><a href="graficos.html"> 1 </a></th>
-                                        <td>Máquina C-10</td>
-                                        <td>i class='bx bxs-circle error'></i><</td>
-                                        <td>Vila Prudente</td>
-                                    </tr>
-                                </a>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Máquina X-210</td>
-                                    <td><i class='bx bxs-circle maintenance'></i></td>
-                                    <td>Ana rosa</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Máqina R-92</td>
-                                    <td><i class='bx bxs-circle working'></i></td>
-                                    <td>Sacomã</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">2</th>
-                                    <td>Máquina X-210</td>
-                                    <td><i class='bx bxs-circle maintenance'></i></td>
-                                    <td>Ana rosa</td>
-                                  </tr>
-                                  <tr>
-                                    <th scope="row">3</th>
-                                    <td>Máqina R-92</td>
-                                    <td><i class='bx bxs-circle working'></i></td>
-                                    <td>Sacomã</td>
-                                  </tr> -->
-                                </span>
-                                </tbody>
-                              </table>
+        <section class="section">
+            <h1 class="section-title">Máquinas em: Consolação</h1>
+            <div class="container-fluid container-content cards">
+                <div class="all-station-cards">
+
+                    <div class="machine-card" onclick="openDashboard(7012)">
+                        <div class="card-title">
+                            <h1>Direita AX2</h1>
+                            <h4>Consolação</h4>
                         </div>
-                    </h3>
+                        <br>
+                        <div class="card-content">
+                            <span>CPU: 20%</span>
+                            <span>RAM: 70%</span>
+                            <span>Disco: 37%</span>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
     </main>
     <a href="cadastro-maquinas.html" style="cursor: pointer;">
         <div class="add-btn">
@@ -135,6 +91,10 @@
         </div>
     </a>
     <script src='../src/js/maquinas.js'></script>
+    <script src="../src/js/funcoes.js"></script>
 </body>
+<script>
+    verificar_autenticacao()
+</script>
 
 </html>

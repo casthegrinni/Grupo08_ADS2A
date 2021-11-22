@@ -11,10 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
-    <script src="../src/js/funcoes.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 
 <body onload="start()">
@@ -43,12 +45,6 @@
                     <span>Máquinas</span>
                 </a>
             </li>
-            <li>
-                <a href="">
-                    <i class='bx bx-file'></i>
-                    <span>Relatórios</span>
-                </a>
-            </li>
         </ul>
         <li class="log-out">
             <a href="">
@@ -58,14 +54,6 @@
     </nav>
     <main class="content">
         <header class="header">
-            <button type="button" class="button toggle-menu active">
-                <i class='bx bx-menu'></i>
-                <span>Dashboard</span>
-            </button>
-            <form action="" class="form">
-                <input type="text" placeholder="Buscar">
-                <button type="submit"><i class='bx bx-search-alt-2'></i></button>
-            </form>
             <div class="box-profile">
                 <img src="../src/img/perfil.png" alt="">
                 <p class="name">
@@ -76,70 +64,77 @@
         </header>
         <section class="section">
             <div class="container-fluid container-content cards">
-                <div class="row">
-                    <div class="col">
-                        <div class="card shadow">
-                            <div class="desc">
-                                <span id="count_maquinas"></span>
-                                <p>Máquinas</p>
+                <div class="card-plus-title">
+                    <h3 class="title-label">Geral</h3>
+                    <div class="row">
+                        <div class="col">
+                            <div class="card shadow">
+                                <div class="desc">
+                                    <span id="count_maquinas"></span>
+                                    <p>Máquinas</p>
+                                </div>
+                                <i class='bx bx-desktop'></i>
                             </div>
-                            <i class='bx bx-laptop'></i>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow">
-                            <div class="desc">
-                                <span id="count_stations"></span>
-                                <p>Estações</p>
+                        <div class="col">
+                            <div class="card shadow">
+                                <div class="desc">
+                                    <span id="count_station">0</span>
+                                    <p>Estações</p>
+                                </div>
+                                <i class='bx bx-train'></i>
                             </div>
-                            <i class='bx bx-train'></i>
                         </div>
-                    </div>
-                    <div class="col">
-                        <div class="card shadow">
-                            <div class="desc">
-                                <span id="count_critical">50</span>
-                                <p>Máquinas Inátivas</p>
+                        <div class="col">
+                            <div class="card shadow">
+                                <div class="desc">
+                                    <span id="count_critical">50</span>
+                                    <p>Em alerta</p>
+                                </div>
+                                <i class='bx bx-error' style="color:rgb(255, 222, 89);"></i>
                             </div>
-                            <i class='bx bx-error-alt'></i>
+                        </div>
+                        <div class="col">
+                            <div class="card shadow">
+                                <div class="desc">
+                                    <span id="count_station">0</span>
+                                    <p>Críticoㅤ</p>
+                                </div>
+                                <i class='bx bx-dizzy' style="color: rgb(255, 22, 22);"></i>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="container-fluid container-content tables">
+        </section>
+        <section>
+            <div class="chart-section">
                 <div class="row">
                     <div class="col">
-                        <h3 class="title">
-                            <div class="table-responsive">
-                                <table class="table">
-                                    <thead class="thead-dark">
-                                      <tr>
-                                        <th scope="col">ID</th>
-                                        <th scope="col">Nome Máquina</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Estação</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody id="rows_table">
-                                     
-                                     
-                                    </tbody>
-                                  </table>
-                            </div>
-                        </h3>
+                        <div class="card-chart shadow">
+                            <canvas id="myChart" class="canva-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card-chart shadow">
+                            <canvas id="chartMaquinas" class="canva-chart"></canvas>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
     </main>
     <script src='../src/js/maquinas.js'></script>
+    <script src='../src/js/charts.js'></script>
+    <script src="../src/js/funcoes.js"></script>
     <script>
-    function start(){
-        verificar_autenticacao()
-        getMachines()
-        getFirstInfo()
-        getRandomMachine()
-    }
+        function start() {
+            verificar_autenticacao()
+            getMachines()
+            getFirstInfo()
+            getRandomMachine()
+        }
     </script>
 </body>
+
 </html>

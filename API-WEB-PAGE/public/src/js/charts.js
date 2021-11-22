@@ -1,71 +1,103 @@
 var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
+var hardwareData = {
+    labels: ['RAM', 'CPU', 'Disco'],
+    datasets: [{
+        data: [8, 10, 5],
+        backgroundColor: getColor([8, 10, 5]),
+        borderColor: getColor([8, 10, 5]),
+        borderWidth: 1
+    }]
+}
+
+var config = {
+    type: 'horizontalBar',
+    data: hardwareData,
     options: {
+        title: {
+            text: "Registros de alerta",
+            display: true,
+            fontSize: 22,
+        },
+        legend: {
+            display: false
+        },
         scales: {
-            y: {
-                beginAtZero: true
-            }
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+            }],
+            yAxes: [{
+                ticks: {
+                    min: 0,
+                },
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
+            }],
         }
     }
-});
+}
+var myChart = new Chart(ctx, config);
 
 var ctx = document.getElementById('chartMaquinas').getContext('2d');
-var myChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-        datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)',
-                'rgba(153, 102, 255, 0.2)',
-                'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)',
-                'rgba(153, 102, 255, 1)',
-                'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-        }]
-    },
+var paperData = {
+    labels: ['00/04', '04/08', '08/12', '12/16', '16/20', '20/24'],
+    datasets: [{
+        data: [3, 15, 5, 8, 14, 6],
+        backgroundColor: getColor([3, 15, 5, 8, 14, 6]),
+        borderColor: getColor([3, 15, 5, 8, 14, 6]),
+        borderWidth: 1
+    }]
+}
+
+var config = {
+    type: 'bar',
+    data: paperData,
     options: {
+        title: {
+            text: "Alertas sem papel x hora",
+            display: true,
+            fontSize: 22
+        },
+        legend: {
+            display: false
+        },
         scales: {
-            y: {
+            xAxes: [{
+                ticks: {
+                    beginAtZero: true
+                },
+                gridLines: {
+                    color: "rgba(0, 0, 0, 0)",
+                }
+            }],
+            yAxes: [{
                 beginAtZero: true
-            }
+            }],
         }
     }
-});
+}
+
+var myChart = new Chart(ctx, config);
+
+function getColor(data) {
+    var colors = [];
+    var maxValue = data[0];
+
+    for (i = 0; i < data.length; i++) {
+        if (data[i] > maxValue) {
+            maxValue = data[i]
+        }
+    }
+
+    for (index = 0; index < data.length; index++) {
+        if (data[index] == maxValue) {
+            colors.push('rgba(255, 0, 67, 1)') // Red
+        } else {
+            colors.push('rgba(15,125,146, 1)') // Blue
+        }
+    }
+
+    return colors;
+}

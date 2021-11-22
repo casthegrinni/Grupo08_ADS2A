@@ -9,11 +9,6 @@ import java.util.List;
 import java.util.Map;
 import org.ini4j.Ini;
 
-/*
-Ini ini = new Ini(new File("C://Users/Gabriel_Prisco/Downloads/db_config.ini"));
-        System.out.println(ini.get("prod_credentials", "user"));
-*/
-
 public class  DataBaseModel {
     private String server = "";
     private String port = "";
@@ -21,10 +16,10 @@ public class  DataBaseModel {
     private String user = "";
     private String password = "";
     Logs logs = new Logs();
-    
+
     public void initializer() {
         try { 
-           Ini ini = new Ini(new File("db_config.ini"));
+           Ini ini = new Ini(new File("./db_config.ini"));
            server = ini.get("prod_credentials", "server");
            port = ini.get("prod_credentials", "port");
            dbName = ini.get("prod_credentials", "database");
@@ -45,9 +40,12 @@ public class  DataBaseModel {
             ResultSet rs = smt.executeQuery(query);
 
             while (rs.next()) {
+                ResultSetMetaData rsMetaData = rs.getMetaData();
+                String b = rsMetaData.getColumnCount() >= 2 ? rs.getString(2) : "";
+                String a = rsMetaData.getColumnCount() >= 3 ? rs.getString(3) : "";
                 map.put("label1", rs.getString(1));
-                map.put("label2", rs.getString(2));
-                map.put("label3",rs.getString(3));
+                map.put("label2", b);
+                map.put("label3",a);
             }
             return map;
 

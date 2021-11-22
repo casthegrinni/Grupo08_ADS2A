@@ -63,8 +63,6 @@ typings/
 .directory
 package-lock.json
 
-config/
-
 
 
 
@@ -72,3 +70,4 @@ config/
 database.js
 
 db_config.ini
+/nbproject/private/

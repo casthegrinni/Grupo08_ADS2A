@@ -127,7 +127,7 @@ function getFirstInfo(counterCritical){
             });
         }
     });
-    count_critical.innerHTML = counterCritical
+    count_critical.innerHTML = counterCritical == undefined? 0 : counterCritical
   
       return false;
 

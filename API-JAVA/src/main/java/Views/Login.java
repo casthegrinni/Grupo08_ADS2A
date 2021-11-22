@@ -6,6 +6,9 @@
 package Views;
 
 import controller.ViewController;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.*;
 
@@ -135,52 +138,56 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
-        vc.init();
-        String user = txtUser.getText();
-        String password = txtPassword.getText();
-
-        Boolean result = vc.verifyUserAndMachine(user,password,txtMachine.getText());
-        System.out.println(result);
-            if (result){
-
-
-                final JOptionPane optionPane = new JOptionPane("Wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
-                JDialog d = new JDialog();
-                d.setTitle("Wait");
-
-                d.setContentPane(optionPane);
-                d.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
-                d.pack();
-                d.setVisible(true);
-                Boolean checkFirstTime =vc.calibratePc(false, txtMachine.getText()) ;
-                if(checkFirstTime) {
-                    d.setVisible(false);
-                    d.dispose();
-                    JOptionPane.showMessageDialog(null, "Login complete. Starting data capture");
-                    ef.runExitScreen();
-                    dispose();
-                    vc.start();
-
-
-                }
-                    else{
-                        JOptionPane.showMessageDialog(null,"an error as ocurred, please try again later");
-                        System.exit(0);
-
-                    }
-
-
-
-
-                }
-
-                else{
-                    JOptionPane.showMessageDialog(null,"sorry, we can't find any user with this infos,please verify the fields and try again");
-                }
+         try {
+             vc.init();
+             String user = txtUser.getText();
+             String password = txtPassword.getText();
+             
+             Boolean result = vc.verifyUserAndMachine(user,password,txtMachine.getText());
+             System.out.println(result);
+             if (result){
+                 
+                 
+                 final JOptionPane optionPane = new JOptionPane("Wait...", JOptionPane.INFORMATION_MESSAGE, JOptionPane.DEFAULT_OPTION, null, new Object[]{}, null);
+                 JDialog d = new JDialog();
+                 d.setTitle("Wait");
+                 
+                 d.setContentPane(optionPane);
+                 d.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
+                 d.pack();
+                 d.setVisible(true);
+                 Boolean checkFirstTime =vc.calibratePc(false, txtMachine.getText()) ;
+                 if(checkFirstTime) {
+                     d.setVisible(false);
+                     d.dispose();
+                     JOptionPane.showMessageDialog(null, "Login complete. Starting data capture");
+                     ef.runExitScreen();
+                     dispose();
+                     vc.start();
+                     
+                     
+                 }
+                 else{
+                     JOptionPane.showMessageDialog(null,"an error as ocurred, please try again later");
+                     System.exit(0);
+                     
+                 }
+                 
+                 
+                 
+                 
+             }
+             
+             else{
+                 JOptionPane.showMessageDialog(null,"sorry, we can't find any user with this infos,please verify the fields and try again");
+             }
+         } catch (IOException ex) {
+             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+         }
             }
         
    
-    //GEN-LAST:event_btnLoginActionPerformed
+//GEN-LAST:event_btnLoginActionPerformed
 
 
     public static void main(String args[]) {
