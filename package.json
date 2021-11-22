@@ -1,9 +1,9 @@
 {
-    "name": "GRUPO08_TOP",
-    "version": "1.0.1",
-    "private": true,
-    "scripts": {
-      "start": "node ./API-WEB-PAGE/bin/www",
-      "postinstall": "cd API-WEB-PAGE/ && npm install"
-    }
+  "name": "pi-ads-2020-2",
+  "version": "1.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./API-WEB-PAGE/bin/www",
+	"postinstall": "cd API-WEB-PAGE && npm install"
   }
+}
