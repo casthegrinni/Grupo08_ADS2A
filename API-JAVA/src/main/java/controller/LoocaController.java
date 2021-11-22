@@ -38,10 +38,8 @@ public class LoocaController {
                     ),
                     fkMaquina
             );
-            System.out.println(query);
             db.initializer();
             db.makeQueryWithoutReturn(query);
-            System.out.println("inseriu");
         }
     };
 
