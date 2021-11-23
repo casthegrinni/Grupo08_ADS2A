@@ -15,18 +15,20 @@ function getMachines(){
                    for (let i = 0; i < json.length; i++) {
                     
            var resp = json[i]
+                  if(resp.checada == 0){
+                   array_checadas.push(resp.id_maquina)
+                }
+                else{
+                
+
+
           
                        fetch(`../leituras/info_machines/${resp.id_maquina}`,{
                            method: "GET",
                        }).then(resposta2 => {
                            if(resposta2.ok){
                                resposta2.json().then(function (json2){
-                                 
-                                   if(json2.checada != 1){
-                                       array_checadas.push(json2.id_maquina)
-                                   }
-                                   
-                                   else{
+                                
                               //continha de porcentagem basica familia, sem escandalo (emoji fazendo shiuuu)
                                    let porcentagem_memoria = (json2.uso_disco  * 100) / json2.tamanho_disco;
                                    let porcentagem_ram = (json2.uso_ram * 100)  / json2.ram
@@ -48,26 +50,24 @@ function getMachines(){
                                    json2.want_ram == 0 ? span_ram.style.display = 'none' : span_ram.style.display = 'block' 
                                    json2.want_cpu == 0 ? span_cpu.style.display = 'none' : span_ram.style.display = 'block' 
                                    json2.want_disco == 0 ? span_disco.style.display = 'none' : span_ram.style.display = 'block' 
+                                   if(array_checadas.length > 0){
+                                    showAlertChecada(array_checadas)
+                                    
+                                }
                                    } else{
                                        return
                                     }
-                                }
-                              
-                                   
-                               })
+                })
                            }
                        })
-                       
+                    }
  }
                       
                   
 
                      
                 });
-                if(array_checadas.length != 0){
-                    showAlertChecada(array_checadas)
-                    
-                }
+                
                 }
                 
 
@@ -99,11 +99,11 @@ function showAlertChecada(array){
         let aux
         for (let i = 0; i < array.length; i++) {
             const element = array[i];
-            aux = `${element} \n`
-            
-        }
-        text = `você possui ${array.length} maquinas não checadas, por favor execute o pulsatrix-java nas seguintes maquinas(id)` + aux
+            element !=undefined ? aux += `\n ${element}` : aux = `` }
+        text = `você possui ${array.length} maquinas não checadas, por favor execute o pulsatrix-java nas seguintes maquinas(id): ${aux}` 
     }
+    
+alert(text)
 
 }
 

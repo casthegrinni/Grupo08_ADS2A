@@ -111,7 +111,7 @@ router.get('/machines/:fk_estacao', function (req, res, next) {
 	
 	console.log(`Recuperando as estatísticas atuais`);
 
- const instrucaoSql= `select m.nome_maquina, m.id_maquina from maquina m where m.fk_estacao = ${req.params.fk_estacao}`					
+ const instrucaoSql= `select m.checada, m.id_maquina from maquina m where m.fk_estacao = ${req.params.fk_estacao}`					
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
@@ -156,7 +156,7 @@ router.get('/stations_total/', function (req, res, next) {
 router.get('/getRandom/:fk_estacao', function (req, res, next) {
 	
 	
-	const instrucaoSql = `SELECT TOP 1 id_maquina FROM maquina where fk_estacao = ${req.params.fk_estacao}
+	const instrucaoSql = `SELECT TOP 1 id_maquina, FROM maquina where fk_estacao = ${req.params.fk_estacao}
 	ORDER BY NEWID() `;
 					
 
