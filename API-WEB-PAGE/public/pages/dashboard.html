@@ -54,9 +54,9 @@
             </li>
         </ul>
         <li class="log-out">
-            <a href="">
-                <i class='bx bx-log-out nav_icon'></i>
-            </a>
+            <span id = 'span_exit' onclick="logoff()">
+                <i  class='bx bx-log-out nav_icon'></i>
+            </span>
         </li>
     </nav>
     <main class="content">
@@ -135,9 +135,8 @@
     <script src='../src/js/charts.js'></script>
     <script>
         function start() {
-            verificar_autenticacao()
-            // getMachines()
-            getFirstInfo()
+            setup()
+         getFirstInfo()
             getRandomMachine()
         }
     </script>

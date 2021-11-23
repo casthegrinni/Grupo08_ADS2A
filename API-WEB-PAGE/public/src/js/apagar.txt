@@ -1,0 +1,13 @@
+`<div class="machine-card" onclick="openDashboard(${json2.id_maquina})">
+                                   <div class="card-title">
+                                       <h1>Direita AX2</h1>
+                                       <h4>Consolação</h4>
+                                   </div>
+                                   <br>
+                                   <div class="card-content">
+                                       <span id='span_cpu'>CPU:-</span>
+                                       <span id='span_ram'>RAM:-</span>
+                                       <span id='span_disco'>Disco:-%</span>
+                                       <span> Status:-</span>
+                                   </div>
+                               </div>`

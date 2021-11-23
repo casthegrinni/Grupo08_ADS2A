@@ -56,9 +56,9 @@
             </li>
         </ul>
         <li class="log-out">
-            <a href="">
-                <i class='bx bx-log-out nav_icon'></i>
-            </a>
+            <span id = 'span_exit' onclick="logoff()">
+                <i  class='bx bx-log-out nav_icon'></i>
+            </span>
         </li>
     </nav>
     <main class="content">
@@ -93,13 +93,12 @@
 </body>
 <script>
     function start(){
+    setup()
     verificar_autenticacao()
     getStationInfo()
+    setTimeout(() =>getStationInfo(), 2000);
+ 
     }
-    function openDashboard(nome){
-    sessionStorage.nome_estacao = nome
-    window.location.href = "dashboard.html"
-}
 </script>
 
 </html>

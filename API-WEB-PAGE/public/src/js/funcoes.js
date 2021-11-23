@@ -1,4 +1,3 @@
-// const { json } = require("sequelize/types");
 
 let login_usuario;
 let nome_usuario;
@@ -13,9 +12,9 @@ function verificar_autenticacao() {
     nome_usuario = sessionStorage.nome_usuario_meuapp;
     
     if (login_usuario == undefined)  {
-        redirecionar_login();
+        logoff()
+
     } else {
-        b_usuario.innerHTML = nome_usuario;
         validar_sessao();
     }
     
@@ -28,7 +27,7 @@ function logoff() {
 }
 
 function validar_sessao() {
-    fetch(`/usuarios/sessao/${login_usuario}`, {cache:'no-store'})
+    fetch(`/usuarios/sessao/${sessionStorage.login_usuario_meuapp}`, {cache:'no-store'})
     .then(resposta => {
         if (resposta.ok) {
             resposta.text().then(texto => {
@@ -36,7 +35,6 @@ function validar_sessao() {
             });
         } else {
             console.error('Sessão :.( ');
-            logoff();
         } 
     });    
 }
@@ -65,26 +63,7 @@ function getRandomMachine(){
         } 
     });    
 }
-function getInfosForMachineWithId_maquina(id_maquina){
-    fetch(`/leituras/getAllInfo/${id_maquina}`, {cache:'no-store'})
-    .then(resposta => {
-        
-        if (resposta.ok) {
-            resposta.json().then(function (json){
 
-                
-       
-
-            })
-           
-        } else {
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        } 
-    });    
-
-}
 function getFirstInfo(){
     const fk_estacao = sessionStorage.fk_estacao
     fetch(`../leituras/machines_total/${fk_estacao}`, {
@@ -179,6 +158,10 @@ function getFirstInfo(){
   
       return false;
 
+}
+function setup(){
+    b_usuario.innerHTML = sessionStorage.nome_usuario_meuapp
+    span_exit.style.cursor = "pointer"
 }
 
 
