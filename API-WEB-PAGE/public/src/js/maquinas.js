@@ -9,29 +9,15 @@ function getMachines(){
         }).then(resposta => {
             if (resposta.ok) {
               resposta.json().then(function (json){
-                
-                    
-                   for (let i = 0; i < json.length; i++) {
+                for (let i = 0; i < json.length; i++) {
                        var resp = json[i]
                        fetch(`../leituras/info_machines/${resp.id_maquina}`,{
                            method: "GET",
                        }).then(resposta2 => {
                            if(resposta2.ok){
                                resposta2.json().then(function (json2){
-                                   table_row.innerHTML +=`<div class="machine-card" onclick="openDashboard(${json2.id_maquina})">
-                                   <div class="card-title">
-                                       <h1>Direita AX2</h1>
-                                       <h4>Consolação</h4>
-                                   </div>
-                                   <br>
-                                   <div class="card-content">
-                                       <span>CPU:-</span>
-                                       <span>RAM:-</span>
-                                       <span>Disco:-%</span>
-                                       <span> Status:-</span>
-                                   </div>
-                               </div>`
-                                   
+                                   table_row.innerHTML +=``
+
                                })
                            }
                        })
@@ -73,99 +59,5 @@ function openDashboard(id_maquina){
 }
 
 
-function getFirstInfo(){
-    const fk_estacao = sessionStorage.fk_estacao
-    fetch(`../leituras/machines_total/${fk_estacao}`, {
-          method: "GET",
-      }).then(resposta => {
-          if (resposta.ok) {
-            resposta.json().then(function (json){
-                count_maquinas.innerHTML = json.contagem
-                  
-              
 
-  
-              });
-  
-          } else {
-  
-              console.log('aaaaaaa!');
-  
-              resposta.text().then(texto => {
-                  console.error(texto);
-                  finalizar_aguardar(texto);
-              });
-          }
-      });
-      fetch(`../leituras/stations_total`, {
-        method: "GET",
-    }).then(resposta => {
-        if (resposta.ok) {
-          resposta.json().then(function (json){
-            count_stations.innerHTML = `${json.contagem} `
-           
-                
-            
-
-
-            });
-
-        } else {
-
-            console.log('aaaaaaa!');
-
-            resposta.text().then(texto => {
-                console.error(texto);
-                finalizar_aguardar(texto);
-            });
-        }
-    });
-    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Crítico`, {
-        method: "GET",
-    }).then(resposta => {
-        if (resposta.ok) {
-          resposta.json().then(function (json){
-            count_critical.innerHTML = json.length
-          
-                
-            
-
-
-            });
-
-        } else {
-
-            console.log('aaaaaaa!');
-
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
-    });
-    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Perigo`, {
-        method: "GET",
-    }).then(resposta => {
-        if (resposta.ok) {
-          resposta.json().then(function (json){
-            count_alert.innerHTML = json.length
-          
-                
-            
-
-
-            });
-
-        } else {
-
-            console.log('aaaaaaa!');
-
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        }
-    });
-  
-      return false;
-
-}
 

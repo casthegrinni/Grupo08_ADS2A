@@ -85,6 +85,101 @@ function getInfosForMachineWithId_maquina(id_maquina){
     });    
 
 }
+function getFirstInfo(){
+    const fk_estacao = sessionStorage.fk_estacao
+    fetch(`../leituras/machines_total/${fk_estacao}`, {
+          method: "GET",
+      }).then(resposta => {
+          if (resposta.ok) {
+            resposta.json().then(function (json){
+                count_maquinas.innerHTML = json.contagem
+                  
+              
+
+  
+              });
+  
+          } else {
+  
+              console.log('aaaaaaa!');
+  
+              resposta.text().then(texto => {
+                  console.error(texto);
+                  finalizar_aguardar(texto);
+              });
+          }
+      });
+      fetch(`../leituras/stations_total`, {
+        method: "GET",
+    }).then(resposta => {
+        if (resposta.ok) {
+          resposta.json().then(function (json){
+            count_stations.innerHTML = `${json.contagem} `
+           
+                
+            
+
+
+            });
+
+        } else {
+
+            console.log('aaaaaaa!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizar_aguardar(texto);
+            });
+        }
+    });
+    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Crítico`, {
+        method: "GET",
+    }).then(resposta => {
+        if (resposta.ok) {
+          resposta.json().then(function (json){
+            count_critical.innerHTML = json.length
+          
+                
+            
+
+
+            });
+
+        } else {
+
+            console.log('aaaaaaa!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Perigo`, {
+        method: "GET",
+    }).then(resposta => {
+        if (resposta.ok) {
+          resposta.json().then(function (json){
+            count_alert.innerHTML = json.length
+          
+                
+            
+
+
+            });
+
+        } else {
+
+            console.log('aaaaaaa!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+  
+      return false;
+
+}
 
 
 

@@ -213,7 +213,12 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 			router.get('/info_machines/:id_maquina', function (req, res, next) {
 	
 	
-				const instrucaoSql = `select TOP 1 id_maquina from maquina where id_maquina = ${req.params.id_maquina}`
+				const instrucaoSql = `select TOP 1 m.want_ram, m.want_disco,m.want_cpu, m.ram,m.tamanho_disco, m.nome_maquina
+				sm.uso_processador,sm.uso_disco, sm.uso_ram, 
+				sp.estoque_papel 
+				from [dbo].[maquina] m join [dbo].[status_maquina] sm on m.id_maquina = sm.fk_maquina join 
+				[dbo].[status_papel] sp on m.id_maquina = sp.fk_maquina
+				 where id_maquina = ${req.params.id_maquina};`
 								
 			
 				sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
