@@ -1,10 +1,8 @@
 import configparser
 import pyautogui
 import threading
-# from tkinter import *
-# from PIL import Image, ImageTk
-# import mysql.connector
 import pyodbc
+import PIL
 
 from configparser import ConfigParser
 
@@ -18,7 +16,7 @@ server = parser.get("prod_credentials", "server")
 database = parser.get("prod_credentials", "database")
 username = parser.get("prod_credentials", "user")
 password = parser.get("prod_credentials", "password")
-connect_string = (
+connect_string = ( #ODBC Driver 17 for 
     r"Driver={ODBC Driver 17 for SQL Server};"
     r"Server=" + server + ";"
     r"Database=" + database + ";"
@@ -31,7 +29,7 @@ cursor = cnxn.cursor()
 
 def login():
     print("------------ PULSATRIX -----------")
-    user = input("Email: ")
+    user = input("Usuario: ")
     password = input("Senha: ")
     machineId = input("Id da máquina: ")
 
@@ -56,6 +54,7 @@ def fetchLogin(user, password):
     return row
 
 def execute(x):
+    print("Checkpoint execute")
     cursor.execute(
         f"INSERT INTO status_papel (estoque_papel, fk_maquina) VALUES(0, {x})"
     )
@@ -68,15 +67,15 @@ def searchForNoPaper(id_maquina):
     print(cords)
     print("Machine id: " + id_maquina)
 
-    timer = threading.Timer(2.0, searchForNoPaper(id_maquina))
-    timer.start()
-
     if cords:
         pyautogui.click(cords)
         print("Não tem papel...")
         execute(id_maquina)
     else:
         print("Tem papel")
+
+    timer = threading.Timer(5.0, searchForNoPaper(id_maquina))
+    timer.start()
 
 login()
 
