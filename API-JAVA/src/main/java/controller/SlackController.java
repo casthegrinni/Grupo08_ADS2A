@@ -42,8 +42,14 @@ public class SlackController {
             response = db.makeSelectQuery(String.format("SELECT top 1 estoque_papel FROM status_papel WHERE fk_maquina = %s order by data_e_hora desc;", this.fkMaquina));
             estoquePapel = response.get("label1");
 
+            System.out.println("Capturando dados de: " + fkMaquina + " -- Estação: " + nomeEstacao);
 
-            System.out.println(fkMaquina + "--" + nomeEstacao);
+            if (estoquePapel.equals("1")) {
+                System.out.println("alerta de fim de papel");
+                slack.initializer();
+                json.put("text", String.format(String.valueOf(alerta[6].getAlertas()), fkMaquina, nomeEstacao));
+                SlackModel.sendMessage(json);
+            }
 
             if (porcentagemDisco >= 71.0 && porcentagemDisco < 81.0) {
                 System.out.println("Disco em risco");
@@ -78,12 +84,6 @@ public class SlackController {
                 System.out.println("CPU em alerta critico");
                 slack.initializer();
                 json.put("text", String.format(String.valueOf(alerta[5].getAlertas()), fkMaquina, nomeEstacao, usoProcessador));
-                SlackModel.sendMessage(json);
-            }
-            if (estoquePapel.equals("1")) {
-                System.out.println("alerta de fim de papel");
-                slack.initializer();
-                json.put("text", String.format(String.valueOf(alerta[6].getAlertas()), fkMaquina, nomeEstacao));
                 SlackModel.sendMessage(json);
             }
         }
