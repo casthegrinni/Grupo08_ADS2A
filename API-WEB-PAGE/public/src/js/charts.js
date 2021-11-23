@@ -8,7 +8,61 @@ function getDadosMachine() {
                 // resposta.reverse();
                 console.log(resposta);
                 console.log("lua");
-            }
+                console.log(resposta.length);
+                console.log("a");
+
+
+            //     var ctx = document.getElementById('myChart').getContext('2d');
+
+            //     var hardwareData = {
+            //         labels: ['RAM', 'CPU', 'Disco'],
+            //         datasets: [{
+            //             data: [],
+            //             backgroundColor: getColor([]),
+            //             borderColor: getColor([]),
+            //             borderWidth: 1
+            //         }]
+            //     }
+
+            //     var config = {
+            //         type: 'horizontalBar',
+            //         data: hardwareData,
+            //         options: {
+            //             title: {
+            //                 text: "Registros de alerta",
+            //                 display: true,
+            //                 fontSize: 22,
+            //             },
+            //             legend: {
+            //                 display: false
+            //             },
+            //             scales: {
+            //                 xAxes: [{
+            //                     ticks: {
+            //                         beginAtZero: true
+            //                     },
+            //                 }],
+            //                 yAxes: [{
+            //                     ticks: {
+            //                         min: 0,
+            //                     },
+            //                     gridLines: {
+            //                         color: "rgba(0, 0, 0, 0)",
+            //                     }
+            //                 }],
+            //             }
+            //         }
+            //     }
+
+            //     for(i = 0; i < resposta.length; i++){
+            //         var registro = resposta[i];
+            //         console.log("ma oi" + registro);
+            //         hardwareData.labels[0].data.push(registro.uso_ram);
+            //         hardwareData.labels[1].data.push(registro.temperatura_cpu);
+            //         hardwareData.labels[2].data.push(registro.uso_processador);
+            //     }
+                
+         }
         )}
         else {
             console.log('erro ao capturar os dados!');
