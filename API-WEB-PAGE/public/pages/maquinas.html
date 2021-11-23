@@ -97,7 +97,11 @@
       verificar_autenticacao()
       setup()
       getMachines()
-      setTimeout(() =>getMachines(), 2000);
+    loop()
+  }
+  function loop(){
+      getMachines()
+        setTimeout(() =>loop(), 2000);
   }
 </script>
 

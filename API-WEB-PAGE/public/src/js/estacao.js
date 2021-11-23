@@ -8,6 +8,7 @@ function getStationInfo(){
             
                 for (let i = 0; i < json.length; i++) {
                     const element = json[i];
+                    if(document.documentElement.innerHTML.search(element.nome_estacao) == -1){
                     table.innerHTML += `<div class="station-card" onclick = "openDashboard("${element.nome_estacao}")" style= "cursor: pointer;">
                     <div class="card-title">
                         <h1>${element.nome_estacao}</h1>
@@ -15,11 +16,13 @@ function getStationInfo(){
                     <br>
                     <div class="card-content">
                         <span>Máquinas:${element.qtdMaquina}</span>
-                        <span>Em alerta: ${element.contagem_maquinas_criticas}</span>
+                        <span>Alertas: ${element.contagem_maquinas_criticas}</span>
                     </div>
                 </div>`
                     
                 }
+                else{return}
+            }
                 
        
 

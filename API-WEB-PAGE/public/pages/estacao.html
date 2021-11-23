@@ -96,8 +96,12 @@
     setup()
     verificar_autenticacao()
     getStationInfo()
-    setTimeout(() =>getStationInfo(), 2000);
+    loop()
  
+    }
+    function loop(){
+        getStationInfo()
+        setTimeout(()=>loop(),2000)
     }
 </script>
 

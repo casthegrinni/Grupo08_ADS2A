@@ -2,7 +2,8 @@
 
 function getMachines(){
   
-    
+    let array_checadas = []
+    let_duplicada = []
       const fk_estacao = sessionStorage.fk_estacao
       fetch(`../leituras/machines/${fk_estacao}`, {
             method: "GET",
@@ -20,9 +21,16 @@ function getMachines(){
                        }).then(resposta2 => {
                            if(resposta2.ok){
                                resposta2.json().then(function (json2){
-                                   //continha de porcentagem basica familia, sem escandalo (emoji fazendo shiuuu)
+                                 
+                                   if(json2.checada != 1){
+                                       array_checadas.push(json2.id_maquina)
+                                   }
+                                   
+                                   else{
+                              //continha de porcentagem basica familia, sem escandalo (emoji fazendo shiuuu)
                                    let porcentagem_memoria = (json2.uso_disco  * 100) / json2.tamanho_disco;
                                    let porcentagem_ram = (json2.uso_ram * 100)  / json2.ram
+                                   if(document.documentElement.innerHTML.search(json2.nome_maquina) == -1){
                                    table_row.innerHTML +=`<div class="machine-card" onclick="openDashboard(${json2.id_maquina})">
                                 <div class="card-title">
                                     <h1>${json2.nome_maquina}</h1>
@@ -40,7 +48,11 @@ function getMachines(){
                                    json2.want_ram == 0 ? span_ram.style.display = 'none' : span_ram.style.display = 'block' 
                                    json2.want_cpu == 0 ? span_cpu.style.display = 'none' : span_ram.style.display = 'block' 
                                    json2.want_disco == 0 ? span_disco.style.display = 'none' : span_ram.style.display = 'block' 
-                                    
+                                   } else{
+                                       return
+                                    }
+                                }
+                              
                                    
                                })
                            }
@@ -52,7 +64,10 @@ function getMachines(){
 
                      
                 });
-                
+                if(array_checadas.length != 0){
+                    showAlertChecada(array_checadas)
+                    
+                }
                 }
                 
 
@@ -73,6 +88,22 @@ function getMachines(){
 function openDashboard(id_maquina){
       sessionStorage.id_maquina = id_maquina
       window.location.href = `graficos.html`
+
+}
+function showAlertChecada(array){
+    let text
+    if(array.length == 1){
+        text = `Você possui uma maquina não chechada, por favor, execute o pulsatrix-java na maquina com id ${array[0]}`
+    }
+    else{
+        let aux
+        for (let i = 0; i < array.length; i++) {
+            const element = array[i];
+            aux = `${element} \n`
+            
+        }
+        text = `você possui ${array.length} maquinas não checadas, por favor execute o pulsatrix-java nas seguintes maquinas(id)` + aux
+    }
 
 }
 
