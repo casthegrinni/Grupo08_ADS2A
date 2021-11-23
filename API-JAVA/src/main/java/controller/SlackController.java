@@ -44,7 +44,7 @@ public class SlackController {
 
             System.out.println("Capturando dados de: " + fkMaquina + " -- Estação: " + nomeEstacao);
 
-            if (estoquePapel.equals("1")) {
+            if (estoquePapel.equals("0")) {
                 System.out.println("alerta de fim de papel");
                 slack.initializer();
                 json.put("text", String.format(String.valueOf(alerta[6].getAlertas()), fkMaquina, nomeEstacao));
