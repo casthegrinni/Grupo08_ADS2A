@@ -24,7 +24,7 @@ public class SlackModel {
     
     public void initializer() {
         try {
-            Ini ini = new Ini(new File("./API-JAVA/db_config.ini"));
+            Ini ini = new Ini(new File("./db_config.ini"));
             URL = ini.get("prod_credentials", "URL");
         }
         catch (IOException e) {
