@@ -19,7 +19,7 @@ public class PythonModel {
         if (os.contains("Windows")) {
             path = "../SCREEN-READER-WINDOWS/dist/machine.ini";
         } else {
-            path = "../SCREEN-READER-LINUX/dist/machine.ini";
+            path = " ~/SCREEN-READER-LINUX/dist/machine.ini";
         }
 
         FileWriter file = new FileWriter(path);
@@ -38,7 +38,7 @@ public class PythonModel {
             command = "cd ../SCREEN-READER-WINDOWS/dist && start ScreenReader.exe";
             final Process exec = new ProcessBuilder("CMD", "/C", command).start();
         } else {
-                command = "cd ../SCREEN-READER-LINUX/dist ; ./screenReader";
+                command = "cd ~/SCREEN-READER-LINUX/dist ; ./screenReader";
             final Process exec = new ProcessBuilder("bash", "-c", command).start();
         } 
     }

@@ -51,7 +51,7 @@
  </descriptorRefs>
  <archive>
  <manifest>
- <mainClass>Views.Login</mainClass>
+ <mainClass>Views.Cli</mainClass>
  </manifest>
  </archive>
  </configuration>
