@@ -24,10 +24,11 @@ public class SlackModel {
     
     public void initializer() {
         try {
-            Ini ini = new Ini(new File("../API-JAVA/db_config.ini"));
+            Ini ini = new Ini(new File("./db_config.ini"));
             URL = ini.get("prod_credentials", "URL");
         }
         catch (IOException e) {
+
             e.printStackTrace();
         }
     }
@@ -41,7 +42,7 @@ public class SlackModel {
         
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
         
-        System.out.printf("Status: %s", response.statusCode());
-        System.out.printf("Response: %s", response.body ());
+        System.out.printf("Status: \n\t%s", response.statusCode());
+        System.out.printf("Response: \n\t%s", response.body ());
     }
 }

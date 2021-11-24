@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pulsatrix</title>
+    <link rel="shortcut icon" href="src/img/icon.png" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://kit.fontawesome.com/64d58efce2.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,400;1,300&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="src/css/style.css">
+    <script src="./src/js/script.js"></script>
+</head>
+
+<body>
+    <section>
+        <header>
+            <div id="Home" class="bg-container">
+                <div class="black-layer">
+                    <div class="slogan">
+                        <div class="img-home-text">
+                            <h1>Somos uma empresa <br> inovadora que busca soluções <br> tecnológicas para escritórios.
+                            </h1>
+                        </div>
+                        <div class="div-buttons">
+                            <a href="#Contato"><button class="btn-left">Entre em contato</button></a>
+                            <a href="#SobreNos"><button class="btn-right">Saiba mais</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    </section>
+
+    <main>
+        <div class="navbar" id="id-navbar">
+            <div class="logo-img"></div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#SobreNos">Sobre nós</a></li>
+                    <li><a href="#Contato">Entre em contato</a></li>
+                    <button class="btn-login"><a href="./pages/login.html">Login</a></button>
+                </ul>
+            </div>
+        </div><br><br>
+        <div class="content">
+            <section id="SobreNos" class="section-sobreNos">
+                <div class="container">
+                    <div class="general-title">
+                        <h1>Sobre Nós</h1>
+                        <hr class="pink-stroke" />
+                    </div>
+
+                    <div class="text">
+                        <p>O sistema desenvolvido pela empresa Orion visa auxiliar as empresas de tokens de vendas de bilhetes QR code</p>
+                    </div>
+                    <div class="box">
+                        <div class="container">
+
+                            <div class="box-item">
+                                <img src="./src/img/missao.svg">
+                                <h3>Missão</h3>
+                                <p>Atender às necessidades de nossos clientes e superar as expectativas, oferecendo
+                                    muito mais que produtos e soluções.</p>
+                            </div>
+                            <div class="box-item">
+                                <img src="./src/img/visao.svg">
+                                <h3>Visão</h3>
+                                <p> Ser referência em inovação e qualidade, agilidade e performace as máquinas de autoatendimento. </p>
+                            </div>
+                            <div class="box-item">
+                                <img src="./src/img/valores.svg">
+                                <h3>Valores</h3>
+                                <p>Inovação, liderança, responsabilidade, integridade, qualidade e execelência</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section><br><br><br>
+            <section class="container-contact-us" id="Contato">
+                <div class="image-contact-us">
+                    <img src="src/img/contato.svg" alt="Ilustração tela de contato">
+                </div>
+                <div class="container-form" id="Contato">
+                    <div class="form-title">
+                        <h1>Fale Conosco</h1>
+                        <div class="line-form"></div>
+                    </div>
+                    <form class="content-form">
+                        <label for="get_email">Email</label>
+                        <br>
+                        <input type="email" id="get_email" name="get_email">
+                        <br>
+                        <label for="get_topic">Assunto</label>
+                        <br>
+                        <select name="get_topic" id="get_topic">
+                            <option value="0" selected disabled>
+                            </option>
+                            <option value="1">Dúvidas</option>
+                            <option value="2">Sugestões</option>
+                            <option value="3">Reclamações</option>
+                        </select>
+                        <br>
+                        <label for="get_description">Descrição</label>
+                        <br>
+                        <textarea id="get_description" name="get_description"></textarea>
+                        <button id="submit" type="submit">Enviar</button>
+                    </form>
+                </div>
+            </section>
+            <footer>
+                <div class="footer-content ">
+                    <h3>Pulsatrix</h3>
+                    <ul class="sociais ">
+                        <li><a href=" "><i class="fa fa-facebook "></i></a></li>
+                        <li><a href=" "><i class="fa fa-linkedin "></i></a></li>
+                        <li><a href=" "><i class="fa fa-instagram "></i></a></li>
+                        <li><a href="https://github.com/FelipeAmorim720/Grupo08_TOP"><i class="fa fa-github "></i></a></li>
+                    </ul>
+                </div>
+                <div class="footer-bottom ">
+                    <p>Copyright &copy; 2021 Orion</p>
+                </div>
+            </footer>
+    </main>
+</body>
+
+</html>

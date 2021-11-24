@@ -77,3 +77,23 @@ INSERT INTO estacao (nome_estacao, CEP, cidade, bairro, logradouro, numero) VALU
        ('Consolação','01301100','São Paulo','Consolação','Rua da consolação', '2406');
 
 
+SELECT 
+    estacao.nome_estacao,
+    COUNT(mqn.fk_estacao) as "quantidade de máquinas por estação",
+    coalesce(maquinas_criticas.contagem, 0) 
+    from estacao 
+    left join maquina as mqn on estacao.id_estacao = mqn.fk_estacao
+    left join maquinas_criticas on maquinas_criticas.fk_maquina = mqn.id_maquina
+    group by estacao.nome_estacao, coalesce(maquinas_criticas.contagem, 0);
+
+SELECT 
+estacao.nome_estacao as "nome_estacao", 
+COUNT(maquina.fk_estacao) as "qtd_maquinas",
+COUNT(usuario.id_usuario) as "qtd_funcionarios"
+FROM usuario
+RIGHT JOIN estacao ON usuario.fk_estacao = estacao.id_estacao
+JOIN maquina ON estacao.id_estacao = maquina.fk_estacao
+GROUP BY estacao.nome_estacao
+
+select * from maquina;
+SELECT * FROM usuario;
