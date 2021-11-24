@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Leitura = require('../models').Leitura;
+var Status_Maquina = require('../models').Status_Maquina;
 var env = process.env.NODE_ENV || 'development';
 
 /* Recuperar as últimas N leituras */
@@ -111,8 +112,7 @@ router.get('/machines/:fk_estacao', function (req, res, next) {
 	
 	console.log(`Recuperando as estatísticas atuais`);
 
-	const instrucaoSql = `select m.nome_maquina,m.id_maquina, e.nome_estacao from maquina as m join estacao as e on e.id_estacao = m.fk_estacao where fk_estacao = ${req.params.fk_estacao}`;
-					
+ const instrucaoSql= `select m.checada, m.id_maquina from maquina m where m.fk_estacao = ${req.params.fk_estacao}`					
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
@@ -157,7 +157,8 @@ router.get('/stations_total/', function (req, res, next) {
 router.get('/getRandom/:fk_estacao', function (req, res, next) {
 	
 	
-	const instrucaoSql = `select m.id_maquina, s.status_web from maquina as m join status_maquina as s on m.id_maquina = s.fk_maquina where m.fk_estacao = ${req.params.fk_estacao} `;
+	const instrucaoSql = `SELECT TOP 1 id_maquina, FROM maquina where fk_estacao = ${req.params.fk_estacao}
+	ORDER BY NEWID() `;
 					
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
@@ -168,6 +169,87 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 			res.status(500).send(erro.message);
 		})
 	});
+	router.get('/getStatusCounter/:fk_estacao/:type', function (req, res, next) {
+	
+	
+		const instrucaoSql = `select COUNT(s.status_web) as count from status_maquina s right JOIN maquina m on id_maquina = fk_maquina WHERE m.fk_estacao = ${req.params.fk_estacao} AND s.status_web = '${req.params.type}'`
+						
+	
+		sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+			.then(resultado => {
+				res.json(resultado);
+			}).catch(erro => {
+				console.error(erro);
+				res.status(500).send(erro.message);
+			})
+		});
+		router.get('/getAllStations/', function (req, res, next) {
+	
+	
+			const instrucaoSql = `with maquinas_criticas as (
+				select stts.fk_maquina,
+				count(stts.status_web) as contagem
+				from [dbo].[status_maquina] as stts
+				inner join [dbo].[maquina] as mqn on mqn.id_maquina = stts.fk_maquina and stts.status_web = 'Crí­tico'
+				group by stts.fk_maquina 
+			)
+			SELECT 
+				estacao.nome_estacao,
+				COUNT(mqn.fk_estacao) as "qtdMaquina",
+				sum( coalesce(maquinas_criticas.contagem, 0) ) as "contagem_maquinas_criticas"
+				from estacao 
+				left join maquina as mqn on estacao.id_estacao = mqn.fk_estacao
+				left join maquinas_criticas on maquinas_criticas.fk_maquina = mqn.id_maquina
+				group by estacao.nome_estacao;`;
+							
+		
+			sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+				.then(resultado => {
+					res.json(resultado);
+				}).catch(erro => {
+					console.error(erro);
+					res.status(500).send(erro.message);
+				})
+			});
+			router.get('/info_machines/:id_maquina', function (req, res, next) {
+	
+	
+				const instrucaoSql = `select TOP 1 m.want_ram, m.want_disco,m.want_cpu, m.ram,m.tamanho_disco, m.nome_maquina,m.checada,
+				sm.uso_processador,sm.uso_disco, sm.uso_ram,sm.status_web, 
+				sp.estoque_papel 
+				from [dbo].[maquina] m join [dbo].[status_maquina] sm on m.id_maquina = sm.fk_maquina join 
+				[dbo].[status_papel] sp on m.id_maquina = sp.fk_maquina
+				 where id_maquina = ${req.params.id_maquina};`
+								
+			
+				sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+					.then(resultado => {
+						res.json(resultado[0]);
+					}).catch(erro => {
+						console.error(erro);
+						res.status(500).send(erro.message);
+					})
+				});
+
+
+
+		router.get('/getDadosMachine/:fk_maquina', function (req, res, next) {
+				const limite_linhas = 7;
+				var fkMaquina = req.params.fk_maquina;
+
+				const instrucaoSql = `SELECT top ${limite_linhas} uso_ram, temperatura_cpu, uso_processador FROM [dbo].[status_maquina] where fk_maquina = ${fkMaquina} order by id_captura desc`;
+						
+						sequelize.query(instrucaoSql, {
+						model: Status_Maquina,
+						mapToModel: true})
+						.then(resultado => {
+							res.json(resultado);
+						}).catch(erro => {
+							console.error(erro);
+							res.status(500).send(erro.message);
+						})
+		});
+		
   
 
 module.exports = router;

@@ -8,10 +8,11 @@ function entrar() {
         if (resposta.ok) {
 
             resposta.json().then(json => {
+            
 
                 sessionStorage.login_usuario_meuapp = json.email;
                 sessionStorage.nome_usuario_meuapp = json.nome;
-                sessionStorage.fk_estacao = json.fk_estacao
+                sessionStorage.fk_estacao = json.fk_estacao;
                 sessionStorage.tipo_usuario = json.tipo_usuario;
 
                 window.location.href = 'dashboard.html';

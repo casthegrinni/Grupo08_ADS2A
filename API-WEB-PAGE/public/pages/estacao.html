@@ -22,9 +22,9 @@
         rel="stylesheet">
 </head>
 
-<body>
+<body onload="start()">
 
-    <nav class="nav">
+    <nav class="nav" >
         <a href="dashboard.html" class="logo">
             <img src="../src/img/icon.png" alt="">
             <span>Pulsatrix</span>
@@ -50,9 +50,9 @@
             </li>
         </ul>
         <li class="log-out">
-            <a href="">
-                <i class='bx bx-log-out nav_icon'></i>
-            </a>
+            <span id = 'span_exit' onclick="logoff()">
+                <i  class='bx bx-log-out nav_icon'></i>
+            </span>
         </li>
     </nav>
     <main class="content">
@@ -68,91 +68,30 @@
         <section class="section">
             <h1 class="section-title">Estações</h1>
             <div class="container-fluid container-content cards">
-                <div class="all-station-cards">
+                <div class="all-station-cards" id="table">
 
-                    <div class="station-card">
-                        <div class="card-title">
-                            <h1>Consolação</h1>
-                            <h4>Linha 2 - verde</h4>
-                        </div>
-                        <br>
-                        <div class="card-content">
-                            <span>Técnicos: 5</span>
-                            <span>Máquinas: 30</span>
-                            <span>Em alerta: 2</span>
-                        </div>
-                    </div>
-                    <div class="station-card">
-                        <div class="card-title">
-                            <h1>Consolação</h1>
-                            <h4>Linha 2 - verde</h4>
-                        </div>
-                        <br>
-                        <div class="card-content">
-                            <span>Técnicos: 5</span>
-                            <span>Máquinas: 30</span>
-                            <span>Em alerta: 2</span>
-                        </div>
-                    </div>
-                    <div class="station-card">
-                        <div class="card-title">
-                            <h1>Consolação</h1>
-                            <h4>Linha 2 - verde</h4>
-                        </div>
-                        <br>
-                        <div class="card-content">
-                            <span>Técnicos: 5</span>
-                            <span>Máquinas: 30</span>
-                            <span>Em alerta: 2</span>
-                        </div>
-                    </div>
-                    <div class="station-card">
-                        <div class="card-title">
-                            <h1>Consolação</h1>
-                            <h4>Linha 2 - verde</h4>
-                        </div>
-                        <br>
-                        <div class="card-content">
-                            <span>Técnicos: 5</span>
-                            <span>Máquinas: 30</span>
-                            <span>Em alerta: 2</span>
-                        </div>
-                    </div>
-                    <div class="station-card">
-                        <div class="card-title">
-                            <h1>Consolação</h1>
-                            <h4>Linha 2 - verde</h4>
-                        </div>
-                        <br>
-                        <div class="card-content">
-                            <span>Técnicos: 5</span>
-                            <span>Máquinas: 30</span>
-                            <span>Em alerta: 2</span>
-                        </div>
-                    </div>
-                    <div class="station-card">
-                        <div class="card-title">
-                            <h1>Consolação</h1>
-                            <h4>Linha 2 - verde</h4>
-                        </div>
-                        <br>
-                        <div class="card-content">
-                            <span>Técnicos: 5</span>
-                            <span>Máquinas: 30</span>
-                            <span>Em alerta: 2</span>
-                        </div>
-                    </div>
 
                 </div>
             </div>
-            </div>
+            
         </section>
     </main>
     <script src='js/charts.js'></script>
     <script src="../src/js/funcoes.js"></script>
+    <script src="../src/js/estacao.js"></script>
 </body>
 <script>
+    function start(){
+    setup()
     verificar_autenticacao()
+    getStationInfo()
+    loop()
+ 
+    }
+    function loop(){
+        getStationInfo()
+        setTimeout(()=>loop(),2000)
+    }
 </script>
 
 </html>

@@ -1,4 +1,3 @@
-// const { json } = require("sequelize/types");
 
 let login_usuario;
 let nome_usuario;
@@ -13,9 +12,9 @@ function verificar_autenticacao() {
     nome_usuario = sessionStorage.nome_usuario_meuapp;
     
     if (login_usuario == undefined)  {
-        redirecionar_login();
+        logoff()
+
     } else {
-        b_usuario.innerHTML = nome_usuario;
         validar_sessao();
     }
     
@@ -28,7 +27,7 @@ function logoff() {
 }
 
 function validar_sessao() {
-    fetch(`/usuarios/sessao/${login_usuario}`, {cache:'no-store'})
+    fetch(`/usuarios/sessao/${sessionStorage.login_usuario_meuapp}`, {cache:'no-store'})
     .then(resposta => {
         if (resposta.ok) {
             resposta.text().then(texto => {
@@ -36,7 +35,6 @@ function validar_sessao() {
             });
         } else {
             console.error('Sessão :.( ');
-            logoff();
         } 
     });    
 }
@@ -45,69 +43,15 @@ function finalizar_sessao() {
     fetch(`/usuarios/sair/${login_usuario}`, {cache:'no-store'}); 
 }
 function getRandomMachine(){
-    fetch(`/leituras/getRandom/${sessionStorage.fk_estacao}`, {cache:'no-store'})
+    fetch(`/leituras/getRandom/${sessionStorage.fk_estacao}`)
     .then(resposta => {
         
         if (resposta.ok) {
             resposta.json().then(function (json){
-                let array_critical = []
-                let array_alerta = []
-                for (let i = 0; i < json.length; i++) {
-                    const obj = json[i];
-                    switch (obj.status_web){
-                        case "critico":
-                            array_critical.push(obj.id_maquina)
-                            json.splice(pos,i)
-                            break;
-                        case "alerta":
-                            array_alerta.push(obj.id_maquina)
-                            json.splice(pos,i)
-                            break;
-                        default: 
-                         break;       
-                    }
-                }
-                if(array_critical.length != 0){
-                  
-                       
-                        let max = array_critical[0]
-                        let min = max
-                        for (let i = 0; i < array_critical.length; i++) {
-                            const element = array_critical[i];
-                            max < element ? max = element : max = max
-                            min > element ? max = element : min = min
-                            
-                        }
-                        var number = Math.random() * (max - min) + min;
-                        sessionStorage.id_maquina = number
-                        
-                    
-                }else if(array_alerta != 0 ){
-                    let max = array_alerta[0]
-                    let min = max
-                    for (let i = 0; i < array_alerta.length; i++) {
-                        const element = array_alerta[i];
-                        max < element ? max = element : max = max
-                        min > element ? max = element : min = min
-                        
-                    }
-                    let number = Math.random() * (max - min) + min;
-                    sessionStorage.id_maquina = number
-
-                }else {
-                    let max = array_alerta[0]
-                    let min = max
-                    for (let i = 0; i < json.length; i++) {
-                        const element = json[i];
-                        max < element ? max = element : max = max
-                        min > element ? max = element : min = min
-                        
-                    }
-                    let number = Math.random() * (max - min) + min;
-                    sessionStorage.id_maquina = number
-
-                }
-
+            
+                sessionStorage.id_maquina = json[0].id_maquina
+                getDadosMachine();
+       
 
             })
            
@@ -118,6 +62,106 @@ function getRandomMachine(){
             });
         } 
     });    
+}
+
+function getFirstInfo(){
+    const fk_estacao = sessionStorage.fk_estacao
+    fetch(`../leituras/machines_total/${fk_estacao}`, {
+          method: "GET",
+      }).then(resposta => {
+          if (resposta.ok) {
+            resposta.json().then(function (json){
+                count_maquinas.innerHTML = json.contagem
+                  
+              
+
+  
+              });
+  
+          } else {
+  
+              console.log('aaaaaaa!');
+  
+              resposta.text().then(texto => {
+                  console.error(texto);
+                  finalizar_aguardar(texto);
+              });
+          }
+      });
+      fetch(`../leituras/stations_total`, {
+        method: "GET",
+    }).then(resposta => {
+        if (resposta.ok) {
+          resposta.json().then(function (json){
+            count_stations.innerHTML = `${json.contagem} `
+           
+                
+            
+
+
+            });
+
+        } else {
+
+            console.log('aaaaaaa!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+                finalizar_aguardar(texto);
+            });
+        }
+    });
+    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Crítico`, {
+        method: "GET",
+    }).then(resposta => {
+        if (resposta.ok) {
+          resposta.json().then(function (json){
+            count_critical.innerHTML = json.length
+          
+                
+            
+
+
+            });
+
+        } else {
+
+            console.log('aaaaaaa!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Perigo`, {
+        method: "GET",
+    }).then(resposta => {
+        if (resposta.ok) {
+          resposta.json().then(function (json){
+            count_alert.innerHTML = json.length
+          
+                
+            
+
+
+            });
+
+        } else {
+
+            console.log('aaaaaaa!');
+
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+  
+      return false;
+
+}
+function setup(){
+    b_usuario.innerHTML = sessionStorage.nome_usuario_meuapp
+    span_exit.style.cursor = "pointer"
 }
 
 
