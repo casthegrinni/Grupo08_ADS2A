@@ -50,7 +50,7 @@ function getRandomMachine(){
             resposta.json().then(function (json){
             
                 sessionStorage.id_maquina = json[0].id_maquina
-                
+                getDadosMachine();
        
 
             })

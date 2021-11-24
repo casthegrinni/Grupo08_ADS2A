@@ -133,11 +133,15 @@
     </main>
     <script src='../src/js/maquinas.js'></script>
     <script src='../src/js/charts.js'></script>
+    <script src="/routes/leituras.js"></script>
     <script>
         function start() {
             setup()
-         getFirstInfo()
+            getFirstInfo()
             getRandomMachine()
+            verificar_autenticacao()
+            getFirstInfo()
+            getDadosMachine()
         }
     </script>
 </body>
