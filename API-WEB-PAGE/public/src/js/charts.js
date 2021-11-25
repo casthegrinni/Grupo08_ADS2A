@@ -22,7 +22,7 @@ function getDadosMachine() {
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var hardwareData = {
-    labels: ['00-04', '04-08', '08-12', '12-16', '16-20', '20-24'],
+    labels: ['00h-04h', '04h-08h', '08h-12h', '12h-16h', '16h-20h', '20h-24h'],
     datasets: [{
         data: [3, 13, 8, 5, 17, 6],
         backgroundColor: getColor([3, 13, 8, 5, 17, 6]),
@@ -64,7 +64,7 @@ var myChart = new Chart(ctx, config);
 
 var ctx = document.getElementById('chartMaquinas').getContext('2d');
 var paperData = {
-    labels: ['00-04', '04-08', '08-12', '12-16', '16-20', '20-24'],
+    labels: ['00h-04h', '04h-08h', '08h-12h', '12h-16h', '16h-20h', '20h-24h'],
     datasets: [{
         data: [3, 15, 5, 8, 14, 6],
         backgroundColor: getColor([3, 15, 5, 8, 14, 6]),
