@@ -10,58 +10,6 @@ function getDadosMachine() {
                 console.log("lua");
                 console.log(resposta.length);
                 console.log("a");
-
-
-            //     var ctx = document.getElementById('myChart').getContext('2d');
-
-            //     var hardwareData = {
-            //         labels: ['RAM', 'CPU', 'Disco'],
-            //         datasets: [{
-            //             data: [],
-            //             backgroundColor: getColor([]),
-            //             borderColor: getColor([]),
-            //             borderWidth: 1
-            //         }]
-            //     }
-
-            //     var config = {
-            //         type: 'horizontalBar',
-            //         data: hardwareData,
-            //         options: {
-            //             title: {
-            //                 text: "Registros de alerta",
-            //                 display: true,
-            //                 fontSize: 22,
-            //             },
-            //             legend: {
-            //                 display: false
-            //             },
-            //             scales: {
-            //                 xAxes: [{
-            //                     ticks: {
-            //                         beginAtZero: true
-            //                     },
-            //                 }],
-            //                 yAxes: [{
-            //                     ticks: {
-            //                         min: 0,
-            //                     },
-            //                     gridLines: {
-            //                         color: "rgba(0, 0, 0, 0)",
-            //                     }
-            //                 }],
-            //             }
-            //         }
-            //     }
-
-            //     for(i = 0; i < resposta.length; i++){
-            //         var registro = resposta[i];
-            //         console.log("ma oi" + registro);
-            //         hardwareData.labels[0].data.push(registro.uso_ram);
-            //         hardwareData.labels[1].data.push(registro.temperatura_cpu);
-            //         hardwareData.labels[2].data.push(registro.uso_processador);
-            //     }
-                
          }
         )}
         else {
@@ -74,11 +22,11 @@ function getDadosMachine() {
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var hardwareData = {
-    labels: ['RAM', 'CPU', 'Disco'],
+    labels: ['00-04', '04-08', '08-12', '12-16', '16-20', '20-24'],
     datasets: [{
-        data: [8, 10, 5],
-        backgroundColor: getColor([8, 10, 5]),
-        borderColor: getColor([8, 10, 5]),
+        data: [3, 13, 8, 5, 17, 6],
+        backgroundColor: getColor([3, 13, 8, 5, 17, 6]),
+        borderColor: getColor([3, 13, 8, 5, 17, 6]),
         borderWidth: 1
     }]
 }
@@ -88,7 +36,7 @@ var config = {
     data: hardwareData,
     options: {
         title: {
-            text: "Registros de alerta",
+            text: "Alertas de hardware x hora",
             display: true,
             fontSize: 22,
         },

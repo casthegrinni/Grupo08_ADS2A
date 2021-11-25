@@ -15,7 +15,7 @@ function getStationInfo(){
                     </div>
                     <br>
                     <div class="card-content">
-                        <span>Máquinas:${element.qtdMaquina}</span>
+                        <span>Máquinas: ${element.qtdMaquina}</span>
                         <span>Alertas: ${element.contagem_maquinas_criticas}</span>
                     </div>
                 </div>`
