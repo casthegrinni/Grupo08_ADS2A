@@ -331,7 +331,7 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 				model: Status_Papel,
 				mapToModel: true})
 				.then(resultado => {
-					res.json(resultado);
+					res.json(resultado[0]);
 				}).catch(erro => {
 					console.error(erro);
 					res.status(500).send(erro.message);

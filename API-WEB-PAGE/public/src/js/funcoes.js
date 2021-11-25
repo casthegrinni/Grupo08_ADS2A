@@ -17,7 +17,6 @@ function verificar_autenticacao() {
     } else {
         validar_sessao();
     }
-    
 }
 
 function logoff() {
@@ -42,16 +41,15 @@ function validar_sessao() {
 function finalizar_sessao() {
     fetch(`/usuarios/sair/${login_usuario}`, {cache:'no-store'}); 
 }
+
 function getRandomMachine(){
     fetch(`/leituras/getRandom/${sessionStorage.fk_estacao}`)
     .then(resposta => {
         
         if (resposta.ok) {
             resposta.json().then(function (json){
-            
                 sessionStorage.id_maquina = json[0].id_maquina
                 getDadosMachine();
-       
 
             })
            
@@ -72,10 +70,6 @@ function getFirstInfo(){
           if (resposta.ok) {
             resposta.json().then(function (json){
                 count_maquinas.innerHTML = json.contagem
-                  
-              
-
-  
               });
   
           } else {
@@ -94,11 +88,6 @@ function getFirstInfo(){
         if (resposta.ok) {
           resposta.json().then(function (json){
             count_stations.innerHTML = `${json.contagem} `
-           
-                
-            
-
-
             });
 
         } else {
@@ -117,11 +106,7 @@ function getFirstInfo(){
         if (resposta.ok) {
           resposta.json().then(function (json){
             count_critical.innerHTML = json.length
-          
-                
-            
-
-
+   
             });
 
         } else {
@@ -139,11 +124,6 @@ function getFirstInfo(){
         if (resposta.ok) {
           resposta.json().then(function (json){
             count_alert.innerHTML = json.length
-          
-                
-            
-
-
             });
 
         } else {

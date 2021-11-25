@@ -1,5 +1,5 @@
 function getDadosMachine() {
-    fetch(`/leituras/getDadosMachine/${sessionStorage.id_maquina}`, { 
+    fetch(`/leituras/getDadosMachine/${sessionStorage.id_maquina}`, {
         cache: 'no-store'
     }).then(resposta => {
         if (resposta.ok) {
@@ -10,15 +10,17 @@ function getDadosMachine() {
                 console.log("lua");
                 console.log(resposta.length);
                 console.log("a");
-         }
-        )}
+            }
+            )
+        }
         else {
             console.log('erro ao capturar os dados!');
             resposta.text().then(texto => {
                 console.error(texto);
             });
         }
-});
+    });
+}
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var hardwareData = {
@@ -123,6 +125,27 @@ function getColor(data) {
 
     return colors;
 
-   }
+}
+
+function getHardwareData() {
+    fetch(`/leituras/getHardwarePerHour/1`, {
+        cache: 'no-store'
+    }).then(resposta => {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                console.log(`Hardware data: ${JSON.stringify(resposta)}`);
+                console.log(resposta);
+                console.log(resposta.length);
+            }
+            )
+        }
+        else {
+            console.log('Error getting hardware data!');
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+
 }
 
