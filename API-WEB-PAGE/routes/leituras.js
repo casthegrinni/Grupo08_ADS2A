@@ -3,6 +3,7 @@ var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Leitura = require('../models').Leitura;
 var Status_Maquina = require('../models').Status_Maquina;
+var Status_Papel = require('../models').Status_Papel;
 var env = process.env.NODE_ENV || 'development';
 
 /* Recuperar as últimas N leituras */
@@ -250,6 +251,92 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 						})
 		});
 		
+		router.get('/getHardwarePerHour/:fk_estacao', function (req, res, next) {
+			var estacao = req.params.fk_estacao;
+
+			const instrucaoSql = `
+   SELECT TOP 1
+           (SELECT 
+                Count(*) FROM [status_maquina] 
+                WHERE DATEPART(HOUR ,data_e_hora) > 0
+                AND DATEPART(HOUR ,data_e_hora) < 4) as zero_a_quatro,
+           (SELECT 
+                Count(*) FROM [status_maquina] 
+                WHERE DATEPART(HOUR ,data_e_hora) > 4
+                AND DATEPART(HOUR ,data_e_hora) < 8) as quatro_a_oito,
+           (SELECT 
+                Count(*)  FROM [status_maquina] 
+                WHERE DATEPART(HOUR ,data_e_hora) < 8
+                AND DATEPART(HOUR ,data_e_hora) < 12) as oito_a_doze,
+           (SELECT 
+                Count(*) FROM [status_maquina] 
+                WHERE DATEPART(HOUR ,data_e_hora) < 12
+                AND DATEPART(HOUR ,data_e_hora) < 16) as doze_a_dezesseis,
+           (SELECT 
+                Count(*) FROM [status_maquina] 
+                WHERE DATEPART(HOUR ,data_e_hora) < 16
+                AND DATEPART(HOUR ,data_e_hora) < 20) as dezesseis_a_vinte,
+           (SELECT 
+                Count(*) FROM [status_maquina] 
+                WHERE DATEPART(HOUR ,data_e_hora) < 20
+                AND DATEPART(HOUR ,data_e_hora) < 24) as vinte_a_vintequatro
+   FROM    [status_maquina]
+   WHERE    data_e_hora >= DATEADD(day, -7, GETDATE())`;
+					
+					sequelize.query(instrucaoSql, {
+					model: Status_Maquina,
+					mapToModel: true})
+					.then(resultado => {
+						res.json(resultado);
+					}).catch(erro => {
+						console.error(erro);
+						res.status(500).send(erro.message);
+					})
+	});
+
+	router.get('/getPaperPerHour/:fk_estacao', function (req, res, next) {
+		var estacao = req.params.fk_estacao;
+
+		const instrucaoSql = `
+   SELECT TOP 1
+            (SELECT 
+                Count(*) FROM [status_papel] 
+                WHERE DATEPART(HOUR ,data_e_hora) > 0
+                AND DATEPART(HOUR ,data_e_hora) < 4) as zero_a_quatro,
+           (SELECT 
+                Count(*) FROM [status_papel] 
+                WHERE DATEPART(HOUR ,data_e_hora) > 4
+                AND DATEPART(HOUR ,data_e_hora) < 8) as quatro_a_oito,
+           (SELECT 
+                Count(*)  FROM [status_papel] 
+                WHERE DATEPART(HOUR ,data_e_hora) < 8
+                AND DATEPART(HOUR ,data_e_hora) < 12) as oito_a_doze,
+           (SELECT 
+                Count(*) FROM [status_papel] 
+                WHERE DATEPART(HOUR ,data_e_hora) < 12
+                AND DATEPART(HOUR ,data_e_hora) < 16) as doze_a_dezesseis,
+           (SELECT 
+                Count(*) FROM [status_papel] 
+                WHERE DATEPART(HOUR ,data_e_hora) < 16
+                AND DATEPART(HOUR ,data_e_hora) < 20) as dezesseis_a_vinte,
+           (SELECT 
+                Count(*) FROM [status_papel] 
+                WHERE DATEPART(HOUR ,data_e_hora) < 20
+                AND DATEPART(HOUR ,data_e_hora) < 24) as vinte_a_vintequatro
+   FROM    [status_papel]
+   WHERE    data_e_hora >= DATEADD(day, -7, GETDATE()) 
+`;
+				
+				sequelize.query(instrucaoSql, {
+				model: Status_Papel,
+				mapToModel: true})
+				.then(resultado => {
+					res.json(resultado);
+				}).catch(erro => {
+					console.error(erro);
+					res.status(500).send(erro.message);
+				})
+});
   
 
 module.exports = router;
