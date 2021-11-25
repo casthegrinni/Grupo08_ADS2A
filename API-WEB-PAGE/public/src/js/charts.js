@@ -116,7 +116,7 @@ var myChart = new Chart(ctx, config);
 
 var ctx = document.getElementById('chartMaquinas').getContext('2d');
 var paperData = {
-    labels: ['00/04', '04/08', '08/12', '12/16', '16/20', '20/24'],
+    labels: ['00-04', '04-08', '08-12', '12-16', '16-20', '20-24'],
     datasets: [{
         data: [3, 15, 5, 8, 14, 6],
         backgroundColor: getColor([3, 15, 5, 8, 14, 6]),
