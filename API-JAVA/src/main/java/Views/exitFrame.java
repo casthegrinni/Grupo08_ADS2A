@@ -5,11 +5,15 @@
  */
 package Views;
 
+import Logs.Logs;
+
 /**
  *
  * @author Aluno
  */
 public class exitFrame extends javax.swing.JFrame {
+
+    Logs logs = new Logs();
 
     /**
      * Creates new form exitFrame
@@ -88,10 +92,10 @@ public class exitFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {                                          
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         System.exit(0);
-
-    }                                        
+        logs.saveLogs("Aplicação Finalizada");
+    }
 
     /**
      * @param args the command line arguments
@@ -127,8 +131,8 @@ public class exitFrame extends javax.swing.JFrame {
 //            }
 //        });
 //    }
-    public void runExitScreen(){
-      java.awt.EventQueue.invokeLater(new Runnable() {
+    public void runExitScreen() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new exitFrame().setVisible(true);
             }
