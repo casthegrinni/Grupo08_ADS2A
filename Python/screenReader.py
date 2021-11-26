@@ -49,9 +49,9 @@ cursor = cnxn.cursor()
 #     screenReader.mainloop()
 
     
-def execute(x):
+def execute(x, y):
     cursor.execute(
-        f"INSERT INTO status_papel (estoque_papel, fk_maquina) VALUES(0, {x})"
+        f"INSERT INTO status_papel (estoque_papel, fk_maquina) VALUES({y}, {x})"
     )
     cnxn.commit()
 
@@ -62,16 +62,16 @@ def searchForNoPaper():
     print(cords)
     print("Machine id: " + machineId)
 
-    timer = threading.Timer(2.0, searchForNoPaper)
+    timer = threading.Timer(5.0, searchForNoPaper)
     timer.start()
 
     if cords:
         pyautogui.click(cords)
         print("Não tem papel...")
-        execute(machineId)
+        execute(machineId, 0)
     else:
         print("Tem papel")
-
+        execute(machineId, 1)
 
 # def screenConfig():
 #     height = 500

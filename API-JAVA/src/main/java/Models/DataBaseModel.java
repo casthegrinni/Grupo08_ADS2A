@@ -63,7 +63,7 @@ public class  DataBaseModel {
 
         }catch (SQLException e) {
             e.printStackTrace();
-            logs.saveLogs("Erro ao realizar inser√ß√£o no banco.");
+            logs.saveLogs("Erro ao realizar inserÁ„o no banco.");
         }
 
         }
@@ -82,7 +82,7 @@ public class  DataBaseModel {
 
             } catch (SQLException e) {
                 e.printStackTrace();
-                logs.saveLogs("Erro ao iniciar configura√ß√£o na m√°quina.");
+                logs.saveLogs("Erro ao iniciar configuraÁ„o na m·quina.");
             }
             return response;
 

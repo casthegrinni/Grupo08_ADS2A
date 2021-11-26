@@ -14,7 +14,7 @@ public class PythonModel {
 
     public void letterToPython(String id)
             throws IOException {
-        System.out.println(os);
+        System.out.println("\n " +os);
         String path;
         if (os.contains("Windows")) {
             path = "../SCREEN-READER-WINDOWS/dist/machine.ini";
