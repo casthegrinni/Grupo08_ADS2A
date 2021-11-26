@@ -2,8 +2,8 @@ var express = require('express');
 var router = express.Router();
 var sequelize = require('../models').sequelize;
 var Leitura = require('../models').Leitura;
-var Status_Maquina = require('../models').Status_Maquina;
-var Status_Papel = require('../models').Status_Papel;
+var status_maquina = require('../models').status_maquina;
+var status_papel = require('../models').status_papel;
 var env = process.env.NODE_ENV || 'development';
 
 /* Recuperar as últimas N leituras */
@@ -241,7 +241,7 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 				const instrucaoSql = `SELECT top ${limite_linhas} uso_ram, temperatura_cpu, uso_processador FROM [dbo].[status_maquina] where fk_maquina = ${fkMaquina} order by id_captura desc`;
 						
 						sequelize.query(instrucaoSql, {
-						model: Status_Maquina,
+						model: status_maquina,
 						mapToModel: true})
 						.then(resultado => {
 							res.json(resultado);
@@ -284,7 +284,7 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
    WHERE    data_e_hora >= DATEADD(day, -7, GETDATE())`;
 					
 					sequelize.query(instrucaoSql, {
-					model: Status_Maquina,
+					model: status_maquina,
 					mapToModel: true})
 					.then(resultado => {
 						res.json(resultado);
@@ -328,7 +328,7 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 `;
 				
 				sequelize.query(instrucaoSql, {
-				model: Status_Papel,
+				model: status_papel,
 				mapToModel: true})
 				.then(resultado => {
 					res.json(resultado[0]);
