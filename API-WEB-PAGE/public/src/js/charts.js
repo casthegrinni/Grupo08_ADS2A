@@ -180,7 +180,7 @@ function chartPaper(paperData) {
             borderWidth: 1
         }]
     }
-    
+
     var config = {
         type: 'bar',
         data: configData,
