@@ -1,5 +1,5 @@
 function getDadosMachine() {
-    fetch(`/leituras/getDadosMachine/${sessionStorage.id_maquina}`, { 
+    fetch(`/leituras/getDadosMachine/${sessionStorage.id_maquina}`, {
         cache: 'no-store'
     }).then(resposta => {
         if (resposta.ok) {
@@ -10,150 +10,17 @@ function getDadosMachine() {
                 console.log("lua");
                 console.log(resposta.length);
                 console.log("a");
-
-
-            //     var ctx = document.getElementById('myChart').getContext('2d');
-
-            //     var hardwareData = {
-            //         labels: ['RAM', 'CPU', 'Disco'],
-            //         datasets: [{
-            //             data: [],
-            //             backgroundColor: getColor([]),
-            //             borderColor: getColor([]),
-            //             borderWidth: 1
-            //         }]
-            //     }
-
-            //     var config = {
-            //         type: 'horizontalBar',
-            //         data: hardwareData,
-            //         options: {
-            //             title: {
-            //                 text: "Registros de alerta",
-            //                 display: true,
-            //                 fontSize: 22,
-            //             },
-            //             legend: {
-            //                 display: false
-            //             },
-            //             scales: {
-            //                 xAxes: [{
-            //                     ticks: {
-            //                         beginAtZero: true
-            //                     },
-            //                 }],
-            //                 yAxes: [{
-            //                     ticks: {
-            //                         min: 0,
-            //                     },
-            //                     gridLines: {
-            //                         color: "rgba(0, 0, 0, 0)",
-            //                     }
-            //                 }],
-            //             }
-            //         }
-            //     }
-
-            //     for(i = 0; i < resposta.length; i++){
-            //         var registro = resposta[i];
-            //         console.log("ma oi" + registro);
-            //         hardwareData.labels[0].data.push(registro.uso_ram);
-            //         hardwareData.labels[1].data.push(registro.temperatura_cpu);
-            //         hardwareData.labels[2].data.push(registro.uso_processador);
-            //     }
-                
-         }
-        )}
+            }
+            )
+        }
         else {
             console.log('erro ao capturar os dados!');
             resposta.text().then(texto => {
                 console.error(texto);
             });
         }
-});
-
-var ctx = document.getElementById('myChart').getContext('2d');
-var hardwareData = {
-    labels: ['RAM', 'CPU', 'Disco'],
-    datasets: [{
-        data: [8, 10, 5],
-        backgroundColor: getColor([8, 10, 5]),
-        borderColor: getColor([8, 10, 5]),
-        borderWidth: 1
-    }]
+    });
 }
-
-var config = {
-    type: 'horizontalBar',
-    data: hardwareData,
-    options: {
-        title: {
-            text: "Registros de alerta",
-            display: true,
-            fontSize: 22,
-        },
-        legend: {
-            display: false
-        },
-        scales: {
-            xAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },
-            }],
-            yAxes: [{
-                ticks: {
-                    min: 0,
-                },
-                gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
-                }
-            }],
-        }
-    }
-}
-var myChart = new Chart(ctx, config);
-
-var ctx = document.getElementById('chartMaquinas').getContext('2d');
-var paperData = {
-    labels: ['00/04', '04/08', '08/12', '12/16', '16/20', '20/24'],
-    datasets: [{
-        data: [3, 15, 5, 8, 14, 6],
-        backgroundColor: getColor([3, 15, 5, 8, 14, 6]),
-        borderColor: getColor([3, 15, 5, 8, 14, 6]),
-        borderWidth: 1
-    }]
-}
-
-var config = {
-    type: 'bar',
-    data: paperData,
-    options: {
-        title: {
-            text: "Alertas sem papel x hora",
-            display: true,
-            fontSize: 22
-        },
-        legend: {
-            display: false
-        },
-        scales: {
-            xAxes: [{
-                ticks: {
-                    beginAtZero: true
-                },
-                gridLines: {
-                    color: "rgba(0, 0, 0, 0)",
-                }
-            }],
-            yAxes: [{
-                beginAtZero: true
-            }],
-        }
-    }
-}
-
-var myChart = new Chart(ctx, config);
 
 function getColor(data) {
     var colors = [];
@@ -175,6 +42,174 @@ function getColor(data) {
 
     return colors;
 
-   }
 }
+
+function getHardwareData() {
+    fetch(`/leituras/getHardwarePerHour/${sessionStorage.id_maquina}`, {
+        cache: 'no-store'
+    }).then(resposta => {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                console.log(`Hardware data: ${JSON.stringify(resposta)}`);
+                console.log(resposta);
+                console.log(resposta.length);
+                parseHardwareData(resposta[0])
+            }
+            )
+        }
+        else {
+            console.log('Error getting hardware data!');
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+
+}
+
+function parseHardwareData(data) {
+    let returnArray = [];
+
+    returnArray.push(data["zero_a_quatro"])
+    returnArray.push(data["quatro_a_oito"])
+    returnArray.push(data["oito_a_doze"])
+    returnArray.push(data["doze_a_dezesseis"])
+    returnArray.push(data["dezesseis_a_vinte"])
+    returnArray.push(data["vinte_a_vintequatro"])
+
+    console.log("Return array: " + returnArray)
+
+    chartHardware(returnArray)
+}
+
+
+function chartHardware(hardwareData) {
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var configData = {
+        labels: ['00h-04h', '04h-08h', '08h-12h', '12h-16h', '16h-20h', '20h-24h'],
+        datasets: [{
+            data: hardwareData,
+            backgroundColor: getColor(hardwareData),
+            borderColor: getColor(hardwareData),
+            borderWidth: 1
+        }]
+    }
+
+    var config = {
+        type: 'horizontalBar',
+        data: configData,
+        options: {
+            title: {
+                text: "Alertas de hardware x hora",
+                display: true,
+                fontSize: 22,
+            },
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                }],
+                yAxes: [{
+                    ticks: {
+                        min: 0,
+                    },
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }],
+            }
+        }
+    }
+    var myChart = new Chart(ctx, config);
+
+}
+
+
+function getPaperData() {
+    fetch(`/leituras/getPaperPerHour/${sessionStorage.id_maquina}`, {
+        cache: 'no-store'
+    }).then(resposta => {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                console.log(`Paper data: ${JSON.stringify(resposta)}`);
+                console.log(resposta);
+                console.log(resposta.length);
+                parsePaperData(resposta)
+            }
+            )
+        }
+        else {
+            console.log('Error getting Paper data!');
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+
+}
+
+function parsePaperData(data) {
+    let returnArray = [];
+
+    returnArray.push(data["zero_a_quatro"])
+    returnArray.push(data["quatro_a_oito"])
+    returnArray.push(data["oito_a_doze"])
+    returnArray.push(data["doze_a_dezesseis"])
+    returnArray.push(data["dezesseis_a_vinte"])
+    returnArray.push(data["vinte_a_vintequatro"])
+
+    console.log("Return paper array: " + returnArray)
+
+    chartPaper(returnArray)
+}
+
+
+
+function chartPaper(paperData) {
+    var ctx = document.getElementById('chartMaquinas').getContext('2d');
+    var configData = {
+        labels: ['00h-04h', '04h-08h', '08h-12h', '12h-16h', '16h-20h', '20h-24h'],
+        datasets: [{
+            data: paperData,
+            backgroundColor: getColor(paperData),
+            borderColor: getColor(paperData),
+            borderWidth: 1
+        }]
+    }
+    
+    var config = {
+        type: 'bar',
+        data: configData,
+        options: {
+            title: {
+                text: "Alertas sem papel x hora",
+                display: true,
+                fontSize: 22
+            },
+            legend: {
+                display: false
+            },
+            scales: {
+                xAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    },
+                    gridLines: {
+                        color: "rgba(0, 0, 0, 0)",
+                    }
+                }],
+                yAxes: [{
+                    beginAtZero: true
+                }],
+            }
+        }
+    }
+
+    var myChart = new Chart(ctx, config);
+}
+
 

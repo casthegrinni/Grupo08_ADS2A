@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-    let Status_papel = sequelize.define('Status_papel',{
+    let status_papel = sequelize.define('status_papel',{
         id_captura:{
             field: 'id_captura',
             type: DataTypes.INTEGER,
@@ -32,5 +32,5 @@ module.exports = (sequelize, DataTypes) => {
             timestamps: false,
         });
     
-        return Status_papel;
+        return status_papel;
     };
