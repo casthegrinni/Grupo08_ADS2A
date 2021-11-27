@@ -75,7 +75,7 @@
         </section>
     </main>
     <a href="cadastro-maquinas.html" style="cursor: pointer;">
-        <div class="add-btn">
+        <div class="add-btn" id="btn_add">
             <i class="fas fa-plus"></i>
         </div>
     </a>
@@ -91,6 +91,7 @@
         
         if (sessionStorage.tipo_usuario == 2) {
             getStationName()
+            btn_add.style.display = "none"
         }
     }
     function loop() {
