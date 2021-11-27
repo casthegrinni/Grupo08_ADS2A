@@ -73,7 +73,7 @@ function openDashboard(id_maquina) {
 function showAlertChecada(array) {
     let text
     if (array.length == 1) {
-        text = `Você possui máquina(s) não checada(s). Por favor, execute o Pulsatrix-java na maquina com id ${array[0]}`
+        text = `Você possui uma máquina não checada. Por favor, execute o Pulsatrix-java na maquina com ID ${array[0]}`
     }
     else {
         let aux
@@ -81,7 +81,7 @@ function showAlertChecada(array) {
             const element = array[i];
             element != undefined ? aux += `\n ${element}` : aux = ``
         }
-        text = `você possui ${array.length} maquinas não checadas, por favor execute o pulsatrix-java nas seguintes maquinas(id): ${aux}`
+        text = `Você possui ${array.length} máquinas não checadas. Por favor, execute o Pulsatrix-java nas seguintes máquinas(ID): ${aux}`
     }
 
     alert(text)
