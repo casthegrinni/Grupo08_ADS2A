@@ -263,36 +263,36 @@ WHERE    data_e_hora >= DATEADD(day, -7, GETDATE())
 		})
 });
 
-router.get("/getPaperMachine/:fk_estacao", function (req, res, next) {
-	var estacao = req.params.fk_estacao;
+router.get("/getPaperMachine/:id_maquina", function (req, res, next) {
+	var maquina = req.params.id_maquina;
 	const instrucaoSql = `
   SELECT TOP 1
   (SELECT 
 	   Count(estoque_papel) FROM [dbo].[status_papel] 
-	   WHERE fk_maquina = ${fk_estacao} AND DATEPART(HOUR ,data_e_hora) > 0
+	   WHERE fk_maquina = ${maquina} AND DATEPART(HOUR ,data_e_hora) > 0
 	   AND DATEPART(HOUR ,data_e_hora) < 4) as zero_a_quatro,
   (SELECT 
 	   Count(estoque_papel) FROM [status_papel] 
-	   WHERE fk_maquina = ${fk_estacao} AND DATEPART(HOUR ,data_e_hora) > 4
+	   WHERE fk_maquina = ${maquina} AND DATEPART(HOUR ,data_e_hora) > 4
 	   AND DATEPART(HOUR ,data_e_hora) < 8) as quatro_a_oito,
   (SELECT 
 	   Count(estoque_papel)  FROM [status_papel] 
-	   WHERE fk_maquina = ${fk_estacao} AND DATEPART(HOUR ,data_e_hora) < 8
+	   WHERE fk_maquina = ${maquina} AND DATEPART(HOUR ,data_e_hora) < 8
 	   AND DATEPART(HOUR ,data_e_hora) < 12) as oito_a_doze,
   (SELECT 
 	   Count(estoque_papel) FROM [status_papel] 
-	   WHERE fk_maquina = ${fk_estacao} AND DATEPART(HOUR ,data_e_hora) < 12
+	   WHERE fk_maquina = ${maquina} AND DATEPART(HOUR ,data_e_hora) < 12
 	   AND DATEPART(HOUR ,data_e_hora) < 16) as doze_a_dezesseis,
   (SELECT 
 	   Count(estoque_papel) FROM [status_papel] 
-	   WHERE fk_maquina = ${fk_estacao} AND DATEPART(HOUR ,data_e_hora) < 16
+	   WHERE fk_maquina = ${maquina} AND DATEPART(HOUR ,data_e_hora) < 16
 	   AND DATEPART(HOUR ,data_e_hora) < 20) as dezesseis_a_vinte,
   (SELECT 
 	   Count(estoque_papel) FROM [status_papel] 
-	   WHERE fk_maquina = ${fk_estacao} AND DATEPART(HOUR ,data_e_hora) < 20
+	   WHERE fk_maquina = ${maquina} AND DATEPART(HOUR ,data_e_hora) < 20
 	   AND DATEPART(HOUR ,data_e_hora) < 24) as vinte_a_vintequatro
 FROM    [status_papel]
-WHERE   fk_maquina = ${fk_estacao} AND data_e_hora >= DATEADD(day, -7, GETDATE());
+WHERE   fk_maquina = ${maquina};
 `;
 
   sequelize
