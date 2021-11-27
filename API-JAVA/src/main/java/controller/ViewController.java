@@ -76,7 +76,7 @@ public class ViewController {
         looca.setFkMaquina(fkInt);
 
         if (!requested) {
-            System.out.println("verificando se o pc j√° foi checado alguma vez");
+            System.out.println("verificando se o pc j· foi checado alguma vez");
 
             String response = db.makeCalibrateSelect(fkMaquina);
             if (response.equals("0") || response.equals("1")) {
