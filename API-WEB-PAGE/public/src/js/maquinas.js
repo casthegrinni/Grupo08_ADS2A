@@ -104,7 +104,6 @@ function showAlertChecada(array) {
 }
 
 function getStationName() {
-    if (sessionStorage.nome_estacao == undefined) {
         fetch(`/leituras/getStation/${sessionStorage.fk_estacao}`, {
             cache: 'no-store'
         }).then(resposta => {
@@ -123,10 +122,7 @@ function getStationName() {
                 });
             }
         });
-    } else {
-        h1_nome_estacao.innerHTML = "Máquinas em: " + sessionStorage.nome_estacao
-    }
-
+        
     if (sessionStorage.tipo_usuario == 2) {
         btn_add.style.display = "none"
     }

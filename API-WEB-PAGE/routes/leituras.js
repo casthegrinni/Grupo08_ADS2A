@@ -210,7 +210,7 @@ router.get('/getAllStations/', function (req, res, next) {
 	)
 	SELECT 
 		estacao.nome_estacao,
-		MAX(estacao.id_estacao) AS "fk_estacao",
+		MAX(estacao.id_estacao) AS "id_estacao",
 		COUNT(mqn.fk_estacao) as "qtdMaquina",
 		sum( coalesce(maquinas_criticas.contagem, 0) ) as "contagem_maquinas_criticas"
 		from estacao 
