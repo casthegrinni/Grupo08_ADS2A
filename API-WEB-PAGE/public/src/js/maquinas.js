@@ -40,10 +40,10 @@ function getMachines(){
                                 </div>
                                 <br>
                                 <div class="card-content">
-                                    <span id='span_cpu'>CPU: ${json2.uso_processador}%</span>
-                                    <span id='span_ram'>RAM: ${Math.round(porcentagem_ram)}% </span>
-                                    <span id='span_disco'>Disco:${porcentagem_memoria}%</span>
-                                    <span> Status:${json2.status_web != null ? json2.status_web : "status indosponivel"}</span>
+                                    <span id='span_cpu'>CPU: ${Math.round(json2.uso_processador)}%</span>
+                                    <span id='span_ram'>RAM: ${Math.round(porcentagem_ram)}% </span>                                 
+                                   <span id='span_disco'>Disco:${Math.round(porcentagem_memoria)}%</span>
+                                    <span> Status:${json2.status_web != null ? json2.status_web : " indisponivel"}</span>
                                 </div>
                             </div>`
                                    //sequencia de ternarios para verificar o que o usuario quer
