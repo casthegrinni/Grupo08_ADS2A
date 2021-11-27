@@ -88,11 +88,7 @@
         setup()
         getMachines()
         loop()
-        
-        if (sessionStorage.tipo_usuario == 2) {
-            getStationName()
-            btn_add.style.display = "none"
-        }
+        getStationName()
     }
     function loop() {
         getMachines()

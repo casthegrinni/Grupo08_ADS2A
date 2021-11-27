@@ -9,7 +9,7 @@ function getStationInfo(){
                 for (let i = 0; i < json.length; i++) {
                     const element = json[i];
                     if(document.documentElement.innerHTML.search(element.nome_estacao) == -1){
-                    table.innerHTML += `<div class="station-card" onclick = "openDashboard("${element.nome_estacao}")" style= "cursor: pointer;">
+                    table.innerHTML += `<div class="station-card" onclick = "openDashboard("${element.id_estacao}") style= "cursor: pointer;">
                     <div class="card-title">
                         <h1>${element.nome_estacao}</h1>
                     </div>

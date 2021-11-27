@@ -42,8 +42,8 @@ function getMachines() {
                                 <div class="card-content">
                                     <span id='span_cpu'>CPU: ${Math.round(json2.uso_processador)}%</span>
                                     <span id='span_ram'>RAM: ${Math.round(porcentagem_ram)}% </span>                                 
-                                   <span id='span_disco'>Disco:${Math.round(porcentagem_memoria)}%</span>
-                                    <span> Status:${json2.status_web != null ? json2.status_web : " indisponivel"}</span>
+                                   <span id='span_disco'>Disco: ${Math.round(porcentagem_memoria)}%</span>
+                                    <span> Status: ${json2.status_web != null ? json2.status_web : " indisponivel"}</span>
                                 </div>
                             </div>`
                                         //sequencia de ternarios para verificar o que o usuario quer
@@ -70,12 +70,7 @@ function getMachines() {
 
         }
 
-
-
         else {
-
-            console.log('aaaaaaa!');
-
             resposta.text().then(texto => {
                 console.error(texto);
 
@@ -130,6 +125,10 @@ function getStationName() {
         });
     } else {
         h1_nome_estacao.innerHTML = "Máquinas em: " + sessionStorage.nome_estacao
+    }
+
+    if (sessionStorage.tipo_usuario == 2) {
+        btn_add.style.display = "none"
     }
 }
 

@@ -98,3 +98,21 @@ GROUP BY estacao.nome_estacao
 DELETE FROM usuario WHERE id_usuario in (1004, 1005, 1003, 1007) 
 
 UPDATE usuario SET tipo_usuario = 1 WHERE id_usuario IN (1008, 1012)
+
+
+with maquinas_criticas as (
+				select stts.fk_maquina,
+				count(stts.status_web) as contagem
+				from [dbo].[status_maquina] as stts
+				inner join [dbo].[maquina] as mqn on mqn.id_maquina = stts.fk_maquina and stts.status_web = 'Crí­tico'
+				group by stts.fk_maquina 
+			)
+			SELECT 
+				estacao.nome_estacao,
+                MAX(estacao.id_estacao) AS "fk_estacao",
+				COUNT(mqn.fk_estacao) as "qtdMaquina",
+				sum( coalesce(maquinas_criticas.contagem, 0) ) as "contagem_maquinas_criticas"
+				from estacao 
+				left join maquina as mqn on estacao.id_estacao = mqn.fk_estacao
+				left join maquinas_criticas on maquinas_criticas.fk_maquina = mqn.id_maquina
+				group by estacao.nome_estacao
