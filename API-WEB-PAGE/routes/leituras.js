@@ -125,6 +125,20 @@ router.get('/machines/:fk_estacao', function (req, res, next) {
 
 });
 
+router.get('/getStation/:fk_estacao', function (req, res, next) {
+	let estacao = req.params.fk_estacao
+	const instrucaoSql = `SELECT nome_estacao FROM estacao WHERE id_estacao = ${estacao}`;
+
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado[0]);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+
+});
+
 router.get('/machines_total/:fk_estacao', function (req, res, next) {
 
 

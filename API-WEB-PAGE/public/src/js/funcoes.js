@@ -140,8 +140,7 @@ function getFirstInfo(){
 function setup(){
     b_usuario.innerHTML = sessionStorage.nome_usuario_meuapp
     span_exit.style.cursor = "pointer"
-    console.log("Tipo de usuário: " + sessionStorage.tipo_usuario)
-
+    
     if (sessionStorage.tipo_usuario == 1) {
         b_tipo_usuario.innerHTML = "Administrador" 
     } else {
