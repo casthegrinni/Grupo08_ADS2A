@@ -33,7 +33,7 @@ function getMachines(){
                                    let porcentagem_memoria = (json2.uso_disco  * 100) / json2.tamanho_disco;
                                    let porcentagem_ram = (json2.uso_ram * 100)  / json2.ramn
                                    if(document.documentElement.innerHTML.search(json2.nome_maquina) == -1){
-                                   table_row.innerHTML +=`<div class="machine-card" onclick="openDashboard(${resp.id_maquina})">
+                                   table_row.innerHTML +=`<div class="machine-card" onclick="openDashboard(${json2.id_maquina})">
                                 <div class="card-title">
                                     <h1>${json2.nome_maquina}</h1>
                                     <h4>Consolação</h4>
