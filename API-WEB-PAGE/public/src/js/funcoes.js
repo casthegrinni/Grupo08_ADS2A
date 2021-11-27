@@ -7,7 +7,6 @@ function redirecionar_login() {
 }
 
 function verificar_autenticacao() {
-    console.log("Teste verificar autenti")
     login_usuario = sessionStorage.login_usuario_meuapp;
     nome_usuario = sessionStorage.nome_usuario_meuapp;
     
@@ -56,7 +55,6 @@ function getRandomMachine(){
         } else {
             resposta.text().then(texto => {
                 console.error(texto);
-                finalizar_aguardar(texto);
             });
         } 
     });    
@@ -142,6 +140,13 @@ function getFirstInfo(){
 function setup(){
     b_usuario.innerHTML = sessionStorage.nome_usuario_meuapp
     span_exit.style.cursor = "pointer"
+    
+    if (sessionStorage.tipo_usuario == 1) {
+        b_tipo_usuario.innerHTML = "Administrador" 
+    } else {
+        b_tipo_usuario.innerHTML = "Técnico"
+        div_estacoes.style.display = "none" 
+    }
 }
 
 
