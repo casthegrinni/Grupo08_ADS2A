@@ -41,9 +41,7 @@ public class Login extends javax.swing.JFrame {
         txtUser1.setText("Usuário");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setAutoRequestFocus(false);
         setBackground(new java.awt.Color(255, 255, 255));
-        setEnabled(false);
         setFocusCycleRoot(false);
 
         jPanel2.setBackground(new java.awt.Color(111, 203, 162));
@@ -70,6 +68,11 @@ public class Login extends javax.swing.JFrame {
 
         txtUser.setBackground(new java.awt.Color(255, 255, 255));
         txtUser.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        txtUser.setDoubleBuffered(true);
+        txtUser.setDragEnabled(true);
+        txtUser.setFocusCycleRoot(true);
+        txtUser.setFocusTraversalPolicyProvider(true);
+        txtUser.setInheritsPopupMenu(true);
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtUserActionPerformed(evt);
