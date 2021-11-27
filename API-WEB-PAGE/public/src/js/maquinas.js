@@ -129,7 +129,7 @@ function getStationName() {
             }
         });
     } else {
-        h1_nome_estacao.innerHTML = sessionStorage.nome_estacao
+        h1_nome_estacao.innerHTML = "Máquinas em: " + sessionStorage.nome_estacao
     }
 }
 
