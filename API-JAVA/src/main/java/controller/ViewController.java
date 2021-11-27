@@ -24,16 +24,16 @@ public class ViewController {
         String query = String.format("select email,senha,fk_estacao from [dbo].[usuario] where email ='%s' and senha = '%s';", login, senha);
         Map map = db.makeSelectQuery(query);
         Integer fkmaquinaInt = 0;
-        logs.saveLogs("Aplicaï¿½ï¿½o iniciada por: "+login);
+        logs.saveLogs("Aplicação iniciada por: "+login);
 
         try {
             fkmaquinaInt = Integer.valueOf(fkMaquina);
             s.setFkMaquina(fkmaquinaInt);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Insira apenas nÃºmeros no id da mÃ¡quina");
-            System.out.println("\nInsira apenas nÃºmeros no id da mÃ¡quina");
-            logs.saveLogs("Erro ao iniciar aplicaÃ§Ã£o");
+            JOptionPane.showMessageDialog(null, "Insira apenas números no id da máquina");
+            System.out.println("\nInsira apenas números no id da máquina");
+            logs.saveLogs("Erro ao iniciar aplicação");
         }
         if (map.isEmpty()) {
             return false;
@@ -77,7 +77,7 @@ public class ViewController {
         looca.setFkMaquina(fkInt);
 
         if (!requested) {
-            System.out.println("\nverificando se o pc jÃ¡ foi checado alguma vez");
+            System.out.println("\nverificando se o pc já foi checado alguma vez");
 
             String response = db.makeCalibrateSelect(fkMaquina);
             if (response.equals("0") || response.equals("1")) {

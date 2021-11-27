@@ -20,7 +20,7 @@ public class LoocaController {
     private final TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            System.out.println("\nCapturando dados da m√°quina");
+            System.out.println("\nCapturando dados da m·quina");
             looca.setPcInfo();
             looca.setStaticPcInfo();
             String query = String.format(
