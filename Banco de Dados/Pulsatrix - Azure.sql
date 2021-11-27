@@ -96,3 +96,5 @@ JOIN maquina ON estacao.id_estacao = maquina.fk_estacao
 GROUP BY estacao.nome_estacao
 
 DELETE FROM usuario WHERE id_usuario in (1004, 1005, 1003, 1007) 
+
+UPDATE usuario SET tipo_usuario = 1 WHERE id_usuario IN (1008, 1012)

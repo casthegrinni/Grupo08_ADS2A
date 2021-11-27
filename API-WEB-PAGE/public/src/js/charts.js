@@ -77,8 +77,6 @@ function parseHardwareData(data) {
     returnArray.push(data["dezesseis_a_vinte"])
     returnArray.push(data["vinte_a_vintequatro"])
 
-    console.log("Return array: " + returnArray)
-
     chartHardware(returnArray)
 }
 
@@ -161,8 +159,6 @@ function parsePaperData(data) {
     returnArray.push(data["doze_a_dezesseis"])
     returnArray.push(data["dezesseis_a_vinte"])
     returnArray.push(data["vinte_a_vintequatro"])
-
-    console.log("Return paper array: " + returnArray)
 
     chartPaper(returnArray)
 }
