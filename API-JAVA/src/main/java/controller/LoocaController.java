@@ -78,7 +78,7 @@ public class LoocaController {
             status = "'Perigo'";
             return status;
         } else if (porcentagemMemoria >= 81.0 || usoProcessador >= 81.0) {
-            status = "'Crítico'";
+            status = "'Critico'";
             return status;
         }
 
