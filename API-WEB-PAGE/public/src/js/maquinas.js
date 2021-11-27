@@ -10,25 +10,17 @@ function getMachines() {
     }).then(resposta => {
         if (resposta.ok) {
             resposta.json().then(function (json) {
-
-
                 for (let i = 0; i < json.length; i++) {
-
                     var resp = json[i]
                     if (resp.checada == 0) {
                         array_checadas.push(resp.id_maquina)
                     }
                     else {
-
-
-
-
                         fetch(`../leituras/info_machines/${resp.id_maquina}`, {
                             method: "GET",
                         }).then(resposta2 => {
                             if (resposta2.ok) {
                                 resposta2.json().then(function (json2) {
-
                                     //continha de porcentagem basica familia, sem escandalo (emoji fazendo shiuuu)
                                     let porcentagem_memoria = (json2.uso_disco * 100) / json2.tamanho_disco;
                                     let porcentagem_ram = (json2.uso_ram * 100) / json2.ram
@@ -52,7 +44,6 @@ function getMachines() {
                                         json2.want_disco == 0 ? span_disco.style.display = 'none' : span_ram.style.display = 'block'
                                         if (array_checadas.length > 0) {
                                             showAlertChecada(array_checadas)
-
                                         }
                                     } else {
                                         return
@@ -62,10 +53,6 @@ function getMachines() {
                         })
                     }
                 }
-
-
-
-
             });
 
         }
@@ -73,11 +60,9 @@ function getMachines() {
         else {
             resposta.text().then(texto => {
                 console.error(texto);
-
             });
         }
     });
-
     return false;
 }
 function openDashboard(id_maquina) {
@@ -88,7 +73,7 @@ function openDashboard(id_maquina) {
 function showAlertChecada(array) {
     let text
     if (array.length == 1) {
-        text = `Você possui uma maquina não chechada, por favor, execute o pulsatrix-java na maquina com id ${array[0]}`
+        text = `Você possui máquina(s) não checada(s). Por favor, execute o Pulsatrix-java na maquina com id ${array[0]}`
     }
     else {
         let aux
@@ -104,25 +89,24 @@ function showAlertChecada(array) {
 }
 
 function getStationName() {
-        fetch(`/leituras/getStation/${sessionStorage.fk_estacao}`, {
-            cache: 'no-store'
-        }).then(resposta => {
-            if (resposta.ok) {
-                resposta.json().then(function (resposta) {
-                    console.log(`Nome da estacao: ${JSON.stringify(resposta)}`);
-                    console.log(resposta["nome_estacao"]);
-                    sessionStorage.nome_estacao = resposta["nome_estacao"]
-                    h1_nome_estacao.innerHTML = "Máquinas em: " + sessionStorage.nome_estacao
-                })
-            }
-            else {
-                console.log('Error getting station data!');
-                resposta.text().then(texto => {
-                    console.error(texto);
-                });
-            }
-        });
-        
+    fetch(`/leituras/getStation/${sessionStorage.fk_estacao}`, {
+        cache: 'no-store'
+    }).then(resposta => {
+        if (resposta.ok) {
+            resposta.json().then(function (resposta) {
+                console.log(`Nome da estacao: ${JSON.stringify(resposta)}`);
+                sessionStorage.nome_estacao = resposta["nome_estacao"]
+                h1_nome_estacao.innerHTML = "Máquinas em: " + sessionStorage.nome_estacao
+            })
+        }
+        else {
+            console.log('Error getting station data!');
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+
     if (sessionStorage.tipo_usuario == 2) {
         btn_add.style.display = "none"
     }
