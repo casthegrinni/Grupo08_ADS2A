@@ -95,7 +95,13 @@ public class Login extends javax.swing.JFrame {
         btnLogin.setFont(new java.awt.Font("Segoe UI Historic", 1, 18)); // NOI18N
         btnLogin.setForeground(new java.awt.Color(111, 203, 162));
         btnLogin.setText("Entrar");
+        btnLogin.setAutoscrolls(true);
         btnLogin.setBorder(null);
+        btnLogin.setDoubleBuffered(true);
+        btnLogin.setFocusCycleRoot(true);
+        btnLogin.setFocusTraversalPolicyProvider(true);
+        btnLogin.setHideActionText(true);
+        btnLogin.setInheritsPopupMenu(true);
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnLoginActionPerformed(evt);
