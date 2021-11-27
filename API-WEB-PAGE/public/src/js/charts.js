@@ -167,8 +167,6 @@ function parsePaperData(data) {
     chartPaper(returnArray)
 }
 
-
-
 function chartPaper(paperData) {
     var ctx = document.getElementById('chartMaquinas').getContext('2d');
     var configData = {

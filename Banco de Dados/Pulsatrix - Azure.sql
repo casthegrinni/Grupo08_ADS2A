@@ -56,7 +56,7 @@ SELECT * FROM status_papel;
 
 EXEC sp_help estacao;
 EXEC sp_help usuario;
-EXEC sp_help maquina;
+
 EXEC sp_help status_maquina;
 EXEC sp_help status_papel;
 
@@ -95,5 +95,4 @@ RIGHT JOIN estacao ON usuario.fk_estacao = estacao.id_estacao
 JOIN maquina ON estacao.id_estacao = maquina.fk_estacao
 GROUP BY estacao.nome_estacao
 
-select * from maquina;
-SELECT * FROM usuario;
+DELETE FROM usuario WHERE id_usuario in (1004, 1005, 1003, 1007) 
