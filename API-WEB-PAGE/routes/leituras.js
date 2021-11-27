@@ -56,7 +56,7 @@ router.get('/stations_total/', function (req, res, next) {
 router.get('/getRandom/:fk_estacao', function (req, res, next) {
 
 
-	const instrucaoSql = `SELECT TOP 1 id_maquina, FROM maquina where fk_estacao = ${req.params.fk_estacao}
+	const instrucaoSql = `SELECT TOP 1 id_maquina FROM maquina where fk_estacao = ${req.params.fk_estacao}
 	ORDER BY NEWID() `;
 
 

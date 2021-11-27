@@ -1,34 +1,37 @@
-function getMachines() {
-  let array_checadas = [];
-  let_duplicada = [];
-  const fk_estacao = sessionStorage.fk_estacao;
-  fetch(`../leituras/machines/${fk_estacao}`, {
-    method: "GET",
-  }).then((resposta) => {
-    if (resposta.ok) {
-      resposta.json().then(function (json) {
-        for (let i = 0; i < json.length; i++) {
-          var resp = json[i];
-          if (resp.checada == 0) {
-            array_checadas.push(resp.id_maquina);
-          } else {
-            fetch(`../leituras/info_machines/${resp.id_maquina}`, {
-              method: "GET",
-            }).then((resposta2) => {
-              if (resposta2.ok) {
-                resposta2.json().then(function (json2) {
-                  //continha de porcentagem basica familia, sem escandalo (emoji fazendo shiuuu)
-                  let porcentagem_memoria =
-                    (json2.uso_disco * 100) / json2.tamanho_disco;
-                  let porcentagem_ram = (json2.uso_ram * 100) / json2.ram;
-                  if (
-                    document.documentElement.innerHTML.search(
-                      json2.nome_maquina
-                    ) == -1
-                  ) {
-                    table_row.innerHTML += `<div class="machine-card" onclick="openDashboard(${
-                      json2.id_maquina
-                    })">
+function getMachines(){
+  
+    let array_checadas = []
+    let_duplicada = []
+      const fk_estacao = sessionStorage.fk_estacao
+      fetch(`../leituras/machines/${fk_estacao}`, {
+            method: "GET",
+        }).then(resposta => {
+            if (resposta.ok) {
+              resposta.json().then(function (json){
+               
+                    
+                   for (let i = 0; i < json.length; i++) {
+                    
+           var resp = json[i]
+                  if(resp.checada == 0){
+                   array_checadas.push(resp.id_maquina)
+                }
+                else{
+                
+
+
+          
+                       fetch(`../leituras/info_machines/${resp.id_maquina}`,{
+                           method: "GET",
+                       }).then(resposta2 => {
+                           if(resposta2.ok){
+                               resposta2.json().then(function (json2){
+                                
+                              //continha de porcentagem basica familia, sem escandalo (emoji fazendo shiuuu)
+                                   let porcentagem_memoria = (json2.uso_disco  * 100) / json2.tamanho_disco;
+                                   let porcentagem_ram = (json2.uso_ram * 100)  / json2.ramn
+                                   if(document.documentElement.innerHTML.search(json2.nome_maquina) == -1){
+                                   table_row.innerHTML +=`<div class="machine-card" onclick="openDashboard(${resp.id_maquina})">
                                 <div class="card-title">
                                     <h1>${json2.nome_maquina}</h1>
                                     <h4>Consolação</h4>
