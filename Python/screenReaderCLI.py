@@ -3,6 +3,7 @@ import pyautogui
 import threading
 import pyodbc
 import PIL
+import getpass
 
 from configparser import ConfigParser
 
@@ -28,9 +29,9 @@ cnxn = pyodbc.connect(connect_string)
 cursor = cnxn.cursor()
 
 def login():
-    print("------------ PULSATRIX -----------")
-    user = input("Usuario: ")
-    password = input("Senha: ")
+    print("------------------ PULSATRIX ------------------")
+    user = input("Email: ")
+    password = getpass.getpass("Senha: ")
     machineId = input("Id da máquina: ")
 
     user_acess = fetchLogin(user,password)
