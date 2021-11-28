@@ -9,8 +9,8 @@ function redirecionar_login() {
 function verificar_autenticacao() {
     login_usuario = sessionStorage.login_usuario_meuapp;
     nome_usuario = sessionStorage.nome_usuario_meuapp;
-    
-    if (login_usuario == undefined)  {
+
+    if (login_usuario == undefined) {
         logoff()
 
     } else {
@@ -25,92 +25,82 @@ function logoff() {
 }
 
 function validar_sessao() {
-    fetch(`/usuarios/sessao/${sessionStorage.login_usuario_meuapp}`, {cache:'no-store'})
-    .then(resposta => {
-        if (resposta.ok) {
-            resposta.text().then(texto => {
-                console.log('Sessão :) ', texto);    
-            });
-        } else {
-            console.error('Sessão :.( ');
-        } 
-    });    
+    fetch(`/usuarios/sessao/${sessionStorage.login_usuario_meuapp}`, { cache: 'no-store' })
+        .then(resposta => {
+            if (resposta.ok) {
+                resposta.text().then(texto => {
+                    console.log('Sessão :) ', texto);
+                });
+            } else {
+                console.error('Sessão :.( ');
+            }
+        });
 }
 
 function finalizar_sessao() {
-    fetch(`/usuarios/sair/${login_usuario}`, {cache:'no-store'}); 
+    fetch(`/usuarios/sair/${login_usuario}`, { cache: 'no-store' });
 }
 
-function getRandomMachine(){
+function getRandomMachine() {
     fetch(`/leituras/getRandom/${sessionStorage.fk_estacao}`)
-    .then(resposta => {
-        
-        if (resposta.ok) {
-            resposta.json().then(function (json){
-                sessionStorage.id_maquina = json[0].id_maquina
-                getDadosMachine();
+        .then(resposta => {
 
-            })
-           
-        } else {
-            resposta.text().then(texto => {
-                console.error(texto);
-            });
-        } 
-    });    
+            if (resposta.ok) {
+                resposta.json().then(function (json) {
+                    sessionStorage.id_maquina = json[0].id_maquina
+                    getDadosMachine();
+
+                })
+
+            } else {
+                resposta.text().then(texto => {
+                    console.error(texto);
+                });
+            }
+        });
 }
 
-function getFirstInfo(){
+function getFirstInfo() {
     const fk_estacao = sessionStorage.fk_estacao
-    fetch(`../leituras/machines_total/${fk_estacao}`, {
-          method: "GET",
-      }).then(resposta => {
-          if (resposta.ok) {
-            resposta.json().then(function (json){
-                count_maquinas.innerHTML = json.contagem
-              });
-  
-          } else {
-  
-              console.log('aaaaaaa!');
-  
-              resposta.text().then(texto => {
-                  console.error(texto);
-                  finalizar_aguardar(texto);
-              });
-          }
-      });
-      fetch(`../leituras/stations_total`, {
+    const tipo_usuario = sessionStorage.tipo_usuario
+
+    console.log("Administrador: " + tipo_usuario)
+    fetch(`../leituras/machines_total/${fk_estacao}/${tipo_usuario}`, {
         method: "GET",
     }).then(resposta => {
         if (resposta.ok) {
-          resposta.json().then(function (json){
-            count_stations.innerHTML = `${json.contagem} `
+            resposta.json().then(function (json) {
+                count_maquinas.innerHTML = json.contagem
             });
-
         } else {
-
-            console.log('aaaaaaa!');
-
             resposta.text().then(texto => {
                 console.error(texto);
-                finalizar_aguardar(texto);
             });
         }
     });
+
+    fetch(`../leituras/stations_total`, {
+        method: "GET",
+    }).then(resposta => {
+        if (resposta.ok) {
+            resposta.json().then(function (json) {
+                count_stations.innerHTML = `${json.contagem} `
+            });
+        } else {
+            resposta.text().then(texto => {
+                console.error(texto);
+            });
+        }
+    });
+
     fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Crítico`, {
         method: "GET",
     }).then(resposta => {
         if (resposta.ok) {
-          resposta.json().then(function (json){
-            count_critical.innerHTML = json.length
-   
+            resposta.json().then(function (json) {
+                count_critical.innerHTML = json.length
             });
-
         } else {
-
-            console.log('aaaaaaa!');
-
             resposta.text().then(texto => {
                 console.error(texto);
             });
@@ -120,32 +110,28 @@ function getFirstInfo(){
         method: "GET",
     }).then(resposta => {
         if (resposta.ok) {
-          resposta.json().then(function (json){
-            count_alert.innerHTML = json.length
+            resposta.json().then(function (json) {
+                count_alert.innerHTML = json.length
             });
-
         } else {
-
-            console.log('aaaaaaa!');
-
             resposta.text().then(texto => {
                 console.error(texto);
             });
         }
     });
-  
-      return false;
 
-}
-function setup(){
+    return false;
+} 
+
+function setup() {
     b_usuario.innerHTML = sessionStorage.nome_usuario_meuapp
     span_exit.style.cursor = "pointer"
-    
+
     if (sessionStorage.tipo_usuario == 1) {
-        b_tipo_usuario.innerHTML = "Administrador" 
+        b_tipo_usuario.innerHTML = "Administrador"
     } else {
         b_tipo_usuario.innerHTML = "Técnico"
-        div_estacoes.style.display = "none" 
+        div_estacoes.style.display = "none"
     }
 }
 
