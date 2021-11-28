@@ -1,10 +1,10 @@
 
 
-function getMachines() {
-
-    let array_checadas = []
-    let_duplicada = []
-    const fk_estacao = sessionStorage.fk_estacao
+function getMachines(tipoUsario) {
+ let array_checadas = []
+ getStationName(tipoUsario)
+    const fk_estacao = tipoUsario == 1? 0 : sessionStorage.fk_estacao
+   
     fetch(`../leituras/machines/${fk_estacao}`, {
         method: "GET",
     }).then(resposta => {
@@ -88,7 +88,12 @@ function showAlertChecada(array) {
 
 }
 
-function getStationName() {
+function getStationName(tipo) {
+    if(tipo == 1){
+        h1_nome_estacao.innerHTML = "Visualizando todas as máquinas"
+    }
+    else{
+
     fetch(`/leituras/getStation/${sessionStorage.fk_estacao}`, {
         cache: 'no-store'
     }).then(resposta => {
@@ -107,9 +112,10 @@ function getStationName() {
         }
     });
 
-    if (sessionStorage.tipo_usuario == 2) {
+    if (tipo == 2) {
         btn_add.style.display = "none"
     }
+}
 }
 
 
