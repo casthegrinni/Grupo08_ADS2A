@@ -177,14 +177,15 @@ function getPaperData() {
 }
 
 function parsePaperData(data) {
+
     let returnArray = [];
 
-    returnArray.push(data["zero_a_quatro"])
-    returnArray.push(data["quatro_a_oito"])
-    returnArray.push(data["oito_a_doze"])
-    returnArray.push(data["doze_a_dezesseis"])
-    returnArray.push(data["dezesseis_a_vinte"])
-    returnArray.push(data["vinte_a_vintequatro"])
+    returnArray.push(data[""])
+    returnArray.push(data[""])
+    returnArray.push(data[""])
+    returnArray.push(data[""])
+    returnArray.push(data[""])
+    returnArray.push(data[""])
 
     console.log("Return paper array: " + returnArray)
 
@@ -210,7 +211,7 @@ function chartPaper(paperData) {
         data: configData,
         options: {
             title: {
-                text: "Alertas sem papel x hora",
+                text: "Alertas sem papel x tempo real",
                 display: true,
                 fontSize: 22
             },
