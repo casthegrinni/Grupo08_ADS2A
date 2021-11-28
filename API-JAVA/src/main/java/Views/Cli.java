@@ -55,4 +55,5 @@ public class Cli {
             System.out.println("Erro ao verificar a máquina, por favor tente novamente!");
 
     }
+    };
 }
