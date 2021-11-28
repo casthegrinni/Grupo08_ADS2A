@@ -13,7 +13,7 @@ if [ $? -eq 0 ]
 	 if [ \"$inst\" == \"s\" ]
 		then
 			echo "$(tput setaf 10)[J.A.R.V.I.S]:$(tput setaf 7)  Iniciando instalação..."
-			sudo apt-get update
+			sudo apt update -y
 			sudo apt install software-properties-common -y
 			sleep 2
 			clear
