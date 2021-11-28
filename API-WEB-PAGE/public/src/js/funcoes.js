@@ -1,4 +1,3 @@
-
 let login_usuario;
 let nome_usuario;
 

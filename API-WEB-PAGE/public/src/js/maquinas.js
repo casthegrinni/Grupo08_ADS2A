@@ -1,10 +1,7 @@
-
-
 function getMachines(tipoUsario) {
  let array_checadas = []
  getStationName(tipoUsario)
     const fk_estacao = tipoUsario == 1? 0 : sessionStorage.fk_estacao
-   
     fetch(`../leituras/machines/${fk_estacao}`, {
         method: "GET",
     }).then(resposta => {
@@ -69,6 +66,7 @@ function openDashboard(id_maquina) {
     sessionStorage.id_maquina = id_maquina
     window.location.href = `graficos.html`
 
+  return false;
 }
 function showAlertChecada(array) {
     let text
