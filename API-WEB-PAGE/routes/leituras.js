@@ -303,14 +303,16 @@ router.get("/getPaperMachine/:id_maquina", function (req, res, next) {
     });
 });
 
-router.get("/getCpuMachine/:id_maquina", function (req, res, next) {
+router.get("/getRamMachine/:id_maquina", function (req, res, next) {
 	var maquina = req.params.id_maquina;
 	const instrucaoSql = `
-	SELECT TOP 7 estoque_papel FROM [dbo].[status_papel] where fk_maquina = ${maquina} ORDER BY id_captura desc`;
+	SELECT TOP 7 ((uso_ram * 100)/ ram ) as porcentagem_ram
+	FROM [dbo].[maquina] m join [dbo].[status_maquina] sm ON m.id_maquina = sm.fk_maquina
+	 WHERE id_maquina =  ${maquina}`;
 
   sequelize
     .query(instrucaoSql, {
-      model: status_papel,
+      model: status_maquina,
       mapToModel: true,
     })
     .then((resultado) => {
@@ -321,4 +323,47 @@ router.get("/getCpuMachine/:id_maquina", function (req, res, next) {
       res.status(500).send(erro.message);
     });
 });
+
+router.get("/getCpuMachine/:id_maquina", function (req, res, next) {
+	var maquina = req.params.id_maquina;
+	const instrucaoSql = `
+	SELECT TOP 7 (uso_processador) as porcentagem_processador
+	FROM [dbo].[maquina] m join [dbo].[status_maquina] sm ON m.id_maquina = sm.fk_maquina
+	 WHERE id_maquina = ${maquina}`;
+
+  sequelize
+    .query(instrucaoSql, {
+      model: status_maquina,
+      mapToModel: true,
+    })
+    .then((resultado) => {
+      res.json(resultado);
+    })
+    .catch((erro) => {
+      console.error(erro);
+      res.status(500).send(erro.message);
+    });
+});
+
+router.get("/getDiskMachine/:id_maquina", function (req, res, next) {
+	var maquina = req.params.id_maquina;
+	const instrucaoSql = `
+	SELECT TOP 7 ((sm.uso_disco * 100)/ m.tamanho_disco ) as porcentagem_memoria
+	FROM [dbo].[maquina] m join [dbo].[status_maquina] sm ON m.id_maquina = sm.fk_maquina
+	WHERE id_maquina =  ${maquina}`;
+
+  sequelize
+    .query(instrucaoSql, {
+      model: status_maquina,
+      mapToModel: true,
+    })
+    .then((resultado) => {
+      res.json(resultado);
+    })
+    .catch((erro) => {
+      console.error(erro);
+      res.status(500).send(erro.message);
+    });
+});
+
 module.exports = router;
