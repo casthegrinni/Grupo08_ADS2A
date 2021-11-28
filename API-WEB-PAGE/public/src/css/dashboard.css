@@ -388,15 +388,19 @@ body{
     width: 28vh;
     height: 28vh;
     padding: 10px;
-    background-color: #60C3D8;
+    background-color: var(--color-3);
     color: var(--color-1);
     display: flex;
     justify-content: start;
     flex-direction: column;
-    border-radius: 10% 10% 10% 10% / 10% 10% 10% 10%;
-    -webkit-box-shadow: 7px 7px 6px 1px rgba(114,114,110,0.69); 
+    border-radius: 10%;
+    /* -webkit-box-shadow: 7px 7px 6px 1px rgba(114,114,110,0.69);  */
+    border: 3px solid var(--color-6)
+}
+
+.station-card, .machine-card:hover{
     box-shadow: 7px 7px 6px 1px rgba(114,114,110,0.69);
-    border: 3px solid var(--color-5)
+
 }
 .station-card h1, .machine-card h1 {
     font-size: 22pt;
@@ -405,7 +409,7 @@ body{
 
 .machine-card {
     cursor: pointer;
-    border-color: var(--color-status-critical);
+    border-color: var(--color-6);
 }
 
 .card-title {
