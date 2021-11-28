@@ -26,7 +26,7 @@ function cadastroMaquina() {
         if (response.ok) {
             alert("maquina cadastrada")
 
-            // window.location.href='login.html';
+            window.location.href='maquinas.html';
 
         } else {
 

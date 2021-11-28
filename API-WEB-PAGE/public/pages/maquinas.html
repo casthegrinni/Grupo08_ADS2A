@@ -35,7 +35,7 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li id="div_estacoes">
                 <a href="estacao.html">
                     <i class='bx bxs-train'></i>
                     <span>Estações</span>
@@ -59,23 +59,23 @@
             <div class="box-profile">
                 <img src="../src/img/perfil.png" alt="">
                 <p class="name">
-                    Usuário
+                    <b id="b_tipo_usuario">Usuário</b>
                     <span id="b_usuario">User Name</span>
                 </p>
             </div>
         </header>
         <section class="section">
-            <h1 class="section-title">Máquinas em: Consolação</h1>
+            <h1 class="section-title" id="h1_nome_estacao">Máquinas</h1>
             <div class="container-fluid container-content cards">
                 <div class="all-station-cards" id="table_row">
 
-                   
+
                 </div>
             </div>
         </section>
     </main>
     <a href="cadastro-maquinas.html" style="cursor: pointer;">
-        <div class="add-btn">
+        <div class="add-btn" id="btn_add">
             <i class="fas fa-plus"></i>
         </div>
     </a>
@@ -83,16 +83,17 @@
     <script src="../src/js/funcoes.js"></script>
 </body>
 <script>
-  function start(){
-      verificar_autenticacao()
-      setup()
-      getMachines()
-    loop()
-  }
-  function loop(){
-      getMachines()
-        setTimeout(() =>loop(), 2000);
-  }
+    function start() {
+        verificar_autenticacao()
+        setup()
+        getMachines()
+        loop()
+        getStationName()
+    }
+    function loop() {
+        getMachines()
+        setTimeout(() => loop(), 2000);
+    }
 </script>
 
 </html>

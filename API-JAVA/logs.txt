@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+Aplica??o iniciada por: aline.chaves@metrosp.com.br --> 2021/11/27 19:35
+=======
 Erro ao fazer consulta. --> 2021/11/27 14:49
+>>>>>>> af83f15fd7124bc97db788cfff19f4bdd34d4579

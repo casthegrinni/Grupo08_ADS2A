@@ -20,7 +20,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
 </head>
 
-<body onload="start()">
+<body>
 
     <nav class="nav">
         <a href="dashboard.html" class="logo">
@@ -34,7 +34,7 @@
                     <span>Dashboard</span>
                 </a>
             </li>
-            <li>
+            <li id="div_estacoes">
                 <a href="estacao.html">
                     <i class='bx bxs-train'></i>
                     <span>Estações</span>
@@ -48,8 +48,8 @@
             </li>
         </ul>
         <li class="log-out">
-            <span id = 'span_exit' onclick="logoff()">
-                <i  class='bx bx-log-out nav_icon'></i>
+            <span id='span_exit' onclick="logoff()">
+                <i class='bx bx-log-out nav_icon'></i>
             </span>
         </li>
     </nav>
@@ -58,7 +58,7 @@
             <div class="box-profile">
                 <img src="../src/img/perfil.png" alt="">
                 <p class="name">
-                    Usuário
+                    <b id="b_tipo_usuario">Usuário</b>
                     <span id="b_usuario">User Name</span>
                 </p>
             </div>
@@ -80,7 +80,7 @@
                         <div class="col">
                             <div class="card shadow">
                                 <div class="desc">
-                                   <span id="count_stations"> </span>
+                                    <span id="count_stations"> </span>
                                     <p>Estações</p>
                                 </div>
                                 <i class='bx bx-train'></i>
@@ -110,6 +110,8 @@
         </section>
         <section>
             <div class="chart-section">
+                <h2>Última semana</h2>
+                <br>
                 <div class="row">
                     <div class="col">
                         <div class="card-chart shadow">
@@ -129,14 +131,13 @@
     <script src='../src/js/charts.js'></script>
     <script src="/routes/leituras.js"></script>
     <script>
-        function start() {
-            setup()
-            getFirstInfo()
-            getRandomMachine()
-            verificar_autenticacao()
-            getFirstInfo()
-            getDadosMachine()
-        }
+        setup()
+        getFirstInfo()
+        verificar_autenticacao()
+        getDadosMachine()
+        getHardwareData()
+        getPaperData()
+
     </script>
 </body>
 
