@@ -92,12 +92,28 @@
             </div>
         </section>
     </main>
-    <script src="../src/js/chartPage.js"></script>
+    <script src='../src/js/maquinas.js'></script>
     <script src="../src/js/funcoes.js"></script>
+    <script src="../src/js/chartPage.js"></script>
+
+    <script>
+        getPaperData()
+        getRamData()
+        getCpuData()
+        getDiskData()
+        loop()
+
+        function loop() {
+            getPaperData()
+            getRamData()
+            getCpuData()
+            getDiskData()
+            setTimeout(() => loop(), 5000);
+        }
+    </script>
 </body>
 
 </html>
 <script>
-    verificar_autenticacao()
     setup()
 </script>

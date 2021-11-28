@@ -86,12 +86,12 @@
     function start() {
         verificar_autenticacao()
         setup()
-        getMachines()
+        getMachines(sessionStorage.tipo_usuario)
         loop()
-        getStationName()
+        
     }
     function loop() {
-        getMachines()
+        getMachines(sessionStorage.tipo_usuario)
         setTimeout(() => loop(), 2000);
     }
 </script>

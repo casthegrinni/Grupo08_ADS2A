@@ -11,7 +11,7 @@ function anterior() {
 }
 
 function cadastrar() {
-    aguardar();
+   
     var formulario = new URLSearchParams(new FormData(form_cadastro));
     fetch("../usuarios/cadastrar", {
         method: "POST",
@@ -27,7 +27,7 @@ function cadastrar() {
             console.log('Erro de cadastro!');
             response.text().then(function (resposta) {
             });
-            finalizar_aguardar();
+            
         }
     });
 
