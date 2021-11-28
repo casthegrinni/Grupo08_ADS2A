@@ -193,9 +193,10 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 });
 router.get('/getStatusCounter/:fk_estacao/:type', function (req, res, next) {
 	const instrucaoSql = `
-	SELECT COUNT(*) as count from status_maquina s 
+	SELECT COUNT(DISTINCT fk_maquina) as count from status_maquina s 
 	RIGHT JOIN maquina m on id_maquina = fk_maquina 
-	WHERE m.fk_estacao = ${req.params.fk_estacao} AND s.status_web = '${req.params.type}'`
+	WHERE m.fk_estacao = ${req.params.fk_estacao} AND s.status_web = '${req.params.type}'
+`
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
