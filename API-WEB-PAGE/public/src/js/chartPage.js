@@ -204,7 +204,7 @@ function getColor(data) {
 }
 
 function getPaperData() {
-  fetch(`/leituras/getPaperPerHour/${sessionStorage.id_maquina}`, {
+  fetch(`/leituras/getPaperMachine/${sessionStorage.id_maquina}`, {
     cache: "no-store",
   }).then((resposta) => {
     if (resposta.ok) {
@@ -226,16 +226,17 @@ function getPaperData() {
 function parsePaperData(data) {
   let returnArray = [];
   for (let i = 0; i < data.length; i++) {
-    returnArray.push(data[i]);
+    returnArray.push(data[i]["estoque_papel"]);
   }
-
+console.log("DATA:" +data);
+console.log(data.length);
   chartPaper(returnArray);
 }
 
 function chartPaper(paperData) {
   var ctx = document.getElementById("paperChart").getContext("2d");
   var configData = {
-    labels: ["00h-04h", "04h-08h", "08h-12h", "12h-16h", "16h-20h", "20h-24h"],
+    labels: ["00h-04h", "04h-08h", "08h-12h", "12h-16h", "16h-20h", "20h-24h", "20h-24h"],
     datasets: [
       {
         data: paperData,
@@ -247,7 +248,7 @@ function chartPaper(paperData) {
   };
 
   var config = {
-    type: "bar",
+    type: "line",
     data: configData,
     options: {
       title: {
@@ -272,6 +273,10 @@ function chartPaper(paperData) {
         yAxes: [
           {
             beginAtZero: true,
+            ticks: {
+                min: 0,
+                max: 1,
+              },
           },
         ],
       },
