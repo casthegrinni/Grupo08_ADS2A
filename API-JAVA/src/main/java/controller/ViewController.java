@@ -18,7 +18,7 @@ public class ViewController {
     private final LoocaController looca = new LoocaController();
      Logs logs = new Logs();
     private final SlackController s = new SlackController();
-    //private final PythonModel py = new PythonModel(System.getProperty("os.name"));
+    private final PythonModel py = new PythonModel(System.getProperty("os.name"));
 
     public Boolean verifyUserAndMachine(String login, String senha, String fkMaquina) throws IOException {
         String query = String.format("select email,senha,fk_estacao from [dbo].[usuario] where email ='%s' and senha = '%s';", login, senha);
@@ -40,7 +40,7 @@ public class ViewController {
         } else {
             Boolean checked = checkFkMaquina(fkmaquinaInt);
             if (checked) {
-                //py.letterToPython(String.format("%d", fkmaquinaInt));
+                py.letterToPython(String.format("%d", fkmaquinaInt));
                 return true;
             } else {
                 return false;
