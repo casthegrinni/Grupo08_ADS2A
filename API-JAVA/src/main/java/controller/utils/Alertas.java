@@ -16,13 +16,13 @@ A mï¿½quina id_maquina localizada na estaï¿½ï¿½o nome_estacao ultrapassou o perc
  * @author Gabriel_Prisco
  */
 public enum Alertas {
-    ALERTA_PADRAO_MEMORIA(":disk: A mÃ¡quina %s localizada na estaÃ§Ã£o %s atingiu %.1f%% de armazenamento interno."),
-    ALERTA_CRITICO_MEMORIA(":disk: A mÃ¡quina %s localizada na estaÃ§Ã£o %s ultrapassou o percentual de armazenamento interno, atingindo %.1f%%"),
-    ALERTA_PADRAO_RAM(":memory: A mÃ¡quina %s localizada na estaÃ§Ã£o %s atingiu %.1f%% de uso de MemÃ³ria RAM."),
-    ALERTA_CRITICO_RAM(":memory: A mÃ¡quina %s localizada na estaÃ§Ã£o %s ultrapassou o percentual de uso de MemÃ³ria RAM, atingindo %.1f%%"),
-    ALERTA_PADRAO_PROCESSADOR(":cpu: A mÃ¡quina %s localizada na estaÃ§Ã£o %s atingiu %.1f%% de processamento."),
-    ALERTA_CRITICO_PROCESSADOR(":cpu: A mÃ¡quina %s localizada na estaÃ§Ã£o %s ultrapassou o percentual de processamento, atingindo %.1f%%"),
-    ALERTA_FALTA_PAPEL(":no-paper: O estoque de papel da mÃ¡quina %s localizada na estaÃ§Ã£o %s chegou ao fim");
+    ALERTA_PADRAO_MEMORIA(":disk: A máquina %s localizada na estação %s atingiu %.1f%% de armazenamento interno."),
+    ALERTA_CRITICO_MEMORIA(":disk: A máquina %s localizada na estação %s ultrapassou o percentual de armazenamento interno, atingindo %.1f%%"),
+    ALERTA_PADRAO_RAM(":memory: A máquina %s localizada na estação %s atingiu %.1f%% de uso de Memória RAM."),
+    ALERTA_CRITICO_RAM(":memory: A máquina %s localizada na estação %s ultrapassou o percentual de uso de Memória RAM, atingindo %.1f%%"),
+    ALERTA_PADRAO_PROCESSADOR(":cpu: A máquina %s localizada na estação %s atingiu %.1f%% de processamento."),
+    ALERTA_CRITICO_PROCESSADOR(":cpu: A máquina %s localizada na estação %s ultrapassou o percentual de processamento, atingindo %.1f%%"),
+    ALERTA_FALTA_PAPEL(":no-paper: O estoque de papel da máquina %s localizada na estação %s chegou ao fim");
 
     private String alertas;
 

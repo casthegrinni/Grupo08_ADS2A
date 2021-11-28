@@ -16,7 +16,6 @@ function getDadosMachine() {
         else {
             console.log('erro ao capturar os dados!');
             resposta.text().then(texto => {
-                console.error(texto);
             });
         }
     });
@@ -50,9 +49,6 @@ function getHardwareData() {
     }).then(resposta => {
         if (resposta.ok) {
             resposta.json().then(function (resposta) {
-                console.log(`Hardware data: ${JSON.stringify(resposta)}`);
-                console.log(resposta);
-                console.log(resposta.length);
                 parseHardwareData(resposta[0])
             }
             )
@@ -76,8 +72,6 @@ function parseHardwareData(data) {
     returnArray.push(data["doze_a_dezesseis"])
     returnArray.push(data["dezesseis_a_vinte"])
     returnArray.push(data["vinte_a_vintequatro"])
-
-    console.log("Return array: " + returnArray)
 
     chartHardware(returnArray)
 }
@@ -135,12 +129,8 @@ function getPaperData() {
     }).then(resposta => {
         if (resposta.ok) {
             resposta.json().then(function (resposta) {
-                console.log(`Paper data: ${JSON.stringify(resposta)}`);
-                console.log(resposta);
-                console.log(resposta.length);
                 parsePaperData(resposta)
-            }
-            )
+            })
         }
         else {
             console.log('Error getting Paper data!');
@@ -162,12 +152,8 @@ function parsePaperData(data) {
     returnArray.push(data["dezesseis_a_vinte"])
     returnArray.push(data["vinte_a_vintequatro"])
 
-    console.log("Return paper array: " + returnArray)
-
     chartPaper(returnArray)
 }
-
-
 
 function chartPaper(paperData) {
     var ctx = document.getElementById('chartMaquinas').getContext('2d');

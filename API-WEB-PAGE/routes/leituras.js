@@ -23,11 +23,10 @@ router.get('/machines/:fk_estacao', function (req, res, next) {
 
 });
 
-router.get('/machines_total/:fk_estacao', function (req, res, next) {
+router.get('/getStation/:fk_estacao', function (req, res, next) {
+	let estacao = req.params.fk_estacao
 
-
-	const instrucaoSql = `select count (id_maquina) as contagem from maquina where fk_estacao = ${req.params.fk_estacao}`;
-
+	const instrucaoSql = `SELECT nome_estacao FROM estacao WHERE id_estacao = ${estacao}`;
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
@@ -38,6 +37,28 @@ router.get('/machines_total/:fk_estacao', function (req, res, next) {
 		});
 
 });
+
+router.get('/machines_total/:fk_estacao/:tipo_usuario', function (req, res, next) {
+	let estacao = req.params.fk_estacao
+	let tipo = req.params.tipo_usuario
+
+	let instrucaoSql = ``
+	if (tipo == 1) {
+		 instrucaoSql = `select count(*) as contagem from maquina`;
+	} else {
+		instrucaoSql = `select count(*) as contagem from maquina where fk_estacao = ${estacao}`;
+	}
+
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado[0]);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+
+});
+
 router.get('/stations_total/', function (req, res, next) {
 
 
@@ -69,37 +90,36 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 		})
 });
 router.get('/getStatusCounter/:fk_estacao/:type', function (req, res, next) {
-
-
-	const instrucaoSql = `select COUNT(s.status_web) as count from status_maquina s right JOIN maquina m on id_maquina = fk_maquina WHERE m.fk_estacao = ${req.params.fk_estacao} AND s.status_web = '${req.params.type}'`
-
+	const instrucaoSql = `
+	SELECT COUNT(*) as count from status_maquina s 
+	RIGHT JOIN maquina m on id_maquina = fk_maquina 
+	WHERE m.fk_estacao = ${req.params.fk_estacao} AND s.status_web = '${req.params.type}'`
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
-			res.json(resultado);
+			res.json(resultado[0]);
 		}).catch(erro => {
 			console.error(erro);
 			res.status(500).send(erro.message);
 		})
 });
 router.get('/getAllStations/', function (req, res, next) {
-
-
 	const instrucaoSql = `with maquinas_criticas as (
-				select stts.fk_maquina,
-				count(stts.status_web) as contagem
-				from [dbo].[status_maquina] as stts
-				inner join [dbo].[maquina] as mqn on mqn.id_maquina = stts.fk_maquina and stts.status_web = 'Crí­tico'
-				group by stts.fk_maquina 
-			)
-			SELECT 
-				estacao.nome_estacao,
-				COUNT(mqn.fk_estacao) as "qtdMaquina",
-				sum( coalesce(maquinas_criticas.contagem, 0) ) as "contagem_maquinas_criticas"
-				from estacao 
-				left join maquina as mqn on estacao.id_estacao = mqn.fk_estacao
-				left join maquinas_criticas on maquinas_criticas.fk_maquina = mqn.id_maquina
-				group by estacao.nome_estacao;`;
+		select stts.fk_maquina,
+		count(stts.status_web) as contagem
+		from [dbo].[status_maquina] as stts
+		inner join [dbo].[maquina] as mqn on mqn.id_maquina = stts.fk_maquina and stts.status_web = 'Crí­tico'
+		group by stts.fk_maquina 
+	)
+	SELECT 
+		estacao.nome_estacao,
+		MAX(estacao.id_estacao) AS "id_estacao",
+		COUNT(mqn.fk_estacao) as "qtdMaquina",
+		sum( coalesce(maquinas_criticas.contagem, 0) ) as "contagem_maquinas_criticas"
+		from estacao 
+		left join maquina as mqn on estacao.id_estacao = mqn.fk_estacao
+		left join maquinas_criticas on maquinas_criticas.fk_maquina = mqn.id_maquina
+		group by estacao.nome_estacao`;
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
