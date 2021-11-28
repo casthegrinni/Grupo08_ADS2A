@@ -44,7 +44,7 @@ function getColor(data) {
 }
 
 function getHardwareData() {
-    fetch(`/leituras/getHardwarePerHour/${sessionStorage.id_maquina}`, {
+    fetch(`/leituras/getHardwarePerHour/${sessionStorage.fk_estacao}`, {
         cache: 'no-store'
     }).then(resposta => {
         if (resposta.ok) {
@@ -124,7 +124,7 @@ function chartHardware(hardwareData) {
 
 
 function getPaperData() {
-    fetch(`/leituras/getPaperPerHour/${sessionStorage.id_maquina}`, {
+    fetch(`/leituras/getPaperPerHour/${sessionStorage.fk_estacao}`, {
         cache: 'no-store'
     }).then(resposta => {
         if (resposta.ok) {
