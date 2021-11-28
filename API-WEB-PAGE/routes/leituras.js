@@ -9,9 +9,8 @@ var env = process.env.NODE_ENV || "development";
 
 router.get('/machines/:fk_estacao', function (req, res, next) {
 
-	console.log(`Recuperando as estatísticas atuais`);
 
-	const instrucaoSql = `select m.checada, m.id_maquina from maquina m where m.fk_estacao = ${req.params.fk_estacao}`
+	const instrucaoSql = req.params.fk_estacao== 0? ` select m.checada, m.id_maquina from maquina m` : `select m.checada, m.id_maquina from maquina m where m.fk_estacao = ${req.params.fk_estacao}`
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
