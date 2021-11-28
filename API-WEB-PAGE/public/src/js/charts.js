@@ -16,7 +16,6 @@ function getDadosMachine() {
         else {
             console.log('erro ao capturar os dados!');
             resposta.text().then(texto => {
-
             });
         }
     });
