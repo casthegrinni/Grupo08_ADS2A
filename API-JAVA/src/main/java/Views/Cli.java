@@ -11,14 +11,26 @@ public class Cli {
         Scanner inputPasswd = new Scanner(System.in);
         Scanner inputId = new Scanner(System.in);
         String user, password, idMachine;
+        
+        System.out.println("      ___           ___           ___       ___           ___           ___           ___                       ___     \n" +
+"     /\\  \\         /\\__\\         /\\__\\     /\\  \\         /\\  \\         /\\  \\         /\\  \\          ___        |\\__\\    \n" +
+"    /::\\  \\       /:/  /        /:/  /    /::\\  \\       /::\\  \\        \\:\\  \\       /::\\  \\        /\\  \\       |:|  |   \n" +
+"   /:/\\:\\  \\     /:/  /        /:/  /    /:/\\ \\  \\     /:/\\:\\  \\        \\:\\  \\     /:/\\:\\  \\       \\:\\  \\      |:|  |   \n" +
+"  /::\\~\\:\\  \\   /:/  /  ___   /:/  /    _\\:\\~\\ \\  \\   /::\\~\\:\\  \\       /::\\  \\   /::\\~\\:\\  \\      /::\\__\\     |:|__|__ \n" +
+" /:/\\:\\ \\:\\__\\ /:/__/  /\\__\\ /:/__/    /\\ \\:\\ \\ \\__\\ /:/\\:\\ \\:\\__\\     /:/\\:\\__\\ /:/\\:\\ \\:\\__\\  __/:/\\/__/ ____/::::\\__\\\n" +
+" \\/__\\:\\/:/  / \\:\\  \\ /:/  / \\:\\  \\    \\:\\ \\:\\ \\/__/ \\/__\\:\\/:/  /    /:/  \\/__/ \\/_|::\\/:/  / /\\/:/  /    \\::::/~~/~   \n" +
+"      \\::/  /   \\:\\  /:/  /   \\:\\  \\    \\:\\ \\:\\__\\        \\::/  /    /:/  /         |:|::/  /  \\::/__/      ~~|:|~~|    \n" +
+"       \\/__/     \\:\\/:/  /     \\:\\  \\    \\:\\/:/  /        /:/  /     \\/__/          |:|\\/__/    \\:\\__\\        |:|  |    \n" +
+"                  \\::/  /       \\:\\__\\    \\::/  /        /:/  /                     |:|  |       \\/__/        |:|  |    \n" +
+"                   \\/__/         \\/__/     \\/__/         \\/__/                       \\|__|                     \\|__|    ");
 
-        System.out.println("Digite seu usu√°rio: ");
+        System.out.println("\nDigite seu usu·rio: ");
         user = inputUser.nextLine();
 
         System.out.println("Digite sua senha: ");
         password = inputPasswd.nextLine();
 
-        System.out.println("Digite o id da m√°quina: ");
+        System.out.println("Digite o id da m·quina: ");
         idMachine = inputId.nextLine();
 
         vc.init();
@@ -35,7 +47,7 @@ public class Cli {
         }
 
         else {
-            System.out.println("Erro ao verificar a m√°quina, por favor tente novamente!");
+            System.out.println("Erro ao verificar a m·quina, por favor tente novamente!");
         }
 
     }

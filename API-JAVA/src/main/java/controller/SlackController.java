@@ -33,7 +33,7 @@ public class SlackController {
             Double discoTotal = Conversor.longToDouble(totalDisco);
             Double porcentagemDisco = (disco * 100.0) / discoTotal;
             Double porcentagemMemoria = (memoria * 100.0) / memoriaTotal;
-            String estoquePapel = "0";
+            String estoquePapel = "1";
 
             db.initializer();
             response = db.makeSelectQuery(String.format("select maquina.id_maquina, nome_estacao from maquina join estacao on id_estacao = maquina.fk_estacao WHERE id_maquina = %s;", fkMaquina));
@@ -42,46 +42,46 @@ public class SlackController {
             response = db.makeSelectQuery(String.format("SELECT top 1 estoque_papel FROM status_papel WHERE fk_maquina = %s order by data_e_hora desc;", this.fkMaquina));
             estoquePapel = response.get("label1");
 
-            System.out.println("Capturando dados de: " + fkMaquina + " -- EstaÃ§Ã£o: " + nomeEstacao);
+            System.out.println("\n Preparando alerta para a máquina " + fkMaquina + " -- Estação: " + nomeEstacao);
 
             if (estoquePapel.equals("0")) {
-                System.out.println("alerta de fim de papel");
+                System.out.println("\nalerta de fim de papel preparado");
                 slack.initializer();
                 json.put("text", String.format(String.valueOf(alerta[6].getAlertas()), fkMaquina, nomeEstacao));
                 SlackModel.sendMessage(json);
             }
 
             if (porcentagemDisco >= 71.0 && porcentagemDisco < 81.0) {
-                System.out.println("Disco em risco");
+                System.out.println("\nDisco em risco");
                 slack.initializer();
                 json.put("text", String.format(String.valueOf(alerta[0].getAlertas()), fkMaquina, nomeEstacao, porcentagemDisco));
                 SlackModel.sendMessage(json);
             } else if (porcentagemDisco >= 81.0) {
-                System.out.println("Disco em alerta critico");
+                System.out.println("\nDisco em alerta critico");
                 slack.initializer();
                 json.put("text", String.format(String.valueOf(alerta[1].getAlertas()), fkMaquina, nomeEstacao, porcentagemDisco));
                 SlackModel.sendMessage(json);
             }
 
             if (porcentagemMemoria >= 71.0 && porcentagemMemoria < 81.0) {
-                System.out.println("Memoria em risco");
+                System.out.println("\nMemória em risco");
                 slack.initializer();
                 json.put("text", String.format(String.valueOf(alerta[2].getAlertas()), fkMaquina, nomeEstacao, porcentagemMemoria));
                 SlackModel.sendMessage(json);
             } else if (porcentagemMemoria >= 81.0) {
-                System.out.println("Memoria em alerta critico");
+                System.out.println("\nMemória em alerta critico");
                 slack.initializer();
                 json.put("text", String.format(String.valueOf(alerta[3].getAlertas()), fkMaquina, nomeEstacao, porcentagemMemoria));
                 SlackModel.sendMessage(json);
             }
 
             if (usoProcessador >= 71.0 && usoProcessador < 81.0) {
-                System.out.println("CPU em risco");
+                System.out.println("\nCPU em risco");
                 slack.initializer();
                 json.put("text", String.format(String.valueOf(alerta[4].getAlertas()), fkMaquina, nomeEstacao, usoProcessador));
                 SlackModel.sendMessage(json);
             } else if (usoProcessador >= 81.0) {
-                System.out.println("CPU em alerta critico");
+                System.out.println("\nCPU em alerta critico");
                 slack.initializer();
                 json.put("text", String.format(String.valueOf(alerta[5].getAlertas()), fkMaquina, nomeEstacao, usoProcessador));
                 SlackModel.sendMessage(json);

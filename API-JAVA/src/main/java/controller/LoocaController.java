@@ -20,7 +20,7 @@ public class LoocaController {
     private final TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            System.out.println("pegando infos...");
+            System.out.println("\nCapturando dados da m·quina");
             looca.setPcInfo();
             looca.setStaticPcInfo();
             String query = String.format(
@@ -78,7 +78,7 @@ public class LoocaController {
             status = "'Perigo'";
             return status;
         } else if (porcentagemMemoria >= 81.0 || usoProcessador >= 81.0) {
-            status = "'Cr√≠tico'";
+            status = "'Critico'";
             return status;
         }
 
@@ -102,7 +102,7 @@ public class LoocaController {
         }
     };
 
-    public void alertInMinutes() { timerSlack.schedule(timerTaskSlack, 0, 20 * 1000L); }
+    public void alertInMinutes() { timerSlack.schedule(timerTaskSlack, 0, 45 * 1000L); }
 
     public void setSlack(SlackController slack) {
         this.slack = slack;
