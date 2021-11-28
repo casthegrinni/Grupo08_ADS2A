@@ -249,7 +249,7 @@ function chartPaper(paperData) {
   };
 
   var config = {
-    type: "line",
+    type: "bar",
     data: configData,
     options: {
       title: {
