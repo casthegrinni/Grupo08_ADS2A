@@ -64,7 +64,6 @@ function getFirstInfo() {
     const fk_estacao = sessionStorage.fk_estacao
     const tipo_usuario = sessionStorage.tipo_usuario
 
-    console.log("Administrador: " + tipo_usuario)
     fetch(`../leituras/machines_total/${fk_estacao}/${tipo_usuario}`, {
         method: "GET",
     }).then(resposta => {
@@ -84,7 +83,11 @@ function getFirstInfo() {
     }).then(resposta => {
         if (resposta.ok) {
             resposta.json().then(function (json) {
-                count_stations.innerHTML = `${json.contagem} `
+                if(tipo_usuario == 1) {
+                    count_stations.innerHTML = `${json.contagem} `
+                } else {
+                    count_stations.innerHTML = "1"
+                }
             });
         } else {
             resposta.text().then(texto => {
@@ -93,12 +96,12 @@ function getFirstInfo() {
         }
     });
 
-    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Crítico`, {
+    fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Critico`, {
         method: "GET",
     }).then(resposta => {
         if (resposta.ok) {
             resposta.json().then(function (json) {
-                count_critical.innerHTML = json.length
+                count_critical.innerHTML = json.count
             });
         } else {
             resposta.text().then(texto => {
@@ -106,12 +109,14 @@ function getFirstInfo() {
             });
         }
     });
+
+    param = "Perigo"
     fetch(`../leituras/getStatusCounter/${sessionStorage.fk_estacao}/Perigo`, {
         method: "GET",
     }).then(resposta => {
         if (resposta.ok) {
             resposta.json().then(function (json) {
-                count_alert.innerHTML = json.length
+                count_alert.innerHTML = json.count
             });
         } else {
             resposta.text().then(texto => {

@@ -116,3 +116,8 @@ with maquinas_criticas as (
 				left join maquina as mqn on estacao.id_estacao = mqn.fk_estacao
 				left join maquinas_criticas on maquinas_criticas.fk_maquina = mqn.id_maquina
 				group by estacao.nome_estacao
+
+
+SELECT COUNT(*) as count from status_maquina s 
+Right JOIN maquina m on id_maquina = fk_maquina 
+WHERE m.fk_estacao = 1 AND s.status_web = 'Critico'

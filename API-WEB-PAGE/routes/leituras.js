@@ -192,22 +192,20 @@ router.get('/getRandom/:fk_estacao', function (req, res, next) {
 		})
 });
 router.get('/getStatusCounter/:fk_estacao/:type', function (req, res, next) {
-
-
-	const instrucaoSql = `select COUNT(s.status_web) as count from status_maquina s right JOIN maquina m on id_maquina = fk_maquina WHERE m.fk_estacao = ${req.params.fk_estacao} AND s.status_web = '${req.params.type}'`
-
+	const instrucaoSql = `
+	SELECT COUNT(*) as count from status_maquina s 
+	RIGHT JOIN maquina m on id_maquina = fk_maquina 
+	WHERE m.fk_estacao = ${req.params.fk_estacao} AND s.status_web = '${req.params.type}'`
 
 	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
 		.then(resultado => {
-			res.json(resultado);
+			res.json(resultado[0]);
 		}).catch(erro => {
 			console.error(erro);
 			res.status(500).send(erro.message);
 		})
 });
 router.get('/getAllStations/', function (req, res, next) {
-
-
 	const instrucaoSql = `with maquinas_criticas as (
 		select stts.fk_maquina,
 		count(stts.status_web) as contagem
