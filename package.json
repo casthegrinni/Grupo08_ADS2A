@@ -1,12 +1,12 @@
 {
-  "name": "pi-ads-2020-2",
-  "version": "1.0.1",
-  "private": true,
-  "scripts": {
-    "start": "node ./API-WEB-PAGE/bin/www",
-    "postinstall": "cd API-WEB-PAGE && npm install"
-  },
-  "dependencies": {
-    "sweetalert": "^2.1.2"
-  }
+    "name": "pi-ads-2020-2",
+    "version": "1.0.1",
+    "private": true,
+    "scripts": {
+        "start": "node ./API-WEB-PAGE/bin/www",
+        "postinstall": "cd API-WEB-PAGE && npm install && npm install sweetalert --save"
+    },
+    "dependencies": {
+        "sweetalert": "^2.1.2"
+    }
 }
