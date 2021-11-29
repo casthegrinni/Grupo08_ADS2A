@@ -387,24 +387,22 @@ td {
 }
 
 .all-station-cards {
-    margin: 5vh;
+    margin: 10%;
     display: flex;
     flex-wrap: wrap;
 }
 
 .machine-card {
-    margin: 0 5% 2% 0%;
-    width: 40vh;
-    height: 40vh;
-    padding: 1px;
+    margin: 0 2% 2% 0%;
+    width: 35vh;
+    height: 35vh;
+    padding: 2vh;
     background-color: var(--color-3);
     color: var(--color-1);
     display: flex;
-    justify-content: center;
     flex-direction: column;
-    border-radius: 10%;
+    border-radius: 8px;
     border: 3px solid var(--color-6);
-    text-align: center;
     overflow: auto;
     align-content: center;
 }
@@ -415,16 +413,15 @@ td {
 }
 
 .station-card {
-    margin: 0 5% 2% 0%;
-    height: 35vh;
+    margin: 0 2% 2% 0%;
+    height: 20vh;
     width: 35vh;
-    padding: 10px;
     background-color: var(--color-3);
     color: var(--color-1);
     display: flex;
     justify-content: start;
     flex-direction: column;
-    border-radius: 10%;
+    border-radius: 8px;
     border: 3px solid var(--color-6);
     text-align: center;
     cursor: pointer;
@@ -438,11 +435,14 @@ td {
 
 .station-card h1,
 .machine-card h1 {
-    font-size: 22pt;
+    text-align: center;
+    font-size: 24px;
+    text-transform: uppercase;
     width: 100%;
 }
 
 .card-title {
+    text-align: center;
     margin: 2% 0 2% 0;
     font-family: var(--font-subtitle);
 }
@@ -450,7 +450,6 @@ td {
 .card-content {
     display: flex;
     flex-direction: column;
-    font-size: 123%;
     font-family: var(--font-subtitle);
 }
 
@@ -458,58 +457,3 @@ td {
     margin: 2% 0 2% 0;
 }
 
-
-/*RESPONSIVIDADE*/
-
-@media (max-width: 1399.98px) {
-    .content .section .cards .card .desc span {
-        font-size: 26px;
-    }
-    .nav .logo span {
-        font-size: 19px;
-    }
-    .station-card {
-        margin: 5vh 0vh 1vh 7vh;
-        height: 30vh;
-        width: 30vh;
-    }
-    .machine-card {
-        height: 40vh;
-        width: 50vh;
-    }
-    .all-station-cards {
-        margin: 0 12vh;
-    }
-    .canva-chart {
-        width: 64vh;
-    }
-    .content .section .cards .card {
-        width: 31vh;
-    }
-}
-
-@media (max-width: 1199.98px) {
-    .nav {
-        width: 200px;
-    }
-    .nav .logo span {
-        font-size: 13px;
-    }
-    .content {
-        width: calc(100% - 200px);
-    }
-    .content .section .charts .card-chart canvas {
-        width: 50%;
-    }
-    .canva-chart {
-        width: 30vh;
-    }
-    .station-card {
-        height: 33vh;
-        width: 38vh;
-    }
-    .machine-card {
-        height: 50vh;
-        width: 55vh;
-    }
-}
