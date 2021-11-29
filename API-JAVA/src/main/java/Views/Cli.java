@@ -52,8 +52,8 @@ public class Cli {
             }
 
         } else {
-            System.out.println("Erro ao verificar a m√°quina, por favor tente novamente!");
+            System.out.println("Erro ao verificar a m·quina, por favor tente novamente!");
 
-    }
+        }
     };
 }
