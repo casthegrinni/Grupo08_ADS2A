@@ -304,7 +304,8 @@ router.get("/getPaperMachine/:id_maquina", function (req, res, next) {
 router.get("/getRamMachine/:id_maquina", function (req, res, next) {
 	var maquina = req.params.id_maquina;
 	const instrucaoSql = `
-	SELECT TOP 7 ((uso_ram * 100)/ ram ) as porcentagem_ram
+	SELECT TOP 7 ((uso_ram * 100)/ ram ) as porcentagem_ram,
+	FORMAT(data_e_hora,'HH:mm:ss') as captura
 	FROM [dbo].[maquina] m join [dbo].[status_maquina] sm ON m.id_maquina = sm.fk_maquina
 	 WHERE id_maquina =  ${maquina}  order by id_captura desc;
 	 `;
@@ -326,7 +327,8 @@ router.get("/getRamMachine/:id_maquina", function (req, res, next) {
 router.get("/getCpuMachine/:id_maquina", function (req, res, next) {
 	var maquina = req.params.id_maquina;
 	const instrucaoSql = `
-	SELECT TOP 7 (uso_processador) as porcentagem_processador
+	SELECT TOP 7 (uso_processador) as porcentagem_processador,
+	FORMAT(data_e_hora,'HH:mm:ss') as captura
 	FROM [dbo].[maquina] m join [dbo].[status_maquina] sm ON m.id_maquina = sm.fk_maquina
 	 WHERE id_maquina = ${maquina} order by id_captura desc;
 	 ` ;
@@ -348,7 +350,8 @@ router.get("/getCpuMachine/:id_maquina", function (req, res, next) {
 router.get("/getDiskMachine/:id_maquina", function (req, res, next) {
 	var maquina = req.params.id_maquina;
 	const instrucaoSql = `
-	SELECT TOP 7 ((sm.uso_disco * 100)/ m.tamanho_disco ) as porcentagem_memoria
+	SELECT TOP 7 ((sm.uso_disco * 100)/ m.tamanho_disco ) as porcentagem_memoria,
+	FORMAT(data_e_hora,'HH:mm:ss') as captura
 	FROM [dbo].[maquina] m join [dbo].[status_maquina] sm ON m.id_maquina = sm.fk_maquina
 	WHERE id_maquina =  ${maquina}  order by id_captura desc;
 	`;
