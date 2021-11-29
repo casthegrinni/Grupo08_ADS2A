@@ -1,9 +1,12 @@
+var labelData = []
+
 function getRamData() {
   fetch(`/leituras/getRamMachine/${sessionStorage.id_maquina}`, {
     cache: "no-store",
   }).then((resposta) => {
     if (resposta.ok) {
       resposta.json().then(function (resposta) {
+        resposta.reverse()
         console.log(`RAM data: ${JSON.stringify(resposta)}`);
         console.log(resposta);
         console.log(resposta.length);
@@ -19,27 +22,22 @@ function getRamData() {
 }
 
 function parseRamData(data) {
-  let returnArray = [];
+  let dataArray = [];
+  let labelArray = [];
 
   for (let i = 0; i < data.length; i++) {
-    returnArray.push(data[i]["porcentagem_ram"]);
+    dataArray.push(data[i]["porcentagem_ram"]);
+    labelArray.push(data[i]["captura"]);
   }
   console.log("DATA:" + data);
   console.log(data.length);
-  chartRam(returnArray);
+  chartRam(dataArray, labelArray);
 }
 
-function chartRam(ramData) {
+function chartRam(ramData, labelData) {
   var ctx = document.getElementById("ramChart").getContext("2d");
   var configData = {
-    labels: [
-      "00:00",
-      "00:05",
-      "00:10",
-      "00:15",
-      "00:20",
-      "00:25",
-    ],
+    labels: labelData,
     datasets: [
       {
         data: ramData,
@@ -67,6 +65,9 @@ function chartRam(ramData) {
       scales: {
         xAxes: [
           {
+            ticks: {
+              fontSize: 10
+            },
             gridLines: {
               color: "rgba(0, 0, 0, 0)",
             },
@@ -92,6 +93,7 @@ function getDiskData() {
   }).then((resposta) => {
     if (resposta.ok) {
       resposta.json().then(function (resposta) {
+        resposta.reverse()
         console.log(`Disk data: ${JSON.stringify(resposta)}`);
         console.log(resposta);
         console.log(resposta.length);
@@ -107,29 +109,25 @@ function getDiskData() {
 }
 
 function parseDiskData(data) {
-  let returnArray = [];
+  let dataArray = [];
+  let labelArray = [];
 
   for (let i = 0; i < data.length; i++) {
-    returnArray.push(data[i]["porcentagem_memoria"]);
+    dataArray.push(data[i]["porcentagem_memoria"]);
+    labelArray.push(data[i]["captura"]);
   }
   console.log("DATA:" + data);
   console.log(data.length);
-  chartDisk(returnArray);
+  chartDisk(dataArray, labelArray);
 }
 
-function chartDisk(diskData) {
+function chartDisk(diskData, labelData) {
   var ctx = document.getElementById("diskChart").getContext("2d");
   var configData = {
-    labels: [
-      "00:00",
-      "00:05",
-      "00:10",
-      "00:15",
-      "00:20",
-      "00:25",
-    ],
+    labels: labelData,
     datasets: [
       {
+        fontSize: "20px",
         data: diskData,
         backgroundColor: getColor([69, 30, 80, 70, 75, 85, 60, 50, 30, 89]),
         borderColor: "rgba(15,125,146, 1)",
@@ -202,6 +200,7 @@ function getPaperData() {
   }).then((resposta) => {
     if (resposta.ok) {
       resposta.json().then(function (resposta) {
+        resposta.reverse()
         console.log(`Paper data: ${JSON.stringify(resposta)}`);
         console.log(resposta);
         console.log(resposta.length);
@@ -217,27 +216,21 @@ function getPaperData() {
 }
 
 function parsePaperData(data) {
-  let returnArray = [];
+  let dataArray = [];
+  let labelArray = []
   for (let i = 0; i < data.length; i++) {
-    returnArray.push(data[i]["estoque_papel"]);
+    dataArray.push(data[i]["estoque_papel"]);
+    labelArray.push(data[i]["captura"]);
   }
   console.log("DATA:" + data);
   console.log(data.length);
-  chartPaper(returnArray);
+  chartPaper(dataArray, labelArray);
 }
 
-function chartPaper(paperData) {
+function chartPaper(paperData, labelData) {
   var ctx = document.getElementById("paperChart").getContext("2d");
   var configData = {
-    labels: [
-      "00:00",
-      "00:05",
-      "00:10",
-      "00:15",
-      "00:20",
-      "00:25",
-      "00:30",
-    ],
+    labels: labelData,
     datasets: [
       {
         data: paperData,
@@ -293,6 +286,7 @@ function getCpuData() {
   }).then((resposta) => {
     if (resposta.ok) {
       resposta.json().then(function (resposta) {
+        resposta.reverse()
         console.log(`Cpu data: ${JSON.stringify(resposta)}`);
         console.log(resposta);
         console.log(resposta.length);
@@ -308,27 +302,23 @@ function getCpuData() {
 }
 
 function parseCpuData(data) {
-  let returnArray = [];
+  let dataArray = [];
+  let labelArray = [];
 
   for (let i = 0; i < data.length; i++) {
-    returnArray.push(data[i]["porcentagem_processador"]);
+    dataArray.push(data[i]["porcentagem_processador"]);
+    labelArray.push(data[i].captura);
   }
+  
+
   console.log("DATA:" + data);
-  chartCpu(returnArray);
+  chartCpu(dataArray, labelArray);
 }
 
-function chartCpu(cpuData) {
+function chartCpu(cpuData, labelData) {
   var ctx = document.getElementById("cpuChart").getContext("2d");
   var configData = {
-    labels: [
-      "00:00",
-      "00:05",
-      "00:10",
-      "00:15",
-      "00:20",
-      "00:25",
-      "00:30",
-    ],
+    labels: labelData,
     datasets: [
       {
         data: cpuData,
@@ -352,6 +342,12 @@ function chartCpu(cpuData) {
       },
       legend: {
         display: false,
+        labels: {
+          font: {
+            size: 5
+          }
+        }
+          
       },
       scales: {
         xAxes: [
@@ -374,3 +370,22 @@ function chartCpu(cpuData) {
   };
   var myChart = new Chart(ctx, config);
 }
+function getMachineName(){
+  fetch(`/leituras/getMachineName/${sessionStorage.id_maquina}`, {
+    cache: "no-store",
+  }).then((resposta) => {
+    if (resposta.ok) {
+      resposta.json().then(function (resposta) {
+        h1_nome_Maquina.innerHTML = `Você está vendo a máquina: ${resposta.nome_maquina}`
+      });
+    } else {
+      console.log("Error geting machine name");
+      resposta.text().then((texto) => {
+        console.error(texto);
+      });
+    }
+  });
+}
+
+
+
