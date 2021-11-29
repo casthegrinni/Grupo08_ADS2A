@@ -1,4 +1,4 @@
-function setInfo(){
+function setInfo() {
     var nome = sessionStorage.nome_usuario_meuapp
     userName.innerHTML = nome;
 }
@@ -7,35 +7,36 @@ function setInfo(){
 
 
 function cadastroMaquina() {
-    var want_disco = checkboxOne.checked ? 1  : 0
+    var want_disco = checkboxOne.checked ? 1 : 0
     var want_ram = checkboxTwo.checked ? 1 : 0
     var want_cpu = checkboxThree.checked ? 1 : 0
-   if(nomeMaquina.value == "" || select_estacao.value == ""){
-       alert("Por favor preencha todos os campos")
-       return false
-   }
-   else{
-    
-    var formulario = new URLSearchParams(new FormData(form_cadastroResponsavel));
+    if (nomeMaquina.value == "" || select_estacao.value == "") {
+        swal("ALERTA!", "Por favor preencha todos os campos!", "warning");
+        return false
+    } else {
+
+        var formulario = new URLSearchParams(new FormData(form_cadastroResponsavel));
 
         fetch(`../usuarios/cadastrar_maquina/${want_cpu}/${want_ram}/${want_disco}`, {
-        method: "POST",
-        body: formulario
-    }).then(function (response) {
-        
-        if (response.ok) {
-            alert("maquina cadastrada")
+            method: "POST",
+            body: formulario
+        }).then(function(response) {
 
-            window.location.href='maquinas.html';
+            if (response.ok) {
+                swal("SUCESSO!", "Máquina cadastrada!", "success");
 
-        } else {
+                setTimeout(() => {
+                    window.location.href = 'maquinas.html';
 
-            console.log('Erro de cadastro!');
-            response.text().then(function (resposta) {
-            });
-        }
-    });
+                }, 2000);
 
-    return false;
-}
+            } else {
+
+                console.log('Erro de cadastro!');
+                response.text().then(function(resposta) {});
+            }
+        });
+
+        return false;
+    }
 }

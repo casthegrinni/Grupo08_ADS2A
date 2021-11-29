@@ -1,4 +1,4 @@
-:root{
+:root {
     --color-1: #F6F6F6;
     /* --color-1: #FFF; */
     --color-2: #100e34;
@@ -13,14 +13,14 @@
     --color-status-critical: #FF1616;
 }
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     user-select: none;
 }
 
-body{
+body {
     font-family: 'Rubik', sans-serif;
     font-size: 16px;
 }
@@ -43,9 +43,10 @@ body{
     scroll-behavior: smooth;
 }
 
+
 /*SIDEBAR*/
 
-.nav{
+.nav {
     display: block;
     width: 280px;
     height: 100%;
@@ -56,7 +57,7 @@ body{
     background-color: var(--color-3);
 }
 
-.nav .logo{
+.nav .logo {
     width: 100%;
     height: 50px;
     margin-bottom: 50px;
@@ -69,18 +70,18 @@ body{
     transition: all .4s ease-in-out;
 }
 
-.nav .logo img{
+.nav .logo img {
     width: 100px;
     transition: all .4s ease-in-out;
 }
 
-.nav .logo span{
+.nav .logo span {
     font-weight: 900;
     font-size: 22px;
     font-family: var(--font-title);
 }
 
-.nav .menu{
+.nav .menu {
     list-style: none;
     display: block;
     margin: 0;
@@ -89,14 +90,14 @@ body{
     margin-bottom: 70%;
 }
 
-.nav .menu li{
+.nav .menu li {
     display: block;
     padding-left: 20px;
     margin-bottom: 10px;
     list-style: none;
 }
 
-.nav .menu li a{
+.nav .menu li a {
     width: 100%;
     display: flex;
     align-items: center;
@@ -109,34 +110,36 @@ body{
     transition: all .4s ease-in-out;
 }
 
-.nav .menu li a .bx, .fa{
+.nav .menu li a .bx,
+.fa {
     margin-right: 15px;
 }
 
-.nav .menu li a:hover{
+.nav .menu li a:hover {
     color: var(--color-3);
     background-color: var(--color-1);
 }
 
-.nav .menu li.active a{
+.nav .menu li.active a {
     color: var(--color-3);
     background-color: var(--color-1);
 }
 
-.nav .log-out{
+.nav .log-out {
     font-size: 32px;
     color: var(--color-1);
     text-align: center;
     list-style: none;
 }
 
-.nav .log-out a{
+.nav .log-out a {
     color: var(--color-1);
 }
 
+
 /*MAIN*/
 
-.content{
+.content {
     width: calc(100% - 280px);
     height: 100%;
     min-height: 100vh;
@@ -145,17 +148,17 @@ body{
     background-color: var(--color-1);
 }
 
-.content .header{
+.content .header {
     display: flex;
     align-items: center;
     justify-content: flex-end;
     width: 100%;
     height: 70px;
     padding: 0 30px;
-    border-bottom: 1px solid var(--color-5) ;
+    border-bottom: 1px solid var(--color-5);
 }
 
- .content .header .button{
+.content .header .button {
     display: flex;
     align-items: center;
     color: var(--color-2);
@@ -163,18 +166,18 @@ body{
     background: none;
     border: none;
     cursor: pointer;
-} 
+}
 
-.content .header .button .bx{
+.content .header .button .bx {
     margin-right: 10px;
 }
 
-.content .header .form{
+.content .header .form {
     position: relative;
     width: 400px;
 }
 
-.content .header .form input{
+.content .header .form input {
     position: relative;
     width: 100%;
     height: 50px;
@@ -185,7 +188,7 @@ body{
     transition: all .4s ease-in-out;
 }
 
-.content .header .form button{
+.content .header .form button {
     position: absolute;
     top: 0;
     right: 0;
@@ -194,101 +197,105 @@ body{
     width: 50px;
     height: 50px;
     color: var(--color-3);
-} 
+}
 
 .content .header .form input,
-.content .header .form button{
+.content .header .form button {
     outline: none!important;
 }
 
-.content .header .form input:focus{
-    border: 1px solid var(--color-4) ;
+.content .header .form input:focus {
+    border: 1px solid var(--color-4);
 }
 
-.content .header .form input::placeholder{
+.content .header .form input::placeholder {
     color: var(--color-3);
 }
 
-.content .header .box-profile{
+.content .header .box-profile {
     display: flex;
     align-items: center;
     /* align-items: flex-end; */
     justify-content: flex-end;
 }
 
-.content .header .box-profile img{
+.content .header .box-profile img {
     width: 50px;
     width: 50px;
     border-radius: 50%;
     margin-right: 10px;
 }
 
-.content .header .box-profile .name{
+.content .header .box-profile .name {
     color: var(--color-2);
     margin: 0;
     font-size: 12px;
     font-weight: bold;
 }
 
-.content .header .box-profile .name span{
+.content .header .box-profile .name span {
     display: block;
     font-size: 10px;
     font-weight: normal;
 }
 
-.table-responsive{
+.table-responsive {
     width: 810px;
 }
 
-.table-responsive table, td, th {  
+.table-responsive table,
+td,
+th {
     border: 2px solid rgb(107, 106, 106);
     text-align: left;
     font-size: 14px;
     text-align: center;
-  }
-  
+}
+
 .table-responsive table {
     border-collapse: collapse;
     width: 100%;
-  }
-  
-.table-responsive th, td {
-    padding: 15px;
-  }
+}
 
-.table-responsive .bxs-circle{
+.table-responsive th,
+td {
+    padding: 15px;
+}
+
+.table-responsive .bxs-circle {
     font-size: 20px;
 }
 
-.table-responsive  .error{
+.table-responsive .error {
     color: #A00000;
 }
 
-.table-responsive  .maintenance{
+.table-responsive .maintenance {
     color: #FEBE00;
 }
 
-.table-responsive  .working{
+.table-responsive .working {
     color: #30AD23;
 }
 
+
 /*SECTION*/
 
-.content .section{
+.content .section {
     width: 100%;
     /*padding: 15px 15px;*/
 }
 
-.row{
+.row {
     /* position: relative; */
     z-index: 1;
     display: flex;
-    justify-content: space-evenly; 
+    justify-content: space-evenly;
     align-items: center;
     flex-wrap: wrap;
 }
 
-.card-plus-title{
+.card-plus-title {
     margin: 0 5vh 0 5vh;
 }
 
@@ -297,18 +304,18 @@ body{
     font-size: 18pt;
 }
 
-.content .section .container-content{
+.content .section .container-content {
     padding-top: 15px;
     padding-bottom: 5px;
 }
 
-.content .section .container-content .title{
+.content .section .container-content .title {
     font-size: 22px;
     font-weight: 900;
     color: var(--color-2);
 }
 
-.content .section .cards .card{
+.content .section .cards .card {
     width: 35vh;
     height: 18vh;
     padding: 10px 30px;
@@ -323,31 +330,30 @@ body{
     transition: all .4s ease-in-out;
 }
 
-.chart-section{
+.chart-section {
     margin: 10vh 6vh 0 6vh;
 }
 
-.content .section .cards .card:hover{
+.content .section .cards .card:hover {
     background-color: var(--color-4);
 }
 
-.content .section .cards .card .desc span{
+.content .section .cards .card .desc span {
     display: block;
     font-size: 32px;
     color: var(--color-1);
 }
 
-.content .section .cards .card .desc p{
+.content .section .cards .card .desc p {
     color: var(--color-1);
 }
 
-.content .section .cards .card .bx{
+.content .section .cards .card .bx {
     color: var(--color-1);
     font-size: 32px;
 }
 
-
-.content .section .charts .card-chart{
+.content .section .charts .card-chart {
     width: 75vh;
     height: 40vh;
     padding: 15px 15px;
@@ -358,7 +364,7 @@ body{
     transition: all .4s ease-in-out;
 }
 
-.content .section .charts .card-chart canvas{
+.content .section .charts .card-chart canvas {
     width: 100%;
     height: 100%;
     padding: 15px;
@@ -371,41 +377,66 @@ body{
     /* margin: 0 5% 0 0; */
 }
 
+
 /* CARDS ESTAÇÃO */
+
 .section .section-title {
     font-family: var(--font-subtitle);
     font-size: 20pt;
     margin: 0vh 0vh 0vh 5vh;
 }
 
-.all-station-cards{
-    margin: 5vh 0vh 5vh 10vh;
+.all-station-cards {
+    margin: 5vh;
     display: flex;
     flex-wrap: wrap;
 }
-.station-card, .machine-card {
+
+.machine-card {
     margin: 0 5% 2% 0%;
-    width: 28vh;
-    height: 28vh;
-    padding: 10px;
-    background-color: #60C3D8;
+    width: 15vh;
+    height: 1vh;
+    padding: 1px;
+    background-color: var(--color-3);
     color: var(--color-1);
     display: flex;
     justify-content: start;
     flex-direction: column;
-    border-radius: 10% 10% 10% 10% / 10% 10% 10% 10%;
-    -webkit-box-shadow: 7px 7px 6px 1px rgba(114,114,110,0.69); 
-    box-shadow: 7px 7px 6px 1px rgba(114,114,110,0.69);
-    border: 3px solid var(--color-5)
-}
-.station-card h1, .machine-card h1 {
-    font-size: 22pt;
-    width: 100%;
+    border-radius: 10%;
+    border: 3px solid var(--color-6);
+    text-align: center;
 }
 
-.machine-card {
+.machine-card:hover {
+    -webkit-box-shadow: 7px 7px 6px 1px rgba(114, 114, 110, 0.69);
+    box-shadow: 7px 7px 6px 1px rgba(114, 114, 110, 0.69);
+}
+
+.station-card {
+    margin: 0 5% 2% 0%;
+    width: 35vh;
+    height: 35vh;
+    padding: 10px;
+    background-color: var(--color-3);
+    color: var(--color-1);
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+    border-radius: 10%;
+    border: 3px solid var(--color-6);
+    text-align: center;
     cursor: pointer;
-    border-color: var(--color-status-critical);
+}
+
+.station-card:hover {
+    -webkit-box-shadow: 7px 7px 6px 1px rgba(114, 114, 110, 0.69);
+    box-shadow: 7px 7px 6px 1px rgba(114, 114, 110, 0.69);
+}
+
+.station-card h1,
+.machine-card h1 {
+    font-size: 22pt;
+    width: 100%;
 }
 
 .card-title {
@@ -427,49 +458,53 @@ body{
 
 /*RESPONSIVIDADE*/
 
-@media (max-width: 1399.98px){
-    .content .section .cards .card .desc span{
-        font-size:26px;
+@media (max-width: 1399.98px) {
+    .content .section .cards .card .desc span {
+        font-size: 26px;
     }
-
-    .nav .logo span{
+    .nav .logo span {
         font-size: 19px;
     }
-
     .station-card {
-        height: 45vh;
-        width: 45vh;
+        margin: 5vh 0vh 1vh 7vh;
+        height: 30vh;
+        width: 30vh;
     }
-
     .machine-card {
-        height: 40vh;
-        width: 40vh;
+        height: 33vh;
+        width: 33vh;
+    }
+    .all-station-cards {
+        margin: 0 12vh;
+    }
+    .canva-chart {
+        width: 55vh;
+    }
+    .content .section .cards .card {
+        width: 31vh;
     }
 }
-@media (max-width: 1199.98px){
-    .nav{
-        width:200px;
-    }
 
-    .nav .logo span{
+@media (max-width: 1199.98px) {
+    .nav {
+        width: 200px;
+    }
+    .nav .logo span {
         font-size: 13px;
     }
-    .content{
+    .content {
         width: calc(100% - 200px);
     }
-
-    .content .section .charts .card-chart canvas{
+    .content .section .charts .card-chart canvas {
         width: 50%;
     }
     .canva-chart {
-        width: 50vh;
+        width: 30vh;
     }
-
     .station-card {
         height: 50vh;
         width: 50vh;
     }
-
     .machine-card {
         height: 50vh;
         width: 55vh;
