@@ -72,15 +72,18 @@ function showAlertChecada(array) {
     if (array.length == 1) {
         text = `Você possui uma máquina não checada. Por favor, execute o Pulsatrix-java na maquina com ID ${array[0]}`
     } else {
-        let aux
-        for (let i = 0; i < array.length; i++) {
-            const element = array[i];
-            element != undefined ? aux += `\n ${element}` : aux = ``
+        let aux = '';
+        let element;
+        for (let i = 1; i < array.length; i++) {
+            element = array[i];
+            element != undefined ? aux += `\n ${element}` : aux = ``  
         }
         text = `Você possui ${array.length} máquinas não checadas. Por favor, execute o Pulsatrix-java nas seguintes máquinas(ID): ${aux}`
-    }
 
-    swal("ALERTA!", (text), "warning");
+    }
+    // alert(text)
+    swal("ALERTA!", text, "warning");
+
 
 }
 
