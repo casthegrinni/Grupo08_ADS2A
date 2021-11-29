@@ -11,7 +11,6 @@ public class LoocaMoodel {
     final DataBaseModel db = new DataBaseModel();
     private Double valueOfUsoProcessador;
     private String usoProcessador;
-    private String temperaturaCpu;
     private Long usoDissco;
     private Long usoRam;
     private Long totalDisco;
@@ -20,7 +19,6 @@ public class LoocaMoodel {
         valueOfUsoProcessador = looca.getProcessador().getUso().doubleValue();
         usoProcessador = valueOfUsoProcessador.toString();
         usoProcessador = usoProcessador.replace(",","");
-            temperaturaCpu = looca.getTemperatura().toString();
             DiscosGroup grupo = looca.getGrupoDeDiscos();
             List<Disco> discos = grupo.getDiscos();
             for (Disco disco : discos) {
@@ -47,10 +45,6 @@ public class LoocaMoodel {
     
     public String getUsoProcessador() {
         return usoProcessador;
-    }
-
-    public String getTemperaturaCpu() {
-        return temperaturaCpu;
     }
 
     public Long getUsoDissco() {
