@@ -1,19 +1,21 @@
-.tables{
+.tables {
     margin-top: 8%;
 }
 
-.tables th, a{
+.tables th,
+a {
     cursor: pointer;
     color: #323232;
     text-decoration: none;
 }
+
 .add-btn {
     position: absolute;
     width: 50px;
     height: 50px;
     border-radius: 50%;
     cursor: pointer;
-    background-color: #60C3D8;
+    background-color: #333034;
     margin-top: 8%;
     top: 0;
     right: 60px;
