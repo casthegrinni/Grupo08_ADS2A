@@ -20,15 +20,14 @@ public class LoocaController {
     private final TimerTask task = new TimerTask() {
         @Override
         public void run() {
-            System.out.println("\nCapturando dados da máquina");
+            System.out.println("\nCapturando dados da mï¿½quina");
             looca.setPcInfo();
             looca.setStaticPcInfo();
             String query = String.format(
                     "INSERT INTO status_maquina "
-                    + "(uso_processador,temperatura_cpu,uso_disco,uso_ram,status_web,fk_maquina) "
-                    + "values (%s,'%s',%s,%d,%s,%d)",
+                    + "(uso_processador,uso_disco,uso_ram,status_web,fk_maquina) "
+                    + "values (%s,%s,%d,%s,%d)",
                     looca.getUsoProcessador(),
-                    looca.getTemperaturaCpu(),
                     looca.getUsoDissco(),
                     looca.getUsoRam(),
                     insertStatusPc(
@@ -86,25 +85,25 @@ public class LoocaController {
     }
 
     private final TimerTask timerTaskSlack = new TimerTask() {
-        @Override
-        public void run() {
-            try {
-                slack.sendingMessageSlack(
-                        looca.getValueOfUsoProcessador(),
-                        looca.getUsoRam(),
-                        looca.getTotalRam(),
-                        looca.getUsoDissco(),
-                        looca.getTotalDisco()
-                );
+       @Override
+       public void run() {
+           try {
+               slack.sendingMessageSlack(
+                       looca.getValueOfUsoProcessador(),
+                       looca.getUsoRam(),
+                       looca.getTotalRam(),
+                       looca.getUsoDissco(),
+                       looca.getTotalDisco()
+               );
 
-            } catch (Exception e) {
-            }
-        }
-    };
+           } catch (Exception e) {
+           }
+       }
+   };
 
-    public void alertInMinutes() { timerSlack.schedule(timerTaskSlack, 0, 45 * 1000L); }
+   public void alertInMinutes() { timerSlack.schedule(timerTaskSlack, 0, 45 * 1000L); }
 
-    public void setSlack(SlackController slack) {
-        this.slack = slack;
-    }
+   public void setSlack(SlackController slack) {
+       this.slack = slack;
+   }
 }
