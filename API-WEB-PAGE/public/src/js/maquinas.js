@@ -81,7 +81,7 @@ function showAlertChecada(array) {
         text = `Você possui ${array.length} máquinas não checadas. Por favor, execute o Pulsatrix-java nas seguintes máquinas(ID): ${aux}`
 
     }
-    // alert(text)
+ 
     swal("ALERTA!", text, "warning");
 
 
