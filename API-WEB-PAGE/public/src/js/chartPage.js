@@ -224,13 +224,13 @@ function parsePaperData(data) {
   }
   console.log("DATA:" + data);
   console.log(data.length);
-  chartPaper(DataArray, labelArray);
+  chartPaper(dataArray, labelArray);
 }
 
-function chartPaper(paperDataz) {
+function chartPaper(paperData, labelData) {
   var ctx = document.getElementById("paperChart").getContext("2d");
   var configData = {
-    labels: ["1", "2", "3", "4", "5", "6"],
+    labels: labelData,
     datasets: [
       {
         data: paperData,
@@ -307,11 +307,12 @@ function parseCpuData(data) {
 
   for (let i = 0; i < data.length; i++) {
     dataArray.push(data[i]["porcentagem_processador"]);
-    labelArray.push(data[i]["captura"]);
+    labelArray.push(data[i].captura);
   }
+  
 
   console.log("DATA:" + data);
-  chartCpu(dataArray);
+  chartCpu(dataArray, labelArray);
 }
 
 function chartCpu(cpuData, labelData) {

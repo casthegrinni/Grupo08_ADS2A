@@ -286,7 +286,9 @@ WHERE    data_e_hora >= DATEADD(day, -7, GETDATE())
 router.get("/getPaperMachine/:id_maquina", function (req, res, next) {
 	var maquina = req.params.id_maquina;
 	const instrucaoSql = `
-	SELECT TOP 7 estoque_papel FROM [dbo].[status_papel] where fk_maquina = ${maquina} ORDER BY id_captura desc`;
+	SELECT TOP 7 estoque_papel,
+	FORMAT(data_e_hora,'HH:mm:ss') as captura
+	FROM [dbo].[status_papel] where fk_maquina = ${maquina} ORDER BY id_captura desc`;
   sequelize
     .query(instrucaoSql, {
       model: status_papel,
