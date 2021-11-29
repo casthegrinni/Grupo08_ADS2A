@@ -23,18 +23,17 @@ if [ $? -eq 0 ]
 			sudo add-apt-repository ppa:deadsnakes/ppa
 			sleep 1
 			clear
-			echo "$(tput setaf 10)[J.A.R.V.I.S]:$(tput setaf 7)  Instalando! Quase lá."
+			echo "$(tput setaf 10)[J.A.R.V.I.S]:$(tput setaf 7)  Atualizando! Quase lá."
 			sleep 2	
 			sudo apt update -y
 			sleep 2	
-    	    if (( ($VERSAO -eq 3.8 | bc -l) ));
-				then
-					sudo apt-get install python3.8
-					sleep 3
-					clear
-					echo "$(tput setaf 10)[J.A.R.V.I.S]:$(tput setaf 7) Python instalado com sucesso!"
-	        fi	
-	    else 	
+    	    clear
+			echo "$(tput setaf 10)[J.A.R.V.I.S]:$(tput setaf 7)  Instalando..."
+			sudo apt-get install python3
+			sleep 3
+			clear
+			echo "$(tput setaf 10)[J.A.R.V.I.S]:$(tput setaf 7) Python instalado com sucesso!"
+	    else
 	 	echo "$(tput setaf 10)[J.A.R.V.I.S]:$(tput setaf 7)  Você optou por não instalar o Python por enquanto, até a próxima então!"
 	fi
 fi
