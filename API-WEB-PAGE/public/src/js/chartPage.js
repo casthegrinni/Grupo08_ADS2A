@@ -370,3 +370,22 @@ function chartCpu(cpuData, labelData) {
   };
   var myChart = new Chart(ctx, config);
 }
+function getMachineName(){
+  fetch(`/leituras/getMachineName/${sessionStorage.id_maquina}`, {
+    cache: "no-store",
+  }).then((resposta) => {
+    if (resposta.ok) {
+      resposta.json().then(function (resposta) {
+        h1_nome_Maquina.innerHTML = `Você está vendo a máquina: ${resposta.nome_maquina}`
+      });
+    } else {
+      console.log("Error geting machine name");
+      resposta.text().then((texto) => {
+        console.error(texto);
+      });
+    }
+  });
+}
+
+
+

@@ -36,7 +36,20 @@ router.get('/getStation/:fk_estacao', function (req, res, next) {
 		});
 
 });
+router.get('/getMachineName/:fk_maquina', function (req, res, next) {
+	let estacao = req.params.fk_maquina
 
+	const instrucaoSql = `SELECT nome_maquina FROM maquina WHERE id_maquina = ${estacao}`;
+
+	sequelize.query(instrucaoSql, { type: sequelize.QueryTypes.SELECT })
+		.then(resultado => {
+			res.json(resultado);
+		}).catch(erro => {
+			console.error(erro);
+			res.status(500).send(erro.message);
+		});
+
+});
 router.get('/machines_total/:fk_estacao/:tipo_usuario', function (req, res, next) {
 	let estacao = req.params.fk_estacao
 	let tipo = req.params.tipo_usuario
