@@ -234,7 +234,7 @@ function chartPaper(paperData, labelData) {
     datasets: [
       {
         data: paperData,
-        backgroundColor: getColor(paperData),
+        backgroundColor: "rgba(0, 0, 0, 0)",
         borderColor: getColor(paperData),
         borderWidth: 1,
       },
@@ -242,7 +242,7 @@ function chartPaper(paperData, labelData) {
   };
 
   var config = {
-    type: "bar",
+    type: "line",
     data: configData,
     options: {
       title: {
@@ -268,8 +268,14 @@ function chartPaper(paperData, labelData) {
           {
             beginAtZero: true,
             ticks: {
-              min: 0,
-              max: 1,
+              callback: function(value, index, values) {
+                if (value == 1) {
+                  return "Sem papel"
+                } else if (value == 0){
+                  return "Com papel"
+                }
+              },
+             
             },
           },
         ],
