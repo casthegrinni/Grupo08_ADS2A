@@ -7,6 +7,7 @@ Models\LoocaMoodel.class
 Views\Login$1.class
 Views\exitFrame$1.class
 Views\Login$3.class
+controller\SlackControler.class
 Views\Login$4.class
 Logs\Logs.class
 controller\utils\Conversor.class
