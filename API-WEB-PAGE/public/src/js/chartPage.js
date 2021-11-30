@@ -376,7 +376,9 @@ function getMachineName(){
   }).then((resposta) => {
     if (resposta.ok) {
       resposta.json().then(function (resposta) {
-        h1_nome_Maquina.innerHTML = `Você está vendo a máquina: ${resposta.nome_maquina}`
+        console.log("Machine name: " + resposta[0].nome_maquina);
+        console.log(resposta)
+        h1_nome_Maquina.innerHTML = `Você está vendo a máquina: ${resposta[0].nome_maquina}`
       });
     } else {
       console.log("Error geting machine name");
