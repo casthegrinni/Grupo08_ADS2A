@@ -1,0 +1,25 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="API-JAVA:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/API_JAVA_jar</output-path>
+    <root id="archive" name="API-JAVA.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../jar/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="API-JAVA" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/oshi/oshi-core/5.3.6/oshi-core-5.3.6.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/github/britooo/looca-api/1.0.1/looca-api-1.0.1.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/java/dev/jna/jna-platform/5.6.0/jna-platform-5.6.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/net/java/dev/jna/jna/5.6.0/jna-5.6.0.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-api/1.7.30/slf4j-api-1.7.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/slf4j/slf4j-simple/1.7.30/slf4j-simple-1.7.30.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/com/microsoft/sqlserver/mssql-jdbc/9.4.0.jre11/mssql-jdbc-9.4.0.jre11.jar" path-in-jar="/" />
+      <element id="library" level="project" name="Maven: com.github.britooo:looca-api:1.0.1" />
+      <element id="library" level="project" name="Maven: com.github.oshi:oshi-core:5.3.6" />
+      <element id="library" level="project" name="Maven: com.microsoft.sqlserver:mssql-jdbc:9.4.0.jre11" />
+      <element id="library" level="project" name="Maven: net.java.dev.jna:jna-platform:5.6.0" />
+      <element id="library" level="project" name="Maven: net.java.dev.jna:jna:5.6.0" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
+      <element id="library" level="project" name="Maven: org.slf4j:slf4j-simple:1.7.30" />
+    </root>
+  </artifact>
+</component>

@@ -29,7 +29,7 @@ public class Cli {
 "                  \\::/  /       \\:\\__\\    \\::/  /        /:/  /                     |:|  |       \\/__/        |:|  |    \n" +
 "                   \\/__/         \\/__/     \\/__/         \\/__/                       \\|__|                     \\|__|    ");
 
-        System.out.println("\nDigite seu usuario: ");
+        System.out.println("\nDigite seu E-Mail: ");
         user = inputUser.nextLine();
 
         //System.out.println("Digite sua senha: ");
