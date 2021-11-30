@@ -38,7 +38,7 @@ public class PythonModel {
             command = "cd ../SCREEN-READER-WINDOWS/dist && start ScreenReader.exe";
             final Process exec = new ProcessBuilder("CMD", "/C", command).start();
         } else {
-                command = "cd ~/SCREEN-READER-LINUX/dist; ./screenReader";
+                command = "cd ../SCREEN-READER-LINUX/dist; ./screenReader";
             final Process exec = new ProcessBuilder("bash", "-c", command).start();
         } 
     }
