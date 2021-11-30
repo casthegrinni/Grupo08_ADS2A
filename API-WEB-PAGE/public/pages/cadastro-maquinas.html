@@ -21,7 +21,7 @@
     <script src="../src/js/funcoes.js"></script>
 </head>
 
-<body onload="setInfo()"> 
+<body onload="setInfo()">
 
     <nav class="nav">
         <a href="dashboard.html" class="logo">
@@ -79,7 +79,7 @@
                                 <i class="fas fa-desktop"></i>
                                 <input id="nomeMaquina" type="text" name="nomeMaquina" placeholder="Máquina" required>
                             </div>
-                                <select name="select_estacao" id="select_estacao" class="input-field">
+                            <select name="select_estacao" id="select_estacao" class="input-field">
                                     <option class="input-form input-field" value="" selected disabled>Selecione uma estação</option>
                                     <option class="input-form" value="1">Consolação</option>
                                     <option class="input-form" value="3">Sumaré</option>
@@ -97,23 +97,23 @@
 
 
                                 </select>
-                                <div class="container">
-                                    <label for="" class="label-check">O que deseja monitorar?</label><br>
-                                    <ul class="ks-cboxtags">
-                                      <li id=><input type="checkbox" id="checkboxOne" value="disco"><label for="checkboxOne">Disco</label></li><br>
-                                      <li><input type="checkbox" id="checkboxTwo" value="memoria" checked><label for="checkboxTwo">Mémoria RAM</label></li><br>
-                                      <li><input type="checkbox" id="checkboxThree" value="cpu" checked><label for="checkboxThree">CPU</label></li><br>
-                                    </ul>
-                                  
-                                  </div>
+                            <div class="container">
+                                <label for="" class="label-check">O que deseja monitorar?</label><br>
+                                <ul class="ks-cboxtags">
+                                    <li id=><input type="checkbox" id="checkboxOne" value="disco"><label for="checkboxOne">Disco</label></li><br>
+                                    <li><input type="checkbox" id="checkboxTwo" value="memoria" checked><label for="checkboxTwo">Mémoria RAM</label></li><br>
+                                    <li><input type="checkbox" id="checkboxThree" value="cpu" checked><label for="checkboxThree">CPU</label></li><br>
+                                </ul>
+
+                            </div>
                         </div>
-                       <center>
-                        <button class="btn-cadastrar">Cadastrar</button>
-                       </center>
+                        <center>
+                            <button class="btn-cadastrar">Cadastrar</button>
+                        </center>
                 </form>
-                
+
+                </div>
             </div>
-        </div>
     </main>
     <a href="cadastro-maquinas.html" style="cursor: pointer;">
         <div class="add-btn">
@@ -125,6 +125,7 @@
     <script>
         setup()
     </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

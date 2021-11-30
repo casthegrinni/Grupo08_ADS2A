@@ -16,7 +16,7 @@ public class ViewController {
 
     private final DataBaseModel db = new DataBaseModel();
     private final LoocaController looca = new LoocaController();
-     Logs logs = new Logs();
+    Logs logs = new Logs();
     private final SlackController s = new SlackController();
     private final PythonModel py = new PythonModel(System.getProperty("os.name"));
 
@@ -24,16 +24,16 @@ public class ViewController {
         String query = String.format("select email,senha,fk_estacao from [dbo].[usuario] where email ='%s' and senha = '%s';", login, senha);
         Map map = db.makeSelectQuery(query);
         Integer fkmaquinaInt = 0;
-        logs.saveLogs("Aplicaï¿½ï¿½o iniciada por: "+login);
+        logs.saveLogs("Aplicacao iniciada por: "+login);
 
         try {
             fkmaquinaInt = Integer.valueOf(fkMaquina);
             s.setFkMaquina(fkmaquinaInt);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Insira apenas nï¿½meros no id da mï¿½quina");
-            System.out.println("\nInsira apenas nï¿½meros no id da mï¿½quina");
-            logs.saveLogs("Erro ao iniciar aplicaï¿½ï¿½o");
+            JOptionPane.showMessageDialog(null, "Insira apenas números no id da máquina");
+            System.out.println("\nInsira apenas números no id da máquina");
+            logs.saveLogs("Erro ao iniciar aplicação");
         }
         if (map.isEmpty()) {
             return false;
