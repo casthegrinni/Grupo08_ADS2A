@@ -31,9 +31,9 @@ public class ViewController {
             s.setFkMaquina(fkmaquinaInt);
 
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Insira apenas números no id da máquina");
-            System.out.println("\nInsira apenas números no id da máquina");
-            logs.saveLogs("Erro ao iniciar aplicação");
+            JOptionPane.showMessageDialog(null, "Insira apenas numeros no id da maquina");
+            System.out.println("\nInsira apenas numeros no id da maquina");
+            logs.saveLogs("Erro ao iniciar aplicacao");
         }
         if (map.isEmpty()) {
             return false;

@@ -82,7 +82,7 @@ public class  DataBaseModel {
 
             } catch (SQLException e) {
                 e.printStackTrace();
-                logs.saveLogs("Erro ao iniciar configuração na máquina.");
+                logs.saveLogs("Erro ao iniciar configuracao na maquina.");
             }
             return response;
 
