@@ -270,9 +270,9 @@ function chartPaper(paperData, labelData) {
             ticks: {
               callback: function(value, index, values) {
                 if (value == 1) {
-                  return "Com papel"
-                } else if (value == 0){
                   return "Sem papel"
+                } else if (value == 0){
+                  return "Com papel"
                 }
               },
              
