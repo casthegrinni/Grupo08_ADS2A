@@ -1,10 +1,11 @@
+
+
 function getMachines(tipoUsario, required) {
  let array_checadas = []
  getStationName(tipoUsario,required)
  let fk_estacao
-if (required || tipoUsario != 1) {
+if (required  == "true" || parseInt(tipoUsario) != 1) {
     fk_estacao = sessionStorage.fk_estacao
-    
 }
 else{ 
     fk_estacao = 0
@@ -31,7 +32,7 @@ else{
                                         table_row.innerHTML += `<div class="machine-card" onclick="openDashboard(${json2.id_maquina})">
                                 <div class="card-title">
                                     <h1>${json2.nome_maquina}</h1>
-                                    <h4>Consolação</h4>
+                                    <h4>${sessionStorage.nome_estacao != "null"? sessionStorage.nome_estacao : "Aguarde"}</h4>
                                 </div>
                                 <br>
                                 <div class="card-content">
@@ -95,18 +96,22 @@ function showAlertChecada(array) {
 }
 
 function getStationName(tipo, required) {
-    if(tipo == 1 && !required && required != null ){
+    if(parseInt(tipo) == 1 && required == "false" ){
         h1_nome_estacao.innerHTML = "Visualizando todas as máquinas"
-    } else {
+    } 
+    else{
+        h1_nome_estacao.innerHTML = "Máquinas em: " + sessionStorage.nome_estacao
+    }
 
-        fetch(`/leituras/getStation/${sessionStorage.fk_estacao}`, {
+   
+ fetch(`/leituras/getStation/${sessionStorage.fk_estacao}`, {
             cache: 'no-store'
         }).then(resposta => {
             if (resposta.ok) {
                 resposta.json().then(function(resposta) {
                     console.log(`Nome da estacao: ${JSON.stringify(resposta)}`);
                     sessionStorage.nome_estacao = resposta["nome_estacao"]
-                    h1_nome_estacao.innerHTML = "Máquinas em: " + sessionStorage.nome_estacao
+                    
                 })
             } else {
                 console.log('Error getting station data!');
@@ -115,9 +120,9 @@ function getStationName(tipo, required) {
                 });
             }
         });
+       
 
         if (tipo == 2) {
             btn_add.style.display = "none"
         }
     }
-}

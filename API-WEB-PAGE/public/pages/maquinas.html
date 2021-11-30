@@ -83,15 +83,16 @@
 </body>
 <script>
     function start() {
+        getStationName(sessionStorage.tipo_usuario, sessionStorage.isRequiredAcces)
         verificar_autenticacao()
         setup()
         getMachines(sessionStorage.tipo_usuario, sessionStorage.isRequiredAcces)
         loop()
-
+     
     }
 
     function loop() {
-        getMachines(sessionStorage.tipo_usuario,isRequiredAcces)
+        getMachines(sessionStorage.tipo_usuario,sessionStorage.isRequiredAcces)
         setTimeout(() => loop(), 2000);
     }
 </script>
