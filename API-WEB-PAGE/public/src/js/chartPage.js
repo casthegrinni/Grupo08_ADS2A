@@ -234,7 +234,7 @@ function chartPaper(paperData, labelData) {
     datasets: [
       {
         data: paperData,
-        backgroundColor: getColor(paperData),
+        backgroundColor: "rgba(0, 0, 0, 0)",
         borderColor: getColor(paperData),
         borderWidth: 1,
       },
@@ -242,7 +242,7 @@ function chartPaper(paperData, labelData) {
   };
 
   var config = {
-    type: "bar",
+    type: "line",
     data: configData,
     options: {
       title: {
@@ -268,8 +268,14 @@ function chartPaper(paperData, labelData) {
           {
             beginAtZero: true,
             ticks: {
-              min: 0,
-              max: 1,
+              callback: function(value, index, values) {
+                if (value == 1) {
+                  return "Sem papel"
+                } else if (value == 0){
+                  return "Com papel"
+                }
+              },
+             
             },
           },
         ],
@@ -376,7 +382,9 @@ function getMachineName(){
   }).then((resposta) => {
     if (resposta.ok) {
       resposta.json().then(function (resposta) {
-        h1_nome_Maquina.innerHTML = `Você está vendo a máquina: ${resposta.nome_maquina}`
+        console.log("Machine name: " + resposta[0].nome_maquina);
+        console.log(resposta)
+        h1_nome_Maquina.innerHTML = `Você está vendo a máquina: ${resposta[0].nome_maquina}`
       });
     } else {
       console.log("Error geting machine name");
