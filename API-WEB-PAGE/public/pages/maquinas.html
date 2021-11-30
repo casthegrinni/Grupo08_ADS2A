@@ -43,7 +43,7 @@
             <li class="active">
                 <a href="maquinas.html">
                     <i class="fa fa-laptop"></i>
-                    <span>Máquinas</span>
+                    <span onclick="changeRequired()">Máquinas</span>
                 </a>
             </li>
         </ul>
@@ -83,15 +83,16 @@
 </body>
 <script>
     function start() {
+        getStationName(sessionStorage.tipo_usuario, sessionStorage.isRequiredAcces)
         verificar_autenticacao()
         setup()
-        getMachines(sessionStorage.tipo_usuario)
+        getMachines(sessionStorage.tipo_usuario, sessionStorage.isRequiredAcces)
         loop()
-
+     
     }
 
     function loop() {
-        getMachines(sessionStorage.tipo_usuario)
+        getMachines(sessionStorage.tipo_usuario,sessionStorage.isRequiredAcces)
         setTimeout(() => loop(), 2000);
     }
 </script>
