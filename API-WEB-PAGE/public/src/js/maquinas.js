@@ -1,7 +1,14 @@
-function getMachines(tipoUsario) {
+function getMachines(tipoUsario, required) {
  let array_checadas = []
- getStationName(tipoUsario)
-    const fk_estacao = tipoUsario == 1? 0 : sessionStorage.fk_estacao
+ getStationName(tipoUsario,required)
+ let fk_estacao
+if (required || tipoUsario != 1) {
+    fk_estacao = sessionStorage.fk_estacao
+    
+}
+else{ 
+    fk_estacao = 0
+}
     fetch(`../leituras/machines/${fk_estacao}`, {
         method: "GET",
     }).then(resposta => {
@@ -86,8 +93,8 @@ function showAlertChecada(array) {
 
 }
 
-function getStationName(tipo) {
-    if(tipo == 1){
+function getStationName(tipo, required) {
+    if(tipo == 1 && !required && required != null ){
         h1_nome_estacao.innerHTML = "Visualizando todas as máquinas"
     }
     else{

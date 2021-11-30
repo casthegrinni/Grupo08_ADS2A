@@ -126,6 +126,9 @@ function getFirstInfo() {
 
     return false;
 } 
+function changeRequired(){
+    sessionStorage.isRequiredAcces = false
+}
 
 function setup() {
     b_usuario.innerHTML = sessionStorage.nome_usuario_meuapp
