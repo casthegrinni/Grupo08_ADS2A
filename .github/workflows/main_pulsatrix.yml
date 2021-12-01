@@ -52,5 +52,5 @@ jobs:
         with:
           app-name: 'pulsatrix'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_7D6FD8B1070942579766F069B5FDB4AC }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_4B8624DE6E934F0FB5202431FA3AE999 }}
           package: .
