@@ -32,8 +32,10 @@ function cadastroMaquina() {
 
             } else {
 
-                console.log('Erro de cadastro!');
-                response.text().then(function(resposta) {});
+                resposta.text().then(texto => {
+                    swal("Dados Inválidos!", "Preencha os campos corretamente!", "error");
+                    finalizar_aguardar(texto);
+                });
             }
         });
 
