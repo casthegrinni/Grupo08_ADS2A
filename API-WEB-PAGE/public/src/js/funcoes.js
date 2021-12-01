@@ -131,6 +131,10 @@ function changeRequired(){
 }
 
 function setup() {
+    if(location.href.split("/").slice(-1).toString().replace(".EXTENSION", "").split("?")[0] == "dashboard.html" || location.href.split("/").slice(-1).toString().replace(".EXTENSION", "").split("?")[0] =="estacao.html"){
+        sessionStorage.isRequiredAcces = false
+    }
+
     b_usuario.innerHTML = sessionStorage.nome_usuario_meuapp
     span_exit.style.cursor = "pointer"
 
