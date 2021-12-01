@@ -19,11 +19,8 @@ function entrar() {
             });
 
         } else {
-
-            console.log('Erro de login!');
-
             resposta.text().then(texto => {
-                console.error(texto);
+                swal("Falha de Autenticação!", "Login ou Senha incorretos!", "error");
                 finalizar_aguardar(texto);
             });
         }
