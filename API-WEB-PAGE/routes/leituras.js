@@ -147,9 +147,9 @@ router.get('/info_machines/:id_maquina', function (req, res, next) {
 
 	const instrucaoSql = `select TOP 1 m.want_ram, m.want_disco,m.want_cpu, m.ram,m.tamanho_disco, m.nome_maquina,m.checada,m.id_maquina,
 				sm.uso_processador,sm.uso_disco, sm.uso_ram,sm.status_web, 
-				sp.estoque_papel 
-				from [dbo].[maquina] m join [dbo].[status_maquina] sm on m.id_maquina = sm.fk_maquina join 
-				[dbo].[status_papel] sp on m.id_maquina = sp.fk_maquina
+				e.nome_estacao 
+				from [dbo].[maquina] m join [dbo].[status_maquina] sm on m.id_maquina = sm.fk_maquina 
+				join estacao e on m.fk_estacao = e.id_estacao
 				 where id_maquina = ${req.params.id_maquina};`
 
 

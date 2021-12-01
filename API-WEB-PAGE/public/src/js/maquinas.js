@@ -17,9 +17,11 @@ else{
             resposta.json().then(function(json) {
                 for (let i = 0; i < json.length; i++) {
                     var resp = json[i]
+                   
                     if (resp.checada == 0) {
                         array_checadas.push(resp.id_maquina)
-                    } else {
+                     
+                } else {
                         fetch(`../leituras/info_machines/${resp.id_maquina}`, {
                             method: "GET",
                         }).then(resposta2 => {
@@ -32,13 +34,13 @@ else{
                                         table_row.innerHTML += `<div class="machine-card" onclick="openDashboard(${json2.id_maquina})">
                                 <div class="card-title">
                                     <h1>${json2.nome_maquina}</h1>
-                                    <h4>${sessionStorage.nome_estacao != "null"? sessionStorage.nome_estacao : "Aguarde"}</h4>
+                                    <h4>${json2.nome_estacao}</h4>
                                 </div>
                                 <br>
                                 <div class="card-content">
-                                    <span id='span_cpu'>CPU: ${Math.round(json2.uso_processador)}%</span>
-                                    <span id='span_ram'>RAM: ${Math.round(porcentagem_ram)}% </span>                                 
-                                   <span id='span_disco'>Disco: ${Math.round(porcentagem_memoria)}%</span>
+                                    <span id='span_cpu'>CPU:${Math.round(json2.uso_processador) <=  100 ? Math.round(json2.uso_processador): 100}%</span>
+                                    <span id='span_ram'>RAM: ${Math.round(porcentagem_ram) <=  100 ? Math.round(porcentagem_ram): 100}% </span>                                 
+                                   <span id='span_disco'>Disco:${Math.round(porcentagem_memoria) <=  100 ? Math.round(porcentagem_memoria): 100}%</span>
                                     <span> Status: ${json2.status_web != null ? json2.status_web : " Indisponivel"}</span>
                                 </div>
                             </div>`
